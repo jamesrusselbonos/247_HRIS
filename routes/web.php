@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('/add_employee', function () {
+    return view('add_employee');
+});
+
+Route::get('/employee_list', function () {
+    return view('employee_list');
+});
+
+Route::get('/attendance', function () {
+    return view('attendance');
+});

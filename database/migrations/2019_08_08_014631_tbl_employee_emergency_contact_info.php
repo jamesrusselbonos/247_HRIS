@@ -16,6 +16,7 @@ class TblEmployeeEmergencyContactInfo extends Migration
          Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('address');
             $table->string('phone_number')->unique();
             $table->rememberToken();
             $table->timestamps();

@@ -1,0 +1,64 @@
+.sidebar{
+	height: 100vh;
+	background-color: #282828;
+	padding-left: 40px;
+	padding-top: 50px;
+}
+.sidebar h1, .sidebar p{
+	color: #fff;
+}
+.sidebar a{
+	color: #fff;
+}
+.sidebar ul{
+	list-style: none;
+	padding-left: 0;
+}
+.navigation{
+	margin-top: 80px;
+}
+.dashboard_banner{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #fff;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.main{
+	background-color: #fff;
+	padding-left: 0;
+}
+.add_employee_tab{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.employee_list{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.profile_photo{
+	border-radius: 360px;
+	width: 200px;
+	height: 200px;
+}
+.profile_thumb{
+	border-radius: 360px;
+	width: 80px;
+	height: 80px;
+}
+.add_employee_tab{
+	margin-top: 50px;
+}
+.add_employee_tab a{
+	color: #000;
+}
+.input_photo h6{
+	padding-left: 15px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+#employeeSubmenu{
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
