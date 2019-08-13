@@ -10,7 +10,7 @@
 							<div class="col-lg-3">
 								<img class="profile_thumb" src="/img/profile.png">
 							</div>
-							<div class="col-lg-9">
+							<div class="col-lg-9 profile_list">
 								<h5>Adrian Benitez</h3>
 								<p>Web Developer, 247-OPM-0001</p>
 							</div>
@@ -21,14 +21,14 @@
 							<div class="col-lg-3">
 								<img class="profile_thumb" src="/img/profile.png">
 							</div>
-							<div class="col-lg-9">
+							<div class="col-lg-9 profile_list">
 								<h5>Keno Buiza</h3>
 								<p>Web Developer, 247-OPM-0001</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8">
+				<div class="col-lg-8 employee_list_display">
 					<div class="row">
 						<div class="col-lg-4">
 							<img class="profile_photo" src="/img/profile.png">
@@ -39,140 +39,181 @@
 							<h6>247-OPM-0001</h6>
 						</div>
 					</div>
-					<div style="margin-top: 50px; padding-left: 10px;" class="row">
-						<h2 style="color: #9e9e9e;">Information</h2>
+					<div style="margin-top: 50px;" class="row employee_list_display_row">
+						<h3 style="color: #9e9e9e;">Information</h3>
 						
 						<div style="padding-top: 20px;" class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Address:</h5>	
+											<h6>Address:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>0000 Sample St. Brgy</h5>	
+											<h6>0000 Sample St. Brgy</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>City:</h5>	
+											<h6>City:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Legazpi City</h5>	
+											<h6>Legazpi City</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Province:</h5>	
+											<h6>Province:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Albay</h5>	
+											<h6>Albay</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Gender:</h5>	
+											<h6>Gender:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Male</h5>	
+											<h6>Male</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Gender:</h5>	
+											<h6>Gender:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Undifined</h5>	
+											<h6>Undifined</h6>	
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Company:</h5>	
+											<h6>Company:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>24/7 Virtual Agent Philippines Inc. </h5>	
+											<h6>24/7 Virtual Agent Philippines Inc. </h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Department:</h5>	
+											<h6>Department:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Web Developemnt </h5>	
+											<h6>Web Development </h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Status:</h5>	
+											<h6>Status:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>Regular </h5>	
+											<h6>Regular </h6>	
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div style="padding-top: 20px;"  class="col-lg-12">
-							<h2 style="color: #9e9e9e;">Contact Info</h2>
+							<h3 style="color: #9e9e9e;">Contact Info</h3>
 
 							<div style="padding-top: 20px;" class="row">
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Postal / ZIP Code:</h5>	
+											<h6>Postal / ZIP Code:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>0000</h5>	
+											<h6>0000</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Home Number:</h5>	
+											<h6>Home Number:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>09000000000</h5>	
+											<h6>09000000000</h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Phone Number:</h5>	
+											<h6>Phone Number:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>09099999999</h5>	
+											<h6>09099999999</h6>	
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Business Email:</h5>	
+											<h6>Business Email:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>b.example@247virtualagent.com </h5>	
+											<h6>b.example@247virtualagent.com </h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>Personal Email:</h5>	
+											<h6>Personal Email:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>b.example@gmail.com </h5>	
+											<h6>b.example@gmail.com </h6>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-4">
-											<h5>SIN / SSN:</h5>	
+											<h6>SIN / SSN:</h6>	
 										</div>
 										<div class="col-lg-8">
-											<h5>0000 </h5>	
+											<h6>0000 </h6>	
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+						<div style="padding-top: 20px;"  class="col-lg-12">
+							<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
+
+							<div style="padding-top: 20px;" class="row ">
+								<div class="col-lg-6">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Name:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Juan Dela Cruz</h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Address:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Legazpi City</h6>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Relationship:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Father </h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Phone Number:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>09090909090 </h6>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

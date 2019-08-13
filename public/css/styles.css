@@ -27,6 +27,9 @@
 .main{
 	background-color: #fff;
 	padding-left: 0;
+
+	height: 100vh;
+	overflow-y: auto;
 }
 .add_employee_tab{
 	padding-left: 100px;
@@ -46,6 +49,9 @@
 	width: 80px;
 	height: 80px;
 }
+.profile_list{
+	padding-left: 25px;
+}
 .add_employee_tab{
 	margin-top: 50px;
 }
@@ -61,4 +67,15 @@
 	padding-left: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+.employee_list_display{
+	/*height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;*/
+
+	padding-bottom: 50px;
+}
+.employee_list_display_row{
+	padding-left: 30px;
+	padding-right: 30px;
 }
