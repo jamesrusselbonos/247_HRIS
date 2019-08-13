@@ -301,6 +301,63 @@
 									</div>
 								</div>
 							</div>
+							<div style="padding-top: 20px;"  class="col-lg-12">
+							<h3 style="color: #9e9e9e;">Job</h3>
+
+							<div style="padding-top: 20px;" class="row ">
+								<div class="col-lg-6">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Job Title:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Web Development</h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Job Level:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Staff</h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Date Hired:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>January 1, 2019</h6>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Job Description:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Position:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6>Web Developer </h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6>Date Terminated:</h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6> </h6>	
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
