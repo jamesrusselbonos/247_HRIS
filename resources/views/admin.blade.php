@@ -48,14 +48,14 @@
 								<div class="col-lg-10">
 									<a style="font-size: 20px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
 									<ul class="collapse" id="employeeSubmenu">
-										<li>
-											<a style="font-size: 16px;" href="/add_employee">Add Employee</a>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 16px;" href="/add_employee"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee</a>
 										</li>
-										<li>
-											<a style="font-size: 16px;" href="/employee_list">Employee List</a>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
 										</li>
-										<li>
-											<a style="font-size: 16px;" href="/employee_list">Manage Employees</a>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 16px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 										</li>
 									</ul>
 								</div>
@@ -70,13 +70,13 @@
 									<a style="font-size: 20px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
 										<li>
-											<a style="font-size: 16px;" href="/add_employee">Timesheets</a>
+											<a style="font-size: 16px;" href="/add_employee">&nbsp; Timesheets</a>
 										</li>
 										<li>
-											<a style="font-size: 16px;" href="/employee_list">Manage Timesheets</a>
+											<a style="font-size: 16px;" href="/employee_list">&nbsp; Manage Timesheets</a>
 										</li>
 										<li>
-											<a style="font-size: 16px;" href="/employee_list">Reports</a>
+											<a style="font-size: 16px;" href="/employee_list">&nbsp; Reports</a>
 										</li>
 									</ul>
 								</div>

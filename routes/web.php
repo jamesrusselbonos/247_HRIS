@@ -30,3 +30,6 @@ Route::get('/employee_list', function () {
 Route::get('/attendance', function () {
     return view('attendance');
 });
+Route::get('/manage_employee', function () {
+    return view('manage_employee');
+});

@@ -31,7 +31,7 @@
 					</nav>
 					<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 						<div class="tab-pane fade show active" id="nav-employee" role="tabpanel" aria-labelledby="nav-home-tab">
-							<div style="margin-top: 30px;" class="form-row">
+							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Employee ID</label>
 								  <input type="text" name="employee_id" class="form-control" >
@@ -299,6 +299,7 @@
 							</div>
 						</div>
 					</div>
+					<button style="bottom: 50px; right: 50px; position: fixed;" type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 				</div>
 			</div>
 		</div>
