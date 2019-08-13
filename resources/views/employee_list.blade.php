@@ -4,7 +4,95 @@
 	<div class="col-lg-12">
 		<div class="employee_list">
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-4 list">
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Adrian Benitez</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Keno Buiza</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Adrian Benitez</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Keno Buiza</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Adrian Benitez</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Keno Buiza</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Adrian Benitez</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-lg-3">
+								<img class="profile_thumb" src="/img/profile.png">
+							</div>
+							<div class="col-lg-9 profile_list">
+								<h5>Keno Buiza</h3>
+								<p>Web Developer, 247-OPM-0001</p>
+							</div>
+						</div>
+					</div>
 					<div style="margin-top: 20px;">
 						<div class="row">
 							<div class="col-lg-3">
@@ -33,7 +121,7 @@
 						<div class="col-lg-4">
 							<img class="profile_photo" src="/img/profile.png">
 						</div>
-						<div style="padding-top: 50px;" class="col-lg-8">
+						<div style="padding-top: 50px;" class="col-lg-8 profile_list">
 							<h1>Adrian Bas Benitez</h1>
 							<h3>Web Developer</h3>
 							<h6>247-OPM-0001</h6>

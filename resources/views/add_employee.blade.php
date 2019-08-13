@@ -39,7 +39,10 @@
 
 								<div class="form-group col-md-4">
 								  <label>Gender</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <select>
+								    <option value="male">Male</option>
+								    <option value="female">Female</option>
+								  </select>
 								</div>
 							</div>
 							<div class="form-row">
@@ -67,7 +70,10 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Department</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <select>
+								  	<option value="d_web">Web Development</option>
+								    <option value="d_FBA">FBA</option>
+								  </select>
 								</div>
 
 								<div class="form-group col-md-4">
@@ -129,7 +135,8 @@
 
 								<div class="form-group col-md-4">
 								  <label>Birthday</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="date" name="bday" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
 								</div>
 							</div>
 							<div class="form-row">
@@ -167,8 +174,13 @@
 							
 							<div style="margin-top: 30px;" class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Job Title</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <label>Job Title</label></br>
+								  <select>
+								    <option value="ecommerce">E-Commerce Support Specialist</option>
+								    <option value="web_dev">Web Developer</option>
+								    <option value="graphics_artist">Graphic Artist</option>
+								    <option value="social_media_assistant">Social Media Assistant</option>
+								  </select>
 								</div>
 
 								<div class="form-group col-md-4">
@@ -190,12 +202,14 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Date Hired</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="date" name="bday" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Date Terminated</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="date" name="bday" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
 								</div>
 							</div>
 						</div>
@@ -231,7 +245,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Diploma</label>
+								  <label>Diploma</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
@@ -240,7 +254,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Medical Certificate</label>
+								  <label>Medical Certificate</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
@@ -249,7 +263,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>TOR</label>
+								  <label>TOR</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
@@ -258,7 +272,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Birth Certificate</label>
+								  <label>Birth Certificate</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
@@ -267,7 +281,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Brgy. Clearance</label>
+								  <label>Brgy. Clearance</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
@@ -276,7 +290,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								  <label>Cedula</label>
+								  <label>Cedula</label></br>
 								  <label for="male">Yes</label>
 						          <input type="radio" name="gender" id="male" value="male" checked>
 						          <label for="female">No</label>
