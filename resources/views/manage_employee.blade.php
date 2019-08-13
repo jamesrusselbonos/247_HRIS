@@ -4,6 +4,11 @@
 	<div class="col-lg-12">
 		<div class="manage_employee">
 			<div class="container">
+				<div class="row emp_list">
+					<div class="col-lg-4">
+						<input type="text" name="search_emp" class="form-control search_emp" placeholder="Search Employee" >
+					</div>
+				</div>
 				<div style="margin-top: 20px; margin-bottom: 20px;" class="row">
 					<div class="col-lg-8">
 						<div class="row">
@@ -21,7 +26,7 @@
 						</div>
 					</div>
 					<div style="padding-top: 20px;" class="col-lg-4">
-						<span>
+						<span style="float: right;">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
 						</span>
@@ -44,7 +49,7 @@
 						</div>
 					</div>
 					<div style="padding-top: 20px;" class="col-lg-4">
-						<span>
+						<span style="float: right;">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
 						</span>
@@ -67,7 +72,7 @@
 						</div>
 					</div>
 					<div style="padding-top: 20px;" class="col-lg-4">
-						<span>
+						<span style="float: right;">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
 						</span>
@@ -90,7 +95,7 @@
 						</div>
 					</div>
 					<div style="padding-top: 20px;" class="col-lg-4">
-						<span>
+						<span style="float: right;">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
 						</span>

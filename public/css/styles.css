@@ -40,6 +40,10 @@
 	padding-left: 100px;
 	padding-right: 100px;
 }
+.timesheet_report{
+	padding-left: 100px;
+	padding-right: 100px;
+}
 .manage_employee{
 	padding-left: 100px;
 	padding-right: 100px;
@@ -153,4 +157,7 @@
 
 	background-color: #fff;
 	z-index: 100;
+}
+.search_time{
+	border-radius: 30px;
 }

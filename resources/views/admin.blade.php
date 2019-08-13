@@ -69,15 +69,12 @@
 								<div class="col-lg-10">
 									<a style="font-size: 20px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
-										<li>
-											<a style="font-size: 16px;" href="/add_employee">&nbsp; Timesheets</a>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 16px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
 										</li>
-										<li>
-											<a style="font-size: 16px;" href="/employee_list">&nbsp; Manage Timesheets</a>
-										</li>
-										<li>
-											<a style="font-size: 16px;" href="/employee_list">&nbsp; Reports</a>
-										</li>
+										<!-- <li style="padding-top: 10px;">
+											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
+										</li> -->
 									</ul>
 								</div>
 							</div>

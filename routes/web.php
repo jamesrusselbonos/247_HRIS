@@ -33,3 +33,6 @@ Route::get('/attendance', function () {
 Route::get('/manage_employee', function () {
     return view('manage_employee');
 });
+Route::get('/timesheet', function () {
+    return view('timesheet');
+});
