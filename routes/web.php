@@ -39,3 +39,9 @@ Route::get('/timesheet', function () {
 Route::get('/manage_user', function () {
     return view('manage_user');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
