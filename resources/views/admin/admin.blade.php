@@ -112,7 +112,22 @@
 			<!-- Pages -->
 			
 				<div class="dashboard_banner">
-					<h2>ADMIN DASHBOARD</h2>
+					<div class="row">
+						<div class="col-lg-6">
+							<h2>ADMIN DASHBOARD</h2>
+						</div>
+						<div class="col-lg-6">
+							<div style="float: right;" class="dropdown">
+							  <button style="color: #000; background-color: #fff; border: none;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Admin
+							  </button>
+							  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							    <a class="dropdown-item" href="#">Logout</a>
+							   
+							  </div>
+							</div>
+						</div>
+					</div>
 				</div>
 				@yield('content')
 			
