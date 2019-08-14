@@ -81,6 +81,26 @@
 								  <input type="text" name="gender" class="form-control" >
 								</div>
 							</div>
+							<div class="form-row">
+								<div class="form-group col-md-4">
+								  <label>Username</label>
+								   <input type="text" name="uname" class="form-control" >
+								</div>
+
+								<div class="form-group col-md-4">
+								  <label>Password</label>
+								  <input type="text" name="pword" class="form-control" >
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-4">
+								  <label>Role</label>
+								   <select>
+								  	<option value="2">Employee</option>
+								    <option value="1">Admin</option>
+								  </select>
+								</div>
+							</div>
 						</div>
 						<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 							<div style="margin-top: 30px;" class="form-row">

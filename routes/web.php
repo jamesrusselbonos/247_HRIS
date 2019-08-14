@@ -36,3 +36,6 @@ Route::get('/manage_employee', function () {
 Route::get('/timesheet', function () {
     return view('timesheet');
 });
+Route::get('/manage_user', function () {
+    return view('manage_user');
+});

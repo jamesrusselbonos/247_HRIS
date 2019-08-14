@@ -92,13 +92,13 @@
 									<i style="color: #fff;" class="fa fa-users" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 15px;" href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Roles</a>
+									<a style="font-size: 15px;" href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Accounts</a>
 									<ul class="collapse" id="userSubmenu">
+										<!-- <li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/add_user"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
+										</li> -->
 										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
-										</li>
-										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
+											<a style="font-size: 14px;" href="/manage_user"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
 										</li>
 									</ul>
 								</div>

@@ -4,104 +4,71 @@
 	<div class="col-lg-12">
 		<div class="manage_employee">
 			<div class="container">
-				<div class="row emp_list">
-					<div class="col-lg-4">
-						<input type="text" name="search_emp" class="form-control search_emp" placeholder="Search Employee" >
-					</div>
+				<div class="card">
+				    <div class="card-header">
+				    	<div class="row">
+				    		<div class="col-lg-4">
+				    			<input type="text" name="search_time" class="form-control search_time" placeholder="Search Employee" >
+				    		</div>
+				    		<!-- <div class="col-lg-4">
+				    			<div style="float: right;" class="dropdown">
+				    			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    			    Export
+				    			  </button>
+				    			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    			    <a class="dropdown-item" href="#">Copy</a>
+				    			    <a class="dropdown-item" href="#">Excel</a>
+				    			    <a class="dropdown-item" href="#">CSV</a>
+				    			    <a class="dropdown-item" href="#">Print</a>
+				    			  </div>
+				    			</div>
+				    		</div>
+				    		<div class="col-lg-4">
+				    			<input type="date" name="bday" max="3000-12-31" 
+				    			        min="1000-01-01" class="form-control">
+				    		</div> -->
+				    	</div>
+				    </div>
+
+				    <div class="card-body">
+				   
+				        <table class="table table-bordered">
+				          <thead>
+				            <tr>
+				              <th scope="col">Name</th>
+				              <th scope="col">Position</th>
+				              <th scope="col">Employee ID</th>
+				              <th scope="col">Manage</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				      
+				            <tr>
+
+				              <th scope="row">
+				              	Adrian Benitez
+				              </th>
+				              <td>
+				              	Web Developer
+				              </td>
+				              <td>
+				              	247-OPM-0001
+				              </td>
+				             
+				             <td>
+				             	<span style="float: right;">
+     								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+     								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+     							</span>
+				             </td>
+				            </tr>
+				                  
+				           
+				          </tbody>
+				        </table>
+				       
+				    </div>
 				</div>
-				<div style="margin-top: 20px; margin-bottom: 20px;" class="row">
-					<div class="col-lg-8">
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="col-lg-4"><img class="profile_thumb" src="/img/profile.png"></div>
-							</div>
-							<div class="col-lg-9">
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="row"><h2>Adrian Benitez</h2></div>
-										<div class="row"><p>Web Developer, 247-OPM-0001</p></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="padding-top: 20px;" class="col-lg-4">
-						<span style="float: right;">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
-						</span>
-					</div>
-				</div>
-				<div style="margin-top: 20px; margin-bottom: 20px;" class="row">
-					<div class="col-lg-8">
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="col-lg-4"><img class="profile_thumb" src="/img/profile.png"></div>
-							</div>
-							<div class="col-lg-9">
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="row"><h2>Keno Buiza</h2></div>
-										<div class="row"><p>Web Developer, 247-OPM-0001</p></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="padding-top: 20px;" class="col-lg-4">
-						<span style="float: right;">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
-						</span>
-					</div>
-				</div>
-				<div style="margin-top: 20px; margin-bottom: 20px;" class="row">
-					<div class="col-lg-8">
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="col-lg-4"><img class="profile_thumb" src="/img/profile.png"></div>
-							</div>
-							<div class="col-lg-9">
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="row"><h2>Adrian Benitez</h2></div>
-										<div class="row"><p>Web Developer, 247-OPM-0001</p></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="padding-top: 20px;" class="col-lg-4">
-						<span style="float: right;">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
-						</span>
-					</div>
-				</div>
-				<div style="margin-top: 20px; margin-bottom: 20px;" class="row">
-					<div class="col-lg-8">
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="col-lg-4"><img class="profile_thumb" src="/img/profile.png"></div>
-							</div>
-							<div class="col-lg-9">
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="row"><h2>Keno Buiza</h2></div>
-										<div class="row"><p>Web Developer, 247-OPM-0001</p></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="padding-top: 20px;" class="col-lg-4">
-						<span style="float: right;">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-							<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
-						</span>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 

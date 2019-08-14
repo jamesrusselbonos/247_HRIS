@@ -47,8 +47,8 @@
 				            <tr>
 
 				              <th scope="row">
-				              	<h4>Adrian Benitez</h4>
-				              	Web Developer, 247-OPM-0001</p>
+				              	Adrian Benitez </br>
+				              	Web Developer, 247-OPM-0001
 				              </th>
 				              <td>
 				              	August 13, 2019
