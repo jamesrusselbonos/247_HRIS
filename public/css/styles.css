@@ -1,10 +1,15 @@
+body{
+	font-family: 'Poppins', sans-serif;
+}
 .sidebar{
 	height: 100vh;
 	background-color: #232323;
 	padding-top: 50px;
 }
-.sidebar h1, .sidebar p{
+.sidebar h1, .sidebar h6{
 	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .sidebar a{
 	color: #fff;
@@ -15,6 +20,9 @@
 }
 .navigation{
 	margin-top: 60px;
+}
+.config{
+	margin-top: 30px;
 }
 .dashboard_banner{
 	padding-top: 30px;
@@ -133,8 +141,8 @@
 	background-color: #282828;
 }
 .nav_link{
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 
 	padding-left: 20px;
 	padding-right: 20px;

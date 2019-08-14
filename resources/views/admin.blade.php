@@ -7,7 +7,7 @@
 	<title>247 HRIS</title>
 
 	<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/4c6c819f60.js"></script>
@@ -31,7 +31,7 @@
 			<div class="row">
 				<div style="text-align: center;" class="col-lg-12">
 					<img class="company_logo" src="/img/icon.png">
-					<!-- <p style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</p> -->
+					<h6 style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</h6>
 				</div>
 			</div>
 
@@ -46,10 +46,10 @@
 									<i style="color: #fff;" class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 17px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
+									<a style="font-size: 15px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
 									<ul class="collapse" id="employeeSubmenu">
 										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee</a>
+											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
 										</li>
 										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
@@ -67,7 +67,7 @@
 									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 17px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
+									<a style="font-size: 15px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
 										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
@@ -75,6 +75,31 @@
 										<!-- <li style="padding-top: 10px;">
 											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
 										</li> -->
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row config">
+				<div class="col-lg-12">
+					<h6 style="color: #fff; padding-left: 20px; padding-right: 20px;">Configurations</h6>
+					<ul>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-users" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Roles</a>
+									<ul class="collapse" id="userSubmenu">
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
+										</li>
 									</ul>
 								</div>
 							</div>
