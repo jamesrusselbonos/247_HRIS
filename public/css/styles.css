@@ -95,6 +95,9 @@ body{
     float: right;
     margin-top: 13px;
 }
+.nav-item .dropdown-toggle::after{
+	display: none;
+}
 .employee_list_display{
 	/*height: 100vh;
 	overflow-x: hidden;
