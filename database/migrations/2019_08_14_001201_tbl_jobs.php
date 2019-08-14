@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblEmployeeJob extends Migration
+class TblJobs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class TblEmployeeJob extends Migration
      */
     public function up()
     {
-        Schema::create('emp_job', function (Blueprint $table) {
+         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('job_title');
-            $table->string('job_description');
-            $table->string('job_level');
-            $table->string('job_position');
-            $table->string('date_hired');
-            $table->string('date_terminated')->nullable();
+            $table->string('job_desc');
             $table->rememberToken();
             $table->timestamps();
         });

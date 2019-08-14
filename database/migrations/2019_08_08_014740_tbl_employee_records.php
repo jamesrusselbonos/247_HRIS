@@ -13,7 +13,7 @@ class TblEmployeeRecords extends Migration
      */
     public function up()
     {
-         Schema::create('users', function (Blueprint $table) {
+         Schema::create('emp_records', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('SSS');
             $table->string('philhealth');

@@ -13,7 +13,7 @@ class TblEmployeeContactInfo extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('emp_contact_info', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('address');
             $table->string('city');

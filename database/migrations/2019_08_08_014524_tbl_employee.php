@@ -13,7 +13,7 @@ class TblEmployee extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('employee_id')->unique();
             $table->string('first_name');
