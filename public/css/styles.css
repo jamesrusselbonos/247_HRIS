@@ -1,8 +1,6 @@
 .sidebar{
 	height: 100vh;
-	background-color: #282828;
-	padding-left: 40px;
-	padding-right: 40px;
+	background-color: #232323;
 	padding-top: 50px;
 }
 .sidebar h1, .sidebar p{
@@ -131,20 +129,19 @@
 	height: 100px;
 	width: 100px;
 }
-/*.nav_link:hover{
-	background-color: #413f3f;
-
-	border-radius: 30px;
-}*/
-.nav_link{
-	padding-top: 5px;
-	padding-bottom: 5px;
+.nav_link:hover{
+	background-color: #282828;
 }
-/*.active_nav{
-	background-color: #413f3f;
+.nav_link{
+	padding-top: 20px;
+	padding-bottom: 20px;
 
-	border-radius: 30px;
-}*/
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.active_nav{
+	background-color: #282828;
+}
 .search_emp{
 	margin-top: 20px;
 	margin-bottom: 20px;

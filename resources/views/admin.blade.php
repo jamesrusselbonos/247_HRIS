@@ -31,14 +31,14 @@
 			<div class="row">
 				<div style="text-align: center;" class="col-lg-12">
 					<img class="company_logo" src="/img/icon.png">
-					<p style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</p>
+					<!-- <p style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</p> -->
 				</div>
 			</div>
 
 			<!-- Navigation-->
 			<div class="row navigation">
 				<div class="col-lg-12">
-				<h6 style="color: #fff;">Navigation</h6>	
+				<h6 style="color: #fff; padding-left: 20px; padding-right: 20px;">Navigation</h6>	
 					<ul>
 						<li>
 							<div style="margin-top: 20px;" class="row nav_link active_nav">
@@ -46,31 +46,31 @@
 									<i style="color: #fff;" class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 20px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
+									<a style="font-size: 17px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
 									<ul class="collapse" id="employeeSubmenu">
 										<li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/add_employee"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee</a>
+											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee</a>
 										</li>
 										<li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
+											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
 										</li>
 										<li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
+											<a style="font-size: 14px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</li>
 						<li>
-							<div style="margin-top: 10px;" class="row nav_link">
+							<div class="row nav_link">
 								<div class="col-lg-2">
 									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 20px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
+									<a style="font-size: 17px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
 										<li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
+											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
 										</li>
 										<!-- <li style="padding-top: 10px;">
 											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
