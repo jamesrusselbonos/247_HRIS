@@ -45,24 +45,26 @@
 				          </thead>
 				          <tbody>
 				      
+				      		@foreach ($jobs as $jb)
+
 				            <tr>
 
 				              <th scope="row">
-				              	Web Developement
+				              	{{$jb->job_title}}}
 				              </th>
 				              
 				              <td style="max-width: 400px;">
-				              	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+				              	{{$jb->description}}
 				              </td>
 				             
 				             <td>
 				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".Edit_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+     								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
      								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
      							</span>
 				             </td>
 				            </tr>
-				                  
+				      		@endforeach            
 				           
 				          </tbody>
 				        </table>
@@ -84,6 +86,7 @@
 	       </div>
 	       <div class="modal-body">
 	              <form>
+	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Title</label>
@@ -102,12 +105,13 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	                <div class="modal-footer">
+	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+		               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+		            </div>
 	              </form>
 	            </div>
-	            <div class="modal-footer">
-	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-	            </div>
+	            
 	          </div>
 	    </div>
 	  </div>
@@ -123,16 +127,17 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form>
+	              <form method="POST" action="{{route('admin.job_title')}}">
+	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Title</label>
-	                	   <input type="text" name="j_title" class="form-control" >
+	                	   <input type="text" name="job_title" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="job_desc" name="job_desc"></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -142,12 +147,13 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	                <div class="modal-footer">
+	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	               <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	            </div>
 	              </form>
 	            </div>
-	            <div class="modal-footer">
-	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-	            </div>
+	            
 	          </div>
 	    </div>
 	  </div>

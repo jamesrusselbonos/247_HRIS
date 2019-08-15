@@ -183,6 +183,7 @@
 
 	    	$('.mj_title').val(dept_name);
 	    	$('.mj_desc').val(dept_desc);
+	    	$('.mj_id').val(id);
 	    });
 	});
 </script>

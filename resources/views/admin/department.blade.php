@@ -85,7 +85,9 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form>
+	              <form method="POST" action="{{route('admin.department.edit')}}">
+	              	{{ csrf_field() }}
+	              	
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Department</label>
@@ -94,7 +96,11 @@
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control mj_desc" rows="5" id="j_desc" name="mj_desc"></textarea>
+	                	   <textarea class="form-control mj_desc" rows="5" id="mj_desc" name="mj_desc"></textarea>
+	                	</div>
+	                	<div class="form-group col-md-12">
+	                	 
+	                	   <input type="hidden" class="form-control mj_id" rows="5" id="mj_id" name="mj_id"></input>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -104,11 +110,11 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	                <div class="modal-footer">
+	                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	                   <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	                </div>
 	              </form>
-	            </div>
-	            <div class="modal-footer">
-	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            </div>
 	          </div>
 	    </div>
