@@ -13,13 +13,13 @@ class TblEmployeeContactInfo extends Migration
      */
     public function up()
     {
-        Schema::create('emp_contact_info', function (Blueprint $table) {
+        Schema::create('emp_contact_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('address');
             $table->string('city');
             $table->string('province');
             $table->string('country');
-            $table->string('zip_code');
+            $table->integer('zip_code');
             $table->string('home_phone')->nullable();
             $table->string('mobile_phone')->nullable();
             $table->string('work_email')->unique();

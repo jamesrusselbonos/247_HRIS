@@ -58,4 +58,23 @@ Route::get('/manage_user', 'AdminController@manageUser')->name('admin.manage_use
 
 Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard');
 
+Route::get('/employee', function () {
+    return view('employee.employee');
+});
+Route::get('/job_title', function () {
+    return view('admin.job_title');
+});
+Route::get('/department', 'departmentController@index' );
+Route::post('/department', 'departmentController@create' )->name('admin.department');
+
+Route::get('/job_status', function () {
+    return view('admin.job_status');
+});
+Route::get('/job_level', function () {
+    return view('admin.job_level');
+});
+Route::get('/job_position', function () {
+    return view('admin.job_position');
+});
+
 /////////////////////////////////////////////////////////

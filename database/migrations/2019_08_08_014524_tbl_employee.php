@@ -21,8 +21,11 @@ class TblEmployee extends Migration
             $table->string('last_name');
             $table->string('gender');
             $table->string('company');
-            $table->string('department');
-            $table->string('status');
+            $table->string('department_id');
+            $table->string('status_id');
+            $table->string('role_id');
+            $table->string('e_usename');
+            $table->string('e_password');
             $table->string('picture');
             $table->rememberToken();
             $table->timestamps();

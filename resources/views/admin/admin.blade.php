@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>247 HRIS</title>
+	<title>Admin Dashboard | 247 HRIS</title>
 
 	<!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -104,6 +104,36 @@
 								</div>
 							</div>
 						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-plus" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="#addSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Add</a>
+									<ul class="collapse" id="addSubmenu">
+										<!-- <li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/add_user"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
+										</li> -->
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/job_title"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/department"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/job_status"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Status</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/job_level"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Level</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/job_position"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Position</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -144,4 +174,16 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	$( document ).ready(function() {
+	    $('.edit-dept').on('click', function(event){
+	    	var dept_name = $(this).attr('dep_name');
+	    	var dept_desc = $(this).attr('dep_desc')
+	    	var id = $(this).attr('id');
+
+	    	$('.mj_title').val(dept_name);
+	    	$('.mj_desc').val(dept_desc);
+	    });
+	});
+</script>
 </html>

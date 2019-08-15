@@ -13,7 +13,7 @@ class TblEmployeeJob extends Migration
      */
     public function up()
     {
-        Schema::create('emp_job', function (Blueprint $table) {
+        Schema::create('emp_jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('job_title');
             $table->string('job_description');
