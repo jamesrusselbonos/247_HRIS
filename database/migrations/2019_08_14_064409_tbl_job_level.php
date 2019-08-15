@@ -13,7 +13,7 @@ class TblJobLevel extends Migration
      */
     public function up()
     {
-        Schema::create('job_levels', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
                    $table->bigIncrements('id');
                    $table->string('job_level');
                    $table->string('description')->nullable();

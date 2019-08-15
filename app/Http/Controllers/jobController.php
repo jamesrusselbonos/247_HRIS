@@ -23,4 +23,13 @@ class jobController extends Controller
 
     	return redirect()->route('admin.job_title'); 
     }
+    public function edit(Request $request){
+
+        $job_id = Job::find($request->mjob_id);
+        $job_id->job_title = $request->mjob_title;
+        $job_id->description = $request->mjob_desc;
+       $job_id->save();
+
+        return redirect()->route('admin.job_title'); 
+    }
 }

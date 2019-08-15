@@ -44,26 +44,26 @@
 				            </tr>
 				          </thead>
 				          <tbody>
-				      
-				            <tr>
+				      		@foreach($position as $post)
+				      			<tr>
 
 				              <th scope="row">
-				              	Web Developer
+				              	{{$post->job_position}}
 				              </th>
 				              
 				              <td style="max-width: 400px;">
-				              	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+				              	{{$post->description}}
 				              </td>
 				             
 				             <td>
 				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".Edit_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+     								<button type="button" class="btn btn-primary edit-position" data-toggle="modal" data-target=".Edit_modal" position_id="{{$post->id}}" position_name="{{$post->job_position}}" position_desc="{{$post->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
      								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
      							</span>
 				             </td>
 				            </tr>
-				                  
-				           
+				      		@endforeach
+				        	
 				          </tbody>
 				        </table>
 				       
@@ -83,16 +83,21 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form>
+	              <form method="POST" action="{{route('admin.job_position.edit')}}">
+	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Position</label>
-	                	   <input type="text" name="j_title" class="form-control" >
+	                	   <input type="text" name="mp_title" id="mp_title" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="mp_desc" name="mp_desc"></textarea>
+	                	</div>
+	                	<div class="form-group col-md-12">
+	                	 
+	                	   <input type="hidden" class="form-control mp_id" rows="5" id="mp_id" name="mp_id"></input>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -102,11 +107,11 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	                <div class="modal-footer">
+	                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	                   <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	                </div>
 	              </form>
-	            </div>
-	            <div class="modal-footer">
-	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            </div>
 	          </div>
 	    </div>
@@ -123,16 +128,17 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form>
+	              <form method="POST" action="{{route('admin.job_position')}}">
+	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Position</label>
-	                	   <input type="text" name="j_title" class="form-control" >
+	                	   <input type="text" name="p_title" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="p_desc" name="p_desc"></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -142,11 +148,11 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	                <div class="modal-footer">
+	                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	                   <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	                </div>
 	              </form>
-	            </div>
-	            <div class="modal-footer">
-	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            </div>
 	          </div>
 	    </div>

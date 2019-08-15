@@ -13,7 +13,7 @@ class TblJobStatus extends Migration
      */
     public function up()
     {
-       Schema::create('job_status', function (Blueprint $table) {
+       Schema::create('statuses', function (Blueprint $table) {
                    $table->bigIncrements('id');
                    $table->string('job_status');
                    $table->string('description')->nullable();

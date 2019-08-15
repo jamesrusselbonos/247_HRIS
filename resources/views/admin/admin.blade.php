@@ -185,6 +185,50 @@
 	    	$('.mj_desc').val(dept_desc);
 	    	$('.mj_id').val(id);
 	    });
+
+	    $('.edit-job').on('click', function(event){
+	    	var job_name = $(this).attr('job_name');
+	    	var job_desc = $(this).attr('job_desc')
+	    	var job_id = $(this).attr('job_id');
+
+	    	console.log(job_name);
+	    	$('#mjob_title').val(job_name);
+	    	$('#mjob_desc').val(job_desc);
+	    	$('.mjob_id').val(job_id);
+	    });
+
+	     $('.edit-status').on('click', function(event){
+	    	var status_name = $(this).attr('status_name');
+	    	var status_desc = $(this).attr('status_desc')
+	    	var status_id = $(this).attr('status_id');
+	    	console.log(status_name);
+
+	    	$('#mstatus_title').val(status_name);
+	    	$('#mstatus_desc').val(status_desc);
+	    	$('.mstatus_id').val(status_id);
+	    });
+
+	     $('.edit-level').on('click', function(event){
+	    	var level_name = $(this).attr('level_name');
+	    	var level_desc = $(this).attr('level_desc')
+	    	var level_id = $(this).attr('level_id');
+	    	console.log(level_name);
+	    	
+	    	$('#mlevel_title').val(level_name);
+	    	$('#mlevel_desc').val(level_desc);
+	    	$('.mlevel_id').val(level_id);
+	    });
+
+	     $('.edit-position').on('click', function(event){
+	    	var position_name = $(this).attr('position_name');
+	    	var position_desc = $(this).attr('position_desc')
+	    	var position_id = $(this).attr('position_id');
+	    	console.log(position_name);
+	    	
+	    	$('#mp_title').val(position_name);
+	    	$('#mp_desc').val(position_desc);
+	    	$('.mp_id').val(position_id);
+	    });
 	});
 </script>
 </html>

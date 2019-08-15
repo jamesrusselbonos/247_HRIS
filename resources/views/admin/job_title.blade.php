@@ -50,7 +50,7 @@
 				            <tr>
 
 				              <th scope="row">
-				              	{{$jb->job_title}}}
+				              	{{$jb->job_title}}
 				              </th>
 				              
 				              <td style="max-width: 400px;">
@@ -59,8 +59,8 @@
 				             
 				             <td>
 				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<button type="button" id="{{$depart->id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+     								<button type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" job_id="{{$jb->id}}" job_name="{{$jb->job_title}}" job_desc="{{$jb->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+     								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
      							</span>
 				             </td>
 				            </tr>
@@ -85,17 +85,21 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form>
+	              <form method="POST" action="{{route('admin.job_title.edit')}}">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Title</label>
-	                	   <input type="text" name="j_title" class="form-control" >
+	                	   <input type="text" name="mjob_title" id="mjob_title" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="mjob_desc" name="mjob_desc"></textarea>
+	                	</div>
+	                	<div class="form-group col-md-12">
+	                	 
+	                	   <input type="hidden" class="form-control mjob_id" rows="5" id="mjob_id" name="mjob_id"></input>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -107,7 +111,7 @@
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		               <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+		               <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 		            </div>
 	              </form>
 	            </div>
