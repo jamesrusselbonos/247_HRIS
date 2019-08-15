@@ -67,6 +67,7 @@ Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
 Route::get('/department', 'departmentController@index' );
 Route::post('/department', 'departmentController@create' )->name('admin.department');
 Route::post('/department/1', 'departmentController@edit' )->name('admin.department.edit');
+Route::post('/department/2', 'departmentController@delete' )->name('admin.department.delete');
 
 Route::get('/job_status', function () {
     return view('admin.job_status');

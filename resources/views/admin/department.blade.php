@@ -50,6 +50,7 @@
 
 				              <th scope="row">
 				              	{{$depart->department_name}}
+				              	<input type="hidden" name="d_id" value="{{$depart->id}}">
 				              </th>
 				              
 				              <td style="max-width: 400px;">
@@ -59,7 +60,7 @@
 				             <td>
 				             	<span style="float: right;">
      								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+     								<a href="{{route('admin.department.delete, [$depart->id]')}}" id="{{$depart->id}}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
      							</span>
 				             </td>
 				            </tr>
