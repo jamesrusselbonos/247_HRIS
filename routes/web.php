@@ -51,7 +51,11 @@ Route::post('/timeOut/{id}', 'TimesheetController@timeOut')->name('timeOut');
 
 ////////////////ADMIN DASHBOARD/////////////////////////
 Route::get('/admin', 'AdminController@index')->name('admin.admin');
+
 Route::get('/add_employee', 'AdminController@addEmployee')->name('admin.add_employee');
+
+Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
+
 Route::get('/employee_list', 'AdminController@employeeList')->name('admin.employee_list');
 Route::get('/manage_employee', 'AdminController@manageEmployee')->name('admin.manage_employee');
 Route::get('/timesheet', 'AdminController@timesheet')->name('admin.timesheet');

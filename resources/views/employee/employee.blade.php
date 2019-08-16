@@ -76,7 +76,7 @@
 						<ul style="list-style: none;">
 							<li style="float: right;" class="nav-item dropdown">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <span>Employee <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                     <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -151,6 +151,15 @@
 		    });
 
 
+		});
+	</script>
+	<script type="text/javascript">
+		$('document').ready(function(){
+			$('#jjob_title').change(function(){
+				var res = $('#jjob_title').val();
+
+				alert('res');
+			});
 		});
 	</script>
 </body>

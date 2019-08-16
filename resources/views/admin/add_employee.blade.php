@@ -4,9 +4,9 @@
 	<div class="col-lg-12">
 		<div class="add_employee_tab">
 			<div class="row">
-				<form>
+				<form method="POST" action="{{route('admin.add_employee.create')}}">
 					<div class="row">
-						<div class="col-lg-3">
+							<div class="col-lg-3">
 							<img class="profile_photo" src="/img/profile.png">
 							<div class="input_photo">
 								<h6>Upload a photo</h6>
@@ -41,9 +41,9 @@
 
 										<div class="form-group col-md-4">
 										  <label>Gender</label>
-										  <select>
-										    <option value="male">Male</option>
-										    <option value="female">Female</option>
+										  <select name="gender">
+										    <option value="Male">Male</option>
+										    <option value="Female">Female</option>
 										  </select>
 										</div>
 									</div>
@@ -72,22 +72,23 @@
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Department</label>
-										  <select>
-										  	<option value="Web Development">Web Development</option>
-										    <option value="FBA">FBA</option>
+										  <select name="department">
+											  	@foreach($departments as $department)
+											  	<option value="{{$department->id}}">{{$department->department_name}}</option>
+											  	 @endforeach
 										  </select>
 										</div>
 
 										<div class="form-group col-md-4">
 										  <label>Status</label>
-										 <select>
-										    <option value="Regular">Regular</option>
-										    <option value="Probationary">Probationary</option>
-										    <option value="Trainee">Trainee</option>
-										  </select>
+											<select name="status">
+												 @foreach($statuses as $status)
+										    	 <option value="{{$status->id}}">{{$status->job_status}}</option>
+										    	  @endforeach
+										    </select>
 										</div>
 									</div>
-									<div class="form-row">
+									<!-- <div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Role</label>
 										   <select>
@@ -95,18 +96,21 @@
 										    <option value="1">Admin</option>
 										  </select>
 										</div>
-									</div>
-									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Username</label>
 										   <input type="text" name="uname" class="form-control" >
 										</div>
-
+									</div>
+									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Password</label>
 										  <input type="text" name="pword" class="form-control" >
 										</div>
-									</div>
+										<div class="form-group col-md-4">
+										  <label>Confirm password</label>
+										   <input type="text" name="cpword" class="form-control" >
+										</div>
+									</div> -->
 								</div>
 								<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 									<div style="margin-top: 30px;" class="form-row">
@@ -145,7 +149,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Mobile Phone Number</label>
-										  <input type="text" name=",_number" class="form-control" >
+										  <input type="text" name="m_number" class="form-control" >
 										</div>
 
 										<div class="form-group col-md-4">
@@ -201,34 +205,43 @@
 									<div style="margin-top: 30px;" class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Job Title</label></br>
-										  <select>
-										    <option value="E-Commerce Support Specialist">E-Commerce Support Specialist</option>
-										    <option value="Web Development">Web Development</option>
-										    <option value="Graphic Artist">Graphic Artist</option>
-										    <option value="Social Media Assistant">Social Media Assistant</option>
+										 
+										  	<select name="jjob_title" id="jjob_title" class="form-control dynamic" data-dependent="jjob_desc">
+										  		 @foreach($jobs as $job)
+										    	<option value="{{$job->id}}">{{$job->job_title}}</option>
+										    	 @endforeach
 										  </select>
+										 
 										</div>
 
-										<div class="form-group col-md-4">
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-8">
 										  <label>Job Description</label>
-										  <input type="text" name="job_desc" class="form-control" >
+										  <textarea name="info_area" id="info_area" cols="75" rows="5"></textarea>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Job Level</label>
-										 <select>
-										    <option value="Staff">Staff</option>
-										    <option value="Manager">Manager</option>
+										 
+										 	<select name="job_level">
+										 		@foreach($levels as $level)
+										    	<option value="{{$level->id}}">{{$level->job_level}}</option>
+										    	 @endforeach
 										  </select>
+										
 										</div>
 
 										<div class="form-group col-md-4">
 										  <label>Position</label>
-										  <select>
-										    <option value="Web Developer">Web Developer</option>
-										    <option value="E-Commerce Specialist">E-Commerce Specialist</option>
+										  
+										  	<select name="job_position">
+										  		@foreach($positions as $position)
+										    	<option value="{{$position->id}}">{{$position->job_position}}</option>
+										    	@endforeach
 										  </select>
+										  
 										</div>
 									</div>
 									<div class="form-row">
@@ -279,60 +292,61 @@
 										<div class="form-group col-md-4">
 										  <label>Diploma</label></br>
 										  <label for="diploma_yes">Yes</label>
-								          <input type="radio" name="diploma" id="diploma_yes" value="Yes" checked>
+								          <input type="radio" name="diploma" id="diploma_yes" value="Passed" checked>
 								          <label for="diploma_yes">No</label>
-								          <input type="radio" name="diploma" id="diploma_no" value="No">
+								          <input type="radio" name="diploma" id="diploma_no" value="None">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Medical Certificate</label></br>
 										  <label for="medical_yes">Yes</label>
-								          <input type="radio" name="medical" id="medical_yes" value="Yes" checked>
+								          <input type="radio" name="medical" id="medical_yes" value="Passed" checked>
 								          <label for="medical_no">No</label>
-								          <input type="radio" name="medical" id="medical_no" value="No">
+								          <input type="radio" name="medical" id="medical_no" value="None">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>TOR</label></br>
 										  <label for="TOR_yes">Yes</label>
-								          <input type="radio" name="TOR" id="TOR_yes" value="Yes" checked>
+								          <input type="radio" name="TOR" id="TOR_yes" value="Passed" checked>
 								          <label for="TOR_no">No</label>
-								          <input type="radio" name="TOR" id="TOR_no" value="No">
+								          <input type="radio" name="TOR" id="TOR_no" value="None">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Birth Certificate</label></br>
 										  <label for="birth_yes">Yes</label>
-								          <input type="radio" name="birth_cert" id="birth_yes" value="Yes" checked>
+								          <input type="radio" name="birth_cert" id="birth_yes" value="Passed" checked>
 								          <label for="birth_no">No</label>
-								          <input type="radio" name="birth_cert" id="birth_no" value="female">
+								          <input type="radio" name="birth_cert" id="birth_no" value="None">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Brgy. Clearance</label></br>
 										  <label for="brgy_yes">Yes</label>
-								          <input type="radio" name="brgy" id="brgy_yes" value="Yes" checked>
+								          <input type="radio" name="brgy" id="brgy_yes" value="Passed" checked>
 								          <label for="brgy_no">No</label>
-								          <input type="radio" name="brgy" id="brgy_no" value="No">
+								          <input type="radio" name="brgy" id="brgy_no" value="None">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Cedula</label></br>
 										  <label for="cedula_yes">Yes</label>
-								          <input type="radio" name="cedula" id="cedula_yes" value="Yes" checked>
+								          <input type="radio" name="cedula" id="cedula_yes" value="Passed" checked>
 								          <label for="cedula_no">No</label>
-								          <input type="radio" name="cedula" id="cedula_no" value="No">
+								          <input type="radio" name="cedula" id="cedula_no" value="None">
 										</div>
 									</div>
+									{{ csrf_field() }}
 								</div>
 							</div>
-							<button style="bottom: 50px; right: 50px; position: fixed;" type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-						</div>
+							<button style="bottom: 50px; right: 50px; position: fixed;" type="subit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+						</div>	
 					</div>
 				</form>
 			</div>

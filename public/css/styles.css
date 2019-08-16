@@ -130,6 +130,10 @@ body{
 .list{
 	height: 100vh;
 	overflow-y: auto;
+	overflow-x: hidden;
+
+	padding-bottom: 50px;
+	padding-right: 20px;
 
 }
 .add_employee_tab select{

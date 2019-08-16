@@ -12,112 +12,15 @@
 						<div class="list">
 							<div style="margin-top: 20px;">
 								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Adrian Benitez</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Keno Buiza</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Adrian Benitez</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Keno Buiza</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Adrian Benitez</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Keno Buiza</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Adrian Benitez</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Keno Buiza</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Adrian Benitez</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<div class="row">
-									<div class="col-lg-3">
-										<img class="profile_thumb" src="/img/profile.png">
-									</div>
-									<div class="col-lg-9 profile_list">
-										<h5>Keno Buiza</h3>
-										<p>Web Developer, 247-OPM-0001</p>
-									</div>
+									@foreach($list as $lt)
+										<div class="col-lg-3">
+											<img class="profile_thumb" src="/img/profile.png">
+										</div>
+										<div class="col-lg-9 profile_list">
+											<h5>{{$lt->lastname}}, {{$lt->firstname}} {{$lt->middle_name}}</h3>
+											<p>{{$lt->job_title}}, {{$lt->employee_id}}</p>
+										</div>
+									@endforeach
 								</div>
 							</div>
 						</div>
