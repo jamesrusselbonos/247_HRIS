@@ -43,7 +43,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/punch_in_out', 'TimesheetController@index');
+Route::post('/timeIn/{id}', 'TimesheetController@timeIn')->name('timeIn');
+Route::post('/timeOut/{id}', 'TimesheetController@timeOut')->name('timeOut');
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 ////////////////ADMIN DASHBOARD/////////////////////////
 Route::get('/admin', 'AdminController@index')->name('admin.admin');
@@ -61,6 +65,7 @@ Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard')
 Route::get('/employee', function () {
     return view('employee.employee');
 });
+
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
 Route::post('/job_title/1', 'jobController@edit' )->name('admin.job_title.edit');

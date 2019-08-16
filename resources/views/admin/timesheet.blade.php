@@ -44,20 +44,20 @@
 				          </thead>
 				          <tbody>
 				      
-				            <tr>
+				            @foreach ($time as $tt)
+				            	<tr>
 
 				              <th scope="row">
-				              	Adrian Benitez </br>
-				              	Web Developer, 247-OPM-0001
+				              	{{ $tt->name}}
 				              </th>
 				              <td>
-				              	August 13, 2019
+				              	{{$tt->date}}
 				              </td>
 				              <td>
-				              	8:00 AM
+				              	{{$tt->time_from}}
 				              </td>
 				             <td>
-				             	5:00 PM
+				             	{{$tt->time_to}}
 				             </td>
 				             <td>
 				             	<span style="float: right; margin: 0;">
@@ -66,6 +66,7 @@
 				             	</span>
 				             </td>
 				            </tr>
+				            @endforeach
 				                  
 				           
 				          </tbody>

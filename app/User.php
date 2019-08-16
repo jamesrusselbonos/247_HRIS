@@ -74,4 +74,8 @@ class User extends Authenticatable
          }
          return false;
        }
+
+       public function timeSheets(){
+          return $this->as('App\TimeSheet', 'employee_id');
+       }
 }

@@ -49,6 +49,8 @@ body{
 .timesheet_report{
 	padding-left: 100px;
 	padding-right: 100px;
+
+	padding-top: 50px;
 }
 .manage_employee{
 	padding-left: 100px;

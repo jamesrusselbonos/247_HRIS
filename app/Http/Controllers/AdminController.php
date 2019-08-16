@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\TimeSheet;
+
+use DB;
+
 class AdminController extends Controller
 {
 	public function __construct()
@@ -34,7 +38,12 @@ class AdminController extends Controller
 
     public function timesheet()
     {
-        return view('admin.timesheet');
+        $time = DB::table('timesheets')
+            ->join('users', 'users.id', '=', 'timesheets.employee_id')
+            ->select('timesheets.*', 'users.name')
+            ->get();
+
+        return view('admin.timesheet', compact('time'));
     }    
 
     public function manageUser()
