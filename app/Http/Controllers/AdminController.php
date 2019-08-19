@@ -84,7 +84,6 @@ class AdminController extends Controller
             'firstname' => $request->get('fname'),
             'middle_name' => $request->get('m_name'),
             'lastname' => $request->get('lname'),
-            'company' => $request->get('company'),
             'department_id' => $request->get('department'),
             'status_id' => $request->get('status'),
             'address' => $request->get('address'),

@@ -63,11 +63,6 @@
 										  <label>Last Name</label>
 										  <input type="text" name="lname" class="form-control" >
 										</div>
-
-										<div class="form-group col-md-4">
-										  <label>Company</label>
-										  <input type="text" name="company" class="form-control" >
-										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">

@@ -21,7 +21,6 @@ class CreatePrototypeEmployeeTable extends Migration
             $table->string('firstname')->required();
             $table->string('middle_name')->required();
             $table->string('lastname')->required();
-            $table->string('company')->required();
             $table->integer('department_id')->required();
             $table->integer('status_id')->required();
             $table->string('address')->required();
