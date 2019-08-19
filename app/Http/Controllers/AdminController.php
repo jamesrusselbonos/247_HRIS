@@ -51,7 +51,7 @@ class AdminController extends Controller
             ->select('prototype__employees.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
             ->get();
 
-        return view('admin.employee_list', compact('list'));
+        return view('admin.manage_employee', compact('list'));
     }    
 
     public function manageEmployee()

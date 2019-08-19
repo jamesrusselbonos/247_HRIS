@@ -5,7 +5,7 @@
 		<div class="job_pages">
 			<div class="container"> 
 				<div class="card">
-				    <div class="card-header">
+				    <div  class="card-header">
 				    	<div class="row">
 				    		<div class="col-lg-12">
 				    			<span>
@@ -34,7 +34,7 @@
 
 				    <div class="card-body">
 				   
-				        <table class="table table-bordered">
+				        <table class="table table-bordered" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Job Title</th>

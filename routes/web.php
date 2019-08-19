@@ -56,8 +56,7 @@ Route::get('/add_employee', 'AdminController@addEmployee')->name('admin.add_empl
 
 Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
 
-Route::get('/employee_list', 'AdminController@employeeList')->name('admin.employee_list');
-Route::get('/manage_employee', 'AdminController@manageEmployee')->name('admin.manage_employee');
+Route::get('/manage_employee', 'AdminController@employeeList')->name('admin.employee_list');
 Route::get('/timesheet', 'AdminController@timesheet')->name('admin.timesheet');
 Route::get('/manage_user', 'AdminController@manageUser')->name('admin.manage_user');
 

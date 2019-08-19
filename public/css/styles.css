@@ -84,6 +84,7 @@ body{
 }
 .profile_list{
 	padding-left: 25px;
+	text-align: center;
 }
 .add_employee_tab{
 	margin-top: 50px;
@@ -116,8 +117,8 @@ body{
 	padding-bottom: 50px;
 }
 .employee_list_display_row{
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 .employee_list_display_row h3{
 	margin-top: 20px;
@@ -188,4 +189,7 @@ body{
 }
 .search_time{
 	border-radius: 30px;
+}
+.card-header{
+	background-color: #fff;
 }
