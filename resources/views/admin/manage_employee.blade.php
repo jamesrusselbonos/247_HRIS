@@ -298,7 +298,7 @@
 							<div style="margin-top: 30px;" class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Job Title</label></br>
-								  <select>
+								  <select id="edit_ejobtitle">
 								    <option value="ecommerce">E-Commerce Support Specialist</option>
 								    <option value="web_dev">Web Developer</option>
 								    <option value="graphics_artist">Graphic Artist</option>
@@ -308,30 +308,30 @@
 
 								<div class="form-group col-md-4">
 								  <label>Job Description</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ejobdesc" id="edit_ejobdesc" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Job Level</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Position</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Date Hired</label>
-								  <input type="date" name="bday" max="3000-12-31" 
+								  <input type="date" name="edit_edatehired" id="edit_edatehired" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Date Terminated</label>
-								  <input type="date" name="bday" max="3000-12-31" 
+								  <input type="date" name="edit_edateterminated" id="edit_edateterminated" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
 								</div>
 							</div>
@@ -339,83 +339,83 @@
 								<div style="margin-top: 30px;" class="form-row">
 									<div class="form-group col-md-4">
 									  <label>SSS</label>
-									  <input type="text" name="employee_id" class="form-control" >
+									  <input type="text" name="edit_esss" id="edit_esss" class="form-control" >
 									</div>
 
 									<div class="form-group col-md-4">
 									  <label>PhilHealth</label>
-									  <input type="text" name="gender" class="form-control" >
+									  <input type="text" name="edit_ephilhealth" id="edit_ephilhealth" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Pagibig</label>
-									  <input type="text" name="employee_id" class="form-control" >
+									  <input type="text" name="edit_epagibig" id="edit_epagibig" class="form-control" >
 									</div>
 
 									<div class="form-group col-md-4">
 									  <label>TIN</label>
-									  <input type="text" name="gender" class="form-control" >
+									  <input type="text" name="edit_etin" id="edit_etin" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>NBI Number</label>
-									  <input type="text" name="employee_id" class="form-control" >
+									  <input type="text" name="edit_enbi" id="edit_enbi" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Diploma</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_ediploma" id="diploma_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_ediploma" id="diploma_none" value="None">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Medical Certificate</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_emedical" id="medical_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_emedical" id="medical_none" value="None">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>TOR</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_etor" id="tor_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_etor" id="tor_none" value="None">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Birth Certificate</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_ebirth" id="birth_cert_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_ebirth" id="birth_cert_none" value="None">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Brgy. Clearance</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_eclearance" id="clearance_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_eclearance" id="clearance_none" value="None">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Cedula</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="gender" id="male" value="male" checked>
+							          <input type="radio" name="edit_ecedula" id="cedula_passed" value="Passed" checked>
 							          <label for="female">No</label>
-							          <input type="radio" name="gender" id="female" value="female">
+							          <input type="radio" name="edit_ecedula" id="cedula_none" value="None">
 									</div>
 								</div>
 			             	</div>
