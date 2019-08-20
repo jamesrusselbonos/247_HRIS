@@ -59,7 +59,7 @@
 				             <td>
 				             	<span style="float: right;">
      								<button type="button" class="btn btn-primary edit-status" data-toggle="modal" data-target=".Edit_modal" status_id="{{$st->id}}" status_name="{{$st->job_status}}" status_desc="{{$st->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+     								<a href="/status_delete/{{ $st->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
      							</span>
 				             </td>
 				            </tr>

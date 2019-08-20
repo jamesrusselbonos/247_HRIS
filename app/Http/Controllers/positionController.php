@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Position;
 
+use DB;
+
 class positionController extends Controller
 {
     public function index(){
@@ -32,5 +34,11 @@ class positionController extends Controller
        $lev_id->save();
 
         return redirect()->route('admin.job_position'); 
+    }
+
+    public function delete($id){
+        DB::table('positions')->where('id', $id)->delete();
+
+        return redirect()->route('admin.job_position');
     }
 }

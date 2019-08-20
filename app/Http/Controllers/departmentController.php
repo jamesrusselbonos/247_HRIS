@@ -36,10 +36,11 @@ class departmentController extends Controller
 
         return redirect()->route('admin.department'); 
     }
-    // public function delete(Request $request){
-    //     $d_id = Department::find($request->d_id);
-    //     dd($d_id);
+    
+    public function delete($id){
 
-    //     return redirect()->route('admin.department'); 
-    // }
+        DB::table('departments')->where('id', $id)->delete();
+
+         return redirect()->route('admin.department');
+    }
 }

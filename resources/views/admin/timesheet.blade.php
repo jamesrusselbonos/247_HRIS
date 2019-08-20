@@ -8,10 +8,7 @@
 				    <div class="card-header">
 				    	<div class="row">
 				    		<div class="col-lg-4">
-				    			<input type="text" name="search_time" class="form-control search_time" placeholder="Search Employee" >
-				    		</div>
-				    		<div class="col-lg-4">
-				    			<div style="float: right;" class="dropdown">
+				    			<div class="dropdown">
 				    			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    			    Export
 				    			  </button>
@@ -23,16 +20,17 @@
 				    			  </div>
 				    			</div>
 				    		</div>
+				    		
 				    		<div class="col-lg-4">
-				    			<input type="date" name="bday" max="3000-12-31" 
-				    			        min="1000-01-01" class="form-control">
+				    			<!-- <input type="date" name="bday" max="3000-12-31" 
+				    			        min="1000-01-01" class="form-control"> -->
 				    		</div>
 				    	</div>
 				    </div>
 
 				    <div class="card-body">
 				   
-				        <table class="table table-bordered">
+				        <table class="table table-bordered" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Name</th>
@@ -62,7 +60,7 @@
 				             <td>
 				             	<span style="float: right; margin: 0;">
 				             		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-				             		<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+				             		<a href="/time_delete/{{ $tt->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
 				             	</span>
 				             </td>
 				            </tr>

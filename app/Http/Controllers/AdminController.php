@@ -71,7 +71,9 @@ class AdminController extends Controller
 
     public function manageUser()
     {
-        return view('admin.manage_user');
+        $m_user = DB::table('users')->get();
+
+        return view('admin.manage_user', compact('m_user'));
     }
 
     public function create(Request $request)
@@ -123,6 +125,20 @@ class AdminController extends Controller
         $proto->save();
 
         return redirect()->route('admin.add_employee');
+    }
+
+    public function timesheet_delete($id){
+
+        DB::table('timesheets')->where('id', $id)->delete();
+
+        return redirect()->route('admin.timesheet');
+    }
+
+    public function user_delete($id){
+
+        DB::table('users')->where('id', $id)->delete();
+
+        return redirect()->route('admin.manage_user');
     }
 
 }

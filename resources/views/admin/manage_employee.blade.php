@@ -15,14 +15,13 @@
 				              <th scope="col">Name</th>
 				              <th scope="col">Position</th>
 				              <th scope="col">Employee ID</th>
-				              <th scope="col">Manage</th>
+				              <th scope="col" style="width: 300px;">Manage</th>
 				            </tr>
 				          </thead>
 				          <tbody>
 				      
 				           @foreach($list as $lt)
 				               <tr>
-
 				              <th scope="row">
 				              	{{$lt->lastname}}, {{$lt->firstname}} {{$lt->middle_name}}
 				              </th>
@@ -33,11 +32,95 @@
 				              	{{$lt->employee_id}}
 				              </td>
 				               
-				             <td>
+				             <td style="width: 300px;">
 				             	<span style="float: right;">
-				             		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#view_modal"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
+				             		<button type="button" id="{{ $lt->id }}" class="btn btn-success view_emp" data-toggle="modal" data-target="#view_modal"
+				             			p_id="{{ $lt->id }}"
+						               	p_employeeid="{{ $lt->employee_id }}"
+						               	p_gender="{{ $lt->gender }}"
+						               	p_fname="{{ $lt->firstname }}"
+						               	p_mname="{{ $lt->middle_name }}"
+						               	p_lname="{{ $lt->lastname }}"
+						               	p_department="{{ $lt->department_name }}"
+						               	p_status="{{ $lt->job_status }}"
+						               	p_picture="{{ $lt->employee_img }}"
+						               	p_address="{{ $lt->address }}"
+						               	p_city="{{ $lt->city }}"
+						               	p_province="{{ $lt->province }}"
+						               	p_country="{{ $lt->country }}"
+						               	p_zip="{{ $lt->zip_code }}"
+						               	p_hnumber="{{ $lt->home_number }}"
+						               	p_mnumber="{{ $lt->mobile_number }}"
+						               	p_wemail="{{ $lt->work_email }}"
+						               	p_pemail="{{ $lt->personal_email }}"
+						               	p_bday="{{ $lt->birthday }}"
+						               	p_ssnsin="{{ $lt->SIN_SSN }}"
+						               	p_ename="{{ $lt->emergency_name }}"
+						               	p_relationship="{{ $lt->relationship }}"
+						               	p_eaddress="{{ $lt->emergency_address }}"
+						               	p_enumber="{{ $lt->emergency_number }}"
+						               	p_jobtitle="{{ $lt->job_title }}"
+						               	p_jobdesc="{{ $lt->job_description }}"
+						               	p_joblevel="{{ $lt->job_level }}"
+						               	p_jobposition="{{ $lt->job_position }}"
+						               	p_datehired="{{ $lt->date_hired }}"
+						               	p_dateterminated="{{ $lt->date_terminated }}"
+						               	p_sss="{{ $lt->SSS_no }}"
+						               	p_pagibig="{{ $lt->philhealth_no }}"
+						               	p_philhealth="{{ $lt->pagibig_no }}"
+						               	p_tin="{{ $lt->TIN_no }}"
+						               	p_nbinumber="{{ $lt->NBI_no }}"
+						               	p_diploma="{{ $lt->diploma }}"
+						               	p_medical="{{ $lt->medical }}"
+						               	p_tor="{{ $lt->TOR }}"
+						               	p_birthcert="{{ $lt->birth_cert }}"
+						               	p_bclearance="{{ $lt->brgy_clearance }}"
+						              	p_cedula="{{ $lt->cedula }}"
+				             		><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
 
-     								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+     								<button type="button" id="{{ $lt->id }}" class="btn btn-primary edit_emp" data-toggle="modal" data-target="#edit_modal"
+     									ep_id="{{ $lt->id }}"
+						               	ep_employeeid="{{ $lt->employee_id }}"
+						               	ep_gender="{{ $lt->gender }}"
+						               	ep_fname="{{ $lt->firstname }}"
+						               	ep_mname="{{ $lt->middle_name }}"
+						               	ep_lname="{{ $lt->lastname }}"
+						               	ep_department="{{ $lt->department_name }}"
+						               	ep_status="{{ $lt->job_status }}"
+						               	ep_picture="{{ $lt->employee_img }}"
+						               	ep_address="{{ $lt->address }}"
+						               	ep_city="{{ $lt->city }}"
+						               	ep_province="{{ $lt->province }}"
+						               	ep_country="{{ $lt->country }}"
+						               	ep_zip="{{ $lt->zip_code }}"
+						               	ep_hnumber="{{ $lt->home_number }}"
+						               	ep_mnumber="{{ $lt->mobile_number }}"
+						               	ep_wemail="{{ $lt->work_email }}"
+						               	ep_pemail="{{ $lt->personal_email }}"
+						               	ep_bday="{{ $lt->birthday }}"
+						               	ep_ssnsin="{{ $lt->SIN_SSN }}"
+						               	ep_ename="{{ $lt->emergency_name }}"
+						               	ep_relationship="{{ $lt->relationship }}"
+						               	ep_eaddress="{{ $lt->emergency_address }}"
+						               	ep_enumber="{{ $lt->emergency_number }}"
+						               	ep_jobtitle="{{ $lt->job_title }}"
+						               	ep_jobdesc="{{ $lt->job_description }}"
+						               	ep_joblevel="{{ $lt->job_level }}"
+						               	ep_jobposition="{{ $lt->job_position }}"
+						               	ep_datehired="{{ $lt->date_hired }}"
+						               	ep_dateterminated="{{ $lt->date_terminated }}"
+						               	ep_sss="{{ $lt->SSS_no }}"
+						               	ep_pagibig="{{ $lt->philhealth_no }}"
+						               	ep_philhealth="{{ $lt->pagibig_no }}"
+						               	ep_tin="{{ $lt->TIN_no }}"
+						               	ep_nbinumber="{{ $lt->NBI_no }}"
+						               	ep_diploma="{{ $lt->diploma }}"
+						               	ep_medical="{{ $lt->medical }}"
+						               	ep_tor="{{ $lt->TOR }}"
+						               	ep_birthcert="{{ $lt->birth_cert }}"
+						               	ep_bclearance="{{ $lt->brgy_clearance }}"
+						              	ep_cedula="{{ $lt->cedula }}"
+     								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 
      								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
      							</span>
@@ -54,7 +137,7 @@
 	</div>
 
 	<div class="modal fade edit_modal" id="edit_modal" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	  	<div class="modal-dialog modal-lg">
+	  	<div class="modal-dialog modal-xl">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		         <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
@@ -64,7 +147,7 @@
 		       </div>
 		       <div class="modal-body">
 		           <form>
-		             <div class="row">
+		             <div style="padding-left: 50px; padding-right: 50px;" class="row">
 		             	<div class="col-lg-4">
 		             		<img class="profile_photo" src="/img/profile.png">
 		             		<div class="input_photo">
@@ -84,12 +167,12 @@
 	             			<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Employee ID</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_employee_id" id="edit_employee_id" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Gender</label>
-								  <select>
+								  <select id="edit_egender">
 								    <option value="male">Male</option>
 								    <option value="female">Female</option>
 								  </select>
@@ -98,122 +181,117 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>First Name</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_efname" id="edit_fname" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Middle Name</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_emname" id="edit_emname" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Last Name</label>
-								  <input type="text" name="employee_id" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Company</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="employee_id" id="employee_id" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Department</label>
-								  <select>
+								  <select id="edit_edepartmant">
 								  	<option value="d_web">Web Development</option>
 								    <option value="d_FBA">FBA</option>
 								  </select>
 								</div>
 								<div class="form-group col-md-4">
 								  <label>Status</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" >
 								</div>
 							</div>
 							<h3 style="color: #9e9e9e;">Contact Info</h3>
 							<div style="margin-top: 30px;" class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Address</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_eaddress" id="edit_eaddress" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>City</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ecity" id="edit_ecity" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Province</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_eprovince" id="edit_eprovince" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Country</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ecountry" id="edit_ecountry" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Postal / ZIP Code</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_ezip" id="edit_ezip" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Home Phone Number</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ehnumber" id="edit_ehnumber" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Mobile Phone Number</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_emnumber" id="edit_emnumber" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Work Email Address</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_ewemail" id="edit_ewemail" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Personal Email Address</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_epemail" id="edit_epemail" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Birthday</label>
-								  <input type="date" name="bday" max="3000-12-31" 
+								  <input type="date" name="edit_ebday" id="edit_ebday" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>SIN / SSN</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_essnsin" id="edit_essnsin" class="form-control" >
 								</div>
 							</div>
 							<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
 							<div style="margin-top: 30px;" class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Name</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_emgname" id="edit_emgname" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Relationship</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_emgrelationship" id="edit_emgrelationship" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Address</label>
-								  <input type="text" name="employee_id" class="form-control" >
+								  <input type="text" name="edit_emgaddress" id="edit_emgaddress" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Phone Number</label>
-								  <input type="text" name="gender" class="form-control" >
+								  <input type="text" name="edit_emgnumber" id="edit_emgnumber" class="form-control" >
 								</div>
 							</div>
 							<h3 style="color: #9e9e9e;">Job</h3>
@@ -367,11 +445,13 @@
 				<div class="row">
 					<div style="text-align: center;" class="col-lg-12">
 						<img class="profile_photo" src="/img/profile.png">
+						<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
 					</div>
 					<div style="padding-top: 50px;" class="col-lg-12 profile_list">
-						<h1 id="elist_name">Adrian Bas Benitez</h1>
-						<h3 id="elist_position">Web Developer</h3>
-						<h6 id="elist_id">247-OPM-0001</h6>
+						<h2 id="elist_lname"></h2>, <h2 id="elist_fname"></h2> <h2 id="elist_mname"></h2>
+						<h5 id="elist_position"></h5>
+						<h6 id="elist_id"></h6>
+						<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
 					</div>
 				</div>
 				<div style="margin-top: 50px;" class="row employee_list_display_row">
@@ -382,10 +462,10 @@
 							<div class="col-lg-6">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Address:</h6>	
+										<h6 id="">Address:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_address">0000 Sample St. Brgy</h6>	
+										<strong><h6 id="elist_address"></h6></strong>
 									</div>
 								</div>
 								<div class="row">
@@ -393,7 +473,7 @@
 										<h6>City:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_city">Legazpi City</h6>	
+										<h6 id="elist_city"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -401,15 +481,23 @@
 										<h6>Province:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_province">Albay</h6>	
+										<h6 id="elist_province"></h6>	
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Gender:</h6>	
+										<h6>Country:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_gender">Male</h6>	
+										<h6 id="elist_country"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Birthday:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_bday"></h6>	
 									</div>
 								</div>
 							</div>
@@ -419,7 +507,7 @@
 										<h6>Department:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_department">Web Development </h6>	
+										<h6 id="elist_department"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -427,7 +515,15 @@
 										<h6>Status:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_status">Regular </h6>	
+										<h6 id="elist_status"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Gender:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_gender"></h6>	
 									</div>
 								</div>
 							</div>
@@ -443,7 +539,7 @@
 										<h6>Postal / ZIP Code:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_zip">0000</h6>	
+										<h6 id="elist_zip"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -451,7 +547,7 @@
 										<h6>Home Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_hnumber">09000000000</h6>	
+										<h6 id="elist_hnumber"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -459,7 +555,7 @@
 										<h6>Phone Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_pnumber">09099999999</h6>	
+										<h6 id="elist_pnumber"></h6>	
 									</div>
 								</div>
 							</div>
@@ -469,7 +565,7 @@
 										<h6>Work Email:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_wemail">b.example@247virtualagent.com </h6>	
+										<h6 id="elist_wemail"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -477,7 +573,7 @@
 										<h6>Personal Email:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_pemail">b.example@gmail.com </h6>	
+										<h6 id="elist_pemail"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -485,7 +581,7 @@
 										<h6>SIN / SSN:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_ssn_sin">0000 </h6>	
+										<h6 id="elist_ssn_sin"></h6>	
 									</div>
 								</div>
 							</div>
@@ -501,7 +597,7 @@
 										<h6>Name:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_ename">Juan Dela Cruz</h6>	
+										<h6 id="elist_ename"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -509,7 +605,7 @@
 										<h6>Address:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_eaddress">Legazpi City</h6>	
+										<h6 id="elist_eaddress"></h6>	
 									</div>
 								</div>
 							</div>
@@ -519,7 +615,7 @@
 										<h6>Relationship:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_relationship">Father </h6>	
+										<h6 id="elist_relationship"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -527,7 +623,7 @@
 										<h6>Phone Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_enumber">09090909090 </h6>	
+										<h6 id="elist_enumber"></h6>	
 									</div>
 								</div>
 							</div>
@@ -542,7 +638,7 @@
 										<h6>Job Title:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_job">Web Development</h6>	
+										<h6 id="elist_job"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -550,7 +646,7 @@
 										<h6>Job Level:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_staff">Staff</h6>	
+										<h6 id="elist_staff"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -558,7 +654,7 @@
 										<h6>Job Description:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_jdesc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h6>	
+										<h6 id="elist_jdesc"></h6>	
 									</div>
 								</div>
 							</div>
@@ -568,7 +664,7 @@
 										<h6>Date Hired:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_hired">January 1, 2019</h6>	
+										<h6 id="elist_hired"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -576,7 +672,7 @@
 										<h6>Date Terminated:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_terminated"> </h6>	
+										<h6 id="elist_terminated"></h6>	
 									</div>
 								</div>
 							</div>
@@ -588,7 +684,7 @@
 										<h6>SSS Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_sss">00000000000</h6>	
+										<h6 id="elist_sss"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -596,7 +692,7 @@
 										<h6>Pagibig Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_pagibig">00000000000</h6>	
+										<h6 id="elist_pagibig"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -604,7 +700,7 @@
 										<h6>PhilHealth Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_philhealth">00000000000</h6>	
+										<h6 id="elist_philhealth"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -612,7 +708,7 @@
 										<h6>TIN Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_TIN">00000000000</h6>	
+										<h6 id="elist_TIN"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -620,7 +716,7 @@
 										<h6>NBI Number:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_NBI">00000000000</h6>	
+										<h6 id="elist_NBI"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -628,7 +724,7 @@
 										<h6>Diploma:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_diploma">Passed</h6>	
+										<h6 id="elist_diploma"></h6>	
 									</div>
 								</div>
 							</div>
@@ -638,7 +734,7 @@
 										<h6>Medical Certificate:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_medical">Passed</h6>	
+										<h6 id="elist_medical"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -646,7 +742,7 @@
 										<h6>TOR:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_TOR">Passed</h6>	
+										<h6 id="elist_TOR"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -654,7 +750,7 @@
 										<h6>Birth Certificate:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_bcert">Passed</h6>	
+										<h6 id="elist_bcert"></h6>	
 									</div>
 								</div>
 								<div class="row">
@@ -662,15 +758,15 @@
 										<h6>Brgy. Clearance:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6 id="elist_bclearance">Passed</h6>	
+										<h6 id="elist_bclearance"></h6>	
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6 id="elist_cedula">Cedula:</h6>	
+										<h6>Cedula:</h6>	
 									</div>
 									<div class="col-lg-8">
-										<h6>Passed</h6>	
+										<h6 id="elist_cedula"></h6>	
 									</div>
 								</div>
 							</div>

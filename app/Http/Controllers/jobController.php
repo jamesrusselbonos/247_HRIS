@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Job;
 
+use DB;
+
 class jobController extends Controller
 {
     public function index(){
@@ -31,5 +33,11 @@ class jobController extends Controller
        $job_id->save();
 
         return redirect()->route('admin.job_title'); 
+    }
+
+    public function delete($id){
+        DB::table('jobs')->where('id', $id)->delete();
+
+        return redirect()->route('admin.job_title');
     }
 }

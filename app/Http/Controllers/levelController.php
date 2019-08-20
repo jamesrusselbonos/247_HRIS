@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Level;
 
+use DB;
+
 class levelController extends Controller
 {
     public function index(){
@@ -32,5 +34,11 @@ class levelController extends Controller
        $lev_id->save();
 
         return redirect()->route('admin.job_level'); 
+    }
+
+    public function delete($id){
+        DB::table('levels')->where('id', $id)->delete();
+
+        return redirect()->route('admin.job_level');
     }
 }

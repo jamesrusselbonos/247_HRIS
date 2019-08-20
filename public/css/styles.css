@@ -86,6 +86,9 @@ body{
 	padding-left: 25px;
 	text-align: center;
 }
+.profile_list h2{
+	display: inline-block;
+}
 .add_employee_tab{
 	margin-top: 50px;
 }

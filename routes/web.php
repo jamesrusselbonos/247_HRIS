@@ -57,8 +57,13 @@ Route::get('/add_employee', 'AdminController@addEmployee')->name('admin.add_empl
 Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
 
 Route::get('/manage_employee', 'AdminController@employeeList')->name('admin.employee_list');
+Route::get('/manage_employee', 'AdminController@employeeList')->name('admin.employee_list');
+
 Route::get('/timesheet', 'AdminController@timesheet')->name('admin.timesheet');
+Route::get('/time_delete/{id}', 'AdminController@timesheet_delete');
+
 Route::get('/manage_user', 'AdminController@manageUser')->name('admin.manage_user');
+Route::get('/user_delete/{id}', 'AdminController@user_delete');
 
 ////////////////////////////////////////////////////////
 ////////////////EMPLOYEE DASHBOARD//////////////////////
@@ -72,23 +77,30 @@ Route::get('/employee', function () {
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
 Route::post('/job_title/1', 'jobController@edit' )->name('admin.job_title.edit');
+Route::get('/job_delete/{id}', 'jobController@delete' );
 
 
 Route::get('/department', 'departmentController@index' );
 Route::post('/department', 'departmentController@create' )->name('admin.department');
 Route::post('/department/1', 'departmentController@edit' )->name('admin.department.edit');
+Route::get('/delete/{id}', 'departmentController@delete' );
+
 // Route::post('/department/2', 'departmentController@delete' )->name('admin.department.delete');
 
 Route::get('/job_status', 'statusController@index' );
 Route::post('/job_status', 'statusController@create' )->name('admin.job_status');
 Route::post('/job_status/1', 'statusController@edit' )->name('admin.job_status.edit');
+Route::get('/status_delete/{id}', 'statusController@delete' );
 
 Route::get('/job_level', 'levelController@index' );
 Route::post('/job_level', 'levelController@create' )->name('admin.job_level');
 Route::post('/job_level/1', 'levelController@edit' )->name('admin.job_level.edit');
+Route::get('/level_delete/{id}', 'levelController@delete' );
+
 
 Route::get('/job_position', 'positionController@index' );
 Route::post('/job_position', 'positionController@create' )->name('admin.job_position');
 Route::post('/job_position/1', 'positionController@edit' )->name('admin.job_position.edit');
+Route::get('/position_delete/{id}', 'positionController@delete' );
 
 /////////////////////////////////////////////////////////
