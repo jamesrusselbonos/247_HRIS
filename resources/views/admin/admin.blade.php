@@ -42,10 +42,31 @@
 			<!-- Navigation-->
 			<div class="row navigation">
 				<div class="col-lg-12">
-				<h6 style="color: #fff; padding-left: 20px; padding-right: 20px;">Navigation</h6>	
+				<h6 style="padding-left: 20px; padding-right: 20px;">Navigation</h6>	
 					<ul>
 						<li>
 							<div style="margin-top: 20px;" class="row nav_link active_nav">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="/admin">Dashboard</a>
+									<!-- <ul class="collapse" id="employeeSubmenu">
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
+										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
+										</li>
+									</ul> -->
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="row nav_link">
 								<div class="col-lg-2">
 									<i style="color: #fff;" class="fa fa-user" aria-hidden="true"></i>
 								</div>
@@ -88,7 +109,7 @@
 			</div>
 			<div class="row config">
 				<div class="col-lg-12">
-					<h6 style="color: #fff; padding-left: 20px; padding-right: 20px;">Configurations</h6>
+					<h6 style="padding-left: 20px; padding-right: 20px;">Configurations</h6>
 					<ul>
 						<li>
 							<div class="row nav_link">
@@ -148,7 +169,7 @@
 				<div class="dashboard_banner">
 					<div class="row">
 						<div class="col-lg-6">
-							<h2>ADMIN DASHBOARD</h2>
+							<h2><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h2>
 						</div>
 						<div class="col-lg-6">
 							<ul style="list-style: none;">
