@@ -8,7 +8,7 @@
 				    <div class="card-header">
 				    	<div class="row">
 				    		<div class="col-lg-4">
-				    			<div class="dropdown">
+				    			<!-- <div class="dropdown">
 				    			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    			    Export
 				    			  </button>
@@ -18,7 +18,7 @@
 				    			    <a class="dropdown-item" href="#">CSV</a>
 				    			    <a class="dropdown-item" href="#">Print</a>
 				    			  </div>
-				    			</div>
+				    			</div> -->
 				    		</div>
 				    		
 				    		<div class="col-lg-4">

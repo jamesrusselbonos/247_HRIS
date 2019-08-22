@@ -26,7 +26,11 @@ class AdminController extends Controller
 
     public function index()
         {
-            return view('admin.admin');
+            $emp_count = Prototype_Employee::all();
+            $dept_count = Department::all();
+         
+
+            return view('admin.admin_index', compact('emp_count', 'dept_count'));
         }    
 
     public function addEmployee()
