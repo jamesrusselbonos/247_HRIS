@@ -59,7 +59,7 @@
 				             <td>
 				             	<span style="float: right;">
      								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" level_id="{{$lv->id}}" level_name="{{$lv->job_level}}" level_desc="{{$lv->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<a href="/level_delete/{{ $lv->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+     								<a href="/level_delete/{{ $lv->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
      							</span>
 				             </td>
 				            </tr>

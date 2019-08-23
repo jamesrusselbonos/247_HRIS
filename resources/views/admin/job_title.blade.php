@@ -60,7 +60,7 @@
 				             <td>
 				             	<span style="float: right;">
      								<button type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" job_id="{{$jb->id}}" job_name="{{$jb->job_title}}" job_desc="{{$jb->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<a href="/job_delete/{{ $jb->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+     								<a href="/job_delete/{{ $jb->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
      							</span>
 				             </td>
 				            </tr>

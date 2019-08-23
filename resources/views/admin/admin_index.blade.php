@@ -6,7 +6,7 @@
 			<div class="container">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-4 col-xl-3">
+						<div class="col-md-4 col-xl-4">
 				            <div class="card bg-c-blue order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Employees</h6>
@@ -16,7 +16,7 @@
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-4 col-xl-3">
+				        <div class="col-md-4 col-xl-4">
 				            <div class="card bg-c-green order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Departments</h6>
@@ -26,7 +26,7 @@
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-4 col-xl-3">
+				        <div class="col-md-4 col-xl-4">
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>

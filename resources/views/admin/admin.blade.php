@@ -20,7 +20,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <!-- Override CSS -->
@@ -169,10 +170,10 @@
 				<div class="dashboard_banner">
 					<div class="row">
 						<div class="col-lg-6">
-							<h2><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h2>
+							<h4><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h4>
 						</div>
 						<div class="col-lg-6">
-							<ul style="list-style: none;">
+							<ul style="list-style: none; padding-top: 20px;">
 								<li style="float: right;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 	                                     <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
@@ -255,8 +256,22 @@
 	    	$('.mp_id').val(position_id);
 	    });
 
-	      $('#DataTable').DataTable();
-	      $('#addDataTable').DataTable();
+	      $('#DataTable').DataTable({
+	      	columnDefs: [
+	      	           {
+	      	               targets: [ 0, 1, 2 ],
+	      	               className: 'mdl-data-table__cell--non-numeric'
+	      	           }
+	      	       ]
+	      });
+	      $('#addDataTable').DataTable({
+	      	columnDefs: [
+	      	           {
+	      	               targets: [ 0, 1, 2 ],
+	      	               className: 'mdl-data-table__cell--non-numeric'
+	      	           }
+	      	       ]
+	      });
 
 	      $('.view_emp').on('click',  function(event){
 	      	var id = $(this).attr('p_id');

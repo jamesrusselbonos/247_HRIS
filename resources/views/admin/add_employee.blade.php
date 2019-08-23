@@ -3,7 +3,7 @@
 @section('content')
 	<div class="col-lg-12">
 		<div class="add_employee_tab">
-			<div class="row">
+			<div class="row employee_forms">
 				<form method="POST" action="{{route('admin.add_employee.create')}}">
 					<div class="row">
 							<div class="col-lg-3">
@@ -13,8 +13,9 @@
 								<div class="input-group">
 								    <span class="input-group-btn" style="margin-right:70px;">
 								        <span class="btn btn-default btn-file">
-								           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="product_image" id="imgInp">
+								           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> -->
 								        </span>
+								        <input type="file"  name="product_image" id="imgInp">	
 								    </span>
 								   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
 								</div>
@@ -291,8 +292,6 @@
 								          <label for="diploma_yes">No</label>
 								          <input type="radio" name="diploma" id="diploma_no" value="None">
 										</div>
-									</div>
-									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Medical Certificate</label></br>
 										  <label for="medical_yes">Yes</label>
@@ -301,6 +300,7 @@
 								          <input type="radio" name="medical" id="medical_no" value="None">
 										</div>
 									</div>
+									
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>TOR</label></br>
@@ -309,8 +309,6 @@
 								          <label for="TOR_no">No</label>
 								          <input type="radio" name="TOR" id="TOR_no" value="None">
 										</div>
-									</div>
-									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Birth Certificate</label></br>
 										  <label for="birth_yes">Yes</label>
@@ -319,6 +317,7 @@
 								          <input type="radio" name="birth_cert" id="birth_no" value="None">
 										</div>
 									</div>
+									
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Brgy. Clearance</label></br>
@@ -327,8 +326,6 @@
 								          <label for="brgy_no">No</label>
 								          <input type="radio" name="brgy" id="brgy_no" value="None">
 										</div>
-									</div>
-									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Cedula</label></br>
 										  <label for="cedula_yes">Yes</label>

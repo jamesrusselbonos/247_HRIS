@@ -35,15 +35,15 @@ body{
 	margin-top: 30px;
 }
 .dashboard_banner{
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background-color: #fff;
 	padding-left: 100px;
 	padding-right: 100px;
 
-	/*-webkit-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
+	-webkit-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
 	-moz-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
-	box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);*/
+	box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
 }
 .main{
 	background-color: #f8f8f8;
@@ -55,6 +55,8 @@ body{
 .add_employee_tab{
 	padding-left: 100px;
 	padding-right: 100px;
+
+	height: auto;
 }
 .employee_list{
 	padding-left: 100px;
@@ -283,5 +285,44 @@ a:active {
 	-webkit-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
 	-moz-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
 	box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
+}
+.employee_forms{
+	background-color: #fff;
+
+	padding-top: 50px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+
+	-webkit-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
+	-moz-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
+	box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
+}
+.btn-success{
+	border-radius: 30px;
+	background-color: #fff;
+	border-color: #28A745;
+	border-width: 2px;
+	color: #28A745;
+
+	padding: 5px 10px 5px 10px;
+}
+.btn-primary{
+	border-radius: 30px;
+	background-color: #fff;
+	border-color: #0069D9;
+	border-width: 2px;
+	color: #0069D9;
+
+	padding: 5px 10px 5px 10px;
+}
+.btn-danger{
+	border-radius: 30px;
+	background-color: #fff;
+	border-color: #C82333;
+	border-width: 2px;
+	color: #C82333;
+
+	padding: 5px 10px 5px 10px;
 }
 
