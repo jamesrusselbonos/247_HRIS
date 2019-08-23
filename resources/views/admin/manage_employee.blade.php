@@ -155,7 +155,7 @@
 		             			<div class="input-group">
 		             			    <span class="input-group-btn" style="margin-right:70px;">
 		             			        <span class="btn btn-default btn-file">
-		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="product_image" id="imgInp">
+		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="product_image" id="edi_imgInp">
 		             			        </span>
 		             			    </span>
 		             			   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
@@ -173,8 +173,8 @@
 								<div class="form-group col-md-4">
 								  <label>Gender</label>
 								  <select id="edit_egender">
-								    <option value="male">Male</option>
-								    <option value="female">Female</option>
+								    <option value="Male">Male</option>
+								    <option value="Female">Female</option>
 								  </select>
 								</div>
 							</div>
@@ -192,20 +192,26 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Last Name</label>
-								  <input type="text" name="employee_id" id="employee_id" class="form-control" >
+								  <input type="text" name="edit_elname" id="edit_elname" class="form-control" >
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Department</label>
 								  <select id="edit_edepartmant">
-								  	<option value="d_web">Web Development</option>
-								    <option value="d_FBA">FBA</option>
+								  	@foreach($list as $dlist)
+								  		<option value="{{$dlist->department_name}}">{{$dlist->department_name}}</option> 
+								  	@endforeach
 								  </select>
 								</div>
 								<div class="form-group col-md-4">
 								  <label>Status</label>
-								  <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" >
+								  <select id="edit_estatus">
+								  	@foreach($list as $slist)
+								  		<option value="{{$slist->job_status}}">{{$slist->job_status}}</option> 
+								  	@endforeach
+								  </select>
+								  <!-- <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" > -->
 								</div>
 							</div>
 							<h3 style="color: #9e9e9e;">Contact Info</h3>
@@ -299,11 +305,16 @@
 								<div class="form-group col-md-4">
 								  <label>Job Title</label></br>
 								  <select id="edit_ejobtitle">
+								  	@foreach($list as $jlist)
+								  		<option value="{{$jlist->job_title}}">{{$jlist->job_title}}</option> 
+								  	@endforeach
+								  </select>
+								  <!-- <select id="edit_ejobtitle">
 								    <option value="ecommerce">E-Commerce Support Specialist</option>
 								    <option value="web_dev">Web Developer</option>
 								    <option value="graphics_artist">Graphic Artist</option>
 								    <option value="social_media_assistant">Social Media Assistant</option>
-								  </select>
+								  </select> -->
 								</div>
 
 								<div class="form-group col-md-4">
@@ -314,12 +325,22 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Job Level</label>
-								  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" >
+								  <select id="edit_ejoblevel">
+								  	@foreach($list as $llist)
+								  		<option value="{{$llist->job_level}}">{{$llist->job_level}}</option> 
+								  	@endforeach
+								  </select>
+								 <!--  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" > -->
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Position</label>
-								  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" >
+								   <select id="edit_ejobposition">
+								  	@foreach($list as $plist)
+								  		<option value="{{$plist->job_position}}">{{$plist->job_position}}</option> 
+								  	@endforeach
+								  </select>
+								 <!--  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" > -->
 								</div>
 							</div>
 							<div class="form-row">
@@ -372,8 +393,6 @@
 							          <label for="female">No</label>
 							          <input type="radio" name="edit_ediploma" id="diploma_none" value="None">
 									</div>
-								</div>
-								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Medical Certificate</label></br>
 									  <label for="male">Yes</label>
@@ -382,6 +401,7 @@
 							          <input type="radio" name="edit_emedical" id="medical_none" value="None">
 									</div>
 								</div>
+								
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>TOR</label></br>
@@ -390,8 +410,6 @@
 							          <label for="female">No</label>
 							          <input type="radio" name="edit_etor" id="tor_none" value="None">
 									</div>
-								</div>
-								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Birth Certificate</label></br>
 									  <label for="male">Yes</label>
@@ -400,6 +418,7 @@
 							          <input type="radio" name="edit_ebirth" id="birth_cert_none" value="None">
 									</div>
 								</div>
+								
 								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Brgy. Clearance</label></br>
@@ -408,8 +427,6 @@
 							          <label for="female">No</label>
 							          <input type="radio" name="edit_eclearance" id="clearance_none" value="None">
 									</div>
-								</div>
-								<div class="form-row">
 									<div class="form-group col-md-4">
 									  <label>Cedula</label></br>
 									  <label for="male">Yes</label>
@@ -418,6 +435,7 @@
 							          <input type="radio" name="edit_ecedula" id="cedula_none" value="None">
 									</div>
 								</div>
+								
 			             	</div>
 		             	</div>
 		           </form>

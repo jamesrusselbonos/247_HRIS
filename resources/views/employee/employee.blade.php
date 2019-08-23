@@ -62,15 +62,25 @@
 								</div>
 							</div>
 						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="#">Memo</a>
+								</div>
+							</div>
+						</li>
 					</ul>	
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-10 main">
 			<div class="dashboard_banner">
-				<div class="row">
+				<div class="row" style="padding-top: 10px; padding-bottom: 10px;">
 					<div class="col-lg-6">
-						<h2>EMPLOYEE DASHBOARD</h2>
+						<h4>EMPLOYEE DASHBOARD</h4>
 					</div>
 					<div class="col-lg-6">
 						<ul style="list-style: none;">

@@ -80,6 +80,12 @@ body{
 
 	padding-top: 50px;
 }
+.admin_index{
+	padding-left: 100px;
+	padding-right: 100px;
+
+	padding-top: 50px;
+}
 .job_pages{
 	
 	padding-left: 100px;
@@ -244,7 +250,10 @@ body{
 }
 
 .card .card-block {
-    padding: 25px;
+    /*padding: 25px;*/
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
 }
 
 .order-card i {
