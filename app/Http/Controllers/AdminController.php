@@ -207,4 +207,11 @@ class AdminController extends Controller
         return redirect()->route('admin.manage_user');
     }
 
+    public function memo_index(){
+
+        $memo_employee = DB::table('prototype__employees')->get();
+
+        return view('admin.memo', compact('memo_employee'));
+    }
+
 }

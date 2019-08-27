@@ -16,7 +16,7 @@ class CreatePrototypeEmployeeTable extends Migration
         Schema::create('prototype__employees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('employee_id')->required()->unique();
-            $table->string('employee_img')->nullable();
+            $table->string('employee_img')->default('profile.png')->nullable();
             $table->string('gender')->required();
             $table->string('firstname')->required();
             $table->string('middle_name')->required();

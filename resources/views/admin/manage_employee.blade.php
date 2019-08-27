@@ -463,14 +463,14 @@
 	      <div class="modal-body">
 	      	<div class="col-lg-12 employee_list_display">
 				<div class="row">
-					<div style="text-align: center;" class="col-lg-12">
+					<div style="text-align: center; padding-top: 30px;" class="col-lg-4">
 						<img class="profile_photo" src="/img/profile.png">
 						<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
 					</div>
-					<div style="padding-top: 50px;" class="col-lg-12 profile_list">
-						<h2 id="elist_lname"></h2>, <h2 id="elist_fname"></h2> <h2 id="elist_mname"></h2>
-						<h5 id="elist_position"></h5>
-						<h6 id="elist_id"></h6>
+					<div  class="col-lg-8 profile_list">
+						<h3 id="elist_lname"></h3>, &nbsp;<h3 id="elist_fname"></h3> <h3 id="elist_mname"></h3>
+						<h5 style="margin-top: -18px; font-size: 25px;" id="elist_position"></h5>
+						<h6 style="margin-top: -5px;" id="elist_id"></h6>
 						<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
 					</div>
 				</div>

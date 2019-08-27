@@ -7,7 +7,7 @@
 	<title>Admin Dashboard | 247 HRIS</title>
 
 	<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/4c6c819f60.js"></script>
@@ -102,6 +102,16 @@
 											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
 										</li> -->
 									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="/memo">Memo</a>
 								</div>
 							</div>
 						</li>

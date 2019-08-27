@@ -1,5 +1,5 @@
 body{
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 .sidebar{
 	height: 100vh;
@@ -9,6 +9,9 @@ body{
 	-webkit-box-shadow: 10px 0px 20px -6px rgba(0,0,0,0.21);
 	-moz-box-shadow: 10px 0px 20px -6px rgba(0,0,0,0.21);
 	box-shadow: 10px 0px 20px -6px rgba(0,0,0,0.21);
+
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 .sidebar h1, .sidebar h6{
 	color: #000;
@@ -68,6 +71,12 @@ body{
 
 	padding-top: 50px;
 }
+.memo_page{
+	padding-left: 100px;
+	padding-right: 100px;
+
+	padding-top: 50px;
+}
 .manage_employee{
 	padding-left: 100px;
 	padding-right: 100px;
@@ -106,9 +115,11 @@ body{
 }
 .profile_list{
 	padding-left: 25px;
-	text-align: center;
+	/*text-align: center;*/
+
+	padding-top: 50px !important;
 }
-.profile_list h2{
+.profile_list h3{
 	display: inline-block;
 }
 .add_employee_tab{
