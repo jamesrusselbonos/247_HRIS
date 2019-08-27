@@ -85,8 +85,8 @@
 						               	ep_fname="{{ $lt->firstname }}"
 						               	ep_mname="{{ $lt->middle_name }}"
 						               	ep_lname="{{ $lt->lastname }}"
-						               	ep_department="{{ $lt->department_name }}"
-						               	ep_status="{{ $lt->job_status }}"
+						               	ep_department="{{ $lt->department_id }}"
+						               	ep_status="{{ $lt->status_id }}"
 						               	ep_picture="{{ $lt->employee_img }}"
 						               	ep_address="{{ $lt->address }}"
 						               	ep_city="{{ $lt->city }}"
@@ -103,10 +103,10 @@
 						               	ep_relationship="{{ $lt->relationship }}"
 						               	ep_eaddress="{{ $lt->emergency_address }}"
 						               	ep_enumber="{{ $lt->emergency_number }}"
-						               	ep_jobtitle="{{ $lt->job_title }}"
+						               	ep_jobtitle="{{ $lt->job_id }}"
 						               	ep_jobdesc="{{ $lt->job_description }}"
-						               	ep_joblevel="{{ $lt->job_level }}"
-						               	ep_jobposition="{{ $lt->job_position }}"
+						               	ep_joblevel="{{ $lt->job_level_id }}"
+						               	ep_jobposition="{{ $lt->job_position_id }}"
 						               	ep_datehired="{{ $lt->date_hired }}"
 						               	ep_dateterminated="{{ $lt->date_terminated }}"
 						               	ep_sss="{{ $lt->SSS_no }}"
@@ -122,7 +122,7 @@
 						              	ep_cedula="{{ $lt->cedula }}"
      								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 
-     								<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button>
+     								<a href="/manage_employee/{{ $lt->id }}""><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
      							</span>
 				             </td>
 				            </tr>
@@ -146,7 +146,8 @@
 		         </button>
 		       </div>
 		       <div class="modal-body">
-		           <form>
+		           <form method="POST" action="{{route('admin.employee_list.edit')}}">
+		           	{{ csrf_field() }}
 		             <div style="padding-left: 50px; padding-right: 50px;" class="row">
 		             	<div class="col-lg-4">
 		             		<img class="profile_photo" src="/img/profile.png">
@@ -155,7 +156,7 @@
 		             			<div class="input-group">
 		             			    <span class="input-group-btn" style="margin-right:70px;">
 		             			        <span class="btn btn-default btn-file">
-		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="product_image" id="edi_imgInp">
+		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
 		             			        </span>
 		             			    </span>
 		             			   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
@@ -168,11 +169,12 @@
 								<div class="form-group col-md-4">
 								  <label>Employee ID</label>
 								  <input type="text" name="edit_employee_id" id="edit_employee_id" class="form-control" >
+								  <input type="hidden" name="edit_id" id="edit_id" class="form-control" >
 								</div>
 
 								<div class="form-group col-md-4">
 								  <label>Gender</label>
-								  <select id="edit_egender">
+								  <select id="edit_egender" name="edit_egender">
 								    <option value="Male">Male</option>
 								    <option value="Female">Female</option>
 								  </select>
@@ -198,17 +200,17 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Department</label>
-								  <select id="edit_edepartmant">
-								  	@foreach($list as $dlist)
-								  		<option value="{{$dlist->department_name}}">{{$dlist->department_name}}</option> 
+								  <select id="edit_edepartmant" name="edit_edepartmant">
+								  	@foreach($e_depart as $dlist)
+								  		<option value="{{$dlist->id}}">{{$dlist->department_name}}</option>
 								  	@endforeach
 								  </select>
 								</div>
 								<div class="form-group col-md-4">
 								  <label>Status</label>
-								  <select id="edit_estatus">
-								  	@foreach($list as $slist)
-								  		<option value="{{$slist->job_status}}">{{$slist->job_status}}</option> 
+								  <select id="edit_estatus" name="edit_estatus">
+								  	@foreach($e_status as $slist)
+								  		<option value="{{$slist->id}}">{{$slist->job_status}}</option> 
 								  	@endforeach
 								  </select>
 								  <!-- <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" > -->
@@ -304,9 +306,9 @@
 							<div style="margin-top: 30px;" class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Job Title</label></br>
-								  <select id="edit_ejobtitle">
-								  	@foreach($list as $jlist)
-								  		<option value="{{$jlist->job_title}}">{{$jlist->job_title}}</option> 
+								  <select id="edit_ejobtitle" name="edit_ejobtitle">
+								  	@foreach($e_jobs as $jlist)
+								  		<option value="{{$jlist->id}}">{{$jlist->job_title}}</option> 
 								  	@endforeach
 								  </select>
 								  <!-- <select id="edit_ejobtitle">
@@ -325,9 +327,9 @@
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <label>Job Level</label>
-								  <select id="edit_ejoblevel">
-								  	@foreach($list as $llist)
-								  		<option value="{{$llist->job_level}}">{{$llist->job_level}}</option> 
+								  <select id="edit_ejoblevel" name="edit_ejoblevel">
+								  	@foreach($e_level as $llist)
+								  		<option value="{{$llist->id}}">{{$llist->job_level}}</option> 
 								  	@endforeach
 								  </select>
 								 <!--  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" > -->
@@ -335,9 +337,9 @@
 
 								<div class="form-group col-md-4">
 								  <label>Position</label>
-								   <select id="edit_ejobposition">
-								  	@foreach($list as $plist)
-								  		<option value="{{$plist->job_position}}">{{$plist->job_position}}</option> 
+								   <select id="edit_ejobposition" name="edit_ejobposition">
+								  	@foreach($e_position as $plist)
+								  		<option value="{{$plist->id}}">{{$plist->job_position}}</option> 
 								  	@endforeach
 								  </select>
 								 <!--  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" > -->
@@ -389,7 +391,7 @@
 									<div class="form-group col-md-4">
 									  <label>Diploma</label></br>
 									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_ediploma" id="diploma_passed" value="Passed" checked>
+							          <input type="radio" name="edit_ediploma" id="diploma_passed" value="Passed" >
 							          <label for="female">No</label>
 							          <input type="radio" name="edit_ediploma" id="diploma_none" value="None">
 									</div>
@@ -438,12 +440,12 @@
 								
 			             	</div>
 		             	</div>
+		             	<div class="modal-footer">
+				          <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+				           <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+				         </div>
 		           </form>
-		         </div>
-		         <div class="modal-footer">
-		          <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		           <button type="button" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-		         </div>
+		         </div>   
 		    </div>
 	    </div>
 	</div>

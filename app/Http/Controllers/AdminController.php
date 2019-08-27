@@ -46,6 +46,12 @@ class AdminController extends Controller
 
     public function employeeList()
     {
+        $e_depart = DB::table('departments')->get();
+        $e_status = DB::table('statuses')->get();
+        $e_level = DB::table('levels')->get();
+        $e_jobs = DB::table('jobs')->get();
+        $e_position = DB::table('positions')->get();
+
         $list = DB::table('prototype__employees')
             ->join('departments', 'departments.id', '=', 'prototype__employees.department_id')
             ->join('statuses', 'statuses.id', '=', 'prototype__employees.status_id')
@@ -54,14 +60,70 @@ class AdminController extends Controller
             ->join('positions', 'positions.id','=', 'prototype__employees.job_position_id')
             ->select('prototype__employees.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
             ->get();
+          
+        return view('admin.manage_employee', compact('list','e_depart', 'e_status', 'e_level', 'e_jobs','e_position'));
+    }
 
-        return view('admin.manage_employee', compact('list'));
+    public function edit_employeeList(Request $request){
+
+        $e_employee = Prototype_Employee::find($request->edit_id);
+        $e_employee->employee_id = $request->edit_employee_id;
+        $e_employee->employee_img = $request->edit_product_image;
+        $e_employee->gender = $request->edit_egender;
+        $e_employee->firstname = $request->edit_efname;
+        $e_employee->middle_name = $request->edit_emname;
+        $e_employee->lastname = $request->edit_elname;
+        $e_employee->department_id = $request->edit_edepartmant;
+        $e_employee->status_id = $request->edit_estatus;
+        $e_employee->address = $request->edit_eaddress;
+        $e_employee->city = $request->edit_ecity;
+        $e_employee->province = $request->edit_eprovince;
+        $e_employee->country = $request->edit_ecountry;
+        $e_employee->zip_code = $request->edit_ezip;
+        $e_employee->home_number = $request->edit_ehnumber;
+        $e_employee->mobile_number = $request->edit_emnumber;
+        $e_employee->work_email = $request->edit_ewemail;
+        $e_employee->personal_email = $request->edit_epemail;
+        $e_employee->birthday = $request->edit_ebday;
+        $e_employee->SIN_SSN = $request->edit_essnsin;
+        $e_employee->emergency_name = $request->edit_emgname;
+        $e_employee->relationship = $request->edit_emgrelationship;
+        $e_employee->emergency_address = $request->edit_emgaddress;
+        $e_employee->emergency_number = $request->edit_emgnumber;
+        $e_employee->job_id = $request->edit_ejobtitle;
+        $e_employee->job_description = $request->edit_ejobdesc;
+        $e_employee->job_level_id = $request->edit_ejoblevel;
+        $e_employee->job_position_id = $request->edit_ejobposition;
+        $e_employee->date_hired = $request->edit_edatehired;
+        $e_employee->date_terminated = $request->edit_edateterminated;
+        $e_employee->SSS_no = $request->edit_esss;
+        $e_employee->philhealth_no = $request->edit_ephilhealth;
+        $e_employee->pagibig_no = $request->edit_epagibig;
+        $e_employee->TIN_no = $request->edit_etin;
+        $e_employee->NBI_no = $request->edit_enbi;
+        $e_employee->diploma = $request->edit_ediploma;
+        $e_employee->medical = $request->edit_emedical;
+        $e_employee->TOR = $request->edit_etor;
+        $e_employee->birth_cert = $request->edit_ebirth;
+        $e_employee->brgy_clearance = $request->edit_ebirth;
+        $e_employee->cedula = $request->edit_ecedula;
+
+        $e_employee->save();
+
+        return redirect()->route('admin.employee_list'); 
+    }
+
+    public function delete_employeeList($id){
+        
+        DB::table('prototype__employees')->where('id', $id)->delete();
+
+        return redirect()->route('admin.employee_list');
     }    
 
-    public function manageEmployee()
-    {
-        return view('admin.manage_employee');
-    }    
+    // public function manageEmployee()
+    // {
+    //     return view('admin.manage_employee');
+    // }    
 
     public function timesheet()
     {

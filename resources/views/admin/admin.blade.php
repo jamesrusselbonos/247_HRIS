@@ -407,7 +407,7 @@
 	    	
 	    	console.log(edit_employee_gender);
 	    	
-	    	$('#e_id').val(edit_id);
+	    	$('#edit_id').val(edit_id);
 	    	$('#edit_employee_id').val(edit_employee_id);
 	    	$('#edit_egender').val(edit_employee_gender);
 	    	$('#edit_fname').val(edit_employee_fname);
@@ -443,12 +443,49 @@
 	    	$('#edit_etin').val(edit_employee_tin);
 	    	$('#edit_enbi').val(edit_employee_nbinumber);
 	    	$('#elist_TIN').val(edit_employee_tin);
-	    	$('#edit_ediploma').val(edit_employee_diploma);
-	    	$('#edit_emedical').val(edit_employee_medical);
-	    	$('#edit_etor').val(edit_employee_tor);
-	    	$('#edit_ebirth').val(edit_employee_birthcert);
-	    	$('#edit_eclearance').val(edit_employee_bclearance);
-	    	$('#edit_ecedula').val(edit_employee_cedula);
+	    	if(edit_employee_diploma == "Passed"){
+	    		$( "#diploma_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#diploma_none" ).prop( "checked", true );
+	    	}
+	    	
+	    	// $('#edit_ediploma').prop('checked' , true);
+	    	// $('#edit_emedical').val(edit_employee_medical);
+	    	if(edit_employee_medical == "Passed"){
+	    		$( "#medical_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#medical_none" ).prop( "checked", true );
+	    	}
+	    	// $('#edit_etor').val(edit_employee_tor);
+	    	if(edit_employee_tor == "Passed"){
+	    		$( "#tor_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#tor_none" ).prop( "checked", true );
+	    	}
+	    	// $('#edit_ebirth').val(edit_employee_birthcert);
+	    	if(edit_employee_birthcert == "Passed"){
+	    		$( "#birth_cert_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#birth_cert_none" ).prop( "checked", true );
+	    	}
+	    	// $('#edit_eclearance').val(edit_employee_bclearance);
+	    	if(edit_employee_bclearance == "Passed"){
+	    		$( "#clearance_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#clearance_none" ).prop( "checked", true );
+	    	}
+	    	// $('#edit_ecedula').val(edit_employee_cedula);
+	    	if(edit_employee_cedula == "Passed"){
+	    		$( "#cedula_passed" ).prop( "checked", true );
+	    	}
+	    	else{
+	    		$( "#cedula_none" ).prop( "checked", true );
+	    	}
 	    	
 	      });
 	});
