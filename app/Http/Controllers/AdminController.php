@@ -67,9 +67,33 @@ class AdminController extends Controller
 
     public function edit_employeeList(Request $request){
 
+
+        if($request->hasFile('edit_product_image')){
+
+            $filenameWithExt = $request->file('edit_product_image')->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $variation = preg_replace('/[\+]/', '', $filename);
+
+            $extension = $request->file('edit_product_image')->getClientOriginalExtension();
+
+            $fileNameToStore = 'img/'.''.$variation.'_'.time().'.'.$extension;
+            
+            $image = $request->file('edit_product_image');
+
+            $destination = public_path('/img');
+             $image->move($destination, $fileNameToStore);
+             // $path = $request->file('product_image')->store($destination, $fileNameToStore);
+
+        }
+        else{
+
+            $fileNameToStore = "profile.png";
+        }
+
         $e_employee = Prototype_Employee::find($request->edit_id);
         $e_employee->employee_id = $request->edit_employee_id;
-        $e_employee->employee_img = $request->edit_product_image;
+        $e_employee->employee_img = $fileNameToStore;
         $e_employee->gender = $request->edit_egender;
         $e_employee->firstname = $request->edit_efname;
         $e_employee->middle_name = $request->edit_emname;
@@ -145,10 +169,33 @@ class AdminController extends Controller
 
     public function create(Request $request)
     {
+
+        if($request->hasFile('product_image')){
+
+            $filenameWithExt = $request->file('product_image')->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $variation = preg_replace('/[\+]/', '', $filename);
+
+            $extension = $request->file('product_image')->getClientOriginalExtension();
+
+            $fileNameToStore = 'img/'.''.$variation.'_'.time().'.'.$extension;
+            
+            $image = $request->file('product_image');
+
+            $destination = public_path('/img');
+             $image->move($destination, $fileNameToStore);
+             // $path = $request->file('product_image')->store($destination, $fileNameToStore);
+
+        }
+        else{
+
+            $fileNameToStore = "profile.png";
+        }
         $proto = new Prototype_Employee([
             
             'employee_id' => $request->get('employee_id'),
-            'employee_img' => $request->get('product_image'),
+            'employee_img' => $fileNameToStore,
             'gender' => $request->get('gender'),
             'firstname' => $request->get('fname'),
             'middle_name' => $request->get('m_name'),
