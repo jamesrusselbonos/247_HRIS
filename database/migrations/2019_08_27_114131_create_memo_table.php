@@ -13,7 +13,7 @@ class CreateMemoTable extends Migration
      */
     public function up()
     {
-        Schema::create('memo', function (Blueprint $table) {
+        Schema::create('memos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('memo')->required();
             $table->string('attachment')->nullable();

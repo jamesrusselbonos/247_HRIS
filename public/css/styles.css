@@ -199,6 +199,8 @@ body{
 }
 .nav_link:hover{
 	background-color: #f8f8f8;
+
+	 color: #fff !important;
 }
 .nav_link{
 	padding-top: 15px;
@@ -206,6 +208,9 @@ body{
 
 	padding-left: 20px;
 	padding-right: 20px;
+
+	background-color: #fff;
+	transition: background-color 0.5s ease;
 }
 .active_nav{
 	background-color: #f8f8f8;
@@ -234,15 +239,27 @@ body{
 }
 
 .bg-c-blue {
-    background: linear-gradient(45deg,#4099ff,#73b4ff);
+  background: #B24592;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 .bg-c-green {
-    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+   background: #BE93C5;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
 }
 
 .bg-c-yellow {
-    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+  background: #ff7e5f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #feb47b, #ff7e5f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .bg-c-pink {
@@ -320,7 +337,7 @@ a:active {
 }
 .btn-success{
 	border-radius: 30px;
-	background-color: #fff;
+	background-color:transparent;
 	border-color: #28A745;
 	border-width: 2px;
 	color: #28A745;
@@ -329,7 +346,7 @@ a:active {
 }
 .btn-primary{
 	border-radius: 30px;
-	background-color: #fff;
+	background-color: transparent;
 	border-color: #0069D9;
 	border-width: 2px;
 	color: #0069D9;
@@ -338,11 +355,19 @@ a:active {
 }
 .btn-danger{
 	border-radius: 30px;
-	background-color: #fff;
+	background-color: transparent;
 	border-color: #C82333;
 	border-width: 2px;
 	color: #C82333;
 
 	padding: 5px 10px 5px 10px;
 }
+.btn-info{
+	border-radius: 30px;
+	background-color: transparent;
+	border-color: #169AAF;
+	border-width: 2px;
+	color: #169AAF;
 
+	padding: 5px 10px 5px 10px;
+}

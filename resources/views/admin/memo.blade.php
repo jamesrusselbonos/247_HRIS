@@ -20,42 +20,43 @@
 			        <table class="table table-bordered" id="addDataTable">
 			          <thead>
 			            <tr>
-			              <th scope="col">Employee</th>
-			              <th scope="col">Employee ID</th>
+			              
 			              <th scope="col">Memo</th>
+			              <th scope="col">Attachment</th>
 			              <th scope="col">Date</th>
 			              <th scope="col">Manage</th>
 			            </tr>
 			          </thead>
 			          <tbody>
 			      
-			      		
+			      		@foreach( $memos as $mem)
+
 
 			            <tr>
 
 			              <th scope="row">
-			              	
+			              	{{ $mem->memo }}
 			              </th>
 			              
-			              <td style="max-width: 400px;">
-			              	
+			              <td style="text-overflow: ellipsis; max-width: 200px;">
+			              	{{ $mem->attachment }}
 			              </td>
-			               <td style="max-width: 400px;">
-			              	
+			               <td >
+			              	{{ $mem->memo_date }}
 			              </td>
-			               <td style="max-width: 400px;">
-			              	
-			              </td>
+			              
 			             
 			             <td>
 			             	<span style="float: right;">
-			             		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Send Memo</button>
- 								<button type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
- 								<a href=""><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Send</button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+ 								<a href=""><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
  							</span>
 			             </td>
 			            </tr>
-			      		          
+			      		
+			      		@endforeach          
 			           
 			          </tbody>
 			        </table>
@@ -76,31 +77,23 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="POST" action="{{route('admin.job_title')}}">
+	              <form method="POST" action="{{ route('admin.memo.create') }}" enctype="multipart/form-data">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
-	                	<div class="form-group col-md-12">
-	                	  <label>Job Title</label>
-	                	  <select id="edit_ejobtitle" name="edit_ejobtitle">
-						  	@foreach($memo_employee as $e_memo)
-						  		<option value="{{$e_memo->id}}">{{$e_memo->lastname}}, {{$e_memo->firstname}} {{$e_memo	->middle_name}}</option> 
-						  	@endforeach
-						  </select>
-	                	</div>
-
-	                	<div class="form-group col-md-12">
-	                	  <label>Employee ID</label>
-	                	  <input type="text" name="edit_ejobdesc" id="edit_ejobdesc" class="form-control" >
-	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Memo</label>
-	                	   <textarea class="form-control" rows="5" id="job_desc" name="job_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="memo" name="memo"></textarea>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
+	                	  <label>Attachment</label></br>
+	                	  <input type="file" name="file" id="file" />
+	                	</div>	
+
+	                	<div class="form-group col-md-12">
 	                	  <label>Date</label>
-	                	    <input type="date" name="edit_ebday" id="edit_ebday" max="3000-12-31" 
+	                	    <input type="date" name="memo_date" id="memo_date" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">

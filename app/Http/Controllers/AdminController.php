@@ -13,6 +13,7 @@ use App\Status;
 use App\Position;
 
 use App\Prototype_Employee;
+use App\Memo;
 
 use DB;
 
@@ -210,8 +211,32 @@ class AdminController extends Controller
     public function memo_index(){
 
         $memo_employee = DB::table('prototype__employees')->get();
+        $memos = DB::table('memos')->get();
 
-        return view('admin.memo', compact('memo_employee'));
+        return view('admin.memo', compact('memo_employee', 'memos'));
+    }
+
+    public function memo_create(Request $request){
+        
+        if($files = $request->file('file')){
+            $filename = $files->getClientOriginalName();
+
+            if($files->move('documents', $filename)){
+                $memo = new Memo();
+                $memp_name = $request->get('memo');
+                $memo_date = $request->get('memo_date');
+                
+                $memo->attachment = $filename;
+                $memo->memo = $memp_name;
+                $memo->memo_date = $memo_date;
+
+                $memo->save();
+
+                return redirect()->route('admin.memo');
+                
+            };
+        }
+        return redirect()->back();
     }
 
 }

@@ -71,7 +71,8 @@ Route::get('/user_delete/{id}', 'AdminController@user_delete');
 
 Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard');
 
-Route::get('/memo', 'AdminController@memo_index');
+Route::get('/memo', 'AdminController@memo_index')->name('admin.memo');
+Route::post('/memo', 'AdminController@memo_create')->name('admin.memo.create');
 
 Route::get('/employee', function () {
     return view('employee.employee');

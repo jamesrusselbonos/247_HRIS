@@ -43,12 +43,12 @@
 			<!-- Navigation-->
 			<div class="row navigation">
 				<div class="col-lg-12">
-				<h6 style="padding-left: 20px; padding-right: 20px;">Navigation</h6>	
+				<h6 style="padding-left: 20px;">Navigation</h6>	
 					<ul>
 						<li>
 							<div style="margin-top: 20px;" class="row nav_link active_nav">
 								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true"></i>
+									<i class="fa fa-inbox" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
 									<a style="font-size: 15px;" href="/admin">Dashboard</a>
@@ -120,7 +120,7 @@
 			</div>
 			<div class="row config">
 				<div class="col-lg-12">
-					<h6 style="padding-left: 20px; padding-right: 20px;">Configurations</h6>
+					<h6 style="padding-left: 20px;">Configurations</h6>
 					<ul>
 						<li>
 							<div class="row nav_link">
