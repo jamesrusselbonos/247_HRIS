@@ -17,6 +17,7 @@ class CreateMemoTable extends Migration
             $table->bigIncrements('id');
             $table->string('memo')->required();
             $table->string('attachment')->nullable();
+            $table->string('subject')->required();
             $table->string('memo_date')->required();
             $table->timestamps();
         });

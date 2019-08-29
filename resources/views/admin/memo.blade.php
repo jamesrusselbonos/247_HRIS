@@ -22,6 +22,7 @@
 			            <tr>
 			              
 			              <th scope="col">Memo</th>
+			              <th scope="col">Subject</th>
 			              <th scope="col">Attachment</th>
 			              <th scope="col">Date</th>
 			              <th scope="col">Manage</th>
@@ -37,7 +38,9 @@
 			              <th scope="row">
 			              	{{ $mem->memo }}
 			              </th>
-			              
+			              <th scope="row">
+			              	{{ $mem->subject }}
+			              </th>
 			              <td style="text-overflow: ellipsis; max-width: 200px;">
 			              	{{ $mem->attachment }}
 			              </td>
@@ -48,7 +51,7 @@
 			             
 			             <td>
 			             	<span style="float: right;">
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Send</button>
  								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
  								<a href=""><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
@@ -67,6 +70,34 @@
 	</div>
 </div>
 
+<div class="modal fade view_memo" id="view_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+       		<div class="row">
+       			<div class="col-lg-12">
+       				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
+       				<h3 id="vmodal_memo"></h3>
+       				<h5 id="vmodal_subject"></h5>
+       				<p id="vmodal_memodate"></p>
+       			</div>
+       		</div>
+       		<div class="row">
+       			<div class="col-lg-12">
+       				
+       			</div>
+       		</div>	
+       </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
@@ -83,7 +114,12 @@
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Memo</label>
-	                	   <textarea class="form-control" rows="5" id="memo" name="memo"></textarea>
+	                	   <input class="form-control" rows="5" id="memo" name="memo">
+	                	</div>
+
+	                	<div class="form-group col-md-12">
+	                	  <label>Subject</label>
+	                	   <input class="form-control" rows="5" id="subject" name="subject">
 	                	</div>
 
 	                	<div class="form-group col-md-12">

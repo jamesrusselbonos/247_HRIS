@@ -88,7 +88,7 @@ class AdminController extends Controller
         }
         else{
 
-            $fileNameToStore = "profile.png";
+            $fileNameToStore = "img/profile.png";
         }
 
         $e_employee = Prototype_Employee::find($request->edit_id);
@@ -190,7 +190,7 @@ class AdminController extends Controller
         }
         else{
 
-            $fileNameToStore = "profile.png";
+            $fileNameToStore = "img/profile.png";
         }
         $proto = new Prototype_Employee([
             
@@ -271,10 +271,12 @@ class AdminController extends Controller
             if($files->move('documents', $filename)){
                 $memo = new Memo();
                 $memp_name = $request->get('memo');
+                $memp_subj = $request->get('subject');
                 $memo_date = $request->get('memo_date');
                 
                 $memo->attachment = $filename;
                 $memo->memo = $memp_name;
+                $memo->subject = $memp_subj;
                 $memo->memo_date = $memo_date;
 
                 $memo->save();

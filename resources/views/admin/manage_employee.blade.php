@@ -156,7 +156,7 @@
 		             			<div class="input-group">
 		             			    <span class="input-group-btn" style="margin-right:70px;">
 		             			        <span class="btn btn-default btn-file">
-		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
+		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp" required>
 		             			        </span>
 		             			    </span>
 		             			   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->

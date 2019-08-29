@@ -81,9 +81,16 @@
 				<div class="row" style="padding-top: 10px; padding-bottom: 10px;">
 					<div class="col-lg-6">
 						<h4>EMPLOYEE DASHBOARD</h4>
+
 					</div>
 					<div class="col-lg-6">
 						<ul style="list-style: none;">
+							<li style="float: right;">
+								<a href="#" class="notification-trigger">
+								  <span><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+								  <span class="badge">3</span>
+								</a>
+							</li>
 							<li style="float: right;" class="nav-item dropdown">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
@@ -105,6 +112,43 @@
 					</div>
 				</div>
 			</div>
+			<div class="panel">
+			      <div class="title">Notifications</div>
+			      <ul class="notification-bar">
+			          <li class="unread">
+			              <i class="ion-checkmark"></i>
+			              <div>
+			              	<h6><strong>Memo Title</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+			              </div>
+			          </li>
+			           <li class="unread">
+			              <i class="ion-checkmark"></i>
+			              <div>
+			              	<h6><strong>Memo Title</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+			              </div>
+			          </li>
+			          <li>
+			              <i class="ion-paper-airplane"></i>
+			              <div>
+			              	<h6><strong>Memo Title</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+			              </div>
+			          </li>
+			          <li>
+			              <i class="ion-plus"></i>
+			              <div>
+			              	<h6><strong>Memo Title</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+			              </div>
+			          </li>
+			      </ul>
+			  </div>
 			@yield('employee_content')
 		</div>
 	</div>
@@ -171,6 +215,13 @@
 				alert('res');
 			});
 		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('.notification-trigger').click(function() {
+		        $('.panel').toggleClass('visible');
+		    });
+		})
 	</script>
 </body>
 </html>

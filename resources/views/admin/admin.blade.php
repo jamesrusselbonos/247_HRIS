@@ -367,7 +367,7 @@
 	    	$('#elist_medical').html(employee_medical);
 	    	$('#elist_TOR').html(employee_tor);
 	    	$('#elist_bcert').html(employee_birthcert);
-	    	$('#elist_bclearance').val(employee_bclearance);
+	    	$('#elist_bclearance').html(employee_bclearance);
 	    	$('#elist_cedula').html(employee_cedula);
 	    	
 	      });
