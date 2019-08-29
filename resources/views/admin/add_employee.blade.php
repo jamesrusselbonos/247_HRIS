@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="add_employee_tab">
 			<div class="row employee_forms">
-				<form method="POST" action="{{route('admin.add_employee.create')}}">
+				<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
 					<div class="row">
 							<div class="col-lg-3">
 							<img class="profile_photo" src="/img/profile.png">
@@ -15,7 +15,7 @@
 								        <span class="btn btn-default btn-file">
 								           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> -->
 								        </span>
-								        <input type="file"  name="product_image" id="imgInp">	
+								        <input type="file"  name="product_image" id="edi_imgInp">	
 								    </span>
 								   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
 								</div>

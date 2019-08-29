@@ -122,7 +122,7 @@
 						              	ep_cedula="{{ $lt->cedula }}"
      								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 
-     								<a href="/manage_employee/{{ $lt->id }}""><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+     								<a href="/manage_employee/{{ $lt->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
      							</span>
 				             </td>
 				            </tr>
@@ -146,7 +146,7 @@
 		         </button>
 		       </div>
 		       <div class="modal-body">
-		           <form method="POST" action="{{route('admin.employee_list.edit')}}">
+		           <form method="POST" action="{{route('admin.employee_list.edit')}}" enctype="multipart/form-data">
 		           	{{ csrf_field() }}
 		             <div style="padding-left: 50px; padding-right: 50px;" class="row">
 		             	<div class="col-lg-4">

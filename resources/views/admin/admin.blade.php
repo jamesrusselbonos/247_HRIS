@@ -336,7 +336,7 @@
 	    	$('#elist_lname').html(employee_lname);
 	    	$('#elist_department').html(employee_department);
 	    	$('#elist_status').html(employee_status);
-	    	$('#e_pic').html(employee_picture);
+	    	$('.profile_photo').attr('src',employee_picture);
 	    	$('#elist_address').html(employee_address);
 	    	$('#elist_city').html(employee_city);
 	    	$('#elist_province').html(employee_province);
@@ -425,7 +425,7 @@
 	    	$('#edit_elname').val(edit_employee_lname);
 	    	$('#edit_edepartmant').val(edit_employee_department);
 	    	$('#edit_estatus').val(edit_employee_status);
-	    	$('#edi_imgInp').val(edit_employee_picture);
+	    	$('.profile_photo').attr('src',edit_employee_picture);
 	    	$('#edit_eaddress').val(edit_employee_address);
 	    	$('#edit_ecity').val(edit_employee_city);
 	    	$('#edit_eprovince').val(edit_employee_province);
@@ -498,6 +498,41 @@
 	    	}
 	    	
 	      });
+
+
+		$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+		    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		       
+		    }
+
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('.profile_photo').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#edi_imgInp").change(function(){
+		    readURL(this);
+		}); 
 	});
 </script>
 </html>
