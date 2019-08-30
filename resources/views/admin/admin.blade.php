@@ -513,6 +513,8 @@
 		  	$('#vmodal_subject').html(view_vm_subject);
 		  	$('#vmodal_filename').html(view_vm_attachment);
 		  	$('#vmodal_memodate').html(view_vm_date);
+		  	$('.memo_download').attr('href', 'documents/' + view_vm_attachment);
+		  	$('.memo_download').attr('download', view_vm_attachment);
 
 		  });	
 

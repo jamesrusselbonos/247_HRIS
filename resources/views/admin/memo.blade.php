@@ -35,26 +35,26 @@
 
 			            <tr>
 
-			              <th scope="row">
+			              <th style="max-width: 100px;">
 			              	{{ $mem->memo }}
 			              </th>
-			              <th scope="row">
+			              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->subject }}
 			              </th>
-			              <td style="text-overflow: ellipsis; max-width: 200px;">
+			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->attachment }}
 			              </td>
-			               <td >
+			               <td style="max-width: 50px;">
 			              	{{ $mem->memo_date }}
 			              </td>
 			              
 			             
-			             <td>
+			             <td style="max-width: 200px;">
 			             	<span style="float: right;">
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Send</button>
- 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
- 								<a href=""><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+ 								<a href=""><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
  							</span>
 			             </td>
 			            </tr>
@@ -79,12 +79,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
        </div>
-       <div class="modal-body" style="padding-left: 20px; padding-right: 20px;">
+       <div class="modal-body" style="padding: 30px 30px 30px 30px;">
        		<div class="row">
        			<div class="col-lg-12">
        				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
        				<h3 style="margin: 0; margin-bottom: 10px;" id="vmodal_memo"></h3>
-       				<h5 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h5>
+       				<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
        				<p id="vmodal_memodate"></p>
        			</div>
        		</div>
@@ -93,11 +93,11 @@
        				<div class="attach">
        					<div class="row">
        						<div class="col-lg-1" style="text-align: center;">
-       							<i class="fa fa-file-o" aria-hidden="true" style="font-size: 50px; color: #757575;"></i>
+       							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
        						</div>
        						<div class="col-lg-11">
-       							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px;"></h6>
-       							<a href=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+       							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+       							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
        						</div>
        					</div>
        				</div>

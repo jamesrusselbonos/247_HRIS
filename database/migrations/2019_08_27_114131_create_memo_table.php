@@ -15,9 +15,9 @@ class CreateMemoTable extends Migration
     {
         Schema::create('memos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('memo', 255)->required();
+            $table->string('memo')->required();
             $table->string('attachment')->nullable();
-            $table->string('subject')->required();
+            $table->longText('subject')->required();
             $table->string('memo_date')->required();
             $table->timestamps();
         });
