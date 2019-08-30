@@ -506,3 +506,11 @@ ul.notification-bar {
 
 	overflow-y: auto;
 }
+.attach a, .attach a:hover {
+	color: #9E9E9E;
+}
+.attach{
+	padding: 20px 20px 20px 20px;
+	background-color: #F8F8F8;
+	border-radius: 30px;
+}

@@ -498,6 +498,23 @@
 	    	}
 	    	
 	      });
+			
+		  $('.memo_view').on('click',  function(event){
+		  	var view_vm_id = $(this).attr('v_memoid'); 
+		  	var view_vm_title = $(this).attr('v_memo'); 
+		  	var view_vm_subject = $(this).attr('v_subject'); 
+		  	var view_vm_attachment = $(this).attr('v_attachment'); 
+		  	var view_vm_date = $(this).attr('v_memodate'); 
+
+		  	console.log(view_vm_attachment);
+
+		  	$('#vmodal_memoid').val(view_vm_id);
+		  	$('#vmodal_memo').html(view_vm_title);
+		  	$('#vmodal_subject').html(view_vm_subject);
+		  	$('#vmodal_filename').html(view_vm_attachment);
+		  	$('#vmodal_memodate').html(view_vm_date);
+
+		  });	
 
 
 		$(document).on('change', '.btn-file :file', function() {
