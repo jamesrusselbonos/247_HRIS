@@ -11,14 +11,15 @@ class SendMemo extends Notification
 {
     use Queueable;
 
+    public $details;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -55,7 +56,12 @@ class SendMemo extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' => 'My first notification'
+            'title' => $this->details->mem_tit,
+            'subject' => $this->details->mem_sub,
+            'file' => $this->details->filename,
+            'from' => $this->details->from,
+            'id' => $this->details->mem_id,
+
         ];
     }
 }

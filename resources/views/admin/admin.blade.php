@@ -15,7 +15,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -535,6 +535,24 @@
 		  	// $('.memo_download').attr('href', 'documents/' + view_vm_attachment);
 		  	// $('.memo_download').attr('download', view_vm_attachment);
 
+		  });
+
+		  $('#btn_send').on('click', function(event){
+		  	var mem_id = $('#smodal_memoid').val();
+		  	var from = $('#hdn-name').val();
+		  	var filename = document.getElementById("smodal_filename").innerHTML;
+		  	var mem_tit = document.getElementById("smodal_memo").innerHTML;
+		  	var mem_sub = document.getElementById("smodal_subject").innerHTML;
+		  	var token = $("#send_memo .hdn-token").val();
+
+
+		  		$.post('memo_send',
+		  		{'mem_id':mem_id, 'from':from,'filename':filename, 'mem_tit':mem_tit, 'mem_sub':mem_sub, '_token':token}, 
+		  		function(data){
+
+		  		location.reload();
+
+		  		 }); 
 		  });
 
 		$(document).on('change', '.btn-file :file', function() {

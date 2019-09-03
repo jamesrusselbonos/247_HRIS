@@ -301,14 +301,15 @@ class AdminController extends Controller
     }
 
     public function memoSent(Request $request){
-        
+
         // $users = User::with('roles')->get();
         // $users = User::roles('employee')->get(); 
         $users = User::with('roles')->where('role','2')->get();
         // dd($users);
+        $details = $request;
 
         foreach ($users as $user){
-            $user->notify(new SendMemo);
+            $user->notify(new SendMemo($details));
         }
 
         

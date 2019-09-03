@@ -88,7 +88,9 @@
 							<li style="float: right;">
 								<a href="#" class="notification-trigger">
 								  <span><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-								  <span class="badge">{{auth()->user()->notifications->count()}}</span>
+								  @if(auth()->user()->unreadNotifications->count())
+								  <span class="badge">{{auth()->user()->unreadNotifications->count()}}</span>
+								  @endif
 								</a>
 							</li>
 							<li style="float: right;" class="nav-item dropdown">
@@ -115,40 +117,31 @@
 			<div class="panel">
 			      <div class="title">Notifications</div>
 			      <ul class="notification-bar">
-			      	@foreach(auth()->user()->notifications as $notification)
+			      	<li><a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a></li>
+			      	@foreach(auth()->user()->unreadNotifications as $notification)
 			          <li class="unread">
 			              <i class="ion-checkmark"></i>
 			              <div>
-			              	<h6><strong>Memo Title</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['data']}}</p>
+			          
+			              	<h6><strong>{{$notification->data['title']}}</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
 			              </div>
 			          </li>
 			          @endforeach
-			           <li class="unread">
+
+			          @foreach(auth()->user()->readNotifications as $notification)
+			          <li>
 			              <i class="ion-checkmark"></i>
 			              <div>
-			              	<h6><strong>Memo Title</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+
+			              	<h6><strong>{{$notification->data['title']}}</strong></h6>
+			              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
 			              </div>
 			          </li>
-			          <li>
-			              <i class="ion-paper-airplane"></i>
-			              <div>
-			              	<h6><strong>Memo Title</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
-			              </div>
-			          </li>
-			          <li>
-			              <i class="ion-plus"></i>
-			              <div>
-			              	<h6><strong>Memo Title</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
-			              </div>
-			          </li>
+			          @endforeach
+
 			      </ul>
 			  </div>
 			@yield('employee_content')

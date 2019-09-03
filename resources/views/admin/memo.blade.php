@@ -118,17 +118,18 @@
           </button>
        </div>
        <div class="modal-body" style="padding: 30px 30px 30px 30px;">
-       	<form method="POST" action="{{ route('admin.memo.sent') }}">
+       	<form enctype="multipart/form-data">
 
-       		{{ csrf_field() }}
+       		<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
+       		<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
        		<div class="row" style="padding-bottom: 30px;">
        			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Search Employee">
        		</div>
        		<div class="row">
        			<div class="col-lg-12">
        				<input type="hidden" name="smodal_memoid" id="smodal_memoid">
-       				<h3 style="margin: 0; margin-bottom: 30px;" id="smodal_memo"></h3>
-       				<h6 style="margin: 0; margin-bottom: 10px;" id="smodal_subject"></h6>
+       				<h3 style="margin: 0; margin-bottom: 30px;" name="smodal_memo" id="smodal_memo" ></h3>
+       				<h6 style="margin: 0; margin-bottom: 10px;" id="smodal_subject" name="smodal_subject"></h6>
        				<p id="smodal_memodate"></p>
        			</div>
        		</div>
@@ -148,7 +149,7 @@
        			</div>
        		</div>
        		<div id="btn">
-       			<button type="submit">Send</button>
+       			<button type="button" id="btn_send">Send</button>
        		</div>
        	</form>	
        </div>

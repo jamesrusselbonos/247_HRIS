@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class EmployeeController extends Controller
 {
 	public function __construct()
@@ -16,4 +18,11 @@ class EmployeeController extends Controller
         {
             return view('employee.dashboard');
         }
+
+
+    public function markAllRead(){
+
+    	Auth::user()->unreadNotifications->markAsRead();
+    	return redirect()->back();
+    }
 }
