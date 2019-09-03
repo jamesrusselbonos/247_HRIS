@@ -54,7 +54,7 @@ Route::get('/admin', 'AdminController@index')->name('admin.admin');
 
 Route::get('/add_employee', 'AdminController@addEmployee')->name('admin.add_employee');
 
-// Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
+Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
 
 Route::get('/manage_employee', 'AdminController@employeeList')->name('admin.employee_list');
 Route::post('/manage_employee/1', 'AdminController@edit_employeeList')->name('admin.employee_list.edit');
