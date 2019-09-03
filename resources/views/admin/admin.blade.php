@@ -186,7 +186,7 @@
 							<ul style="list-style: none; padding-top: 20px;">
 								<li style="float: right;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	                                     <span>{{ Auth::user()->firstname }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
 	                                </a>
 
 	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -516,8 +516,26 @@
 		  	$('.memo_download').attr('href', 'documents/' + view_vm_attachment);
 		  	$('.memo_download').attr('download', view_vm_attachment);
 
-		  });	
+		  });
+		  
+		   $('.send_memo').on('click',  function(event){
+		  	var send_m_id = $(this).attr('s_memoid'); 
+		  	var send_m_title = $(this).attr('s_memo'); 
+		  	var send_m_subject = $(this).attr('s_subject'); 
+		  	var send_m_attachment = $(this).attr('s_attachment'); 
+		  	var send_m_date = $(this).attr('s_memodate'); 
 
+		  	console.log(send_m_attachment);
+
+		  	$('#smodal_memoid').val(send_m_id);
+		  	$('#smodal_memo').html(send_m_title);
+		  	$('#smodal_subject').html(send_m_subject);
+		  	$('#smodal_filename').html(send_m_attachment);
+		  	$('#smodal_memodate').html(send_m_date);
+		  	// $('.memo_download').attr('href', 'documents/' + view_vm_attachment);
+		  	// $('.memo_download').attr('download', view_vm_attachment);
+
+		  });
 
 		$(document).on('change', '.btn-file :file', function() {
 		var input = $(this),

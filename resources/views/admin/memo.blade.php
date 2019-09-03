@@ -52,9 +52,9 @@
 			             <td style="max-width: 200px;">
 			             	<span style="float: right;">
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
  								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
- 								<a href=""><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
+ 								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
  							</span>
 			             </td>
 			            </tr>
@@ -83,7 +83,7 @@
        		<div class="row">
        			<div class="col-lg-12">
        				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
-       				<h3 style="margin: 0; margin-bottom: 10px;" id="vmodal_memo"></h3>
+       				<h3 style="margin: 0; margin-bottom: 30px;" id="vmodal_memo"></h3>
        				<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
        				<p id="vmodal_memodate"></p>
        			</div>
@@ -98,6 +98,47 @@
        						<div class="col-lg-11">
        							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
        							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+       						</div>
+       					</div>
+       				</div>
+       			</div>
+       		</div>	
+       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade send_memo" id="send_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Send Memo</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body" style="padding: 30px 30px 30px 30px;">
+       		<div class="row" style="padding-bottom: 30px;">
+       			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Search Employee">
+       		</div>
+       		<div class="row">
+       			<div class="col-lg-12">
+       				<input type="hidden" name="smodal_memoid" id="smodal_memoid">
+       				<h3 style="margin: 0; margin-bottom: 30px;" id="smodal_memo"></h3>
+       				<h6 style="margin: 0; margin-bottom: 10px;" id="smodal_subject"></h6>
+       				<p id="smodal_memodate"></p>
+       			</div>
+       		</div>
+       		<div class="row">
+       			<div class="col-lg-12">
+       				<div class="attach">
+       					<div class="row">
+       						<div class="col-lg-1" style="text-align: center;">
+       							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
+       						</div>
+       						<div class="col-lg-11">
+       							<h6 id="smodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+       							<!-- <a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a> -->
        						</div>
        					</div>
        				</div>

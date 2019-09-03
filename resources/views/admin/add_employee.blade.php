@@ -4,7 +4,8 @@
 	<div class="col-lg-12">
 		<div class="add_employee_tab">
 			<div class="row employee_forms">
-				<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+					@csrf
 					<div class="row">
 							<div class="col-lg-3">
 							<img class="profile_photo" src="/img/profile.png">
@@ -41,11 +42,32 @@
 										</div>
 
 										<div class="form-group col-md-4">
-										  <label>Gender</label>
-										  <select name="gender">
-										    <option value="Male">Male</option>
-										    <option value="Female">Female</option>
-										  </select>
+											<label for="email" class="">{{ __('E-Mail Address') }}</label>
+
+										  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+											@error('email')
+											    <span class="invalid-feedback" role="alert">
+											        <strong>{{ $message }}</strong>
+											    </span>
+											@enderror
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										 <label for="password" class="">{{ __('Password') }}</label>
+										 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+			                                @error('password')
+			                                    <span class="invalid-feedback" role="alert">
+			                                        <strong>{{ $message }}</strong>
+			                                    </span>
+			                                @enderror
+										</div>
+
+										<div class="form-group col-md-4">
+											<label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
+			                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 										</div>
 									</div>
 									<div class="form-row">
@@ -63,6 +85,13 @@
 										<div class="form-group col-md-4">
 										  <label>Last Name</label>
 										  <input type="text" name="lname" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">
+										  <label>Gender</label>
+										  <select name="gender">
+										    <option value="Male">Male</option>
+										    <option value="Female">Female</option>
+										  </select>
 										</div>
 									</div>
 									<div class="form-row">
@@ -337,7 +366,7 @@
 									{{ csrf_field() }}
 								</div>
 							</div>
-							<button style="bottom: 50px; right: 50px; position: fixed;" type="subit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+							<button style="bottom: 50px; right: 50px; position: fixed;" type="subit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; {{ __('Register') }}</button>
 						</div>	
 					</div>
 				</form>

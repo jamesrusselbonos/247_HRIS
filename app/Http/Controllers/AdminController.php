@@ -12,7 +12,7 @@ use App\Level;
 use App\Status;
 use App\Position;
 
-use App\Prototype_Employee;
+use App\User;
 use App\Memo;
 
 use DB;
@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     public function index()
         {
-            $emp_count = Prototype_Employee::all();
+            $emp_count = User::all();
             $dept_count = Department::all();
          
 
@@ -53,13 +53,13 @@ class AdminController extends Controller
         $e_jobs = DB::table('jobs')->get();
         $e_position = DB::table('positions')->get();
 
-        $list = DB::table('prototype__employees')
-            ->join('departments', 'departments.id', '=', 'prototype__employees.department_id')
-            ->join('statuses', 'statuses.id', '=', 'prototype__employees.status_id')
-            ->join('levels', 'levels.id', '=', 'prototype__employees.job_level_id')
-            ->join('jobs', 'jobs.id', '=', 'prototype__employees.job_id')
-            ->join('positions', 'positions.id','=', 'prototype__employees.job_position_id')
-            ->select('prototype__employees.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
+        $list = DB::table('users')
+            ->join('departments', 'departments.id', '=', 'users.department_id')
+            ->join('statuses', 'statuses.id', '=', 'users.status_id')
+            ->join('levels', 'levels.id', '=', 'users.job_level_id')
+            ->join('jobs', 'jobs.id', '=', 'users.job_id')
+            ->join('positions', 'positions.id','=', 'users.job_position_id')
+            ->select('users.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
             ->get();
           
         return view('admin.manage_employee', compact('list','e_depart', 'e_status', 'e_level', 'e_jobs','e_position'));
@@ -140,7 +140,7 @@ class AdminController extends Controller
 
     public function delete_employeeList($id){
         
-        DB::table('prototype__employees')->where('id', $id)->delete();
+        DB::table('users')->where('id', $id)->delete();
 
         return redirect()->route('admin.employee_list');
     }    
@@ -167,79 +167,78 @@ class AdminController extends Controller
         return view('admin.manage_user', compact('m_user'));
     }
 
-    public function create(Request $request)
-    {
+    // public function create(Request $request)
+    // {
 
-        if($request->hasFile('product_image')){
+    //     if($request->hasFile('product_image')){
 
-            $filenameWithExt = $request->file('product_image')->getClientOriginalName();
+    //         $filenameWithExt = $request->file('product_image')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $variation = preg_replace('/[\+]/', '', $filename);
+    //         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+    //         $variation = preg_replace('/[\+]/', '', $filename);
 
-            $extension = $request->file('product_image')->getClientOriginalExtension();
+    //         $extension = $request->file('product_image')->getClientOriginalExtension();
 
-            $fileNameToStore = 'img/'.''.$variation.'_'.time().'.'.$extension;
+    //         $fileNameToStore = 'img/'.''.$variation.'_'.time().'.'.$extension;
             
-            $image = $request->file('product_image');
+    //         $image = $request->file('product_image');
 
-            $destination = public_path('/img');
-             $image->move($destination, $fileNameToStore);
-             // $path = $request->file('product_image')->store($destination, $fileNameToStore);
+    //         $destination = public_path('/img');
+    //          $image->move($destination, $fileNameToStore);
+    //          // $path = $request->file('product_image')->store($destination, $fileNameToStore);
+    //     }
+    //     else{
 
-        }
-        else{
-
-            $fileNameToStore = "img/profile.png";
-        }
-        $proto = new Prototype_Employee([
+    //         $fileNameToStore = "img/profile.png";
+    //     }
+    //     $proto = new Prototype_Employee([
             
-            'employee_id' => $request->get('employee_id'),
-            'employee_img' => $fileNameToStore,
-            'gender' => $request->get('gender'),
-            'firstname' => $request->get('fname'),
-            'middle_name' => $request->get('m_name'),
-            'lastname' => $request->get('lname'),
-            'department_id' => $request->get('department'),
-            'status_id' => $request->get('status'),
-            'address' => $request->get('address'),
-            'city' => $request->get('city'),
-            'province' => $request->get('province'),
-            'country' => $request->get('country'),
-            'zip_code' => $request->get('zip_code'),
-            'home_number' => $request->get('h_number'),
-            'mobile_number' => $request->get('m_number'),
-            'work_email' => $request->get('h_email'),
-            'personal_email' => $request->get('p_email'),
-            'birthday' => $request->get('bday'),
-            'SIN_SSN' => $request->get('ssn_sin'),
-            'emergency_name' => $request->get('e_name'),
-            'relationship' => $request->get('relationship'),
-            'emergency_address' => $request->get('e_address'),
-            'emergency_number' => $request->get('e_number'),
-            'job_id' => $request->get('jjob_title'),
-            'job_description' => $request->get('info_area'),
-            'job_level_id' => $request->get('job_level'),
-            'job_position_id' => $request->get('job_position'),
-            'date_hired' => $request->get('d_hired'),
-            'date_terminated' => $request->get('d_terminated'),
-            'SSS_no' => $request->get('sss_n'),
-            'philhealth_no' => $request->get('philhealth_n'),
-            'pagibig_no' => $request->get('pagibig_n'),
-            'TIN_no' => $request->get('tin_n'),
-            'NBI_no' => $request->get('nbi_n'),
-            'diploma' => $request->get('diploma'),
-            'medical' => $request->get('medical'),
-            'TOR' => $request->get('TOR'),
-            'birth_cert' => $request->get('birth_cert'),
-            'brgy_clearance' => $request->get('brgy'),
-            'cedula' => $request->get('cedula')
-        ]);
+    //         'employee_id' => $request->get('employee_id'),
+    //         'employee_img' => $fileNameToStore,
+    //         'gender' => $request->get('gender'),
+    //         'firstname' => $request->get('fname'),
+    //         'middle_name' => $request->get('m_name'),
+    //         'lastname' => $request->get('lname'),
+    //         'department_id' => $request->get('department'),
+    //         'status_id' => $request->get('status'),
+    //         'address' => $request->get('address'),
+    //         'city' => $request->get('city'),
+    //         'province' => $request->get('province'),
+    //         'country' => $request->get('country'),
+    //         'zip_code' => $request->get('zip_code'),
+    //         'home_number' => $request->get('h_number'),
+    //         'mobile_number' => $request->get('m_number'),
+    //         'work_email' => $request->get('h_email'),
+    //         'personal_email' => $request->get('p_email'),
+    //         'birthday' => $request->get('bday'),
+    //         'SIN_SSN' => $request->get('ssn_sin'),
+    //         'emergency_name' => $request->get('e_name'),
+    //         'relationship' => $request->get('relationship'),
+    //         'emergency_address' => $request->get('e_address'),
+    //         'emergency_number' => $request->get('e_number'),
+    //         'job_id' => $request->get('jjob_title'),
+    //         'job_description' => $request->get('info_area'),
+    //         'job_level_id' => $request->get('job_level'),
+    //         'job_position_id' => $request->get('job_position'),
+    //         'date_hired' => $request->get('d_hired'),
+    //         'date_terminated' => $request->get('d_terminated'),
+    //         'SSS_no' => $request->get('sss_n'),
+    //         'philhealth_no' => $request->get('philhealth_n'),
+    //         'pagibig_no' => $request->get('pagibig_n'),
+    //         'TIN_no' => $request->get('tin_n'),
+    //         'NBI_no' => $request->get('nbi_n'),
+    //         'diploma' => $request->get('diploma'),
+    //         'medical' => $request->get('medical'),
+    //         'TOR' => $request->get('TOR'),
+    //         'birth_cert' => $request->get('birth_cert'),
+    //         'brgy_clearance' => $request->get('brgy'),
+    //         'cedula' => $request->get('cedula')
+    //     ]);
 
-        $proto->save();
+    //     $proto->save();
 
-        return redirect()->route('admin.add_employee');
-    }
+    //     return redirect()->route('admin.add_employee');
+    // }
 
     public function timesheet_delete($id){
 
@@ -258,9 +257,10 @@ class AdminController extends Controller
     public function memo_index(){
 
         $memo_employee = DB::table('prototype__employees')->get();
+        $memo_user = DB::table('users')->get();
         $memos = DB::table('memos')->get();
 
-        return view('admin.memo', compact('memo_employee', 'memos'));
+        return view('admin.memo', compact('memo_employee', 'memos', 'memo_user'));
     }
 
     public function memo_create(Request $request){
@@ -286,6 +286,13 @@ class AdminController extends Controller
             };
         }
         return redirect()->back();
+    }
+
+    public function memo_delete($id){
+
+        DB::table('memos')->where('id', $id)->delete();
+
+        return redirect()->route('admin.memo');
     }
 
 }

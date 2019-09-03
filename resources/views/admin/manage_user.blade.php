@@ -24,7 +24,7 @@
 				                  <tr>
 
 				              <th scope="row">
-				              	{{ $ms->name }}
+				              	{{ $ms->lastname }}, {{ $ms->firstname }} {{ $ms->middle_name }}
 				              </th>
 				              <td>
 				              	{{ $ms->email }}
