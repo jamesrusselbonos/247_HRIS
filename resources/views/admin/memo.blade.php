@@ -118,6 +118,9 @@
           </button>
        </div>
        <div class="modal-body" style="padding: 30px 30px 30px 30px;">
+       	<form method="POST" action="{{ route('admin.memo.sent') }}">
+
+       		{{ csrf_field() }}
        		<div class="row" style="padding-bottom: 30px;">
        			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Search Employee">
        		</div>
@@ -143,7 +146,11 @@
        					</div>
        				</div>
        			</div>
-       		</div>	
+       		</div>
+       		<div id="btn">
+       			<button type="submit">Send</button>
+       		</div>
+       	</form>	
        </div>
     </div>
   </div>

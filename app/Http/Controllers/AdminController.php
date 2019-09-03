@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\SendMemo;
+
+
 use App\TimeSheet;
 
 use App\Job;
@@ -14,7 +18,7 @@ use App\Position;
 
 use App\Prototype_Employee;
 use App\Memo;
-
+use App\User;
 use DB;
 
 class AdminController extends Controller
@@ -294,6 +298,21 @@ class AdminController extends Controller
         DB::table('memos')->where('id', $id)->delete();
 
         return redirect()->route('admin.memo');
+    }
+
+    public function memoSent(Request $request){
+        
+        // $users = User::with('roles')->get();
+        // $users = User::roles('employee')->get(); 
+        $users = User::with('roles')->where('role','2')->get();
+        // dd($users);
+
+        foreach ($users as $user){
+            $user->notify(new SendMemo);
+        }
+
+        
+        return redirect()->back();
     }
 
 }

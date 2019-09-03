@@ -88,7 +88,7 @@
 							<li style="float: right;">
 								<a href="#" class="notification-trigger">
 								  <span><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-								  <span class="badge">3</span>
+								  <span class="badge">{{auth()->user()->notifications->count()}}</span>
 								</a>
 							</li>
 							<li style="float: right;" class="nav-item dropdown">
@@ -115,14 +115,16 @@
 			<div class="panel">
 			      <div class="title">Notifications</div>
 			      <ul class="notification-bar">
+			      	@foreach(auth()->user()->notifications as $notification)
 			          <li class="unread">
 			              <i class="ion-checkmark"></i>
 			              <div>
 			              	<h6><strong>Memo Title</strong></h6>
 			              	<p style="margin-top: -5px; font-size: 13px;">From: Admin</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">Lorem Ipsum sample....</p>
+			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['data']}}</p>
 			              </div>
 			          </li>
+			          @endforeach
 			           <li class="unread">
 			              <i class="ion-checkmark"></i>
 			              <div>
