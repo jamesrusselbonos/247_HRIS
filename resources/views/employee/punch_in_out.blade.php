@@ -16,12 +16,14 @@
                   <div>
                     @if(Auth::user()->status == 0)
 
-                        <a href="{{url('/punch_in_out')}}" class ="btn btn-primary time" name="{{ Auth::user()->name }}" testId="" style="margin-bottom: 10px; margin-top:-10px;" id = "{{Auth::user()->id}}">Time In<i class="fas fa-sync ic" style="margin-left:5px;" hidden></i></a>
+                        <!-- <a href="{{url('/punch_in_out')}}" class ="btn btn-primary time" name="{{ Auth::user()->name }}" testId="" style="margin-bottom: 10px; margin-top:-10px;" id = "{{Auth::user()->id}}">Time In<i class="fas fa-sync ic" style="margin-left:5px;" hidden></i></a> -->
+                        <button type="button" class ="btn btn-primary time" name="{{ Auth::user()->name }}" testId="" style="margin-bottom: 10px; margin-top:-10px;" id = "{{Auth::user()->id}}">Time In<i class="fas fa-sync ic" style="margin-left:5px;" hidden></i></button>
                           <!-- <button class ="btn btn-primary time" name="{{ Auth::user()->name }}" testId="" style="margin-bottom: 10px; margin-top:-10px;" id = "{{Auth::user()->id}}" >Time In</button> -->
                     @else
                     @foreach($timeSheets as $timeSheet)
                         @if($timeSheet->time_to == null)
-                            <a href="{{url('/punch_in_out')}}" class ="btn btn-danger time" testId="{{ $timeSheet->id }}" style="margin-bottom: 10px; margin-top:-10px;" id = "{{ Auth::user()->id }}">Time Out<i class="fas fa-sync ic"style="margin-left:5px;" hidden></i></a>
+                            <!-- <a href="{{url('/punch_in_out')}}" class ="btn btn-danger time" testId="{{ $timeSheet->id }}" style="margin-bottom: 10px; margin-top:-10px;" id = "{{ Auth::user()->id }}">Time Out<i class="fas fa-sync ic"style="margin-left:5px;" hidden></i></a> -->
+                            <button type="button" class ="btn btn-danger time" testId="{{ $timeSheet->id }}" style="margin-bottom: 10px; margin-top:-10px;" id = "{{ Auth::user()->id }}">Time Out<i class="fas fa-sync ic"style="margin-left:5px;" hidden></i></button>
                             <!-- <button class ="btn btn-danger time" testId="{{ $timeSheet->id }}" style="margin-bottom: 10px; margin-top:-10px;" id = "{{ Auth::user()->id }}">Time Out</button> -->
                         @else
 
@@ -46,9 +48,12 @@
 
                           <th scope="row">{{Auth::user()->name}}</th>
                           <td>{{$timeSheet->date}}</td>
-                          <td>{{$timeSheet->time_from}}</td>
-                         <td>{{$timeSheet->time_to}}</td>
-
+                          <td>{{date('h:i:s a', strtotime($timeSheet->time_from))}}</td>
+                          @if($timeSheet->time_to != null || $timeSheet->time_to != "")
+                         <td>{{date('h:i:s a', strtotime($timeSheet->time_to))}}</td>
+                         @else
+                         <td></td>
+                          @endif
                         </tr>
                               
                         @endforeach

@@ -11,6 +11,7 @@
 
 	<!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/4c6c819f60.js"></script>
@@ -152,55 +153,58 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-		    $(".time").click(function(){
+		   $(".time").click(function(){
 
-		        var text = $('.time').text();
-		        var id = $(this).attr('id');
-		        var token = $(".card-body .hdn-token").val();
-		        var testID = $(this).attr('testID');
-		        var randd = Math.floor(Math.random() * 10000);
-		        var name = $(this).attr('name');
-		        $(".time").addClass('disabled');
-		       $(".ic").removeAttr('hidden').addClass('fa-spin');
-		        
-		        var randId = randd;
-		        if( text == "Time In")
-		        {
-		            var rand1 = $(".time").attr('testId', randd);
-		            console.log(id);
+		       var text = $('.time').text();
+		       var id = $(this).attr('id');
+		       var token = $(".card-body .hdn-token").val();
+		       var testID = $(this).attr('testID');
+		       var randd = Math.floor(Math.random() * 10000);
+		       var name = $(this).attr('name');
+		       $(".time").addClass('disabled');
+		      $(".ic").removeAttr('hidden').addClass('fa-spin');
+		       
+		       var randId = randd;
+		       if( text == "Time In")
+		       {
+		           var rand1 = $(".time").attr('testId', randd);
+		           console.log(id);
+		          
 		           
-		            
-		            $.post('/timeIn/' + id,
+		           $.post('/timeIn/' + id,
 
-		             {'id':id, 'randId':randId, '_token':token}, 
-		             function(data){
+		            {'id':id, 'randId':randId, '_token':token}, 
+		            function(data){
 
-		             console.log(id);
-
-		               $(".time").removeClass('btn-primary').addClass('btn-danger').removeClass('disabled');
-		               $(".ic").addAttr('hidden').removeClass('fa-spin');
-		               $(".time").text('Time Out');
-		            
-
-		             });      
-		        }
-		        else{
+		            location.reload();
+		              
+		              $(".ic").attr('hidden');
+		              $(".ic").removeClass('fa-spin');
+		              $(".time").text('Time Out');
+		              $(".time").removeClass('btn-primary').addClass('btn-danger').removeClass('disabled');
 		           
-		            $.post('/timeOut/' + id,
 
-		             {'id':id, 'testID':testID,'_token':token}, 
-		             function(data){
-		                $(".time").removeClass('btn-danger').addClass('btn-primary').removeClass('disabled');
-		                $(".ic").addAttr('hidden').removeClass('fa-spin');
-		                $(".time").text('Time In');
-		            
+		            });      
+		       }
+		       else{
+		          
+		           $.post('/timeOut/' + id,
 
-		             });      
-		        }
+		            {'id':id, 'testID':testID,'_token':token}, 
+		            function(data){
+		            	location.reload();
+		               $
+		               $(".ic").attr('hidden');
+		               $(".ic").removeClass('fa-spin');
+		               $(".time").text('Time In');
+		               (".time").removeClass('btn-danger').addClass('btn-primary').removeClass('disabled');
+		          
 
-		        
-		    });
+		            });      
+		       }
 
+		       
+		   });
 
 		});
 	</script>

@@ -52,11 +52,15 @@
 				              	{{$tt->date}}
 				              </td>
 				              <td>
-				              	{{$tt->time_from}}
+				              	{{date('h:i:s a', strtotime($tt->time_from))}}
 				              </td>
+				              @if($tt->time_to != null || $tt->time_to != "")
 				             <td>
-				             	{{$tt->time_to}}
+				             	{{date('h:i:s a', strtotime($tt->time_to))}}
 				             </td>
+				             @else
+				             <td></td>
+				             @endif
 				             <td>
 				             	<span style="float: right; margin: 0;">
 				             		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>

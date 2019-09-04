@@ -131,7 +131,7 @@ class TimesheetController extends Controller
        
         $users->save();
 
-        return view('employee.punch_in_out');
+        return redirect()->back();
 
         // return redirect()->route('home');
     }
@@ -185,8 +185,8 @@ class TimesheetController extends Controller
         //         // $timeSheets->time_to = date('H:i:s');
         //         $timeSheets->save();
                 $users->save();
-
-        return view('employee.punch_in_out');
+                return redirect()->back();
+        // return redirect('employee.punch_in_out');
     }
 
 }
