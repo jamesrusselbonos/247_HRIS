@@ -117,7 +117,6 @@
 			<div class="panel">
 			      <div class="title">Notifications</div>
 			      <ul class="notification-bar">
-			      	<li><a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a></li>
 			      	@foreach(auth()->user()->unreadNotifications as $notification)
 			          <li class="unread">
 			              <i class="ion-checkmark"></i>
@@ -137,12 +136,15 @@
 
 			              	<h6><strong>{{$notification->data['title']}}</strong></h6>
 			              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+			              	<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
 			              </div>
 			          </li>
 			          @endforeach
 
 			      </ul>
+			      <div class="notif_footer">
+			      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+			      </div>
 			  </div>
 			@yield('employee_content')
 		</div>

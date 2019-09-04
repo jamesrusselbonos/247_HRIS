@@ -41,12 +41,43 @@
 										</div>
 
 										<div class="form-group col-md-4">
-										  <label>Gender</label>
-										  <select name="gender">
-										    <option value="Male">Male</option>
-										    <option value="Female">Female</option>
-										  </select>
+										   <label for="email" class="">{{ __('E-Mail Address') }}</label>
+
+				                            <div class="">
+				                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+				                                @error('email')
+				                                    <span class="invalid-feedback" role="alert">
+				                                        <strong>{{ $message }}</strong>
+				                                    </span>
+				                                @enderror
+				                            </div>
 										</div>
+										
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										   <label for="password" class="">{{ __('Password') }}</label>
+
+				                            <div class="">
+				                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+				                                @error('password')
+				                                    <span class="invalid-feedback" role="alert">
+				                                        <strong>{{ $message }}</strong>
+				                                    </span>
+				                                @enderror
+				                            </div>
+										</div>
+
+										<div class="form-group col-md-4">
+										  <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
+
+				                            <div class="">
+				                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+				                            </div>
+										</div>
+										
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-4">
@@ -63,6 +94,13 @@
 										<div class="form-group col-md-4">
 										  <label>Last Name</label>
 										  <input type="text" name="lname" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">
+										  <label>Gender</label>
+										  <select name="gender">
+										    <option value="Male">Male</option>
+										    <option value="Female">Female</option>
+										  </select>
 										</div>
 									</div>
 									<div class="form-row">
@@ -147,30 +185,24 @@
 										  <label>Mobile Phone Number</label>
 										  <input type="text" name="m_number" class="form-control" >
 										</div>
-
-										<div class="form-group col-md-4">
-										  <label>Work Email Address</label>
-										  <input type="text" name="h_email" class="form-control" >
-										</div>
-									</div>
-									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>Personal Email Address</label>
 										  <input type="text" name="p_email" class="form-control" >
 										</div>
-
+									</div>
+									<div class="form-row">
+										
+										<div class="form-group col-md-4">
+										  <label>SIN / SSN</label>
+										  <input type="text" name="ssn_sin" class="form-control" >
+										</div>
 										<div class="form-group col-md-4">
 										  <label>Birthday</label>
 										  <input type="date" name="bday" max="3000-12-31" 
 										          min="1000-01-01" class="form-control">
 										</div>
 									</div>
-									<div class="form-row">
-										<div class="form-group col-md-4">
-										  <label>SIN / SSN</label>
-										  <input type="text" name="ssn_sin" class="form-control" >
-										</div>
-									</div>
+									
 								</div>
 								<div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
 									<div style="margin-top: 30px;" class="form-row">

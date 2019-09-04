@@ -537,6 +537,25 @@
 
 		  });
 
+		   $('.edit_memo').on('click',  function(event){
+		  	var edit_m_id = $(this).attr('e_memoid'); 
+		  	var edit_m_title = $(this).attr('e_memo'); 
+		  	var edit_m_subject = $(this).attr('e_subject'); 
+		  	var edit_m_attachment = $(this).attr('e_attachment'); 
+		  	var edit_m_date = $(this).attr('e_memodate'); 
+
+		  	console.log(edit_m_attachment);
+
+		  	$('#smodal_memoid').val(send_m_id);
+		  	$('#smodal_memo').html(send_m_title);
+		  	$('#smodal_subject').html(send_m_subject);
+		  	$('#smodal_filename').html(send_m_attachment);
+		  	$('#smodal_memodate').html(send_m_date);
+		  	// $('.memo_download').attr('href', 'documents/' + view_vm_attachment);
+		  	// $('.memo_download').attr('download', view_vm_attachment);
+
+		  });
+
 		  $('#btn_send').on('click', function(event){
 		  	var mem_id = $('#smodal_memoid').val();
 		  	var from = $('#hdn-name').val();

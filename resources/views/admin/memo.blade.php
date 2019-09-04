@@ -53,7 +53,7 @@
 			             	<span style="float: right;">
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
- 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit-job" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
  								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
  							</span>
 			             </td>
@@ -123,7 +123,7 @@
        		<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
        		<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
        		<div class="row" style="padding-bottom: 30px;">
-       			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Search Employee">
+       			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Send to...">
        		</div>
        		<div class="row">
        			<div class="col-lg-12">
@@ -148,13 +148,68 @@
        				</div>
        			</div>
        		</div>
-       		<div id="btn">
-       			<button type="button" id="btn_send">Send</button>
-       		</div>
+       		<div class="modal-footer">
+	             <div id="btn">
+         			<button type="button" class="btn btn-info" id="btn_send"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
+         		</div>
+	         </div>
        	</form>	
        </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade edit_memo" id="edit_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	 <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	       	<div class="modal-header">
+	            <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5>
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	               <span aria-hidden="true">&times;</span>
+	            </button>
+	       	</div>
+	        <div class="modal-body">
+	              <form method="POST" action="{{ route('admin.memo.create') }}" enctype="multipart/form-data">
+	              	{{ csrf_field() }}
+	                <div class="form-row">
+
+	                	<div class="form-group col-md-12">
+	                	  <label>Memo</label>
+	                	   <input class="form-control" rows="5" id="memo" name="memo">
+	                	</div>
+
+	                	<div class="form-group col-md-12">
+	                	  <label>Subject</label>
+	                	   <textarea class="form-control" rows="5" id="subject" name="subject"></textarea>
+	                	</div>
+
+	                	<div class="form-group col-md-12">
+	                	  <label>Attachment</label></br>
+	                	  <input type="file" name="file" id="file" />
+	                	</div>	
+
+	                	<div class="form-group col-md-12">
+	                	  <label>Date</label>
+	                	    <input type="date" name="memo_date" id="memo_date" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
+	                	</div>
+	                	<!-- <div class="form-group col-md-4">
+	                	  <label>Role</label>
+	                	   <select>
+	                	  	<option value="2">Employee</option>
+	                	    <option value="1">Admin</option>
+	                	  </select>
+	                	</div> -->
+	                </div>
+	                <div class="modal-footer">
+	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	               		<button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	            	</div>
+	              </form>
+	            </div>    
+	        </div>
+	    </div>
+	</div>
 </div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -202,7 +257,7 @@
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 	               <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-	            </div>
+	            	</div>
 	              </form>
 	            </div>
 	            

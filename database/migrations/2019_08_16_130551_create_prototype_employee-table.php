@@ -30,7 +30,6 @@ class CreatePrototypeEmployeeTable extends Migration
             $table->string('zip_code')->nullable();
             $table->string('home_number')->nullable()->unique();
             $table->string('mobile_number')->nullable()->unique();
-            $table->string('work_email')->nullable()->unique();
             $table->string('personal_email')->nullable()->unique();
             $table->string('birthday')->nullable();
             $table->string('SIN_SSN')->nullable();

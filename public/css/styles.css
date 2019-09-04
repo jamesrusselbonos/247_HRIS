@@ -376,7 +376,7 @@ a:active {
 	padding: 5px 10px 5px 10px;
 }
 .fa-bell-o{
-	padding: 5px 10px 10px 10px;
+	padding: 0px 10px 10px 10px;
 	color: #282828;
 	font-size: 25px;
 }
@@ -422,6 +422,10 @@ a:active {
     background-color: #F8F8F8;
     display: none;
     z-index: 2;
+
+    -webkit-box-shadow: 0px 61px 24px -7px rgba(0,0,0,0.32) !important;
+    -moz-box-shadow: 0px 61px 24px -7px rgba(0,0,0,0.32) !important;
+    box-shadow: 0px 61px 24px -7px rgba(0,0,0,0.32) !important;
 }
 .panel.visible {
     display: block;
@@ -436,6 +440,21 @@ a:active {
     border-bottom: 1px solid #ddd;
     z-index: 3;
     width: 100%;
+}
+
+.panel .notif_footer {
+    position: absolute;
+    background-color: #fff;
+    color: #484846;
+    padding: 10px;
+    text-align: right;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    z-index: 3;
+    width: 100%;
+}
+.notif_footer a{
+
 }
 @media screen and (min-width: 768px) {
     .panel {
@@ -455,7 +474,7 @@ ul.notification-bar {
 }
 
 .notification-bar li:not(:first-child) {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 .notification-bar li div {
   margin-left: 50px;
@@ -507,6 +526,7 @@ ul.notification-bar {
 .notification-bar{
 	padding-top: 80px;
 	padding-bottom: 50px;
+	padding-right: 35px !important;
 
 	overflow-y: auto;
 }
