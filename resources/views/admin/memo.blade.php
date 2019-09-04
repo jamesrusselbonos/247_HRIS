@@ -122,8 +122,17 @@
 
        		<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
        		<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
+       		<h3>Recipient</h3>
        		<div class="row" style="padding-bottom: 30px;">
-       			<input type="text" name="memoemp_search" class="memoemp_search" placeholder="Send to...">
+       			
+       			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 80%" name="memoemp_search1" name="memos[]" multiple="multiple" >
+       				<option></option>  
+       				<option>All</option>  
+       				@foreach($memo_user as $user)
+       				<option value="{{ $user->id }}">{{ $user->name }}</option>
+       				@endforeach	
+       			</select>
+       			
        		</div>
        		<div class="row">
        			<div class="col-lg-12">
@@ -266,5 +275,4 @@
 	    </div>
 	  </div>
 	</div>
-
 @endsection

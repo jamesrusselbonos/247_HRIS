@@ -302,9 +302,12 @@ class AdminController extends Controller
 
     public function memoSent(Request $request){
 
+        $recipient = $request->memoemp_search;
         // $users = User::with('roles')->get();
         // $users = User::roles('employee')->get(); 
-        $users = User::with('roles')->where('role','2')->get();
+        $users = User::where('id', $recipient)->get();
+        // dd($users);
+        // $users = User::with('roles')->where('role','2')->get();
         // dd($users);
         $details = $request;
 
@@ -315,5 +318,13 @@ class AdminController extends Controller
         
         return redirect()->back();
     }
+
+    // public function ajaxShowEmployee(Request $request){
+
+    //     // $employees = User::where('name','LIKE','%'.$request->q.'%')->paginate(10);
+
+
+    //     return array('status' => 'OK', 'result' => $employees->toArray(), 'suggestions' => $employees);
+    // }
 
 }

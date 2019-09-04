@@ -52,6 +52,8 @@ Route::post('/timeOut/{id}', 'TimesheetController@timeOut')->name('timeOut');
 ////////////////ADMIN DASHBOARD/////////////////////////
 Route::get('/admin', 'AdminController@index')->name('admin.admin');
 
+Route::get('/ajaxShowEmployee', 'AdminController@ajaxShowEmployee')->name('admin.ajaxShowEmployee');////Memo Show
+
 Route::get('/add_employee', 'AdminController@addEmployee')->name('admin.add_employee');
 
 Route::post('/add_employee', 'AdminController@create')->name('admin.add_employee.create');
