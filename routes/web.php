@@ -73,6 +73,7 @@ Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard')
 
 Route::get('/memo', 'AdminController@memo_index')->name('admin.memo');
 Route::post('/memo', 'AdminController@memo_create')->name('admin.memo.create');
+Route::post('/memo/1', 'AdminController@memo_edit')->name('admin.memo.edit');
 Route::get('/memo_delete/{id}', 'AdminController@memo_delete');
 Route::post('memo_send', 'AdminController@memoSent')->name('admin.memo.sent');
 Route::get('/markAll/', 'EmployeeController@markAllRead')->name('employee.memo.markAll');

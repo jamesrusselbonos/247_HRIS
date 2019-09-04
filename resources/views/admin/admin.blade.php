@@ -426,6 +426,7 @@
 	    	$('#edit_edepartmant').val(edit_employee_department);
 	    	$('#edit_estatus').val(edit_employee_status);
 	    	$('.profile_photo').attr('src',edit_employee_picture);
+	    	$('#display_img_modal').val(edit_employee_picture);
 	    	$('#edit_eaddress').val(edit_employee_address);
 	    	$('#edit_ecity').val(edit_employee_city);
 	    	$('#edit_eprovince').val(edit_employee_province);
@@ -498,6 +499,11 @@
 	    	}
 	    	
 	      });
+
+		 $('.editemp_btn').on('click', function(){
+		 	$('#editemp_img').css("display", "block");
+		 	$('.display_img').css("display", "none");
+		 });
 			
 		  $('.memo_view').on('click',  function(event){
 		  	var view_vm_id = $(this).attr('v_memoid'); 
@@ -546,11 +552,11 @@
 
 		  	console.log(edit_m_attachment);
 
-		  	$('#smodal_memoid').val(send_m_id);
-		  	$('#smodal_memo').html(send_m_title);
-		  	$('#smodal_subject').html(send_m_subject);
-		  	$('#smodal_filename').html(send_m_attachment);
-		  	$('#smodal_memodate').html(send_m_date);
+		  	$('#edit_memo_id').val(edit_m_id);
+		  	$('#edit_memo_title').val(edit_m_title);
+		  	$('#edit_memo_subject').val(edit_m_subject);
+		  	$('#edit_memo_file').val(edit_m_attachment);
+		  	$('#edit_memo_date').val(edit_m_date);
 		  	// $('.memo_download').attr('href', 'documents/' + view_vm_attachment);
 		  	// $('.memo_download').attr('download', view_vm_attachment);
 

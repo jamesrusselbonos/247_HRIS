@@ -13,7 +13,7 @@
 								<div class="input-group">
 								    <span class="input-group-btn" style="margin-right:70px;">
 								        <span class="btn btn-default btn-file">
-								           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> -->
+								          <!--  <button class="btn btn-outline-secondary"  type="button"> Browse… </button> -->
 								        </span>
 								        <input type="file"  name="product_image" id="edi_imgInp">	
 								    </span>
@@ -55,7 +55,7 @@
 										</div>
 										
 									</div>
-									<div class="form-row">
+									<!-- <div class="form-row">
 										<div class="form-group col-md-4">
 										   <label for="password" class="">{{ __('Password') }}</label>
 
@@ -78,7 +78,7 @@
 				                            </div>
 										</div>
 										
-									</div>
+									</div> -->
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  <label>First Name</label>

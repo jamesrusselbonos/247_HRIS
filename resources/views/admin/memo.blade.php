@@ -53,7 +53,7 @@
 			             	<span style="float: right;">
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
- 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
  								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
  							</span>
 			             </td>
@@ -159,38 +159,39 @@
   </div>
 </div>
 
-<div class="modal fade edit_memo" id="edit_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade edit_memo_modal" id="edit_memo_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	 <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	       	<div class="modal-header">
-	            <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5>
+	            <h5 class="modal-title" id="exampleModalLabel">Edit Memo</h5>
 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	               <span aria-hidden="true">&times;</span>
 	            </button>
 	       	</div>
 	        <div class="modal-body">
-	              <form method="POST" action="{{ route('admin.memo.create') }}" enctype="multipart/form-data">
+	              <form method="POST" action="{{ route('admin.memo.edit') }}" enctype="multipart/form-data">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Memo</label>
-	                	   <input class="form-control" rows="5" id="memo" name="memo">
+	                	   <input class="form-control" rows="5" id="edit_memo_title" name="edit_memo_title">
+	                	   <input type="hidden" name="edit_memo_id" name="edit_memo_id">
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Subject</label>
-	                	   <textarea class="form-control" rows="5" id="subject" name="subject"></textarea>
+	                	   <textarea class="form-control" rows="5" id="edit_memo_subject" name="edit_memo_subject"></textarea>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Attachment</label></br>
-	                	  <input type="file" name="file" id="file" />
+	                	  <input type="file" name="edit_memo_file" id="edit_memo_file" />
 	                	</div>	
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Date</label>
-	                	    <input type="date" name="memo_date" id="memo_date" max="3000-12-31" 
+	                	    <input type="date" name="edit_memo_date" id="edit_memo_date" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">

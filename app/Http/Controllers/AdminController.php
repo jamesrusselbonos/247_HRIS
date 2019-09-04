@@ -213,7 +213,7 @@ class AdminController extends Controller
             'zip_code' => $request->get('zip_code'),
             'home_number' => $request->get('h_number'),
             'mobile_number' => $request->get('m_number'),
-            'work_email' => $request->get('h_email'),
+            'work_email' => $request->get('email'),
             'personal_email' => $request->get('p_email'),
             'birthday' => $request->get('bday'),
             'SIN_SSN' => $request->get('ssn_sin'),

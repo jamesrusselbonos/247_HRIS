@@ -556,3 +556,10 @@ input[type=search]{
 	border-color: #000;
 	border-width: 1px;
 }
+#editemp_img{
+	display: none;
+}
+.display_img{
+	margin-top: 20px; 
+	display: block;
+}

@@ -152,15 +152,21 @@
 		             	<div class="col-lg-4">
 		             		<img class="profile_photo" src="/img/profile.png">
 		             		<div class="input_photo">
-		             			<h6>Upload a photo</h6>
-		             			<div class="input-group">
+		             			<!-- <h6>Upload a photo</h6> -->
+		             			<div class="input-group" id="editemp_img">
 		             			    <span class="input-group-btn" style="margin-right:70px;">
 		             			        <span class="btn btn-default btn-file">
-		             			           <!-- <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
+		             			          <!--  <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
 		             			        </span>
 		             			    </span>
-		             			   <!--  <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
+		             			    <!-- <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
 		             			</div>
+		             		</div>
+		             		<div class="display_img">
+		             			<span>
+		             				<input type="text" name="edit_product_image" id="display_img_modal">
+		             				<button type="button" class="editemp_btn">Edit</button>
+		             			</span>
 		             		</div>
 		             	</div>
 		             	<div class="col-lg-8">
