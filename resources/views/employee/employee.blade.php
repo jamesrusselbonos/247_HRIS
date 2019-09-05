@@ -120,7 +120,7 @@
 				      <ul class="notification-bar">
 				      	@foreach(auth()->user()->unreadNotifications as $notification)
 				          <li class="unread">
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" id="{{ $notification->id }}">
 				              	<i class="ion-checkmark"></i>
 				              	<div>
 				              	
