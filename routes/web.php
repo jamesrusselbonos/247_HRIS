@@ -86,6 +86,9 @@ Route::get('/employee', function () {
     return view('employee.employee');
 });
 
+Route::get('/schedule', 'AdminController@schedule_index')->name('schedule.index');
+Route::post('/schedule', 'AdminController@schedule_create')->name('admin.sched.create');
+
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
 Route::post('/job_title/1', 'jobController@edit' )->name('admin.job_title.edit');

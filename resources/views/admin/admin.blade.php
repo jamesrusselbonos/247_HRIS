@@ -99,6 +99,9 @@
 										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
 										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/schedule"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Schedule</a>
+										</li>
 										<!-- <li style="padding-top: 10px;">
 											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
 										</li> -->
