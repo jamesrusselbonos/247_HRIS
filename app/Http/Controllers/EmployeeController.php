@@ -23,8 +23,18 @@ class EmployeeController extends Controller
 
     public function markAllRead(){
 
-    	Auth::user()->unreadNotifications->markAsRead();
-    	return redirect()->back();
+        Auth::user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    }    
+
+    public function markRead(Request $request){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id', $request->notif_id)->first();
+        if($notification){
+            $notification->markAsRead();
+        }
+
     }
 
     public function employee_memo(){

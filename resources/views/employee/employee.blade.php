@@ -89,7 +89,7 @@
 								<a href="#" class="notification-trigger">
 								  <span><i class="fa fa-bell-o" aria-hidden="true"></i></span>
 								  @if(auth()->user()->unreadNotifications->count())
-								  <span class="badge">{{auth()->user()->unreadNotifications->count()}}</span>
+								  <span class="badge" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
 								  @endif
 								</a>
 							</li>
@@ -116,9 +116,10 @@
 			</div>
 			<div class="panel">
 			     <div class="title">Notifications</div>
-				      <ul class="notification-bar">
+				      <ul class="notification-bar" id="not">
+				      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 				      	@foreach(auth()->user()->unreadNotifications as $notification)
-				          <li class="unread">
+				          <li class="unread" id="unread" test="teest">
 				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" class="memo_notif_id" id="{{ $notification->id }}">
 				              	<i class="ion-checkmark"></i>
 				              	<div>
@@ -274,7 +275,29 @@
 
 		    $('.unread a').click(function(){
 		    	var notif_id = $(this).attr('id');
-		    	console.log(notif_id);
+		    	var token = $(".hdn-token").val();
+		    	var count = $(".badge").text();
+		    	$(this).parent().removeClass('unread').addClass('read');
+
+		    	$.get('/markRead/',
+
+		    	 {'notif_id':notif_id, '_token':token}, 
+		    	 function(data){
+
+		    	 	count--;
+		    	 	if(count > 0){
+		    	 		$(".badge").text(count);
+		    	 		
+		    	 	}
+
+		    	 	else{
+		    	 		$('#bell_badge').hide();
+		    	 	
+		    	 	}
+
+		    	
+
+		    	 });       
 		    });
 		})
 	</script>

@@ -81,6 +81,7 @@ Route::post('/memo/1', 'AdminController@memo_edit')->name('admin.memo.edit');
 Route::get('/memo_delete/{id}', 'AdminController@memo_delete');
 Route::post('memo_send', 'AdminController@memoSent')->name('admin.memo.sent');
 Route::get('/markAll/', 'EmployeeController@markAllRead')->name('employee.memo.markAll');
+Route::get('/markRead/', 'EmployeeController@markRead')->name('employee.memo.markRead');
 
 Route::get('/employee', function () {
     return view('employee.employee');

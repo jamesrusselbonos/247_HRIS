@@ -52,7 +52,7 @@
                           @endif
                         </tr>
                               
-                        @endforeach
+                  @endforeach
                       </tbody>
                     </table>
                     <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
