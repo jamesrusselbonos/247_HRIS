@@ -6,12 +6,8 @@
 
 	<title>Employee Dashboard | 247 HRIS </title>
 
-	<!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
 	<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/4c6c819f60.js"></script>
@@ -19,12 +15,15 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
@@ -43,7 +42,7 @@
 			<!-- Navigation-->
 			<div class="row navigation">
 				<div class="col-lg-12">
-					<h6 style="color: #fff; padding-left: 20px; padding-right: 20px;">Navigation</h6>
+					<h6 style="color: #000; padding-left: 20px; padding-right: 20px;">Navigation</h6>
 					<ul>
 						<li>
 							<div class="row nav_link active_nav">
@@ -69,7 +68,7 @@
 									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">
-									<a style="font-size: 15px;" href="#">Memo</a>
+									<a href="/employee_memo" style="font-size: 15px;" href="#">Memo</a>
 								</div>
 							</div>
 						</li>
@@ -79,7 +78,7 @@
 		</div>
 		<div class="col-lg-10 main">
 			<div class="dashboard_banner">
-				<div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+				<div class="row">
 					<div class="col-lg-6">
 						<h4>EMPLOYEE DASHBOARD</h4>
 
@@ -94,7 +93,7 @@
 								  @endif
 								</a>
 							</li>
-							<li style="float: right;" class="nav-item dropdown">
+							<li style="float: right; margin-top: 15px;" class="nav-item dropdown">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                 </a>
@@ -246,6 +245,15 @@
 
 		       
 		   });
+
+		   $('#addDataTable').DataTable({
+	      	columnDefs: [
+	      	           {
+	      	               targets: [ 0, 1, 2 ],
+	      	               className: 'mdl-data-table__cell--non-numeric'
+	      	           }
+	      	       ]
+	      });
 
 		});
 	</script>

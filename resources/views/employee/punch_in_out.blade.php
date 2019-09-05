@@ -6,14 +6,7 @@
 			<div class="container">
 				<div class="card">
                 <div class="card-header">
-                  <h4 >
-                      Timesheet
-                  </h4>
-
-                </div>
-
-                <div class="card-body">
-                  <div>
+                  <div style="margin-top: 20px;">
                     @if(Auth::user()->status == 0)
 
                         <!-- <a href="{{url('/punch_in_out')}}" class ="btn btn-primary time" name="{{ Auth::user()->name }}" testId="" style="margin-bottom: 10px; margin-top:-10px;" id = "{{Auth::user()->id}}">Time In<i class="fas fa-sync ic" style="margin-left:5px;" hidden></i></a> -->
@@ -31,9 +24,12 @@
                     @endforeach
                     @endif
                   </div>
-                 
 
-                    <table class="table table-bordered">
+                </div>
+
+                <div class="card-body">
+                  
+                    <table class="table table-bordered" id="addDataTable">
                       <thead>
                         <tr>
                           <th scope="col">Name</th>

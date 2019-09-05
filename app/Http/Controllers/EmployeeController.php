@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use DB;
 
 class EmployeeController extends Controller
 {
@@ -24,5 +25,12 @@ class EmployeeController extends Controller
 
     	Auth::user()->unreadNotifications->markAsRead();
     	return redirect()->back();
+    }
+
+    public function employee_memo(){
+
+
+
+          return view('employee.employee_memo');
     }
 }
