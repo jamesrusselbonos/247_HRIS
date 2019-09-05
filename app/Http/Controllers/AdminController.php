@@ -302,18 +302,22 @@ class AdminController extends Controller
 
     public function memoSent(Request $request){
 
-        $recipient = $request->memoemp_search;
+        // $recipient = $request->memoemp_search;
+
+        foreach ($request->memoemp_search as $ids) {
+            $users = User::where(array('id' => $ids))->first();
+     ;
+
+            $details = $request;
+
+            $users->notify(new SendMemo($details));
+        }
         // $users = User::with('roles')->get();
         // $users = User::roles('employee')->get(); 
-        $users = User::where('id', $recipient)->get();
+        // $users = User::where('id', $recipient)->get();
         // dd($users);
         // $users = User::with('roles')->where('role','2')->get();
         // dd($users);
-        $details = $request;
-
-        foreach ($users as $user){
-            $user->notify(new SendMemo($details));
-        }
 
         
         return redirect()->back();
