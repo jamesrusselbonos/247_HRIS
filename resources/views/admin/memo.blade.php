@@ -122,10 +122,10 @@
 
        		<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
        		<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
-       		<h3>Recipient</h3>
-       		<div class="row" style="padding-bottom: 30px;">
+       		<h5>Select a recipient</h5>
+       		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
        			
-       			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 80%" name="memoemp_search1" name="memos[]" multiple="multiple" >
+       			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
        				<option></option>  
        				<option>All</option>  
        				@foreach($memo_user as $user)
@@ -134,24 +134,26 @@
        			</select>
        			
        		</div>
-       		<div class="row">
-       			<div class="col-lg-12">
-       				<input type="hidden" name="smodal_memoid" id="smodal_memoid">
-       				<h3 style="margin: 0; margin-bottom: 30px;" name="smodal_memo" id="smodal_memo" ></h3>
-       				<h6 style="margin: 0; margin-bottom: 10px;" id="smodal_subject" name="smodal_subject"></h6>
-       				<p id="smodal_memodate"></p>
+       		<div class="memo_container">
+       			<div class="row">
+       				<div class="col-lg-12">
+       					<input type="hidden" name="smodal_memoid" id="smodal_memoid">
+       					<h3 style="margin: 0; margin-bottom: 30px;" name="smodal_memo" id="smodal_memo" ></h3>
+       					<h6 style="margin: 0; margin-bottom: 10px;" id="smodal_subject" name="smodal_subject"></h6>
+       					<p id="smodal_memodate"></p>
+       				</div>
        			</div>
-       		</div>
-       		<div class="row">
-       			<div class="col-lg-12">
-       				<div class="attach">
-       					<div class="row">
-       						<div class="col-lg-1" style="text-align: center;">
-       							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
-       						</div>
-       						<div class="col-lg-11">
-       							<h6 id="smodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-       							<!-- <a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a> -->
+       			<div class="row">
+       				<div class="col-lg-12">
+       					<div class="attach">
+       						<div class="row">
+       							<div class="col-lg-1" style="text-align: center;">
+       								<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
+       							</div>
+       							<div class="col-lg-11">
+       								<h6 id="smodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+       								<!-- <a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a> -->
+       							</div>
        						</div>
        					</div>
        				</div>
