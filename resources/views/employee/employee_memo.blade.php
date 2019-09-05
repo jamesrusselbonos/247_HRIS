@@ -45,13 +45,13 @@
 			              	{{$notification->data['file']}}
 			              </td>
 			               <td style="max-width: 50px;">
-			              	{{$notification->data['title']}}
+			              	{{$notification->data['date']}}
 			              </td>
 			              
 			             
 			             <td style="max-width: 200px;">
 			             	<span style="float: right;">
-			             		<button id="" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
+			             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
  							</span>
 			             </td>
 			            </tr>
@@ -79,10 +79,10 @@
        <div class="modal-body" style="padding: 30px 30px 30px 30px;">
        		<div class="row">
        			<div class="col-lg-12">
-       				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
-       				<h3 style="margin: 0; margin-bottom: 30px;" id="vmodal_memo"></h3>
-       				<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
-       				<p id="vmodal_memodate"></p>
+       				<input type="hidden" name="v_vmodal_memoid" id="v_vmodal_memoid">
+       				<h3 style="margin: 0; margin-bottom: 30px;" id="v_vmodal_memo"></h3>
+       				<h6 style="margin: 0; margin-bottom: 10px;" id="v_vmodal_subject"></h6>
+       				<p id="v_modal_memodate"></p>
        			</div>
        		</div>
        		<div class="row">
@@ -93,8 +93,8 @@
        							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
        						</div>
        						<div class="col-lg-11">
-       							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-       							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+       							<h6 id="v_modal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+       							<a class="v_memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
        						</div>
        					</div>
        				</div>

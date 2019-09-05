@@ -120,13 +120,14 @@
 				      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 				      	@foreach(auth()->user()->unreadNotifications as $notification)
 				          <li class="unread" id="unread" test="teest">
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" class="memo_notif_id" id="{{ $notification->id }}">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
 				              	<i class="ion-checkmark"></i>
 				              	<div>
 				              	
 				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              		<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
 				              	</div>
 				              </a>
 				          </li>
@@ -134,13 +135,14 @@
 
 				          @foreach(auth()->user()->readNotifications as $notification)
 				          <li>
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}"  notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_date="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
 				              	<i class="ion-checkmark"></i>
 				              	<div>
 
 				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              		<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
 				              	</div>
 				              </a>
 				          </li>
@@ -151,7 +153,7 @@
 				      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
 				      </div>
 			    </div>
-			    <div class="modal fade view_memo" id="view_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			    <div class="modal fade view_memo_notif" id="view_memo_notif" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			      <div class="modal-dialog modal-lg">
 			        <div class="modal-content">
 			          <div class="modal-header">
@@ -255,6 +257,46 @@
 	      	           }
 	      	       ]
 	      });
+
+		    $('.memo_notif_id').on('click',  function(event){
+
+		    	var view_vm_id = $(this).attr('notif_id'); 
+			  	var view_vm_title = $(this).attr('notif_title'); 
+			  	var view_vm_subject = $(this).attr('notif_subject'); 
+			  	var view_vm_attachment = $(this).attr('notif_file'); 
+			  	var view_vm_date = $(this).attr('notif_date'); 
+
+			  	console.log(view_vm_attachment);
+
+			  	$('#vmodal_memoid').val(view_vm_id);
+			  	$('#vmodal_memo').html(view_vm_title);
+			  	$('#vmodal_subject').html(view_vm_subject);
+			  	$('#vmodal_filename').html(view_vm_attachment);
+			  	$('#vmodal_memodate').html(view_vm_date);
+			  	$('.memo_download').attr('href', 'documents/' + view_vm_attachment);
+			  	$('.memo_download').attr('download', view_vm_attachment); 
+
+		    });
+
+		     $('.memo_view').on('click',  function(event){
+
+		    	var view_memo_id = $(this).attr('memo_id'); 
+			  	var view_memo_title = $(this).attr('memo_title'); 
+			  	var view_memo_subject = $(this).attr('memo_subj'); 
+			  	var view_memo_attachment = $(this).attr('memo_file'); 
+			  	var view_memo_date = $(this).attr('memo_date'); 
+
+			  	console.log(view_memo_id);
+
+			  	$('#v_vmodal_memoid').val(view_memo_id);
+			  	$('#v_vmodal_memo').html(view_memo_title);
+			  	$('#v_vmodal_subject').html(view_memo_subject);
+			  	$('#v_modal_filename').html(view_memo_attachment);
+			  	$('#v_modal_memodate').html(view_memo_date);
+			  	$('.v_memo_download').attr('href', 'documents/' + view_memo_attachment);
+			  	$('.v_memo_download').attr('download', view_memo_attachment); 
+			  	
+		    });
 
 		});
 	</script>
