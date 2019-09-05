@@ -119,7 +119,7 @@
 				      <ul class="notification-bar">
 				      	@foreach(auth()->user()->unreadNotifications as $notification)
 				          <li class="unread">
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" class="memo_notif_id" id="{{ $notification->id }}">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" id="{{ $notification->id }}">
 				              	<i class="ion-checkmark"></i>
 				              	<div>
 				              	
@@ -270,11 +270,6 @@
 		$(document).ready(function() {
 		    $('.notification-trigger').click(function() {
 		        $('.panel').toggleClass('visible');
-		    });
-
-		    $('.unread a').click(function(){
-		    	var notif_id = $(this).attr('id');
-		    	console.log(notif_id);
 		    });
 		})
 	</script>
