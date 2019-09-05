@@ -116,37 +116,76 @@
 				</div>
 			</div>
 			<div class="panel">
-			      <div class="title">Notifications</div>
-			      <ul class="notification-bar">
-			      	@foreach(auth()->user()->unreadNotifications as $notification)
-			          <li class="unread">
-			              <i class="ion-checkmark"></i>
-			              <div>
-			          
-			              	<h6><strong>{{$notification->data['title']}}</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-			              	<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
-			              </div>
-			          </li>
-			          @endforeach
+			     <div class="title">Notifications</div>
+				      <ul class="notification-bar">
+				      	@foreach(auth()->user()->unreadNotifications as $notification)
+				          <li class="unread">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo">
+				              	<i class="ion-checkmark"></i>
+				              	<div>
+				              	
+				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
+				              		<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              		<p style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              	</div>
+				              </a>
+				          </li>
+				          @endforeach
 
-			          @foreach(auth()->user()->readNotifications as $notification)
-			          <li>
-			              <i class="ion-checkmark"></i>
-			              <div>
+				          @foreach(auth()->user()->readNotifications as $notification)
+				          <li>
+				              <i class="ion-checkmark"></i>
+				              <div>
 
-			              	<h6><strong>{{$notification->data['title']}}</strong></h6>
-			              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-			              	<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
-			              </div>
-			          </li>
-			          @endforeach
+				              	<h6><strong>{{$notification->data['title']}}</strong></h6>
+				              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              	<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              </div>
+				          </li>
+				          @endforeach
 
-			      </ul>
-			      <div class="notif_footer">
-			      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+				      </ul>
+				      <div class="notif_footer">
+				      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+				      </div>
+			    </div>
+			    <div class="modal fade view_memo" id="view_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			      <div class="modal-dialog modal-lg">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			              <!-- <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5> -->
+			              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                <span aria-hidden="true">&times;</span>
+			              </button>
+			           </div>
+			           <div class="modal-body" style="padding: 30px 30px 30px 30px;">
+			           		<div class="row">
+			           			<div class="col-lg-12">
+			           				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
+			           				<h3 style="margin: 0; margin-bottom: 30px;" id="vmodal_memo"></h3>
+			           				<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
+			           				<p id="vmodal_memodate"></p>
+			           			</div>
+			           		</div>
+			           		<div class="row">
+			           			<div class="col-lg-12">
+			           				<div class="attach">
+			           					<div class="row">
+			           						<div class="col-lg-1" style="text-align: center;">
+			           							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
+			           						</div>
+			           						<div class="col-lg-11">
+			           							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+			           							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+			           						</div>
+			           					</div>
+			           				</div>
+			           			</div>
+			           		</div>	
+			           </div>
+			        </div>
 			      </div>
-			  </div>
+			    </div>
 			@yield('employee_content')
 		</div>
 	</div>
