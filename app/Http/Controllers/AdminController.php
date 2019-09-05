@@ -112,7 +112,7 @@ class AdminController extends Controller
         $e_employee->zip_code = $request->edit_ezip;
         $e_employee->home_number = $request->edit_ehnumber;
         $e_employee->mobile_number = $request->edit_emnumber;
-        $e_employee->work_email = $request->edit_ewemail;
+        $e_employee->email = $request->edit_ewemail;
         $e_employee->personal_email = $request->edit_epemail;
         $e_employee->birthday = $request->edit_ebday;
         $e_employee->SIN_SSN = $request->edit_essnsin;
