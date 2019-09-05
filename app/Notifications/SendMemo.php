@@ -61,6 +61,7 @@ class SendMemo extends Notification
             'file' => $this->details->filename,
             'from' => $this->details->from,
             'id' => $this->details->mem_id,
+            'date' => $this->details->memo_date,
 
         ];
     }

@@ -573,11 +573,13 @@
 		  	var mem_tit = document.getElementById("smodal_memo").innerHTML;
 		  	var mem_sub = document.getElementById("smodal_subject").innerHTML;
 		  	var memoemp_search = $('.memoemp_search').val();
+		  	var memo_date = document.getElementById("smodal_memodate").innerHTML;
 		  	var token = $("#send_memo .hdn-token").val();
 		  	console.log(memoemp_search);
 
 		  		$.post('memo_send',
-		  		{'mem_id':mem_id, 'from':from,'filename':filename, 'mem_tit':mem_tit, 'mem_sub':mem_sub, 'memoemp_search':memoemp_search, '_token':token}, 
+		  		{'mem_id':mem_id, 'from':from,'filename':filename, 'mem_tit':mem_tit, 'memo_date':memo_date, 
+		  		'mem_sub':mem_sub, 'memoemp_search':memoemp_search, '_token':token}, 
 		  		function(data){
 
 		  		location.reload();
