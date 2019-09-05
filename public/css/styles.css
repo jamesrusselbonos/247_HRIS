@@ -486,6 +486,17 @@ ul.notification-bar {
   font-size: 14px;
   color: #7b7a76;
   /*box-shadow: 1px 1px 2px #dedcd4;*/
+
+  transition: all .2s ease-in-out;
+}
+.notification-bar li div:hover {
+ -webkit-box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+ -moz-box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+ box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+
+ transform: scale(1.1); 
+
+ z-index: 3;
 }
 .notification-bar li i {
   width: 40px;
@@ -503,6 +514,21 @@ ul.notification-bar {
     border-color: #008dcb;
     background-color: #008dcb;
     color: #fff;
+
+    transition: all .2s ease-in-out;
+
+   /* box-shadow: 0px 0px 0px grey;
+	-webkit-transition:  box-shadow .6s ease-out;
+	 box-shadow: .8px .9px 3px grey;*/
+}
+.notification-bar li:hover.unread div:hover {
+    -webkit-box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+    -moz-box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+    box-shadow: -6px 21px 34px -17px rgba(0,0,0,0.49);
+
+    transform: scale(1.1); 
+
+    z-index: 3;
 }
 .notification-bar li i:after {
   content: '';

@@ -134,13 +134,15 @@
 
 				          @foreach(auth()->user()->readNotifications as $notification)
 				          <li>
-				              <i class="ion-checkmark"></i>
-				              <div>
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo">
+				              	<i class="ion-checkmark"></i>
+				              	<div>
 
-				              	<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              	<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              	<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
-				              </div>
+				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
+				              		<p style="margin-top: -5px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              		<p class="memo_subj" style="margin-top: -5px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              	</div>
+				              </a>
 				          </li>
 				          @endforeach
 
