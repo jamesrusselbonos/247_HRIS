@@ -21,6 +21,7 @@ use App\Schedule;
 use App\Memo;
 use App\User;
 use DB;
+use App\Role;
 
 class AdminController extends Controller
 {
@@ -335,7 +336,8 @@ class AdminController extends Controller
     public function memo_index(){
 
         $memo_employee = DB::table('prototype__employees')->get();
-        $memo_user = DB::table('users')->get();
+        // $memo_user = DB::table('users')->get();
+        $memo_user = User::with('roles')->where('role', '2')->get();
         $memos = DB::table('memos')->get();
 
         return view('admin.memo', compact('memo_employee', 'memos', 'memo_user'));
@@ -374,17 +376,30 @@ class AdminController extends Controller
     }
 
     public function memoSent(Request $request){
-
+      
         // $recipient = $request->memoemp_search;
+        if(in_array("0001", $request->memoemp_search))
+        {
+           // $users = Role::with('users')->where('name', 'Employee')->get();
+            $users = User::with('roles')->where('role', '2')->get();
+           foreach ($users as $user) {
+               $details = $request;
 
-        foreach ($request->memoemp_search as $ids) {
-            $users = User::where(array('id' => $ids))->first();
-     ;
-
-            $details = $request;
-
-            $users->notify(new SendMemo($details));
+               $user->notify(new SendMemo($details));
+           }
+            
         }
+        else{
+            foreach ($request->memoemp_search as $ids) {
+                $users = User::where(array('id' => $ids))->first();
+            
+
+                $details = $request;
+
+                $users->notify(new SendMemo($details));
+            }
+        }
+        
         // $users = User::with('roles')->get();
         // $users = User::roles('employee')->get(); 
         // $users = User::where('id', $recipient)->get();

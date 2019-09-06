@@ -127,7 +127,7 @@
        			
        			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
        				<option></option>  
-       				<option>All</option>  
+       				<option value = "0001">All</option>  
        				@foreach($memo_user as $user)
        				<option value="{{ $user->id }}">{{ $user->name }}</option>
        				@endforeach	
