@@ -37,11 +37,11 @@
 
 				            <tr>
 
-				              <th style="max-width: 150px;">
+				              <th style="max-width: 140px;">
 				              	<p>{{ $sch_list->lastname }}, {{ $sch_list->firstname }} {{ $sch_list->middle_name }}</p>
 				              	<p style="margin-top: -15px;">{{ $sch_list->employee_id }}</p>
 				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              <th style="text-overflow: ellipsis; max-width: 130px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	<p>{{ $sch_list->date_from }} to {{ $sch_list->date_to }}</p>
 				              </th>
 				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
@@ -59,9 +59,23 @@
 				             
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
-	 								<button id="" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
-	 								<a href=""><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
+				             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view" data-toggle="modal" data-target="#sched_view"
+
+				             		v_schedid="{{ $sch_list->id }}"
+				             		v_sched_empid="{{ $sch_list->employee_id }}"
+				             		v_sched_fname="{{ $sch_list->firstname }}"
+				             		v_sched_lname="{{ $sch_list->lastname }}"
+				             		v_sched_mname="{{ $sch_list->middle_name }}"
+				             		v_sched_datefrom="{{ $sch_list->date_from }}"
+				             		v_sched_dateto="{{ $sch_list->date_to }}"
+				             		v_sched_task="{{ $sch_list->task }}"
+				             		v_sched_comment="{{ $sch_list->comment }}"
+				             		v_Sched_duration="{{ $sch_list->duration }}"
+				             		v_sched_other="{{ $sch_list->other }}"
+
+				             		><i class="fa fa-eye" aria-hidden="true"> View</i></button>
+	 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+	 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
 	 							</span>
 				             </td>
 				            </tr>
@@ -76,6 +90,49 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade sched_view" id="sched_view" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      	  <span aria-hidden="true">&times;</span>
+      	</button>
+      </div>
+      <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
+      	<div class="row">
+      		<h4 id="v_sched_lname"></h4><h4 id="v_sched_fname"></h4><h4 id="v_sched_mname"></h4>
+      		<input type="hidden" name="v_schedid" id="v_schedid">
+      	</div>
+      	<div class="row">
+      		<h6 id="v_sched_empid" style="margin-top: -10px;"></h6>
+      	</div>
+      	<div class="row">
+      		<p><strong>From: &nbsp;</strong></p><p id="v_sched_datefrom"></p><p><strong> &nbsp;To: &nbsp;</strong></p><p id="v_sched_dateto"></p><p><strong>&nbsp; Duration: &nbsp;</strong></p><p id="v_sched_duration"></p>
+      	</div>
+      	<div class="row" style="padding-top: 30px;">
+  			<p><strong>Task: &nbsp;</strong></p>
+      	</div>
+      	<div class="row">
+      		<p style="margin-top: -10px;" id="v_sched_task"></p>
+      	</div>
+      	<div class="row" style="margin-top: 20px;">
+  			<p><strong>Comment: &nbsp;</strong></p>
+      	</div>
+      	<div class="row">
+      		<p style="margin-top: -10px;" id="v_sched_comment"></p>
+      	</div>
+      	<div class="row" style="margin-top: 20px;">
+  			<p><strong>Other task: &nbsp;</strong></p>
+      	</div>
+      	<div class="row">
+      		<p style="margin-top: -10px;" id="v_sched_other"></p>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">

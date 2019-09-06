@@ -566,6 +566,36 @@
 
 		  });
 
+		   $('.sched_view').on('click',  function(event){
+		  	var view_schedid = $(this).attr('v_schedid'); 
+		  	var view_sched_empid = $(this).attr('v_sched_empid'); 
+		  	var view_sched_fname = $(this).attr('v_sched_fname'); 
+		  	var view_sched_lname = $(this).attr('v_sched_lname'); 
+		  	var view_sched_mname = $(this).attr('v_sched_mname'); 
+		  	var view_sched_datefrom = $(this).attr('v_sched_datefrom'); 
+		  	var view_sched_dateto = $(this).attr('v_sched_dateto'); 
+		  	var view_sched_task = $(this).attr('v_sched_task'); 
+		  	var view_sched_comment = $(this).attr('v_sched_comment'); 
+		  	var view_sched_duration = $(this).attr('v_Sched_duration'); 
+		  	var view_sched_other = $(this).attr('v_sched_other'); 
+
+		  	console.log(view_sched_empid);
+
+		  	$('#v_schedid').val(view_schedid);
+		  	$('#v_sched_lname').html(view_sched_lname);
+		  	$('#v_sched_fname').html(view_sched_fname);
+		  	$('#v_sched_mname').html(view_sched_mname);
+		  	$('#v_sched_empid').html(view_sched_empid);
+		  	$('#v_sched_datefrom').html(view_sched_datefrom);
+		  	$('#v_sched_dateto').html(view_sched_dateto);
+		  	$('#v_sched_task').html(view_sched_task);
+		  	$('#v_sched_comment').html(view_sched_comment);
+		  	$('#v_sched_other').html(view_sched_other);
+		  	$('#v_sched_duration').html(view_sched_duration);
+		  	
+
+		  });
+
 		  $('#btn_send').on('click', function(event){
 		  	var mem_id = $('#smodal_memoid').val();
 		  	var from = $('#hdn-name').val();

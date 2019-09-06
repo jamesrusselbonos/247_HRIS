@@ -89,6 +89,7 @@ Route::get('/employee', function () {
 
 Route::get('/schedule', 'AdminController@schedule_index')->name('schedule.index');
 Route::post('/schedule', 'AdminController@schedule_create')->name('admin.sched.create');
+Route::get('/schedule/{id}', 'AdminController@schedule_delete');
 
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');

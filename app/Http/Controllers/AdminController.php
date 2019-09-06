@@ -333,6 +333,13 @@ class AdminController extends Controller
         return redirect()->route('schedule.index');
     }
 
+    public function schedule_delete($id){
+
+         DB::table('schedules')->where('id', $id)->delete();
+
+        return redirect()->route('schedule.index');
+    }
+
     public function memo_index(){
 
         $memo_employee = DB::table('prototype__employees')->get();
