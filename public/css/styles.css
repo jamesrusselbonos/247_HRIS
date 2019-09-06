@@ -49,7 +49,7 @@ body{
 	box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.41);
 }
 .main{
-	background-color: #f8f8f8;
+	background-color: #f9f9f9;
 	padding-left: 0;
 
 	height: 100vh;
@@ -96,8 +96,8 @@ body{
 	padding-top: 50px;
 }
 .admin_index{
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 80px;
+	padding-right: 80px;
 
 	padding-top: 50px;
 }
@@ -115,9 +115,11 @@ body{
 	height: 200px;
 }
 .profile_thumb{
-	border-radius: 360px;
-	width: 100px;
-	height: 100px;
+	border-radius: 100%;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .profile_list{
 	padding-left: 25px;
@@ -285,6 +287,8 @@ body{
     margin-bottom: 30px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+
+    height: auto;
 }
 
 .card .card-block {
@@ -603,3 +607,43 @@ input[type=search]{
 	border-radius: 30px;
 	padding: 20px 20px 20px 20px;
 }
+ .quick_wrapper{
+ 	padding-left: 30px;
+ 	padding-right: 30px;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+
+ 	font-size: 16px;
+
+ 	transition: all .2s ease-in-out;
+ }
+ .quick_wrapper:hover{
+
+ 	-webkit-box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+ 	-moz-box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+ 	box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+
+	 transform: scale(1.1); 
+
+	 z-index: 3;
+		
+	 background-color: #fff;
+	/* color: #fff;
+
+	 border-radius: 30px;*/
+ }
+ .row_animation{
+
+ 	transition: all .2s ease-in-out;
+ }
+ .row_animation:hover{
+ 	-webkit-box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+ 	-moz-box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+ 	box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
+
+	 transform: scale(1.1); 
+
+	 z-index: 3;
+		
+	 background-color: #fff;
+ }

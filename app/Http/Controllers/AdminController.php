@@ -35,9 +35,19 @@ class AdminController extends Controller
         {
             $emp_count = Prototype_Employee::all();
             $dept_count = Department::all();
-         
+            $memo_report = Memo::all();
+            
+            $sched_report = DB::table('schedules')
+            ->join('prototype__employees', 'prototype__employees.id', '=', 'schedules.employee_id')
+            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
+            ->get();
 
-            return view('admin.admin_index', compact('emp_count', 'dept_count'));
+            $TimeSheet_report = DB::table('timesheets')
+            ->join('users', 'users.id', '=', 'timesheets.employee_id')
+            ->select('timesheets.*', 'users.name')
+            ->get();
+
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report'));
         }    
 
     public function addEmployee()
