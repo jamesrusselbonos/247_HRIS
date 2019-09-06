@@ -11,6 +11,6 @@ class Prototype_Employee extends Model
     ];
 
     public function user(){
-    	retunr $this->belongsTo('App\User', )
+    	return $this->belongsTo('App\User');
     }
 }
