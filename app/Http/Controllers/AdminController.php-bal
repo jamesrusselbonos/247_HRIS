@@ -36,19 +36,9 @@ class AdminController extends Controller
         {
             $emp_count = Prototype_Employee::all();
             $dept_count = Department::all();
-            $memo_report = Memo::all();
-            
-            $sched_report = DB::table('schedules')
-            ->join('prototype__employees', 'prototype__employees.id', '=', 'schedules.employee_id')
-            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
-            ->get();
+         
 
-            $TimeSheet_report = DB::table('timesheets')
-            ->join('users', 'users.id', '=', 'timesheets.employee_id')
-            ->select('timesheets.*', 'users.name')
-            ->get();
-
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report'));
+            return view('admin.admin_index', compact('emp_count', 'dept_count'));
         }    
 
     public function addEmployee()
@@ -186,7 +176,7 @@ class AdminController extends Controller
 
     public function create(Request $request)
     {
-
+ 
         if($request->hasFile('product_image')){
 
             $filenameWithExt = $request->file('product_image')->getClientOriginalName();
@@ -209,6 +199,13 @@ class AdminController extends Controller
 
             $fileNameToStore = "img/profile.png";
         }
+        // $account = new User;
+        // $account->employee_id = $request->employee_id;
+        // $account->email = $request->email;
+        // $account->password = Hash::make($request->password);
+        // $role = Role::select('id')->where('name', 'Employee')->first();
+        // $account->roles()->attach($role);
+
         $user = new User;
         $user->email = $request->email;
         $user->employee_id = $request->employee_id;
@@ -219,7 +216,9 @@ class AdminController extends Controller
         $user->roles()->attach($role);
 
        $user->save();
-   
+        // $account->save();
+
+
         $proto = new Prototype_Employee;
 
             $proto->employee_id = $request->get('employee_id');

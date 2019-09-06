@@ -37,10 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles()
+    public function employee()
        {
            return $this
-               ->belongsToMany('App\Role')
+               ->has('App\Prototype_Employee');
+       }    
+
+       public function roles()
+       {
+           return $this
+               ->belongsToMany('App\Role', 'role_user')
                ->withTimestamps();
        }
 
