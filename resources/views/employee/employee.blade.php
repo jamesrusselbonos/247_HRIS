@@ -74,6 +74,16 @@
 								</div>
 							</div>
 						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-outdent" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a href="/employee_leave" style="font-size: 15px;" href="#">Leave</a>
+								</div>
+							</div>
+						</li>
 					</ul>	
 				</div>
 			</div>
@@ -82,7 +92,7 @@
 			<div class="dashboard_banner">
 				<div class="row">
 					<div class="col-lg-6">
-						<h4>EMPLOYEE DASHBOARD</h4>
+						<h6>EMPLOYEE DASHBOARD</h6>
 
 					</div>
 					<div class="col-lg-6">
@@ -95,7 +105,7 @@
 								  @endif
 								</a>
 							</li>
-							<li style="float: right; margin-top: 15px; font-size: 16px;" class="nav-item dropdown">
+							<li style="float: right; margin-top: 15px; font-size: 14px;" class="nav-item dropdown">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                 </a>

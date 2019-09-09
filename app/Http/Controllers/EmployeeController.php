@@ -43,4 +43,8 @@ class EmployeeController extends Controller
 
           return view('employee.employee_memo');
     }
+
+    public function leave_index(){
+        return view ('employee.employee_leave');
+    }
 }

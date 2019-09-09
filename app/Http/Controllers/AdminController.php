@@ -20,6 +20,7 @@ use App\Position;
 use App\Prototype_Employee;
 use App\Schedule;
 use App\Memo;
+use App\Leave_type;
 use App\User;
 use DB;
 use App\Role;
@@ -359,6 +360,31 @@ class AdminController extends Controller
          DB::table('schedules')->where('id', $id)->delete();
 
         return redirect()->route('schedule.index');
+    }
+
+    public function leave_types(){
+
+        $leave_index = DB::table('leave_types')->get();
+
+        return view('admin.leave_types', compact('leave_index'));
+    }
+
+    public function leave_type_create(Request $request){
+        $leave_type = new Leave_type([
+            'leave_type' => $request->get('leave_type'),
+            'description' => $request->get('leaveType_desc')
+        ]);
+
+        $leave_type->save();
+
+        return redirect()->route('leave_types.index');
+
+    }
+
+    public function leave_type_delete($id){
+        DB::table('leave_types')->where('id', $id)->delete();
+
+        return redirect()->route('leave_types.index');
     }
 
     public function memo_index(){

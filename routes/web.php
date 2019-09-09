@@ -75,6 +75,8 @@ Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard')
 
 Route::get('/employee_memo', 'EmployeeController@employee_memo');
 
+Route::get('/employee_leave', 'EmployeeController@leave_index');
+
 Route::get('/memo', 'AdminController@memo_index')->name('admin.memo');
 Route::post('/memo', 'AdminController@memo_create')->name('admin.memo.create');
 Route::post('/memo/1', 'AdminController@memo_edit')->name('admin.memo.edit');
@@ -90,6 +92,10 @@ Route::get('/employee', function () {
 Route::get('/schedule', 'AdminController@schedule_index')->name('schedule.index');
 Route::post('/schedule', 'AdminController@schedule_create')->name('admin.sched.create');
 Route::get('/schedule/{id}', 'AdminController@schedule_delete');
+
+Route::get('/leave_types', 'AdminController@leave_types')->name('leave_types.index');
+Route::post('/leave_types', 'AdminController@leave_type_create')->name('admin.leave_type.create');
+Route::get('/delete_leave_type/{id}', 'AdminController@leave_type_delete');
 
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');

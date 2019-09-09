@@ -170,6 +170,9 @@
 										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/job_position"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Position</a>
 										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/leave_types"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Leave Types</a>
+										</li>
 									</ul>
 								</div>
 							</div>
