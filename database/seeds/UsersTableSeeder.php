@@ -12,13 +12,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert(
-<<<<<<< HEAD
         	[
             'employee_id' => '1000000000000',
-=======
-        	['name' => 'Admin',
-            'employee_id' => '',
->>>>>>> 4d1bc4a91ccf082e589466bd854cda78936068c4
+            'employee_id' => '4d1bc4a91ccf082e589466bd854cda78936068c4',
         	'email' => 'admin@gmail.com',
             'role' => '1',
         	'password' => bcrypt('Hello123$'),
