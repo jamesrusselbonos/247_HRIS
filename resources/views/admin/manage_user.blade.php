@@ -19,12 +19,12 @@
 				            </tr>
 				          </thead>
 				          <tbody>
-				      
+			
 				            @foreach( $m_user as $ms)
 				                  <tr>
-
+				                 
 				              <th scope="row">
-				              	{{ $ms->name }}
+				              	{{ $ms->firstname }} {{ $ms->lastname }}
 				              </th>
 				              <td>
 				              	{{ $ms->email }}

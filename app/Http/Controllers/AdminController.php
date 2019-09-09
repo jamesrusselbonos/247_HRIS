@@ -180,7 +180,11 @@ class AdminController extends Controller
 
     public function manageUser()
     {
-        $m_user = DB::table('users')->get();
+        // $m_user = DB::table('users')->get();
+        $m_user = DB::table('users')
+            ->join('prototype__employees', 'users.employee_id', '=', 'prototype__employees.employee_id')
+            ->select('users.*', 'prototype__employees.firstname', 'prototype__employees.lastname')
+            ->get();
 
         return view('admin.manage_user', compact('m_user'));
     }

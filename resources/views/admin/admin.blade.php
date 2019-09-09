@@ -193,7 +193,7 @@
 							<ul style="list-style: none; padding-top: 20px; font-size: 14px;">
 								<li style="float: right;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	                                     <span><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{ Auth::user()->email }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
 	                                </a>
 
 	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
