@@ -5,6 +5,7 @@ body{
 	height: 100vh;
 	background-color: #fff;
 	padding-top: 50px;
+	padding-bottom: 50px;
 
 	-webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
 	box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
@@ -43,6 +44,9 @@ body{
 	padding-left: 100px;
 	padding-right: 100px;
 
+	position: absolute;
+	width: 100%;
+
 	-webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
 
@@ -54,6 +58,8 @@ body{
 
 	height: 100vh;
 	overflow-y: auto;
+
+	position: relative;
 }
 .add_employee_tab{
 	padding-left: 100px;
@@ -69,44 +75,44 @@ body{
 	padding-left: 100px;
 	padding-right: 100px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .memo_page{
 	padding-left: 80px;
 	padding-right: 80px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .sched_page{
 	padding-left: 30px;
 	padding-right: 30px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .manage_employee{
 	padding-left: 100px;
 	padding-right: 100px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .manage_user{
 	padding-left: 100px;
 	padding-right: 100px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .admin_index{
 	padding-left: 80px;
 	padding-right: 80px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 }
 .job_pages{
 	
 	padding-left: 100px;
 	padding-right: 100px;
 
-	padding-top: 50px;
+	padding-top: 150px;
 
 }
 .profile_photo{
@@ -131,7 +137,7 @@ body{
 	display: inline-block;
 }
 .add_employee_tab{
-	margin-top: 50px;
+	margin-top: 150px;
 }
 .add_employee_tab a{
 	color: #000;

@@ -184,13 +184,13 @@
 				<div class="dashboard_banner">
 					<div class="row">
 						<div class="col-lg-6">
-							<h4><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h4>
+							<h6><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h6>
 						</div>
 						<div class="col-lg-6">
-							<ul style="list-style: none; padding-top: 20px; font-size: 16px;">
+							<ul style="list-style: none; padding-top: 20px; font-size: 14px;">
 								<li style="float: right;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span>{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	                                     <span><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{ Auth::user()->name }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
 	                                </a>
 
 	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
