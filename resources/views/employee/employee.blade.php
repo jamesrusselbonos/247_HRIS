@@ -36,9 +36,26 @@
 	<div class="row">
 		<div class="col-lg-2 sidebar">
 			<div class="row">
-				<div style="text-align: center;" class="col-lg-12">
-					<img class="company_logo" src="/img/icon.png">
-					<h6 style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</h6>
+				<div style="text-align: center; padding-top: 30px;" class="col-lg-12">
+					<!-- <img class="company_logo" src="{{ Auth::user()->employee()->first()->employee_img }}"> -->
+					<img style="height: 150px; width: 150px; border-radius: 100%; margin-left: 20px;" src="{{ Auth::user()->employee()->first()->employee_img }}">
+					<h6 style="margin-top: 10px;">{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h6>
+					<p style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</p>
+				</div>
+			</div>
+			<div class="row" style="padding-top: 8px; padding-bottom: 8px; border: 1px solid #000; margin-right: 20px; margin-left: 20px; border-radius: 30px;">
+				<div class="col-lg-6" style="text-align: center;">
+					<a href="#"><i class="fa fa-user" aria-hidden="true">&nbsp;Profile</i></a>
+				</div>
+				<div class="col-lg-6" style="text-align: center;">
+					<a href="{{ route('logout') }}" 
+						onclick="event.preventDefault();
+						              document.getElementById('logout-form').submit();">
+						 <i class="fa fa-sign-out" aria-hidden="true">&nbsp;{{ __('Logout') }}</i>
+					</a>
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
 				</div>
 			</div>
 			<!-- Navigation-->
@@ -105,23 +122,23 @@
 								  @endif
 								</a>
 							</li>
-							<li style="float: right; margin-top: 15px; font-size: 14px;" class="nav-item dropdown">
-                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <span>{{ Auth::user()->employee()->first()->firstname }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                </a>
+								<!-- <li style="float: right; margin-top: 10px; font-size: 16px;" class="nav-item dropdown">
+	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+	                                     <span><img style="height: 40px; width: 40px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	                                    <a class="dropdown-item" href="{{ route('logout') }}"
+	                                       onclick="event.preventDefault();
+	                                                     document.getElementById('logout-form').submit();">
+	                                        {{ __('Logout') }}
+	                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                        	</li>
+	                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+	                                        @csrf
+	                                    </form>
+	                                </div>
+	                        	</li> -->
 						</ul>
 					</div>
 				</div>
