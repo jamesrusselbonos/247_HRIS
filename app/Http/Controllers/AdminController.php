@@ -44,11 +44,15 @@ class AdminController extends Controller
             ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
             ->get();
 
-            $TimeSheet_report = DB::table('timesheets')
-            ->join('users', 'users.id', '=', 'timesheets.employee_id')
-            ->select('timesheets.*', 'users.name')
-            ->get();
-
+            // $TimeSheet_report = DB::table('timesheets')
+            // ->join('users', 'users.employee_id', '=', 'timesheets.employee_id')
+            // ->select('timesheets.*', 'users.*')
+            // ->get();
+            $TimeSheet_report = DB::table('users')
+                ->join('timesheets', 'timesheets.employee_id', '=', 'users.employee_id')
+                ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'users.employee_id')
+                ->select('timesheets.*', 'users.*', 'prototype__employees.*')
+                ->get();
             return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report'));
         }    
 
@@ -170,9 +174,10 @@ class AdminController extends Controller
 
     public function timesheet()
     {
-        $time = DB::table('timesheets')
-            ->join('users', 'users.id', '=', 'timesheets.employee_id')
-            ->select('timesheets.*', 'users.name')
+        $time = DB::table('users')
+            ->join('timesheets', 'timesheets.employee_id', '=', 'users.employee_id')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'users.employee_id')
+            ->select('timesheets.*', 'users.*', 'prototype__employees.*')
             ->get();
 
         return view('admin.timesheet', compact('time'));

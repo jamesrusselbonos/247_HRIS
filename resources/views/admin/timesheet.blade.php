@@ -46,7 +46,7 @@
 				            	<tr>
 
 				              <th scope="row">
-				              	{{ $tt->name}}
+				              	{{ $tt->firstname}} {{ $tt->lastname}}
 				              </th>
 				              <td>
 				              	{{$tt->date}}
