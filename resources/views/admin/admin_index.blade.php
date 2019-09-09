@@ -70,7 +70,7 @@
 					                   	@foreach($TimeSheet_report as $time_report)
 					                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
 					                   			<div class="col-md-3">
-					                   				<p>{{$time_report->name}}</p>
+					                   				<p>{{ $time_report->firstname}} {{ $time_report->lastname}}</p>
 					                   			</div>
 					                   			<div class="col-md-3">
 					                   				<p>{{$time_report->date}}</p>

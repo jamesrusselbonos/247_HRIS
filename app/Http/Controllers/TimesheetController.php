@@ -17,7 +17,7 @@ class TimesheetController extends Controller
      */
     public function index()
     {
-       $userId = Auth::user()->id;
+       $userId = Auth::user()->employee_id;
        $timeSheets =  DB::table('timesheets')
                      ->select('*')
                      ->where('employee_id', $userId)
