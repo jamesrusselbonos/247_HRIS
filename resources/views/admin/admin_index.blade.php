@@ -40,7 +40,7 @@
 				            <div class="card bg-c-pink order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Pending Leaves</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-outdent f-left"></i><span>486 Hours</span></h4>
+				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-outdent f-left"></i><span>{{ $leave_count->count() }}</span></h4>
 				                    <a href="/leave" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View Leaves</span></p></a>
 				                </div>
 				            </div>
@@ -95,53 +95,53 @@
 					                   	@endforeach
 					                   </div>
 
-				                    <i class="fa fa-cogs" aria-hidden="true">&nbsp; Manage Timesheets</i>
+				                    <a href="/timesheet"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
 				                </div>
 				            </div>
 				        </div>
 						<div class="col-md-4 col-xl-4">
 				            <div class="card">
 				                <div class="card-block">
-				                    <h6 class="m-b-20">Quick Access</h6>
+				                    <h6 class="m-b-20"><strong>Quick Access</strong></h6>
 
 			                    	<a href="/add_employee" style="cursor: pointer; color: #000;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Employee</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_schedule" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Schedule</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Schedule
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_memo" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Memo</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Memo
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_job" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Job</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_job_status" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Status</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Status
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_department" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Department</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#Add_Job_level" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Level</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Level
 			                    		</div>
 			                    	</a>
 			                    	<a data-toggle="modal" data-target="#add_position" style="cursor: pointer;">
 			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Position</i>
+			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Position
 			                    		</div>
 			                    	</a>
 				                </div>
@@ -152,7 +152,7 @@
 						<div class="col-md-5 col-xl-5">
 				            <div class="card">
 				                <div class="card-block">
-				                    <h6 class="m-b-20">Employees</h6>
+				                    <h6 class="m-b-20"><strong>Employee</strong></h6>
 
 			                    	<div style="padding-bottom: 30px; min-height: 665px; padding-top: 25px;">
 			                    		@foreach($emp_count as $emp_list)
@@ -167,7 +167,7 @@
 			                    			</div>
 			                    		@endforeach
 			                    	</div>
-			                    	<i class="fa fa-cogs" aria-hidden="true">&nbsp; Manage Timesheets</i>
+			                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 				                </div>
 				            </div>
 				        </div>
@@ -192,7 +192,7 @@
 							                   	@endforeach
 							                   </div>
 
-						                    <i class="fa fa-cogs" aria-hidden="true">&nbsp; Manage Memos</i>
+						                    <a href="/memo"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Memos</a>
 						                </div>
 						            </div>
 				            	</div>
@@ -215,7 +215,7 @@
 		            		                   	@endforeach
 		            		                   </div>
 
-		            	                    <i class="fa fa-cogs" aria-hidden="true">&nbsp; Manage Schedules</i>
+		            	                    <a href="/schedule"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Schedules</a>
 		            	                </div>
 		            	            </div>
 	            	            </div>

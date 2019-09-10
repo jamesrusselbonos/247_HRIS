@@ -226,8 +226,7 @@ a, a:hover{
 }
 .nav_link:hover{
 	cursor: pointer;
-
-
+	background-color: #F8FBFB;
 }
 .nav_link{
 	padding-top: 15px;
@@ -240,6 +239,9 @@ a, a:hover{
 	transition: background-color 0.5s ease;
 }
 .active_nav{
+	background-color: #6da4a3;
+}
+.active_nav:hover{
 	background-color: #6da4a3;
 }
 .active_nav a, .active_nav i{

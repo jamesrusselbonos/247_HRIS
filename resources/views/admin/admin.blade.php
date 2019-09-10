@@ -7,7 +7,7 @@
 	<title>Admin Dashboard | 247 HRIS</title>
 
 	<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/4c6c819f60.js"></script>
