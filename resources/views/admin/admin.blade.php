@@ -84,6 +84,9 @@
 										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 										</li>
+										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/leave"><i class="fa fa-outdent" aria-hidden="true"></i>&nbsp; Employee Leaves</a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -595,6 +598,46 @@
 		  	$('#v_sched_comment').html(view_sched_comment);
 		  	$('#v_sched_other').html(view_sched_other);
 		  	$('#v_sched_duration').html(view_sched_duration);
+		  	
+
+		  });
+
+		   $('.btn_view_leave').on('click',  function(event){
+		  	var view_leaveid = $(this).attr('v_leave_id'); 
+		  	var view_leave_lname = $(this).attr('v_leave_lname'); 
+		  	var view_leave_fname = $(this).attr('v_leave_fname'); 
+		  	var view_leave_mname = $(this).attr('v_leave_mname'); 
+		  	var view_leave_date = $(this).attr('v_leave_date'); 
+		  	var view_leave_type = $(this).attr('v_leave_leave_type'); 
+		  	var view_leave_datefrom = $(this).attr('v_leave_datefrom'); 
+		  	var view_leave_dateto = $(this).attr('v_leave_dateto'); 
+		  	var view_leave_reason = $(this).attr('v_leave_reason'); 
+		  	var view_leave_status = $(this).attr('v_leave_status'); 
+		  	var view_leave_empid = $(this).attr('v_leave_empid');
+		  	var view_leave_type_id = $(this).attr('v_leave_leave_type_id'); 
+
+		  	console.log(view_leave_empid);
+
+		  	$('#vl_id').val(view_leaveid);
+		  	$('#vl_lname').html(view_leave_lname);
+		  	$('#vl_fname').html(view_leave_fname);
+		  	$('#vl_mname').html(view_leave_mname);
+		  	$('#txt_vl_lname').val(view_leave_lname);
+		  	$('#txt_vl_fname').val(view_leave_fname);
+		  	$('#txt_vl_mname').val(view_leave_mname);
+		  	$('#vl_empid').html(view_leave_empid);
+		  	$('#txt_vl_empid').val(view_leave_empid);
+		  	$('#vl_date').html(view_leave_date);
+		  	$('#txt_vl_date').val(view_leave_date);
+		  	$('#vl_datefrom').html(view_leave_datefrom);
+		  	$('#txt_vl_datefrom').val(view_leave_datefrom);
+		  	$('#vl_dateto').html(view_leave_dateto);
+		  	$('#txt_vl_dateto').val(view_leave_dateto);
+		  	$('#vl_reason').html(view_leave_reason);
+		  	$('#txt_vl_reason').val(view_leave_reason);
+		  	$('#vl_status').val(view_leave_status);
+		  	$('#vl_leave_type').html(view_leave_type);
+		  	$('#txt_vl_leave_type').val(view_leave_type_id);
 		  	
 
 		  });

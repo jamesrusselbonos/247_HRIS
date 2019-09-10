@@ -257,31 +257,40 @@ body{
 }
 
 .bg-c-blue {
-  background: #B24592;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #B24592;
+  background: -webkit-linear-gradient(to right, #F15F79, #B24592);
+  background: linear-gradient(to right, #F15F79, #B24592); */
 
+  background-color: #26C6DA;
 
 }
 
 .bg-c-green {
-   background: #BE93C5;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   /*background: #BE93C5;
+   background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);
+   background: linear-gradient(to right, #7BC6CC, #BE93C5);*/
 
-
+   background-color: #00BCD4;
 
 }
 
 .bg-c-yellow {
-  background: #ff7e5f;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #feb47b, #ff7e5f);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: #ff7e5f;
+  background: -webkit-linear-gradient(to right, #feb47b, #ff7e5f);
+  background: linear-gradient(to right, #feb47b, #ff7e5f);*/
+
+  background-color: #0097A7;
 
 }
 
 .bg-c-pink {
-    background: linear-gradient(45deg,#FF5370,#ff869a);
+    /*background: rgb(34,193,195);
+    background: -moz-linear-gradient(38deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: -webkit-linear-gradient(38deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(38deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22c1c3",endColorstr="#fdbb2d",GradientType=1);*/
+
+    background-color: #006064;
 }
 
 

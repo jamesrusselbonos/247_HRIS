@@ -21,6 +21,7 @@ use App\Prototype_Employee;
 use App\Schedule;
 use App\Memo;
 use App\Leave_type;
+use App\Leave;
 use App\User;
 use DB;
 use App\Role;
@@ -394,6 +395,35 @@ class AdminController extends Controller
         DB::table('leave_types')->where('id', $id)->delete();
 
         return redirect()->route('leave_types.index');
+    }
+
+    public function leave_index(){
+
+        $leave = DB::table('leaves')
+            ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+            ->select('leaves.*', 'leave_types.leave_type')
+            ->get();
+
+        return view ('admin.leaves', compact('leave'));
+    }
+
+    public function leave_edit(Request $request){
+
+        $leave_edit = Leave::find($request->vl_id);
+        $leave_edit->firstname = $request->txt_vl_fname;
+        $leave_edit->middle_name = $request->txt_vl_mname;
+        $leave_edit->lastname = $request->txt_vl_lname;
+        $leave_edit->emp_id = $request->txt_vl_empid;
+        $leave_edit->date = $request->txt_vl_date;
+        $leave_edit->leave_id = $request->txt_vl_leave_type;
+        $leave_edit->date_from = $request->txt_vl_datefrom;
+        $leave_edit->date_to = $request->txt_vl_dateto;
+        $leave_edit->reason = $request->txt_vl_reason;
+        $leave_edit->status = $request->vl_status;
+
+        $leave_edit->save();
+
+        return redirect()->route('admin.employee_leave'); 
     }
 
     public function memo_index(){

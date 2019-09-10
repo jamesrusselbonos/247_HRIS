@@ -68,14 +68,14 @@ Route::get('/time_delete/{id}', 'AdminController@timesheet_delete');
 Route::get('/manage_user', 'AdminController@manageUser')->name('admin.manage_user');
 Route::get('/user_delete/{id}', 'AdminController@user_delete');
 
-////////////////////////////////////////////////////////
-////////////////EMPLOYEE DASHBOARD//////////////////////
-
 Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard');
 
 Route::get('/employee_memo', 'EmployeeController@employee_memo');
 
 Route::get('/employee_leave', 'EmployeeController@leave_index')->name('employee.employee_leave');
+
+Route::get('/leave', 'AdminController@leave_index')->name('admin.employee_leave');
+Route::post('/leave', 'AdminController@leave_edit')->name('admin.leave.edit');
 
 Route::get('/memo', 'AdminController@memo_index')->name('admin.memo');
 Route::post('/memo', 'AdminController@memo_create')->name('admin.memo.create');

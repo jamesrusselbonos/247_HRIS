@@ -6,7 +6,7 @@
 			<div class="">
 				<div>
 					<div class="row">
-						<div class="col-md-4 col-xl-4">
+						<div class="col-md-3 col-xl-3">
 				            <div class="card bg-c-blue order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Employees</h6>
@@ -16,7 +16,7 @@
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-4 col-xl-4">
+				        <div class="col-md-3 col-xl-3">
 				            <div class="card bg-c-green order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Departments</h6>
@@ -26,12 +26,22 @@
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-4 col-xl-4">
+				        <div class="col-md-3 col-xl-3">
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>
 				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>486 Hours</span></h4>
 				                    <a href="/timesheet" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View TimeSheet</span></p></a>
+				                </div>
+				            </div>
+				        </div>
+
+				        <div class="col-md-3 col-xl-3">
+				            <div class="card bg-c-pink order-card">
+				                <div class="card-block">
+				                    <h6 class="m-b-20">Pending Leaves</h6>
+				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-outdent f-left"></i><span>486 Hours</span></h4>
+				                    <a href="/leave" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View Leaves</span></p></a>
 				                </div>
 				            </div>
 				        </div>
