@@ -1,5 +1,14 @@
-body{
-	font-family: 'Lato', sans-serif;
+body, html{
+	overflow: hidden;
+}
+body, a, li, p, h1, h2, h3, h4, h5, h6, i, button, input,{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+a, a:hover{
+	color: #6DA4A3;
+}
+.btn{
+	font-family: 'Roboto Condensed', sans-serif;
 }
 .sidebar{
 	height: 100vh;
@@ -53,7 +62,7 @@ body{
 	z-index: 999;
 }
 .main{
-	background-color: #f9f9f9;
+	background-color: #F8FBFB;
 	padding-left: 0;
 
 	height: 100vh;
@@ -216,9 +225,9 @@ body{
 	width: 100px;
 }
 .nav_link:hover{
-	background-color: #f8f8f8;
+	cursor: pointer;
 
-	 color: #fff !important;
+
 }
 .nav_link{
 	padding-top: 15px;
@@ -231,7 +240,10 @@ body{
 	transition: background-color 0.5s ease;
 }
 .active_nav{
-	background-color: #f8f8f8;
+	background-color: #6da4a3;
+}
+.active_nav a, .active_nav i{
+	color: #fff !important;
 }
 .search_emp{
 	margin-top: 20px;
@@ -261,7 +273,7 @@ body{
   background: -webkit-linear-gradient(to right, #F15F79, #B24592);
   background: linear-gradient(to right, #F15F79, #B24592); */
 
-  background-color: #26C6DA;
+  background-color: #6da4a3;
 
 }
 
@@ -270,7 +282,7 @@ body{
    background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);
    background: linear-gradient(to right, #7BC6CC, #BE93C5);*/
 
-   background-color: #00BCD4;
+   background-color: #6da4a3;
 
 }
 
@@ -279,7 +291,7 @@ body{
   background: -webkit-linear-gradient(to right, #feb47b, #ff7e5f);
   background: linear-gradient(to right, #feb47b, #ff7e5f);*/
 
-  background-color: #0097A7;
+  background-color: #6da4a3;
 
 }
 
@@ -290,7 +302,7 @@ body{
     background: linear-gradient(38deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22c1c3",endColorstr="#fdbb2d",GradientType=1);*/
 
-    background-color: #006064;
+    background-color: #6da4a3;
 }
 
 
