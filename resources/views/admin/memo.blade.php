@@ -51,10 +51,10 @@
 			             
 			             <td style="max-width: 200px;">
 			             	<span style="float: right;">
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
-			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
- 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
- 								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;Send</button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+ 								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</button></a>
  							</span>
 			             </td>
 			            </tr>
@@ -97,7 +97,7 @@
        						</div>
        						<div class="col-lg-11">
        							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-       							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+       							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true"></i>&nbsp; Download</a>
        						</div>
        					</div>
        				</div>

@@ -73,9 +73,9 @@
 				             		v_Sched_duration="{{ $sch_list->duration }}"
 				             		v_sched_other="{{ $sch_list->other }}"
 
-				             		><i class="fa fa-eye" aria-hidden="true"> View</i></button>
-	 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
-	 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> Delete</i></button></a>
+				             		><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Vie</button>
+	 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+	 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</button></a>
 	 							</span>
 				             </td>
 				            </tr>

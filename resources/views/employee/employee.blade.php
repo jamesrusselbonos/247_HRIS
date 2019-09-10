@@ -243,7 +243,7 @@
 			           						</div>
 			           						<div class="col-lg-11">
 			           							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-			           							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+			           							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true"></i>&nbsp; Download</a>
 			           						</div>
 			           					</div>
 			           				</div>

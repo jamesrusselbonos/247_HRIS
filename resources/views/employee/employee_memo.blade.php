@@ -51,7 +51,7 @@
 				             
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
+				             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
 	 							</span>
 				             </td>
 				            </tr>
@@ -94,7 +94,7 @@
        						</div>
        						<div class="col-lg-11">
        							<h6 id="v_modal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-       							<a class="v_memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp; Download</i></a>
+       							<a class="v_memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true">&nbsp;</i>&nbsp;Download</a>
        						</div>
        					</div>
        				</div>

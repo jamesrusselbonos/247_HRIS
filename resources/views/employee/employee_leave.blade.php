@@ -61,8 +61,8 @@
 				              </td>
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="" type="button" class="btn btn-success data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
-				             		<button id="" type="button" class="btn btn-primary data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> Edit</i></button>
+				             		<button id="" type="button" class="btn btn-success data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+				             		<button id="" type="button" class="btn btn-primary data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
 	 							</span>
 				             </td>
 				            </tr>
