@@ -49,11 +49,15 @@ class EmployeeController extends Controller
     }
 
     public function leave_index(){
+
+        $user = Auth::user()->employee_id;
         $leave_type = Leave_type::all();
 
         $leave = DB::table('leaves')
             ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
-            ->select('leaves.*', 'leave_types.leave_type')
+            ->join('users', 'users.employee_id', '=', 'leaves.emp_id')
+            ->select('leaves.*', 'leave_types.leave_type', 'users.*')
+            ->where('leaves.emp_id', '=', $user)
             ->get();
 
          return view('employee.employee_leave', compact('leave_type', 'leave'));
