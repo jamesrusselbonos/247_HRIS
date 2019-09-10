@@ -193,8 +193,12 @@
 							<h6><a href="/admin" style="color: #000;">ADMIN DASHBOARD</a></h6>
 						</div>
 						<div class="col-lg-6">
-							<ul style="list-style: none; padding-top: 20px; font-size: 14px;">
-								<li style="float: right;" class="nav-item dropdown">
+							<div style="list-style: none; padding-top: 25px; font-size: 14px; float: right;">
+								<a style="color: #000;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;{{ __('Logout') }}</i></a>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			                        @csrf
+			                    </form>
+								<!-- <li style="float: right;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 	                                     <span><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{ Auth::user()->email }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
 	                                </a>
@@ -210,8 +214,8 @@
 	                                        @csrf
 	                                    </form>
 	                                </div>
-                            	</li>
-							</ul>
+                            	</li> -->
+							</div>
 						</div>
 					</div>
 				</div>
