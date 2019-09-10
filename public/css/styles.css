@@ -420,7 +420,7 @@ a:active {
   right: 0px;
   padding: 5px 5px 5px 5px;
   border-radius: 50%;
-  background: #008DCB;
+  background: #6da4a3;
   color: white;
 }
 .notification-trigger {
@@ -549,7 +549,7 @@ ul.notification-bar {
 }*/
 .notification-bar li.unread div {
     border-color: #008dcb;
-    background-color: #008dcb;
+    background-color: #6da4a3;
     color: #fff;
 
     transition: all .2s ease-in-out;

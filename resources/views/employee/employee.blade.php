@@ -7,7 +7,7 @@
 	<title>Employee Dashboard | 247 HRIS </title>
 
 	<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -37,27 +37,25 @@
 		<div class="col-lg-2 sidebar">
 			<div class="row">
 				<div style="text-align: center; padding-top: 30px;" class="col-lg-12">
-					<!-- <img class="company_logo" src="{{ Auth::user()->employee()->first()->employee_img }}"> -->
-					<img style="height: 150px; width: 150px; border-radius: 100%; margin-left: 20px;" src="{{ Auth::user()->employee()->first()->employee_img }}">
-					<h6 style="margin-top: 10px;">{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h6>
-					<p style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</p>
+					<img class="company_logo" src="/img/icon.png">
+					<h6 style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</h6>
 				</div>
 			</div>
-			<div class="row" style="padding-top: 8px; padding-bottom: 8px; border: 1px solid #000; margin-right: 20px; margin-left: 20px; border-radius: 30px;">
+			<!-- <div class="row" style="padding-top: 8px; padding-bottom: 8px; border: 1px solid #000; margin-right: 20px; margin-left: 20px; border-radius: 30px;">
 				<div class="col-lg-6" style="text-align: center;">
-					<a href="#"><i class="fa fa-user" aria-hidden="true">&nbsp;Profile</i></a>
+					<a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a>
 				</div>
 				<div class="col-lg-6" style="text-align: center;">
 					<a href="{{ route('logout') }}" 
 						onclick="event.preventDefault();
 						              document.getElementById('logout-form').submit();">
-						 <i class="fa fa-sign-out" aria-hidden="true">&nbsp;{{ __('Logout') }}</i>
+						 <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;{{ __('Logout') }}
 					</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 				</div>
-			</div>
+			</div> -->
 			<!-- Navigation-->
 			<div class="row navigation">
 				<div class="col-lg-12">
@@ -122,23 +120,27 @@
 								  @endif
 								</a>
 							</li>
-								<!-- <li style="float: right; margin-top: 10px; font-size: 16px;" class="nav-item dropdown">
+								<li style="float: right; margin-top: 10px; font-size: 16px;" class="nav-item dropdown">
 	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span><img style="height: 40px; width: 40px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+	                                     <span><img style="height: 40px; width: 40px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }}</span>
 	                                </a>
 
 	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	                                	<a class="dropdown-item" href="#">
+	                                        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;Profile
+	                                    </a>
 	                                    <a class="dropdown-item" href="{{ route('logout') }}"
 	                                       onclick="event.preventDefault();
 	                                                     document.getElementById('logout-form').submit();">
-	                                        {{ __('Logout') }}
+	                                        <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;             
+	                                        Logout
 	                                    </a>
 
 	                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 	                                        @csrf
 	                                    </form>
 	                                </div>
-	                        	</li> -->
+	                        	</li>
 						</ul>
 					</div>
 				</div>

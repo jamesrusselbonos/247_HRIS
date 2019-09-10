@@ -40,6 +40,8 @@ class AdminController extends Controller
             $emp_count = Prototype_Employee::all();
             $dept_count = Department::all();
             $memo_report = Memo::all();
+
+            $leave_count = Leave::where('status', 'Pending')->get();
             
             $sched_report = DB::table('schedules')
             ->join('prototype__employees', 'prototype__employees.id', '=', 'schedules.employee_id')
@@ -55,7 +57,7 @@ class AdminController extends Controller
                 ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'users.employee_id')
                 ->select('timesheets.*', 'users.*', 'prototype__employees.*')
                 ->get();
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report'));
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count'));
         }    
 
     public function addEmployee()
