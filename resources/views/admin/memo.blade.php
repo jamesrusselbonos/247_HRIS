@@ -129,7 +129,7 @@
        				<option></option>  
        				<option value = "0001">All</option>  
        				@foreach($memo_user as $user)
-       				<option value="{{ $user->id }}">{{ $user->name }}</option>
+       				<option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
        				@endforeach	
        			</select>
        			

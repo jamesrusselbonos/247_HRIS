@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\SendMemo;
+use App\Notifications\RequestLeave;
 
 
 use App\TimeSheet;
@@ -409,6 +410,10 @@ class AdminController extends Controller
 
     public function leave_edit(Request $request){
 
+        $user = User::where('employee_id',$request->txt_vl_empid)->first();
+  
+        $details = $request;
+
         $leave_edit = Leave::find($request->vl_id);
         $leave_edit->firstname = $request->txt_vl_fname;
         $leave_edit->middle_name = $request->txt_vl_mname;
@@ -421,6 +426,8 @@ class AdminController extends Controller
         $leave_edit->reason = $request->txt_vl_reason;
         $leave_edit->status = $request->vl_status;
 
+        $user->notify(new RequestLeave($details));
+
         $leave_edit->save();
 
         return redirect()->route('admin.employee_leave'); 
@@ -430,7 +437,13 @@ class AdminController extends Controller
 
         $memo_employee = DB::table('prototype__employees')->get();
         // $memo_user = DB::table('users')->get();
-        $memo_user = User::with('roles')->where('role', '2')->get();
+        // $memo_user = User::with('roles')->where('role', '2')->get();
+        $memo_user = DB::table('users')
+            ->join('prototype__employees', 'users.employee_id', '=', 'prototype__employees.employee_id')
+            ->select('users.*', 'prototype__employees.firstname', 'prototype__employees.lastname')
+            ->where('users.role', '=', '2')
+            ->get();
+
         $memos = DB::table('memos')->get();
 
         return view('admin.memo', compact('memo_employee', 'memos', 'memo_user'));

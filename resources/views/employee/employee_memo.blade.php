@@ -32,30 +32,30 @@
 			      
 			      		@foreach(auth()->user()->Notifications as $notification)
 
+			      		@if($notification->type == "App\Notifications\SendMemo")
+				            <tr>
 
-			            <tr>
-
-			              <th style="max-width: 100px;">
-			              	{{$notification->data['title']}}
-			              </th>
-			              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-			              	{{$notification->data['subject']}}
-			              </th>
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-			              	{{$notification->data['file']}}
-			              </td>
-			               <td style="max-width: 50px;">
-			              	{{$notification->data['date']}}
-			              </td>
-			              
-			             
-			             <td style="max-width: 200px;">
-			             	<span style="float: right;">
-			             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
- 							</span>
-			             </td>
-			            </tr>
-			      		
+				              <th style="max-width: 100px;">
+				              	{{$notification->data['title']}}
+				              </th>
+				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              	{{$notification->data['subject']}}
+				              </th>
+				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              	{{$notification->data['file']}}
+				              </td>
+				               <td style="max-width: 50px;">
+				              	{{$notification->data['date']}}
+				              </td>
+				              
+				             
+				             <td style="max-width: 200px;">
+				             	<span style="float: right;">
+				             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"> View</i></button>
+	 							</span>
+				             </td>
+				            </tr>
+			      		@endif
 			      		@endforeach        
 			           
 			          </tbody>

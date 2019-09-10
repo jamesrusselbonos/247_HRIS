@@ -148,33 +148,65 @@
 				      <ul class="notification-bar" id="not">
 				      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 				      	@foreach(auth()->user()->unreadNotifications as $notification)
-				          <li class="unread" id="unread" test="teest">
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
-				              	<i class="ion-checkmark"></i>
-				              	<div>
-				              	
-				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
-				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
-				              	</div>
-				              </a>
-				          </li>
+					      	@if($notification->type == "App\Notifications\SendMemo")
+					          <li class="unread" id="unread" test="teest">
+					              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
+					              	<i class="ion-checkmark"></i>
+					              	<div>
+					              	
+					              		<h6><strong>{{$notification->data['title']}}</strong></h6>
+					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
+					              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
+					              	</div>
+					              </a>
+					          </li>
+
+					          @elseif($notification->type == "App\Notifications\RequestLeave")
+					          <li class="unread" id="unread" test="teest">
+					              <a style="cursor: pointer;"  >
+					              	<i class="ion-checkmark"></i>
+					              	<div>
+					              	
+					              		<h6><strong>{{$notification->data['date_from']}}</strong></h6>
+					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
+					              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
+					              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['leave_id']}}</p>
+					              	</div>
+					              </a>
+					          </li>
+					          @endif
 				          @endforeach
 
 				          @foreach(auth()->user()->readNotifications as $notification)
-				          <li>
-				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}"  notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_date="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
-				              	<i class="ion-checkmark"></i>
-				              	<div>
+				          	  @if($notification->type == "App\Notifications\SendMemo")
+						          <li>
+						              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
+						              	<i class="ion-checkmark"></i>
+						              	<div>
+						              	
+						              		<h6><strong>{{$notification->data['title']}}</strong></h6>
+						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+						              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
+						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
+						              	</div>
+						              </a>
+						          </li>
 
-				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
-				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
-				              	</div>
-				              </a>
-				          </li>
+					          @elseif($notification->type == "App\Notifications\RequestLeave")
+						          <li>
+						              <a style="cursor: pointer;" >
+						              	<i class="ion-checkmark"></i>
+						              	<div>
+						              	
+						              		<h6><strong>{{$notification->data['date_from']}}</strong></h6>
+						              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
+						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
+						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['leave_id']}}</p>
+						              	</div>
+						              </a>
+						          </li>
+					          @endif
 				          @endforeach
 
 				      </ul>
