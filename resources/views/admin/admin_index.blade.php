@@ -248,14 +248,28 @@
 		            	                    <h6 class="m-b-20"><strong>Schedules Report</strong></h6>
 		            		                   <div style="min-height: 200px; padding-top: 30px;">
 		            		                   	@foreach($sched_report as $sc_report)
-		            		                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
+		            		                   		<a id="{{ $sc_report->id }}" type="button" class="sched_view" data-toggle="modal" data-target="#sched_view"
+
+		            		                   			v_schedid="{{ $sc_report->id }}"
+									             		v_sched_empid="{{ $sc_report->employee_id }}"
+									             		v_sched_fname="{{ $sc_report->firstname }}"
+									             		v_sched_lname="{{ $sc_report->lastname }}"
+									             		v_sched_mname="{{ $sc_report->middle_name }}"
+									             		v_sched_datefrom="{{ $sc_report->date_from }}"
+									             		v_sched_dateto="{{ $sc_report->date_to }}"
+									             		v_sched_task="{{ $sc_report->task }}"
+									             		v_sched_comment="{{ $sc_report->comment }}"
+									             		v_Sched_duration="{{ $sc_report->duration }}"
+									             		v_sched_other="{{ $sc_report->other }}"
+
+		            		                   		><div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
 		            		                   			<div class="col-md-12">
 		            		                   				<h6>{{ $sc_report->lastname }}, {{ $sc_report->firstname }} {{ $sc_report->middle_name }}</h6>
 								                   			<p style="margin-top: -15px;">{{ $sc_report->employee_id }}</p>
 								                   			<p style="margin-top: -15px;">From:&nbsp;{{ $sc_report->date_from }}&nbsp;To:&nbsp;{{ $sc_report->date_to }}&nbsp;Duration:&nbsp;{{ $sc_report->duration }}</p>
 								                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $sc_report->task }}</p>
 		            		                   			</div>
-		            		                   		</div>
+		            		                   		</div></a>
 		            		                   	@endforeach
 		            		                   </div>
 
@@ -959,6 +973,48 @@
 					</div>
 				</div>
 			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade sched_view" id="sched_view" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	      	  <span aria-hidden="true">&times;</span>
+	      	</button>
+	      </div>
+	      <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
+	      	<div class="row">
+	      		<h4 id="v_sched_lname"></h4><h4 id="v_sched_fname"></h4><h4 id="v_sched_mname"></h4>
+	      		<input type="hidden" name="v_schedid" id="v_schedid">
+	      	</div>
+	      	<div class="row">
+	      		<h6 id="v_sched_empid" style="margin-top: -10px;"></h6>
+	      	</div>
+	      	<div class="row">
+	      		<p><strong>From: &nbsp;</strong></p><p id="v_sched_datefrom"></p><p><strong> &nbsp;To: &nbsp;</strong></p><p id="v_sched_dateto"></p><p><strong>&nbsp; Duration: &nbsp;</strong></p><p id="v_sched_duration"></p>
+	      	</div>
+	      	<div class="row" style="padding-top: 30px;">
+	  			<p><strong>Task: &nbsp;</strong></p>
+	      	</div>
+	      	<div class="row">
+	      		<p style="margin-top: -10px;" id="v_sched_task"></p>
+	      	</div>
+	      	<div class="row" style="margin-top: 20px;">
+	  			<p><strong>Comment: &nbsp;</strong></p>
+	      	</div>
+	      	<div class="row">
+	      		<p style="margin-top: -10px;" id="v_sched_comment"></p>
+	      	</div>
+	      	<div class="row" style="margin-top: 20px;">
+	  			<p><strong>Other task: &nbsp;</strong></p>
+	      	</div>
+	      	<div class="row">
+	      		<p style="margin-top: -10px;" id="v_sched_other"></p>
+	      	</div>
 	      </div>
 	    </div>
 	  </div>

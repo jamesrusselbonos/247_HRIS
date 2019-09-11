@@ -59,7 +59,7 @@
 				             
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view" data-toggle="modal" data-target="#sched_view"
+				             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
 
 				             		v_schedid="{{ $sch_list->id }}"
 				             		v_sched_empid="{{ $sch_list->employee_id }}"

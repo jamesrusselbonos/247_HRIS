@@ -576,7 +576,7 @@
 
 		  });
 
-		   $('.sched_view').on('click',  function(event){
+		   $('.sched_view_button').on('click',  function(event){
 		  	var view_schedid = $(this).attr('v_schedid'); 
 		  	var view_sched_empid = $(this).attr('v_sched_empid'); 
 		  	var view_sched_fname = $(this).attr('v_sched_fname'); 
