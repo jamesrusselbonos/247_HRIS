@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\SendMemo;
 use App\Notifications\RequestLeave;
+use App\Notifications\AssignSchedule;
 
 
 use App\TimeSheet;
@@ -344,7 +345,7 @@ class AdminController extends Controller
         $sched_employee = DB::table('prototype__employees')->get();
 
         $sched_list = DB::table('schedules')
-            ->join('prototype__employees', 'prototype__employees.id', '=', 'schedules.employee_id')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
             ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
             ->get();
 
@@ -352,18 +353,42 @@ class AdminController extends Controller
     }
 
     public function schedule_create(Request $request){
+        // dd($request->memoemp_search1);
+       
+        foreach($request->memoemp_search as $ids){
+            $users = User::where(array('employee_id' => $ids))->first();
+            // dd($users);
 
-        $schedule = new Schedule([
-            'employee_id' => $request->get('memoemp_search1'),
-            'date_from' => $request->get('sched_date_from'),
-            'date_to' => $request->get('sched_date_to'),
-            'task' => $request->get('sched_task'),
-            'comment' => $request->get('sched_comment'),
-            'duration' => $request->get('sched_duration'),
-            'other' => $request->get('sched_other')
-        ]);
+            $schedule = new Schedule;
+            $details = $request;
+
+            $users->notify(new AssignSchedule($details));
+
+            $schedule->employee_id = $ids;
+            $schedule->date_from = $request->sched_date_from;
+            $schedule->date_to = $request->sched_date_to;
+            $schedule->task = $request->sched_task;
+            $schedule->comment = $request->sched_comment;
+            $schedule->duration = $request->sched_duration;
+            $schedule->other = $request->sched_other;
+            $schedule->save();
+        }
+
+
+       
+        // $schedule = new Schedule([
+        //     'employee_id' => $request->get('memoemp_search'),
+        //     'date_from' => $request->get('sched_date_from'),
+        //     'date_to' => $request->get('sched_date_to'),
+        //     'task' => $request->get('sched_task'),
+        //     'comment' => $request->get('sched_comment'),
+        //     'duration' => $request->get('sched_duration'),
+        //     'other' => $request->get('sched_other')
+        // ]);
 
         $schedule->save();
+
+
 
         return redirect()->route('schedule.index');
     }
@@ -499,7 +524,7 @@ class AdminController extends Controller
         }
         else{
             foreach ($request->memoemp_search as $ids) {
-                $users = User::where(array('id' => $ids))->first();
+                $users = User::where(array('employee_id' => $ids))->first();
             
 
                 $details = $request;

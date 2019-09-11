@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class RequestLeave extends Notification
+class AssignSchedule extends Notification
 {
     use Queueable;
 
@@ -56,11 +56,15 @@ class RequestLeave extends Notification
     public function toArray($notifiable)
     {
         return [
-            'date_to' => $this->details->txt_vl_dateto,
-            'date_from' => $this->details->txt_vl_datefrom,
-            'from' => $this->details->hdn_from,
-            'status' => $this->details->vl_status,
-            'leave_id' => $this->details->txt_vl_leave_type,
+            'id' => $this->details->memoemp_search,
+            'date_from' => $this->details->sched_date_from,
+            'date_to' => $this->details->sched_date_to,
+            'from' => $this->details->from,
+            'task' => $this->details->sched_task,
+            'comment' => $this->details->sched_comment,
+            'duration' => $this->details->sched_duration,
+            'other' => $this->details->sched_other,
+
         ];
     }
 }

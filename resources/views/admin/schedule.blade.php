@@ -34,7 +34,7 @@
 			      
 			      		
 			          	@foreach($sched_list as $sch_list)
-
+			          	
 				            <tr>
 
 				              <th style="max-width: 140px;">
@@ -133,7 +133,7 @@
   </div>
 </div>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="mod_sched" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -143,9 +143,11 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="POST" action="{{ route('admin.sched.create') }}" enctype="multipart/form-data">
+	              <form enctype="multipart/form-data">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
+	                	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
+	                	<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Select an Employee</label>
@@ -155,7 +157,7 @@
         	         				<option></option>  
         	         				<option>All</option>  
         	         				@foreach($sched_employee as $sched_emp)
-        	         					<option value="{{ $sched_emp->id }}">{{ $sched_emp->lastname }}, {{ $sched_emp->firstname }} {{ $sched_emp->middle_name }}</option>
+        	         					<option value="{{ $sched_emp->employee_id }}">{{ $sched_emp->lastname }}, {{ $sched_emp->firstname }} {{ $sched_emp->middle_name }}</option>
         	         				@endforeach
         	         			</select>
         	         			
@@ -206,7 +208,7 @@
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	               <button type="button" class="btn btn-success btn_add_sched"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            	</div>
 	              </form>
 	            </div>

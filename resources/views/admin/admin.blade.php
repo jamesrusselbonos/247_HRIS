@@ -704,6 +704,29 @@
 		$('.memoemp_search').select2({
 
 		});
+
+		$('.btn_add_sched').on('click', function(event){
+			var from = $('#hdn-name').val();
+			var memoemp_search = $('.memoemp_search').val();
+			var asigned_to = $('.memoemp_search').val();
+			var sched_date_from = $('#sched_date_from').val();
+			var sched_date_to = $('#sched_date_to').val();
+			var sched_task = $('#sched_task').val();
+			var sched_comment = $('#sched_comment').val();
+			var sched_duration = $('#sched_duration').val();
+			var sched_other = $('#sched_other').val();
+			var token = $("#mod_sched .hdn-token").val();
+			console.log(memoemp_search);
+
+				$.post('/schedule',
+				{'from':from, 'memoemp_search':memoemp_search,'asigned_to':asigned_to, 'sched_date_from':sched_date_from, 'sched_date_to':sched_date_to, 
+				'sched_task':sched_task, 'sched_comment':sched_comment, 'sched_duration':sched_duration, 'sched_other':sched_other, '_token':token}, 
+				function(data){
+
+				location.reload();
+
+				 }); 
+		});
 	});
 </script>
 </html>
