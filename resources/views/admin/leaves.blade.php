@@ -97,6 +97,7 @@
 		      			<h6 style="margin-top: -15px;" id="vl_empid"></h6>
 		      			<input type="hidden" name="txt_vl_empid" id="txt_vl_empid">
 		      			<input type="hidden" name="hdn_from" id="hdn_from" value="{{Auth::user()->name}}">
+		      			<input type="hidden" name="hdn_leave_type" id="hdn_leave_type">
 		      		</div>
 		      		<div class="row">
 		      			<h6>Date: &nbsp;</h6><h6 id="vl_date"></h6>

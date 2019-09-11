@@ -61,6 +61,7 @@ class RequestLeave extends Notification
             'from' => $this->details->hdn_from,
             'status' => $this->details->vl_status,
             'leave_id' => $this->details->txt_vl_leave_type,
+            'leave_type' => $this->details->hdn_leave_type,
         ];
     }
 }
