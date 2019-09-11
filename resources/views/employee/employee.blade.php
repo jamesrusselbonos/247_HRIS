@@ -166,7 +166,7 @@
 
 					          @elseif($notification->type == "App\Notifications\RequestLeave")
 					          <li class="unread" id="unread" test="teest">
-					              <a style="cursor: pointer;"  >
+					              <a style="cursor: pointer;" id="{{ $notification->id }}" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
 				              			<h6>Leave Request</h6>
@@ -182,7 +182,7 @@
 
 					          @elseif($notification->type == "App\Notifications\AssignSchedule")
 						          <li class="unread" id="unread" test="teest">
-						              <a style="cursor: pointer;" >
+						             <a style="cursor: pointer;" id="{{ $notification->id }}" >
 						              	<i class="ion-checkmark"></i>
 						              	<div>
 						              		<h6>Schedule</h6>
