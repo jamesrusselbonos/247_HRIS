@@ -71,41 +71,41 @@
 </div>
 
 <div class="modal fade view_memo" id="view_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-          <!-- <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5> -->
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-       </div>
-       <div class="modal-body" style="padding: 30px 30px 30px 30px;">
-       		<div class="row">
-       			<div class="col-lg-12">
-       				<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
-       				<h3 style="margin: 0; margin-bottom: 30px;" id="vmodal_memo"></h3>
-       				<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
-       				<p id="vmodal_memodate"></p>
-       			</div>
+  	<div class="modal-dialog modal-lg">
+    	<div class="modal-content">
+      		<div class="modal-header">
+          		<!-- <h5 class="modal-title" id="exampleModalLabel">Add A Memo</h5> -->
+          		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           	 		<span aria-hidden="true">&times;</span>
+          		</button>
        		</div>
-       		<div class="row">
-       			<div class="col-lg-12">
-       				<div class="attach">
-       					<div class="row">
-       						<div class="col-lg-1" style="text-align: center;">
-       							<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
-       						</div>
-       						<div class="col-lg-11">
-       							<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
-       							<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true"></i>&nbsp; Download</a>
+       		<div class="modal-body" style="padding: 30px 30px 30px 30px;">
+       			<div class="row">
+       				<div class="col-lg-12">
+       					<input type="hidden" name="vmodal_memoid" id="vmodal_memoid">
+       					<h3 style="margin: 0; margin-bottom: 30px;" id="vmodal_memo"></h3>
+       					<h6 style="margin: 0; margin-bottom: 10px;" id="vmodal_subject"></h6>
+       					<p id="vmodal_memodate"></p>
+       				</div>
+       			</div>
+       			<div class="row">
+       				<div class="col-lg-12">
+       					<div class="attach">
+       						<div class="row">
+       							<div class="col-lg-1" style="text-align: center;">
+       								<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
+       							</div>
+       							<div class="col-lg-11">
+       								<h6 id="vmodal_filename" style="margin: 0; margin-bottom: 10px; font-weight: bold;"></h6>
+       								<a class="memo_download" href="" download=""><i class="fa fa-download" aria-hidden="true"></i>&nbsp; Download</a>
+       							</div>
        						</div>
        					</div>
        				</div>
-       			</div>
-       		</div>	
-       </div>
-    </div>
-  </div>
+       			</div>	
+       		</div>
+    	</div>
+  	</div>
 </div>
 
 <div class="modal fade send_memo" id="send_memo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
