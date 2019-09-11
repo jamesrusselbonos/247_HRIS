@@ -58,7 +58,17 @@ class AdminController extends Controller
                 ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'users.employee_id')
                 ->select('timesheets.*', 'users.*', 'prototype__employees.*')
                 ->get();
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count'));
+            
+            $list = DB::table('prototype__employees')
+                ->join('departments', 'departments.id', '=', 'prototype__employees.department_id')
+                ->join('statuses', 'statuses.id', '=', 'prototype__employees.status_id')
+                ->join('levels', 'levels.id', '=', 'prototype__employees.job_level_id')
+                ->join('jobs', 'jobs.id', '=', 'prototype__employees.job_id')
+                ->join('positions', 'positions.id','=', 'prototype__employees.job_position_id')
+                ->select('prototype__employees.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
+                ->get();
+
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list'));
         }    
 
     public function addEmployee()

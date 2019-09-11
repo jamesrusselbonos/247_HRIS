@@ -155,16 +155,60 @@
 				                    <h6 class="m-b-20"><strong>Employee</strong></h6>
 
 			                    	<div style="padding-bottom: 30px; min-height: 665px; padding-top: 25px;">
-			                    		@foreach($emp_count as $emp_list)
-			                    			<div class="row row_animation">
-			                    				<div class="col-md-3">
-			                    					<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
+			                    		@foreach($list as $emp_list)
+			                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
+			                    				p_id="{{ $emp_list->id }}"
+								               	p_employeeid="{{ $emp_list->employee_id }}"
+								               	p_gender="{{ $emp_list->gender }}"
+								               	p_fname="{{ $emp_list->firstname }}"
+								               	p_mname="{{ $emp_list->middle_name }}"
+								               	p_lname="{{ $emp_list->lastname }}"
+								               	p_department="{{ $emp_list->department_name }}"
+								               	p_status="{{ $emp_list->job_status }}"
+								               	p_picture="{{ $emp_list->employee_img }}"
+								               	p_address="{{ $emp_list->address }}"
+								               	p_city="{{ $emp_list->city }}"
+								               	p_province="{{ $emp_list->province }}"
+								               	p_country="{{ $emp_list->country }}"
+								               	p_zip="{{ $emp_list->zip_code }}"
+								               	p_hnumber="{{ $emp_list->home_number }}"
+								               	p_mnumber="{{ $emp_list->mobile_number }}"
+								               	p_wemail="{{ $emp_list->email }}"
+								               	p_pemail="{{ $emp_list->personal_email }}"
+								               	p_bday="{{ $emp_list->birthday }}"
+								               	p_ssnsin="{{ $emp_list->SIN_SSN }}"
+								               	p_ename="{{ $emp_list->emergency_name }}"
+								               	p_relationship="{{ $emp_list->relationship }}"
+								               	p_eaddress="{{ $emp_list->emergency_address }}"
+								               	p_enumber="{{ $emp_list->emergency_number }}"
+								               	p_jobtitle="{{ $emp_list->job_title }}"
+								               	p_jobdesc="{{ $emp_list->job_description }}"
+								               	p_joblevel="{{ $emp_list->job_level }}"
+								               	p_jobposition="{{ $emp_list->job_position }}"
+								               	p_datehired="{{ $emp_list->date_hired }}"
+								               	p_dateterminated="{{ $emp_list->date_terminated }}"
+								               	p_sss="{{ $emp_list->SSS_no }}"
+								               	p_pagibig="{{ $emp_list->philhealth_no }}"
+								               	p_philhealth="{{ $emp_list->pagibig_no }}"
+								               	p_tin="{{ $emp_list->TIN_no }}"
+								               	p_nbinumber="{{ $emp_list->NBI_no }}"
+								               	p_diploma="{{ $emp_list->diploma }}"
+								               	p_medical="{{ $emp_list->medical }}"
+								               	p_tor="{{ $emp_list->TOR }}"
+								               	p_birthcert="{{ $emp_list->birth_cert }}"
+								               	p_bclearance="{{ $emp_list->brgy_clearance }}"
+								              	p_cedula="{{ $emp_list->cedula }}"
+			                    			>
+			                    				<div class="row row_animation">
+			                    					<div class="col-md-3">
+			                    						<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
+			                    					</div>
+			                    					<div class="col-md-9" style="margin-top: -5px;">
+			                    						<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
+			                    						<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
+			                    					</div>
 			                    				</div>
-			                    				<div class="col-md-9" style="margin-top: -5px;">
-			                    					<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
-			                    					<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
-			                    				</div>
-			                    			</div>
+			                    			</a>
 			                    		@endforeach
 			                    	</div>
 			                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
@@ -567,6 +611,355 @@
 	              </form>
 	            </div>
 	          </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Large modal -->
+	<div class="modal fade view_modal" id="view_modal" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-xl">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <!-- <h5 class="modal-title" id="exampleModalLongTitle">View Employee</h5> -->
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>	
+	      <div class="modal-body">
+	      	<div class="col-lg-12 employee_list_display">
+				<div class="row">
+					<div style="text-align: center; padding-top: 30px;" class="col-lg-4">
+						<img class="profile_photo" src="/img/profile.png">
+						<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
+					</div>
+					<div  class="col-lg-8 profile_list">
+						<h3 id="elist_lname"></h3>, &nbsp;<h3 id="elist_fname"></h3> <h3 id="elist_mname"></h3>
+						<h5 style="margin-top: -18px; font-size: 25px;" id="elist_position"></h5>
+						<h6 style="margin-top: -5px;" id="elist_id"></h6>
+						<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
+					</div>
+				</div>
+				<div style="margin-top: 50px;" class="row employee_list_display_row">
+					<h3 style="color: #9e9e9e;">Information</h3>
+					
+					<div style="padding-top: 20px;" class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6 id="">Address:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<strong><h6 id="elist_address"></h6></strong>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>City:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_city"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Province:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_province"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Country:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_country"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Birthday:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_bday"></h6>	
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Department:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_department"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Status:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_status"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Gender:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_gender"></h6>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="padding-top: 20px;"  class="col-lg-12">
+						<h3 style="color: #9e9e9e;">Contact Info</h3>
+
+						<div style="padding-top: 20px;" class="row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Postal / ZIP Code:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_zip"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Home Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_hnumber"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Phone Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_pnumber"></h6>	
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Work Email:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_wemail"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Personal Email:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_pemail"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>SIN / SSN:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_ssn_sin"></h6>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="padding-top: 20px;"  class="col-lg-12">
+						<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
+
+						<div style="padding-top: 20px;" class="row ">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Name:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_ename"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Address:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_eaddress"></h6>	
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Relationship:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_relationship"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Phone Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_enumber"></h6>	
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="padding-top: 20px;"  class="col-lg-12">
+						<h3 style="color: #9e9e9e;">Job</h3>
+
+						<div style="padding-top: 20px;" class="row ">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Job Title:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_job"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Job Level:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_staff"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Job Description:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_jdesc"></h6>	
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Date Hired:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_hired"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Date Terminated:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_terminated"></h6>	
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="padding-top: 20px;" class="row ">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>SSS Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_sss"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Pagibig Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_pagibig"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>PhilHealth Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_philhealth"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>TIN Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_TIN"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>NBI Number:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_NBI"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Diploma:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_diploma"></h6>	
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Medical Certificate:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_medical"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>TOR:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_TOR"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Birth Certificate:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_bcert"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Brgy. Clearance:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_bclearance"></h6>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<h6>Cedula:</h6>	
+									</div>
+									<div class="col-lg-8">
+										<h6 id="elist_cedula"></h6>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	      </div>
 	    </div>
 	  </div>
 	</div>

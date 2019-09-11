@@ -24,7 +24,7 @@ Route::get('/', function () {
 // });
 
 // Route::get('/employee_list', function () {
-//     return view('employee_list');
+//     return view('admin.employee_list');
 // });
 
 // Route::get('/attendance', function () {
@@ -76,6 +76,7 @@ Route::get('/employee_leave', 'EmployeeController@leave_index')->name('employee.
 
 Route::get('/leave', 'AdminController@leave_index')->name('admin.employee_leave');
 Route::post('/leave', 'AdminController@leave_edit')->name('admin.leave.edit');
+Route::get('/delete_leave/{id}', 'AdminController@delete_leave');
 
 Route::get('/memo', 'AdminController@memo_index')->name('admin.memo');
 Route::post('/memo', 'AdminController@memo_create')->name('admin.memo.create');
