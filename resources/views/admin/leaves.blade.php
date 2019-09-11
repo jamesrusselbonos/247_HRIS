@@ -57,7 +57,7 @@
 				              	{{ $l->reason }}
 				              </td>
 				              <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->leave_status }}
+				              	{{ $l->leave_status }} 
 				              </td>
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">

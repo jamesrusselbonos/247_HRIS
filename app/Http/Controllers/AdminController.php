@@ -42,7 +42,7 @@ class AdminController extends Controller
             $dept_count = Department::all();
             $memo_report = Memo::all();
 
-            $leave_count = Leave::where('status', 'Pending')->get();
+            $leave_count = Leave::where('leave_status', 'Pending')->get();
             
             $sched_report = DB::table('schedules')
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
