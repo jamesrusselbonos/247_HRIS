@@ -57,11 +57,11 @@
 				              	{{ $l->reason }}
 				              </td>
 				              <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->leave_status }}
+				              	{{ $l->status }}
 				              </td>
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Action</button>
+				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Action</button>
 				             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 	 							</span>
 				             </td>
@@ -96,7 +96,6 @@
 		      		<div class="row">
 		      			<h6 style="margin-top: -15px;" id="vl_empid"></h6>
 		      			<input type="hidden" name="txt_vl_empid" id="txt_vl_empid">
-		      			<input type="hidden" name="hdn_from" id="hdn_from" value="{{Auth::user()->name}}">
 		      		</div>
 		      		<div class="row">
 		      			<h6>Date: &nbsp;</h6><h6 id="vl_date"></h6>

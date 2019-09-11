@@ -24,7 +24,7 @@ class CreateTableLeave extends Migration
             $table->string('date_from');
             $table->string('date_to');
             $table->longtext('reason');
-            $table->string('status')->default('Pending');
+            $table->string('leave_status')->default('Pending');
             $table->timestamps();
         });
     }

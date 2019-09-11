@@ -234,7 +234,6 @@
 						              		<h6>Schedule</h6>
 					              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
 						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
-						              		
 						              	</div>
 						              </a>
 						          </li>
