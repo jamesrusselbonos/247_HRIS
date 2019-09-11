@@ -212,6 +212,23 @@
 						              	</div>
 						              </a>
 						          </li>
+
+						      @elseif($notification->type == "App\Notifications\AssignSchedule")
+						          <li>
+						              <a style="cursor: pointer;" >
+						              	<i class="ion-checkmark"></i>
+						              	<div>
+						              		<h6>Schedule</h6>
+					              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
+						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+						              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
+						              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
+						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
+						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['leave_id']}}</p> -->
+						              	</div>
+						              </a>
+						          </li>
+
 					          @endif
 				          @endforeach
 
