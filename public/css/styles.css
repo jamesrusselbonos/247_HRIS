@@ -659,6 +659,7 @@ input[type=search]{
  .row_animation{
 
  	transition: all .2s ease-in-out;
+ 	cursor: pointer;
  }
  .row_animation:hover{
  	-webkit-box-shadow: 0px 20px 22px -10px rgba(0,0,0,0.26);
