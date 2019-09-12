@@ -122,6 +122,16 @@
 								</div>
 							</div>
 						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-usd" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="/memo">Payroll</a>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>

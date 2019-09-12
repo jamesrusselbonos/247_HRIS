@@ -21,6 +21,8 @@ a, a:hover{
 
 	overflow-y: auto;
 	overflow-x: hidden;
+
+	z-index: 1000;
 }
 .sidebar h1, .sidebar h6{
 	color: #000;

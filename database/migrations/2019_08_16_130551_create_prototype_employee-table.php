@@ -44,6 +44,9 @@ class CreatePrototypeEmployeeTable extends Migration
             $table->string('job_position_id')->nullable();
             $table->string('date_hired')->nullable();
             $table->string('date_terminated')->nullable()->nullable();
+            $table->integer('leave_credit');
+            $table->double('salary', 8, 2);
+            $table->double('allowance', 8, 2);
             $table->string('SSS_no')->nullable()->unique();
             $table->string('philhealth_no')->nullable()->unique();
             $table->string('pagibig_no')->nullable()->unique();

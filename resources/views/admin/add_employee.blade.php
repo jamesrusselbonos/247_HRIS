@@ -285,6 +285,22 @@
 										          min="1000-01-01" class="form-control">
 										</div>
 									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  <label>Salary</label>
+										  <input type="text" name="salary" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">
+										  <label>Allowance</label>
+										  <input type="text" name="allowance" class="form-control" >
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  	<label>Leave credits</label>
+										  	<input type="text" name="leave_create" class="form-control" >
+										</div>
+									</div>
 								</div>
 								<div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab">
 
