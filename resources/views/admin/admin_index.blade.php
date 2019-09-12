@@ -154,7 +154,7 @@
 				                <div class="card-block">
 				                    <h6 class="m-b-20"><strong>Employee</strong></h6>
 
-			                    	<div style="padding-bottom: 30px; min-height: 665px; padding-top: 25px;">
+			                    	<div style="padding-bottom: 30px; padding-top: 25px;">
 			                    		@foreach($list as $emp_list)
 			                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
 			                    				p_id="{{ $emp_list->id }}"

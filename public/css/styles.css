@@ -227,16 +227,27 @@ a, a:hover{
 .nav_link:hover{
 	cursor: pointer;
 	background-color: #F8FBFB;
+
+	padding-left: 40px;
+}
+.nav_link_li:hover{
+	cursor: pointer;
+	background-color: #F8FBFB;
+
+	padding-left: 10px;
+}
+.nav_link_li{
+	transition: padding-left 0.3s ease;
 }
 .nav_link{
 	padding-top: 15px;
 	padding-bottom: 15px;
 
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 
 	background-color: #fff;
-	transition: background-color 0.5s ease;
+	transition: padding-left 0.3s ease;
 }
 .active_nav{
 	background-color: #6da4a3;
@@ -671,4 +682,7 @@ input[type=search]{
 	 z-index: 3;
 		
 	 background-color: #fff;
+ }
+ .dropdown-toggle::after{
+ 	display: none;
  }
