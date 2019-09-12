@@ -76,7 +76,7 @@
 					                    	</div>
 					                    </div>
 
-					                   <div style="min-height: 300px;">
+					                   <div style="min-height: 200px;">
 					                   	@foreach($TimeSheet_report as $time_report)
 					                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
 					                   			<div class="col-md-3">
@@ -86,16 +86,10 @@
 					                   				<p>{{$time_report->date}}</p>
 					                   			</div>
 					                   			<div class="col-md-3">
-					                   				<p>{{date('h:i:s a', strtotime($time_report->time_from))}}</p>
+					                   				<p>{{$time_report->time_from}}</p>
 					                   			</div>
 					                   			<div class="col-md-3">
-				                   				@if($time_report->time_to != null || $time_report->time_to != "")
-							                   		<td>
-							                   	{{date('h:i:s a', strtotime($time_report->time_to))}}
-							                   		</td>
-							                   	@else
-							                   		<td></td>
-							                   	@endif
+					                   				<p>{{$time_report->time_to}}</p>
 					                   			</div>
 					                   		</div>
 					                   	@endforeach
@@ -156,99 +150,69 @@
 					</div>
 					<div class="row">
 						<div class="col-md-5 col-xl-5">
-				            <div class="row">
-				            	<div class="col-md-12 col-xl-12">
-            			            <div class="card">
-            			                <div class="card-block">
-            			                    <h6 class="m-b-20"><strong>Employees</strong></h6>
+				            <div class="card">
+				                <div class="card-block">
+				                    <h6 class="m-b-20"><strong>Employee</strong></h6>
 
-            		                    	<div style="padding-bottom: 30px; min-height: 550px; padding-top: 25px;">
-            		                    		@foreach($list as $emp_list)
-            		                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
-            		                    				p_id="{{ $emp_list->id }}"
-            							               	p_employeeid="{{ $emp_list->employee_id }}"
-            							               	p_gender="{{ $emp_list->gender }}"
-            							               	p_fname="{{ $emp_list->firstname }}"
-            							               	p_mname="{{ $emp_list->middle_name }}"
-            							               	p_lname="{{ $emp_list->lastname }}"
-            							               	p_department="{{ $emp_list->department_name }}"
-            							               	p_status="{{ $emp_list->job_status }}"
-            							               	p_picture="{{ $emp_list->employee_img }}"
-            							               	p_address="{{ $emp_list->address }}"
-            							               	p_city="{{ $emp_list->city }}"
-            							               	p_province="{{ $emp_list->province }}"
-            							               	p_country="{{ $emp_list->country }}"
-            							               	p_zip="{{ $emp_list->zip_code }}"
-            							               	p_hnumber="{{ $emp_list->home_number }}"
-            							               	p_mnumber="{{ $emp_list->mobile_number }}"
-            							               	p_wemail="{{ $emp_list->email }}"
-            							               	p_pemail="{{ $emp_list->personal_email }}"
-            							               	p_bday="{{ $emp_list->birthday }}"
-            							               	p_ssnsin="{{ $emp_list->SIN_SSN }}"
-            							               	p_ename="{{ $emp_list->emergency_name }}"
-            							               	p_relationship="{{ $emp_list->relationship }}"
-            							               	p_eaddress="{{ $emp_list->emergency_address }}"
-            							               	p_enumber="{{ $emp_list->emergency_number }}"
-            							               	p_jobtitle="{{ $emp_list->job_title }}"
-            							               	p_jobdesc="{{ $emp_list->job_description }}"
-            							               	p_joblevel="{{ $emp_list->job_level }}"
-            							               	p_jobposition="{{ $emp_list->job_position }}"
-            							               	p_datehired="{{ $emp_list->date_hired }}"
-            							               	p_dateterminated="{{ $emp_list->date_terminated }}"
-            							               	p_sss="{{ $emp_list->SSS_no }}"
-            							               	p_pagibig="{{ $emp_list->philhealth_no }}"
-            							               	p_philhealth="{{ $emp_list->pagibig_no }}"
-            							               	p_tin="{{ $emp_list->TIN_no }}"
-            							               	p_nbinumber="{{ $emp_list->NBI_no }}"
-            							               	p_diploma="{{ $emp_list->diploma }}"
-            							               	p_medical="{{ $emp_list->medical }}"
-            							               	p_tor="{{ $emp_list->TOR }}"
-            							               	p_birthcert="{{ $emp_list->birth_cert }}"
-            							               	p_bclearance="{{ $emp_list->brgy_clearance }}"
-            							              	p_cedula="{{ $emp_list->cedula }}"
-            		                    			>
-            		                    				<div class="row row_animation">
-            		                    					<div class="col-md-3">
-            		                    						<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
-            		                    					</div>
-            		                    					<div class="col-md-9" style="margin-top: -5px;">
-            		                    						<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
-            		                    						<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
-            		                    					</div>
-            		                    				</div>
-            		                    			</a>
-            		                    		@endforeach
-            		                    	</div>
-            		                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
-            			                </div>
-            			            </div>
-				            	</div>
-				            </div>
-				            <div class="row">
-				            	<div class="col-md-12">
-				            		<div class="card">
-						                <div class="card-block">
-						                    <h6 class="m-b-20"><strong>Leave Report</strong></h6>
-							                   <div style="min-height: 300px; padding-top: 30px;">
-							                   	@foreach($leave_report as $l_report)
-							                   		<a id="" class="memo_view" data-toggle="modal" data-target="#view_memo"
-							                   		>
-	                   			                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
-	                   			                   			<div class="col-md-12">
-	                   			                   				<h6>{{ $l_report->lastname }}, &nbsp;{{ $l_report->firstname }} &nbsp;{{ $l_report->middle_name }}</h6>
-	                   				                   			<p style="margin-top: -15px;">{{ $l_report->emp_id }}</p>
-	                   				                   			<p style="margin-top: -15px;">{{ $l_report->leave_type }} &nbsp;({{ $l_report->leave_status }})</p>
-	                   				                   			<p style="margin-top: -15px;">From:&nbsp;{{ $l_report->date_from }}&nbsp;To:&nbsp;{{ $l_report->date_to }}</p>
-	                   			                   			</div>
-	                   			                   		</div>
-							                   		</a>
-							                   	@endforeach
-							                   </div>
-
-						                    <a href="/leaves"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Leaves</a>
-						                </div>
-						            </div>
-				            	</div>
+			                    	<div style="padding-bottom: 30px; min-height: 665px; padding-top: 25px;">
+			                    		@foreach($list as $emp_list)
+			                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
+			                    				p_id="{{ $emp_list->id }}"
+								               	p_employeeid="{{ $emp_list->employee_id }}"
+								               	p_gender="{{ $emp_list->gender }}"
+								               	p_fname="{{ $emp_list->firstname }}"
+								               	p_mname="{{ $emp_list->middle_name }}"
+								               	p_lname="{{ $emp_list->lastname }}"
+								               	p_department="{{ $emp_list->department_name }}"
+								               	p_status="{{ $emp_list->job_status }}"
+								               	p_picture="{{ $emp_list->employee_img }}"
+								               	p_address="{{ $emp_list->address }}"
+								               	p_city="{{ $emp_list->city }}"
+								               	p_province="{{ $emp_list->province }}"
+								               	p_country="{{ $emp_list->country }}"
+								               	p_zip="{{ $emp_list->zip_code }}"
+								               	p_hnumber="{{ $emp_list->home_number }}"
+								               	p_mnumber="{{ $emp_list->mobile_number }}"
+								               	p_wemail="{{ $emp_list->email }}"
+								               	p_pemail="{{ $emp_list->personal_email }}"
+								               	p_bday="{{ $emp_list->birthday }}"
+								               	p_ssnsin="{{ $emp_list->SIN_SSN }}"
+								               	p_ename="{{ $emp_list->emergency_name }}"
+								               	p_relationship="{{ $emp_list->relationship }}"
+								               	p_eaddress="{{ $emp_list->emergency_address }}"
+								               	p_enumber="{{ $emp_list->emergency_number }}"
+								               	p_jobtitle="{{ $emp_list->job_title }}"
+								               	p_jobdesc="{{ $emp_list->job_description }}"
+								               	p_joblevel="{{ $emp_list->job_level }}"
+								               	p_jobposition="{{ $emp_list->job_position }}"
+								               	p_datehired="{{ $emp_list->date_hired }}"
+								               	p_dateterminated="{{ $emp_list->date_terminated }}"
+								               	p_sss="{{ $emp_list->SSS_no }}"
+								               	p_pagibig="{{ $emp_list->philhealth_no }}"
+								               	p_philhealth="{{ $emp_list->pagibig_no }}"
+								               	p_tin="{{ $emp_list->TIN_no }}"
+								               	p_nbinumber="{{ $emp_list->NBI_no }}"
+								               	p_diploma="{{ $emp_list->diploma }}"
+								               	p_medical="{{ $emp_list->medical }}"
+								               	p_tor="{{ $emp_list->TOR }}"
+								               	p_birthcert="{{ $emp_list->birth_cert }}"
+								               	p_bclearance="{{ $emp_list->brgy_clearance }}"
+								              	p_cedula="{{ $emp_list->cedula }}"
+			                    			>
+			                    				<div class="row row_animation">
+			                    					<div class="col-md-3">
+			                    						<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
+			                    					</div>
+			                    					<div class="col-md-9" style="margin-top: -5px;">
+			                    						<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
+			                    						<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
+			                    					</div>
+			                    				</div>
+			                    			</a>
+			                    		@endforeach
+			                    	</div>
+			                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
+				                </div>
 				            </div>
 				        </div>
 				        <div class="col-md-7 col-xl-7">
@@ -257,7 +221,7 @@
 				            		<div class="card">
 						                <div class="card-block">
 						                    <h6 class="m-b-20"><strong>Memo Report</strong></h6>
-							                   <div style="min-height: 300px; padding-top: 30px;">
+							                   <div style="min-height: 200px; padding-top: 30px;">
 							                   	@foreach($memo_report as $mem_report)
 							                   		<a id="{{ $mem_report->id }}" class="memo_view" data-toggle="modal" data-target="#view_memo" 
 							                   			v_memoid="{{$mem_report->id}}"
@@ -290,7 +254,7 @@
 	            	            	<div class="card">
 		            	                <div class="card-block">
 		            	                    <h6 class="m-b-20"><strong>Schedules Report</strong></h6>
-		            		                   <div style="min-height: 300px; padding-top: 30px;">
+		            		                   <div style="min-height: 200px; padding-top: 30px;">
 		            		                   	@foreach($sched_report as $sc_report)
 		            		                   		<a id="{{ $sc_report->id }}" class="sched_view_button" data-toggle="modal" data-target="#sched_view_modal"
 		            		                   			v_schedid="{{ $sc_report->id }}"
