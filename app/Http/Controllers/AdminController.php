@@ -68,7 +68,12 @@ class AdminController extends Controller
                 ->select('prototype__employees.*', 'departments.department_name', 'jobs.job_title', 'levels.job_level', 'positions.job_position', 'statuses.job_status')
                 ->get();
 
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list'));
+            $leave_report = DB::table('leaves')
+                ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+                ->select('leaves.*', 'leave_types.*')
+                ->get();
+
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list', 'leave_report'));
         }    
 
     public function addEmployee()
