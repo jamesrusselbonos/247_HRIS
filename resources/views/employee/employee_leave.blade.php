@@ -61,8 +61,10 @@
 				              </td>
 				             <td style="max-width: 200px;">
 				             	<span style="float: right;">
-				             		<button id="" type="button" class="btn btn-success data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-				             		<button id="" type="button" class="btn btn-primary data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
+				             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+				             		@if($l->leave_status =="Pending")
+				             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
+	 								@endif
 	 							</span>
 				             </td>
 				            </tr>
