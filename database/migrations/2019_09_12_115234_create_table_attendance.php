@@ -13,10 +13,10 @@ class CreateTableAttendance extends Migration
      */
     public function up()
     {
-        Schema::create('table_attendance', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('a_employee_id')->unique();
-            $table->time('a_time_duration');
+            $table->time('a_time_duration')->nullable();
             $table->integer('no_days_worked');
             $table->timestamps();
         });
