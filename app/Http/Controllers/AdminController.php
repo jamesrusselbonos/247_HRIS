@@ -358,7 +358,7 @@ class AdminController extends Controller
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
             ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
             ->get();
-
+            
         return view('admin.schedule', compact('sched_employee', 'sched_list'));
     }
 

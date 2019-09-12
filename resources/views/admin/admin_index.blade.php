@@ -86,10 +86,16 @@
 					                   				<p>{{$time_report->date}}</p>
 					                   			</div>
 					                   			<div class="col-md-3">
-					                   				<p>{{$time_report->time_from}}</p>
+					                   				<p>{{date('h:i:s a', strtotime($time_report->time_from))}}</p>
 					                   			</div>
 					                   			<div class="col-md-3">
-					                   				<p>{{$time_report->time_to}}</p>
+				                   				@if($time_report->time_to != null || $time_report->time_to != "")
+							                   		<td>
+							                   	{{date('h:i:s a', strtotime($time_report->time_to))}}
+							                   		</td>
+							                   	@else
+							                   		<td></td>
+							                   	@endif
 					                   			</div>
 					                   		</div>
 					                   	@endforeach
