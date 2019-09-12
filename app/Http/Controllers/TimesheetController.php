@@ -7,6 +7,7 @@ use App\User;
 use App\TimeSheet;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 class TimesheetController extends Controller
 {
@@ -108,7 +109,7 @@ class TimesheetController extends Controller
             $timeSheets->employee_id = $id;
             $timeSheets->date = date('Y-m-d');
             $users->status = "1";
-            $timeSheets->time_from = date('h:i:s');
+            $timeSheets->time_from = date('H:i:s');
             $timeSheets->id = $request->randId;
             
         // }
@@ -173,10 +174,24 @@ class TimesheetController extends Controller
 
         $userId = Auth::user()->id;
         $users = User::find($userId);
+        $dur = TimeSheet::where('id', $request->testID)->get('time_from');
+        
+       $to = Carbon::now();
+       $from = $dur['0']['time_from'];
+       $duration = new Carbon;
+       $duration = $to->diff(Carbon::parse($from))->format('%h:%I:%s');
+
         DB::table('timesheets')
                     ->where('id', $request->testID)
-                    ->update(['time_to' => date('h:i:s')]);
-        
+                    ->update(['time_to' => date('H:i:s'),
+                        'time_duration' => $duration ]);
+        // (new Carbon($timeSheet->time_to))->diff(new Carbon($timeSheet->time_from))->format('%h:%I') 
+        // $to = new Carbon;
+        // $to = $timeSheet->time_to;
+        // $from = new Carbon;
+        // $from = $timeSheet->time_from;
+        // // $duration = new Carbon;
+        // $duration = $to->diff($from)->format('%h:%I');
         // $timeSheets = TimeSheet::find(2222);
         // // $timeSheets = TimeSheet::find($request->randId);
        

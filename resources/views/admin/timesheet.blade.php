@@ -37,6 +37,7 @@
 				              <th scope="col">Date</th>
 				              <th scope="col">Time In</th>
 				              <th scope="col">Time Out</th>
+				              <th scope="col">Time Duration</th>
 				              <th scope="col">Manage</th>
 				            </tr>
 				          </thead>
@@ -61,6 +62,7 @@
 				             @else
 				             <td></td>
 				             @endif
+				             <td>{{ $tt->time_duration }}</td>
 				             <td>
 				             	<span style="float: right; margin: 0;">
 				             		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button> -->

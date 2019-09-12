@@ -12,6 +12,8 @@ class TimeSheet extends Model
 
            'employee_id', 'date', 'date_from', 'date_to',
        ];
+    protected $dates = ['created_at', 'updated_at', 'date_from','date_to', 'date'];
+
 
        public function user(){
 

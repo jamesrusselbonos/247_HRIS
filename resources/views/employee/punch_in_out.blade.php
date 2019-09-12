@@ -36,6 +36,7 @@
                           <th scope="col">Date</th>
                           <th scope="col">Time In</th>
                           <th scope="col">Time Out</th>
+                          <th scope="col">Time Duration</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -50,6 +51,7 @@
                          @else
                          <td></td>
                           @endif
+                          <td>{{ $timeSheet->time_duration }}</td>
                         </tr>
                               
                   @endforeach
