@@ -641,6 +641,7 @@
 		  	$('#txt_vl_reason').val(view_leave_reason);
 		  	$('#vl_status').val(view_leave_status);
 		  	$('#vl_leave_type').html(view_leave_type);
+		  	$('#hdn_leave_type').val(view_leave_type);
 		  	$('#txt_vl_leave_type').val(view_leave_type_id);
 		  	
 
