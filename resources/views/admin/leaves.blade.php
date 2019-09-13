@@ -4,75 +4,110 @@
 
 <div class="col-lg-12">
 	<div class="memo_page">
-		<div class="">
-			<div class="card">
-				<!-- <div class="card-header">
-					<div class="row">
-						<div class="col-lg-12">
-			    			<span>
-			    				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#request_leave"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Request Leave</button>
-			    			</span>
-			    		</div>
-					</div>
-				</div> -->
-				 <div class="card-body">
-				   
-			        <table class="table table-bordered" id="addDataTable">
-			          <thead>
-			            <tr>
-			              
-			              <th scope="col">Name</th>
-			              <th scope="col">Date</th>
-			              <th scope="col">Leave Type</th>
-			              <th scope="col">Date From</th>
-			              <th scope="col">Date To</th>
-			              <th scope="col">Reason</th>
-			              <th scope="col">Status</th>
-			              <th scope="col">Manage</th>
-			            </tr>
-			          </thead>
-			          <tbody>
-			      
-			      		@foreach($leave as $l)
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="card">
+					<!-- <div class="card-header">
+						<div class="row">
+							<div class="col-lg-12">
+				    			<span>
+				    				
+				    			</span>
+				    		</div>
+						</div>
+					</div> -->
+					 <div class="card-body">
 
+					 	<div id='calendar'></div>
+					   
+				        <!-- <table class="table table-bordered" id="addDataTable">
+				          <thead>
 				            <tr>
-
-				              <th style="max-width: 200px;">
-				              	<p>{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</p>
-				              	<p style="margin-top: -15px;">{{ $l->emp_id }}</p>
-				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->date }}
-				              </th>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->leave_type }}
-				              </td>
-				               <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->date_from }}
-				              </td>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->date_to }}
-				              </td>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->reason }}
-				              </td>
-				              <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $l->leave_status }} 
-				              </td>
-				             <td style="max-width: 200px;">
-				             	<span style="float: right;">
-				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Action</button>
-				             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-	 							</span>
-				             </td>
+				              
+				              <th scope="col">Name</th>
+				              <th scope="col">Date</th>
+				              <th scope="col">Leave Type</th>
+				              <th scope="col">Date From</th>
+				              <th scope="col">Date To</th>
+				              <th scope="col">Reason</th>
+				              <th scope="col">Status</th>
+				              <th scope="col">Manage</th>
 				            </tr>
-			      				       
-			      		@endforeach
-			           
-			          </tbody>
-			        </table>
-			       
-			    </div>
+				          </thead>
+				          <tbody>
+				      
+				      		@foreach($leave as $l)
+
+					            <tr>
+
+					              <th style="max-width: 200px;">
+					              	<p>{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</p>
+					              	<p style="margin-top: -15px;">{{ $l->emp_id }}</p>
+					              </th>
+					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->date }}
+					              </th>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->leave_type }}
+					              </td>
+					               <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->date_from }}
+					              </td>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->date_to }}
+					              </td>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->reason }}
+					              </td>
+					              <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $l->leave_status }} 
+					              </td>
+					             <td style="max-width: 200px;">
+					             	<span style="float: right;">
+					             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Action</button>
+					             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+		 							</span>
+					             </td>
+					            </tr>
+				      				       
+				      		@endforeach
+				           
+				          </tbody>
+				        </table> -->
+				       
+				    </div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-lg-12">
+				    			<span>
+				    				<h5>Manage Leaves</h5>
+				    			</span>
+				    		</div>
+						</div>
+					</div>
+					 <div class="card-body">
+
+					 	<div class="row">
+							@foreach($leave as $l)
+								<div class="col-lg-7">
+									<p>{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</p>
+								    <p style="margin-top: -15px;">{{ $l->emp_id }}</p>
+								</div>
+								<div class="col-lg-5">
+									<span style="float: right;">
+				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i></button>
+				             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+									</span>
+								</div>
+							@endforeach
+						</div>
+				       
+				    </div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -141,5 +176,25 @@
   		</div>
   	</div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events : [
+                @foreach($leave as $leaves)
+                {
+                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_status }}',
+                    start : '{{ $leaves->date_from }}',
+                    @if ($leaves->date_to)
+                            end: '{{ $leaves->date_to }}',
+                    @endif
+                },
+                @endforeach
+            ],
+        });
+    });
+</script>
 
 @endsection

@@ -7,6 +7,16 @@ body, a, li, p, h1, h2, h3, h4, h5, h6, i, button, input,{
 a, a:hover{
 	color: #6DA4A3;
 }
+.fc-title{
+	color: #fff;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.fc-prev-button, .fc-next-button{
+	border: none !important;
+	margin-left: 5px !important;
+	margin-right: 5px !important;
+} 
 .btn{
 	font-family: 'Roboto Condensed', sans-serif;
 }
@@ -99,6 +109,10 @@ a, a:hover{
 	padding-right: 30px;
 
 	padding-top: 150px;
+	padding-bottom: 50px;
+
+	height: 100vh;
+	overflow-y: auto;
 }
 .manage_employee{
 	padding-left: 100px;
