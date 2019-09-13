@@ -28,6 +28,9 @@
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
+    <!-- FullCalendat -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
 </head>
 <body>
 
@@ -234,6 +237,10 @@
 		</div>
 	</div>
 </body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+
 <script type="text/javascript">
 	$( document ).ready(function() {
 	    $('.edit-dept').on('click', function(event){
