@@ -30,7 +30,7 @@
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>{{ $timesheet->count() }}</span></h4>
+				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>486 Hours</span></h4>
 				                    <a href="/timesheet" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View TimeSheet</span></p></a>
 				                </div>
 				            </div>
