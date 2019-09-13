@@ -64,6 +64,16 @@
 						<li>
 							<div class="row nav_link active_nav">
 								<div class="col-lg-2">
+									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10">
+									<a style="font-size: 15px;" href="/employee">Dashboard</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="row nav_link">
+								<div class="col-lg-2">
 									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true"></i>
 								</div>
 								<div class="col-lg-10">

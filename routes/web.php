@@ -86,9 +86,7 @@ Route::post('memo_send', 'AdminController@memoSent')->name('admin.memo.sent');
 Route::get('/markAll/', 'EmployeeController@markAllRead')->name('employee.memo.markAll');
 Route::get('/markRead/', 'EmployeeController@markRead')->name('employee.memo.markRead');
 
-Route::get('/employee', function () {
-    return view('employee.employee');
-});
+Route::get('/employee', 'EmployeeController@index');
 
 Route::get('/schedule', 'AdminController@schedule_index')->name('schedule.index');
 Route::post('/schedule', 'AdminController@schedule_create')->name('admin.sched.create');

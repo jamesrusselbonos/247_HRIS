@@ -41,6 +41,7 @@ class AdminController extends Controller
             $emp_count = Prototype_Employee::all();
             $dept_count = Department::all();
             $memo_report = Memo::all();
+            $timesheet = TimeSheet::all();
 
             $leave_count = Leave::where('leave_status', 'Pending')->get();
             
@@ -73,7 +74,7 @@ class AdminController extends Controller
                 ->select('leaves.*', 'leave_types.*')
                 ->get();
 
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list', 'leave_report'));
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list', 'leave_report','timesheet'));
         }    
 
     public function addEmployee()
@@ -254,26 +255,26 @@ class AdminController extends Controller
 
             $proto->employee_id = $request->get('employee_id');
             $proto->email = $request->email;
-           $proto->employee_img = $fileNameToStore;
+            $proto->employee_img = $fileNameToStore;
             $proto->gender = $request->get('gender');
-           $proto->firstname = $request->get('fname');
-           $proto->middle_name = $request->get('m_name');
-           $proto->lastname = $request->get('lname');
+            $proto->firstname = $request->get('fname');
+            $proto->middle_name = $request->get('m_name');
+            $proto->lastname = $request->get('lname');
             $proto->department_id = $request->get('department');
             $proto->status_id = $request->get('status');
             $proto->address = $request->get('address');
             $proto->city = $request->get('city');
-           $proto->province = $request->get('province');
+            $proto->province = $request->get('province');
             $proto->country = $request->get('country');
             $proto->zip_code = $request->get('zip_code');
             $proto->home_number = $request->get('h_number');
             $proto->mobile_number = $request->get('m_number');
-           $proto->personal_email = $request->get('p_email');
+            $proto->personal_email = $request->get('p_email');
             $proto->birthday = $request->get('bday');
             $proto->SIN_SSN = $request->get('ssn_sin');
             $proto->emergency_name = $request->get('e_name');
             $proto->relationship = $request->get('relationship');
-           $proto->emergency_address = $request->get('e_address');
+            $proto->emergency_address = $request->get('e_address');
             $proto->emergency_number = $request->get('e_number');
             $proto->job_id = $request->get('jjob_title');
             $proto->job_description = $request->get('info_area');
@@ -281,6 +282,9 @@ class AdminController extends Controller
             $proto->job_position_id = $request->get('job_position');
             $proto->date_hired = $request->get('d_hired');
             $proto->date_terminated = $request->get('d_terminated');
+            $proto->leave_credit = $request->get('leave_credit');
+            $proto->salary = $request->get('salary');
+            $proto->allowance = $request->get('allowance');
             $proto->SSS_no = $request->get('sss_n');
             $proto->philhealth_no = $request->get('philhealth_n');
             $proto->pagibig_no = $request->get('pagibig_n');
@@ -292,6 +296,7 @@ class AdminController extends Controller
             $proto->birth_cert = $request->get('birth_cert');
             $proto->brgy_clearance = $request->get('brgy');
             $proto->cedula = $request->get('cedula');
+
         // $proto = new Prototype_Employee([
             
         //     'employee_id' => $request->get('employee_id'),

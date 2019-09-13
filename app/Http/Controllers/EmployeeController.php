@@ -8,6 +8,8 @@ use App\Leave_type;
 
 use App\Leave;
 
+use App\TimeSheet;
+
 use Auth;
 use DB;
 use Carbon\Carbon;
@@ -22,7 +24,16 @@ class EmployeeController extends Controller
 
     public function index()
         {
-            return view('employee.dashboard');
+           $user = Auth::user()->employee_id;
+           $timesheet = TimeSheet::all();
+
+           $sum_of_time_duration = DB::table('timesheets')
+               ->join('users', 'users.employee_id', '=', 'timesheets.employee_id')
+               ->select('users.*', 'timesheets.time_duration')
+               ->where('timesheets.employee_id', '=', $user)
+               ->get();
+
+           return view('employee.employee_index', compact('sum_of_time_duration'));
         }
 
 
@@ -44,9 +55,7 @@ class EmployeeController extends Controller
 
     public function employee_memo(){
 
-
-
-          return view('employee.employee_memo');
+        return view('employee.employee_memo');
     }
 
     public function leave_index(){

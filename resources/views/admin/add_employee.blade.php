@@ -298,7 +298,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  	<label>Leave credits</label>
-										  	<input type="text" name="leave_create" class="form-control" >
+										  	<input type="text" name="leave_credit" class="form-control" >
 										</div>
 									</div>
 								</div>
