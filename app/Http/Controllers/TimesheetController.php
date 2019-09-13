@@ -179,7 +179,7 @@ class TimesheetController extends Controller
        $to = Carbon::now();
        $from = $dur['0']['time_from'];
        $duration = new Carbon;
-       $duration = $to->diff(Carbon::parse($from))->format('%h:%I:%s');
+       $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
 
         DB::table('timesheets')
                     ->where('id', $request->testID)
