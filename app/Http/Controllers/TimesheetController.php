@@ -180,11 +180,14 @@ class TimesheetController extends Controller
        $from = $dur['0']['time_from'];
        $duration = new Carbon;
        $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
+       $xplode = explode(":", $duration);
+       $decDuration = $xplode[0] + ($xplode[1]/60);
+   
 
         DB::table('timesheets')
                     ->where('id', $request->testID)
                     ->update(['time_to' => date('H:i:s'),
-                        'time_duration' => $duration ]);
+                        'time_duration' => $decDuration ]);
         // (new Carbon($timeSheet->time_to))->diff(new Carbon($timeSheet->time_from))->format('%h:%I') 
         // $to = new Carbon;
         // $to = $timeSheet->time_to;

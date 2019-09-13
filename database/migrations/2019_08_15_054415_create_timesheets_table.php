@@ -20,7 +20,7 @@ class CreateTimesheetsTable extends Migration
             $table->date('date');
             $table->time('time_from');
             $table->time('time_to')->nullable();
-            $table->double('time_duration', 8, 2)->nullable();
+            $table->decimal('time_duration', 8, 2)->nullable();
             
             $table->timestamps();
         });
