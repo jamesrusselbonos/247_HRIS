@@ -480,6 +480,21 @@ class AdminController extends Controller
         return redirect()->route('admin.employee_leave'); 
     }
 
+    public function attendance_index(){
+
+        $timesheet = DB::table('timesheets')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'timesheets.employee_id')
+            ->select('timesheets.*', 'prototype__employees.*')
+            ->get();
+
+        $leave = DB::table('leaves')
+            ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+            ->select('leaves.*', 'leave_types.leave_type')
+            ->get();
+
+        return view ('admin.attendance', compact('timesheet', 'leave'));
+    }
+
     public function memo_index(){
 
         $memo_employee = DB::table('prototype__employees')->get();

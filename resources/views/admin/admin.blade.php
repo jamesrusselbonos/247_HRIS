@@ -103,6 +103,9 @@
 									<a style="font-size: 15px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
 										<li style="padding-top: 10px;">
+											<a style="font-size: 14px;" href="/attendance"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Attendance</a>
+										</li>
+										<li style="padding-top: 10px;">
 											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
 										</li>
 										<li style="padding-top: 10px;">
@@ -240,6 +243,7 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 	$( document ).ready(function() {
