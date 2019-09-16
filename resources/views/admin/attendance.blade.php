@@ -7,7 +7,9 @@
 				<div class="col-lg-8">
 					<div class="card">
 						<div class="card-header">
-							
+							<div class="col-lg-7">
+								<input type="search" name="" placeholder="Search Employees" style="padding-left: 10px; height: 40px; width: 100%;">
+							</div>
 						</div>
 						<div class="card-body">
 							<div id='calendar'></div>
@@ -17,41 +19,46 @@
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-body" style="padding-left: 40px; padding-right: 40px;">
-							<div class="row">
-								<input type="hidden" name="txt_a_id" id="txt_a_id">
-								<h5 id="a_lname">Bonos,</h5><h5 id="a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="a_mname">Grefaldo</h5>
-							</div>
-							<div class="row">
-								<p style="margin-top: -8px;" id="a_emp_id">247-OPM-0003</p>
-							</div>
-							<div class="row">
-								<input type="hidden" name="txt_a_date" id="txt_a_date">
-								<p>Date: &nbsp;</p><p id="a_date"></p>
-							</div>
-							<div class="row">
-								<div class="form-check">
-								  	<input class="form-check-input" type="checkbox" value="" id="absent">
-								  	<label class="form-check-label" for="defaultCheck1">
-								    	Mark as Absent
-								  	</label>
+							<form>
+								<div class="row">
+									<input type="hidden" name="txt_a_id" id="txt_a_id">
+									<h5 id="a_lname">Bonos,</h5><h5 id="a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="a_mname">Grefaldo</h5>
 								</div>
-							</div>
-							<div class="row">
-								<div class="form-check">
-								  	<input class="form-check-input" type="checkbox" value="" id="unpaid_absent">
-								  	<label class="form-check-label" for="defaultCheck1">
-								    	Unpaid Absent
-								  	</label>
+								<div class="row">
+									<p style="margin-top: -8px;" id="a_emp_id">247-OPM-0003</p>
 								</div>
-							</div>
-							<div class="row">
-								<div class="form-check">
-								  	<input class="form-check-input" type="checkbox" value="" id="charge_to_SIL">
-								  	<label class="form-check-label" for="defaultCheck1">
-								    	Charge to SIL
-								  	</label>
+								<div class="row">
+									<input type="hidden" name="txt_a_date" id="txt_a_date">
+									<p>Date: &nbsp;</p><p id="a_date"></p>
 								</div>
-							</div>
+								<div class="row">
+									<div class="form-check">
+									  	<input class="form-check-input" type="checkbox" value="" id="absent">
+									  	<label class="form-check-label" for="defaultCheck1">
+									    	Mark as Absent
+									  	</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-check">
+									  	<input class="form-check-input" type="checkbox" value="" id="unpaid_absent">
+									  	<label class="form-check-label" for="defaultCheck1">
+									    	Unpaid Absent
+									  	</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-check">
+									  	<input class="form-check-input" type="checkbox" value="" id="charge_to_SIL">
+									  	<label class="form-check-label" for="defaultCheck1">
+									    	Charge to SIL
+									  	</label>
+									</div>
+								</div>
+								<div class="row" style="float: right;">
+									<button type="button" class="btn btn-danger btn_add_sched" style="margin-top: 20px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; Submit</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
