@@ -150,6 +150,7 @@
       </div>
       <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
       	<div class="row">
+      		
       		<h4 id="v_sched_lname"></h4><h4 id="v_sched_fname"></h4><h4 id="v_sched_mname"></h4>
       		<input type="hidden" name="v_schedid" id="v_schedid">
       	</div>
