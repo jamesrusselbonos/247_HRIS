@@ -3,7 +3,7 @@
 @section('employee_content')
 
 <div class="col-lg-12">
-	<div class="memo_page">
+	<div class="memo_page" data-simplebar>
 		<div class="">
 			<div class="card">
 				<div class="card-header">

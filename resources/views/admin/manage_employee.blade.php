@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="manage_employee">
+		<div class="manage_employee" data-simplebar>
 			<div class="container">
 				<div class="card">
 				    

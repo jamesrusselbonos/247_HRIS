@@ -4,7 +4,7 @@
 
 <div class="col-lg-12">
 	<div class="memo_page">
-		<div class="container">
+		<div class="container" data-simplebar>
 			<div class="card">
 				<!-- <div class="card-header">
 					<div class="row">

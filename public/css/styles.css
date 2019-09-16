@@ -26,12 +26,6 @@ a, a:hover{
 	padding-top: 50px;
 	padding-bottom: 50px;
 
-	-webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-	box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-
-	overflow-y: auto;
-	overflow-x: hidden;
-
 	z-index: 1000;
 }
 .sidebar h1, .sidebar h6{
@@ -112,7 +106,6 @@ a, a:hover{
 	padding-bottom: 50px;
 
 	height: 100vh;
-	overflow-y: auto;
 }
 .manage_employee{
 	padding-left: 100px;
@@ -244,7 +237,7 @@ a, a:hover{
 	cursor: pointer;
 	background-color: #F8FBFB;
 
-	padding-left: 40px;
+	padding-left: 30px;
 }
 .nav_link_li:hover{
 	cursor: pointer;
@@ -259,8 +252,8 @@ a, a:hover{
 	padding-top: 15px;
 	padding-bottom: 15px;
 
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 25px;
+	padding-right: 25px;
 
 	background-color: #fff;
 	transition: padding-left 0.3s ease;
@@ -643,8 +636,11 @@ input[type=search]{
 	border-radius: 30px;
 	background-color: #fff;
 	font-family: 'Lato', sans-serif;
-	border-color: #000;
+	border-color: #757575;
 	border-width: 1px;
+}
+input[type=search]:focus{
+	outline: none;
 }
 #editemp_img{
 	display: none;

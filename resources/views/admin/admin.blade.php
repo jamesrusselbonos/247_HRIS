@@ -28,15 +28,18 @@
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
-    <!-- FullCalendat -->
+    <!-- FullCalendar -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 
 </head>
 <body>
 
-	<!-- Main -->
+	
 	<div class="row">
-		<div class="col-lg-2 sidebar">
+		<div class="col-lg-2 sidebar" data-simplebar>
 			<div class="row">
 				<div style="text-align: center;" class="col-lg-12">
 					<img class="company_logo" src="/img/icon.png">
@@ -44,96 +47,79 @@
 				</div>
 			</div>
 
-			<!-- Navigation-->
+			
 			<div class="row navigation">
 				<div class="col-lg-12">
 				<h6 style="padding-left: 20px;">Navigation</h6>	
 					<ul>
 						<li>
 							<div style="margin-top: 20px;" class="row nav_link active_nav">
-								<div class="col-lg-2">
-									<i class="fa fa-inbox" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="/admin">Dashboard</a>
-									<!-- <ul class="collapse" id="employeeSubmenu">
-										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
-										</li>
-										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
-										</li>
-										<li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
-										</li>
-									</ul> -->
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-user" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								<div class="col-md-10">
+									<i style="color: #fff;" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
 									<ul class="collapse" id="employeeSubmenu">
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
 										</li>
-										<!-- <li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/employee_list"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Employee List</a>
-										</li> -->
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/leave"><i class="fa fa-outdent" aria-hidden="true"></i>&nbsp; Employee Leaves</a>
 										</li>
 									</ul>
 								</div>
+								<div class="col-md-2">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true"></i>
-								</div>
+								
 								<div class="col-lg-10">
+									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/attendance"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Attendance</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/schedule"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Schedule</a>
 										</li>
-										<!-- <li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
-										</li> -->
 									</ul>
+								</div>
+								<div class="col-lg-2">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="/memo">Memo</a>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-usd" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i style="color: #fff;" class="fa fa-usd" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="/memo">Payroll</a>
 								</div>
 							</div>
@@ -147,52 +133,52 @@
 					<ul>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-users" aria-hidden="true"></i>
-								</div>
+								
 								<div class="col-lg-10">
+									<i style="color: #fff;" class="fa fa-users" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Accounts</a>
 									<ul class="collapse" id="userSubmenu">
-										<!-- <li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/add_user"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
-										</li> -->
-										<li style="padding-top: 10px;">
+										
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/manage_user"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
 										</li>
 									</ul>
+								</div>
+								<div class="col-lg-2">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-plus" aria-hidden="true"></i>
-								</div>
+								
 								<div class="col-lg-10">
+									<i style="color: #fff;" class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="#addSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Add</a>
 									<ul class="collapse" id="addSubmenu">
-										<!-- <li style="padding-top: 10px;">
-											<a style="font-size: 14px;" href="/add_user"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add User</a>
-										</li> -->
-										<li style="padding-top: 10px;">
+										
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/job_title"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/department"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/job_status"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Status</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/job_level"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Level</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/job_position"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Position</a>
 										</li>
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/leave_types"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Leave Types</a>
 										</li>
 									</ul>
+								</div>
+								<div class="col-lg-2">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
 								</div>
 							</div>
 						</li>
@@ -201,7 +187,7 @@
 			</div>
 		</div>
 		<div class="col-lg-10 main">
-			<!-- Pages -->
+			
 			
 				<div class="dashboard_banner">
 					<div class="row">
@@ -214,23 +200,6 @@
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 			                        @csrf
 			                    </form>
-								<!-- <li style="float: right;" class="nav-item dropdown">
-	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{ Auth::user()->email }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-	                                </a>
-
-	                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	                                    <a class="dropdown-item" href="{{ route('logout') }}"
-	                                       onclick="event.preventDefault();
-	                                                     document.getElementById('logout-form').submit();">
-	                                        {{ __('Logout') }}
-	                                    </a>
-
-	                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-	                                        @csrf
-	                                    </form>
-	                                </div>
-                            	</li> -->
 							</div>
 						</div>
 					</div>

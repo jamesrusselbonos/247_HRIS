@@ -34,7 +34,7 @@
 <body>
 	<!--Main-->
 	<div class="row">
-		<div class="col-lg-2 sidebar">
+		<div class="col-lg-2 sidebar" data-simplebar>
 			<div class="row">
 				<div style="text-align: center; padding-top: 30px;" class="col-lg-12">
 					<img class="company_logo" src="/img/icon.png">
@@ -63,23 +63,21 @@
 					<ul>
 						<li>
 							<div class="row nav_link active_nav">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="/employee">Dashboard</a>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true"></i>
-								</div>
+								
 								<div class="col-lg-10">
+									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a style="font-size: 15px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
 									<ul class="collapse" id="attendanceSubmenu">
-										<li style="padding-top: 10px;">
+										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/punch_in_out"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Time In/Out</a>
 										</li>
 										<!-- <li style="padding-top: 10px;">
@@ -87,24 +85,25 @@
 										</li> -->
 									</ul>
 								</div>
+								<div class="col-lg-2">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a href="/employee_memo" style="font-size: 15px;" href="#">Memo</a>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="row nav_link">
-								<div class="col-lg-2">
-									<i style="color: #fff;" class="fa fa-outdent" aria-hidden="true"></i>
-								</div>
-								<div class="col-lg-10">
+								
+								<div class="col-lg-12">
+									<i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
 									<a href="/employee_leave" style="font-size: 15px;" href="#">Leave</a>
 								</div>
 							</div>

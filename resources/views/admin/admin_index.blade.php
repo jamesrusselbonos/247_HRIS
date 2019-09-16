@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="admin_index" style="height: 100vh; overflow-y: auto; padding-bottom: 30px;">
+		<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 30px;">
 			<div class="">
 				<div>
 					<div class="row">

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-lg-12">
-	<div class="memo_page">
+	<div class="memo_page" data-simplebar>
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="card">

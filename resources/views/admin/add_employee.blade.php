@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="add_employee_tab">
+		<div class="add_employee_tab" data-simplebar>
 			<div class="row employee_forms">
 				<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
 					<div class="row">

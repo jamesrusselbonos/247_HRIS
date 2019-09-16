@@ -2,7 +2,7 @@
 
 @section('employee_content')
 	<div class="col-lg-12">
-		<div class="timesheet_report">
+		<div class="timesheet_report" data-simplebar>
 			<div class="container">
 				<div class="card">
                 <div class="card-header">
