@@ -185,7 +185,7 @@
             events : [
                 @foreach($leave as $leaves)
                 {
-                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_status }}',
+                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
                     start : '{{ $leaves->date_from }}T00:00:00',
                     @if ($leaves->date_to)
                             end: '{{ $leaves->date_to }}T24:00:00',
