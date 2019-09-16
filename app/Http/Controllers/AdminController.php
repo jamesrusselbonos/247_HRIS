@@ -493,6 +493,7 @@ class AdminController extends Controller
             ->get();
 
         return view ('admin.attendance', compact('timesheet', 'leave'));
+        
     }
 
     public function memo_index(){
