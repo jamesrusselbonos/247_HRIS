@@ -275,10 +275,10 @@
             events : [
                 @foreach($sched_list as $sch_list)
                 {
-                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname }}',
-                    start : '{{ $sch_list->date_from }}',
+                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
+                    start : '{{ $sch_list->date_from }}T00:00:00',
                     @if ($sch_list->date_to)
-                            end: '{{ $sch_list->date_to }}',
+                            end: '{{ $sch_list->date_to }}T24:00:00',
                     @endif
                 },
                 @endforeach
