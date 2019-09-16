@@ -150,7 +150,7 @@
       </div>
       <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
       	<div class="row">
-      		
+
       		<h4 id="v_sched_lname"></h4><h4 id="v_sched_fname"></h4><h4 id="v_sched_mname"></h4>
       		<input type="hidden" name="v_schedid" id="v_schedid">
       	</div>
@@ -237,11 +237,6 @@
 	                	<div class="form-group col-md-12">
 	                	  <label>Comment</label>
 	                	   <textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
-	                	</div>
-
-	                	<div class="form-group col-md-12">
-	                	  <label>Duration</label>
-	                	   <input class="form-control" rows="5" id="sched_duration" name="sched_duration">
 	                	</div>
 
 	                	<div class="form-group col-md-12">
