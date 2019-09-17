@@ -491,17 +491,47 @@ class AdminController extends Controller
 
     public function attendance_index(){
 
-        $timesheet = DB::table('timesheets')
-            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'timesheets.employee_id')
-            ->select('timesheets.*', 'prototype__employees.*')
-            ->get();
+        $columns1 = [
+            'date_from AS start',
+            'date_to AS end',
+            'id AS id',
+            'emp_id AS title' 
+        ];
 
         $leave = DB::table('leaves')
             ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
             ->select('leaves.*', 'leave_types.leave_type')
             ->get();
 
-        return view ('admin.attendance', compact('timesheet', 'leave'));
+        $leaves = Leave::with('type')->get($columns1);
+        $leave1 = $leaves->toJson();
+        // dd($leave);
+
+        $employees = DB::table('prototype__employees')->get();
+        $columns = [
+            'date AS start',
+            'date AS end',
+            'id AS id',
+            'employee_id AS title' 
+        ];
+        $timesheets = TimeSheet::with('employee')->get($columns);
+        $timesheet = $timesheets->toJson();
+        
+        return view('admin.attendance', compact('timesheet', 'employees', 'leave1'));
+
+        // $timesheet = DB::table('timesheets')
+        //     ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'timesheets.employee_id')
+        //     ->select('timesheets.*', 'prototype__employees.*')
+        //     ->get();
+
+        // $leave = DB::table('leaves')
+        //     ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+        //     ->select('leaves.*', 'leave_types.leave_type')
+        //     ->get();
+
+        // $employees = Prototype_Employee::all();
+
+        // return view ('admin.attendance', compact('timesheet', 'leave','employees'));
         
     }
 
@@ -596,5 +626,44 @@ class AdminController extends Controller
 
     //     return array('status' => 'OK', 'result' => $employees->toArray(), 'suggestions' => $employees);
     // }
+
+
+    public function attendLoad(Request $request){
+
+        $columns1 = [
+            'date_from AS start',
+            'date_to AS end',
+            'id AS id',
+            'emp_id AS title' 
+        ];
+
+        $leave = DB::table('leaves')
+            ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+            ->select('leaves.*', 'leave_types.leave_type')
+            ->get();
+
+        $leaves = Leave::with('type')->where('emp_id', $request->emp_sel)->get($columns1);
+        $leave1 = $leaves->toJson();
+
+        // $memo_user = User::with('roles')->where('role', '2')->get();
+        $employees = DB::table('prototype__employees')->get();
+        $columns = [
+            'date AS start',
+            'date AS end',
+            'id AS id',
+            'employee_id AS title' 
+        ];
+        $timesheets = TimeSheet::with('employee')->where('employee_id', $request->emp_sel)->get($columns);
+        $timesheet = $timesheets->toJson();
+// dd($timesheet);
+        return view('admin.attendance', compact('timesheet','employees', 'leave1'));
+
+
+        // $tt = json_decode($timesheet);
+        
+
+        
+
+    }
 
 }

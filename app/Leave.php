@@ -9,4 +9,9 @@ class Leave extends Model
     protected $fillable = [
         'firstname', 'middle_name', 'lastname', 'emp_id', 'date', 'leave_id', 'date_from', 'date_to', 'reason',
     ];
+
+    public function type(){
+
+    	return $this->belongsTo('App\Leave_type');
+    }
 }

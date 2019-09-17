@@ -17,7 +17,9 @@
 									  	@endforeach
 									</select>
 								</form>
-								<!-- <input type="search" name="" placeholder="Search Employees" style="padding-left: 10px; height: 40px; width: 100%;"> -->
+								
+								<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
+								<!-- <input type="search" name="emp_sel" placeholder="Search Employees" id="emp_sel" style="padding-left: 10px; height: 40px; width: 100%;"> -->
 							</div>
 						</div>
 						<div class="card-body">
@@ -81,6 +83,21 @@
 			$('#emp_sel').select2({
 
 			});
+
+			// $('#emp_sel').on("change", function(e) { 
+			// 	var id = $('#emp_sel').val();
+			// 	var token = $(".hdn-token").val();
+			//    console.log(token);
+
+			// 	$.post('/attendances',
+			// 	{'id':id, '_token':token}, 
+			// 	function(data){
+			// 		$('#calendar').fullCalendar({
+			// 			events: {!! $timesheet !!}
+			// 		});
+
+			// 	 }); 
+			// });
 	        // page is now ready, initialize the calendar...
 	        $('#calendar').fullCalendar({
 	            // put your options and callbacks here
@@ -100,8 +117,9 @@
 		        	$('#a_date').html(attendance_date);
 		        	$('#txt_a_date').val(attendance_date);
 		        },
-		        hiddenDays: '7',
 	        });
+
+
 	    });
 	</script>
 @endsection
