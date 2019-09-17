@@ -34,7 +34,7 @@
 
 				    <div class="card-body">
 				   
-				        <table class="table table-bordered" id="addDataTable">
+				        <table class="table display nowrap" id="DataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Job Status</th>

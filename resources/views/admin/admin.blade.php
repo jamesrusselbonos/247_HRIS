@@ -120,7 +120,7 @@
 								
 								<div class="col-lg-12">
 									<i style="color: #fff;" class="fa fa-usd" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
-									<a style="font-size: 15px;" href="/memo">Payroll</a>
+									<a style="font-size: 15px;" href="/payroll">Payroll</a>
 								</div>
 							</div>
 						</li>
@@ -279,6 +279,7 @@
 	      	       ]
 	      });
 	      $('#addDataTable').DataTable({
+	      	"scrollX": true,
 	      	columnDefs: [
 	      	           {
 	      	               targets: [ 0, 1, 2 ],

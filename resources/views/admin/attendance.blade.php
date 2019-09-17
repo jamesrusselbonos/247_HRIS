@@ -104,6 +104,7 @@
 		        	$('#a_date').html(attendance_date);
 		        	$('#txt_a_date').val(attendance_date);
 		        },
+		        hiddenDays: '7',
 	        });
 	    });
 	</script>

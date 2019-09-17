@@ -279,6 +279,7 @@
                 },
                 @endforeach
             ],
+            hiddenDays: [7,7],
         });
     });
 </script>

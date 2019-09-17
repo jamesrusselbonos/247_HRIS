@@ -92,6 +92,12 @@ a, a:hover{
 
 	padding-top: 150px;
 }
+.payroll_index{
+	padding-left: 50px;
+	padding-right: 50px;
+
+	padding-top: 150px;
+}
 .memo_page{
 	padding-left: 80px;
 	padding-right: 80px;
@@ -701,4 +707,16 @@ input[type=search]:focus{
  .form-check{
  	margin-top: 5px;
  	margin-bottom: 5px;
+ }
+ .fc-left h2 {
+ 	font-size: 25px;
+ 	margin-top: -5px;
+ }
+ .nav-item{
+ 	background-color: #f4f4f4;
+ }
+ #nav-tab .active{
+ 	-webkit-border-top-left-radius: 20px !important;
+	-moz-border-radius-topleft: 20px !important;
+	border-top-left-radius: 20px !important;
  }

@@ -246,7 +246,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-8">
 										  <label>Job Description</label>
-										  <textarea name="info_area" id="info_area" cols="75" rows="5"></textarea>
+										  <textarea name="info_area" id="info_area" cols="60" rows="5"></textarea>
 										</div>
 									</div>
 									<div class="form-row">
