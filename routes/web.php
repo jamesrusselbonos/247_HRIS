@@ -103,6 +103,8 @@ Route::post('/employee_leave', 'EmployeeController@request_leave_create')->name(
 
 Route::get('/payroll', 'AdminController@payroll_index')->name('payroll.index');
 
+Route::get('/holidays', 'AdminController@holidays_index')->name('holidays.index');
+
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
 Route::post('/job_title/1', 'jobController@edit' )->name('admin.job_title.edit');

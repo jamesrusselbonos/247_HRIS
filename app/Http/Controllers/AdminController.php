@@ -455,7 +455,10 @@ class AdminController extends Controller
     }
 
      public function payroll_index(){
-        return view ('admin.payroll');
+
+        $employees = Prototype_Employee::all();
+
+        return view ('admin.payroll', compact('employees'));
     }
 
     public function leave_index(){
@@ -466,6 +469,10 @@ class AdminController extends Controller
             ->get();
 
         return view ('admin.leaves', compact('leave'));
+    }
+
+    public function holidays_index(){
+        return view ('admin.holiday');
     }
 
     public function leave_edit(Request $request){

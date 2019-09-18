@@ -175,6 +175,9 @@
 										<li style="padding-top: 10px; padding-left: 15px;">
 											<a style="font-size: 14px;" href="/leave_types"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Leave Types</a>
 										</li>
+										<li style="padding-top: 10px; padding-left: 15px;">
+											<a style="font-size: 14px;" href="/holidays"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Holidays</a>
+										</li>
 									</ul>
 								</div>
 								<div class="col-lg-2">

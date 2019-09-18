@@ -636,12 +636,15 @@ ul.notification-bar {
 
 	padding-left: 20px;
 	font-size: 20px;
-	font-family: 'Lato', sans-serif; 
+	font-family: 'Roboto', sans-serif;
+}
+.select2-container .select2-selection--single {
+    height: 40px !important;
 }
 input[type=search]{
 	border-radius: 30px;
 	background-color: #fff;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	border-color: #757575;
 	border-width: 1px;
 }
