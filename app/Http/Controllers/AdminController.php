@@ -521,6 +521,7 @@ class AdminController extends Controller
         $timesheets = TimeSheet::with('employee')->get($columns);
         $timesheet = $timesheets->toJson();
         
+        
         return view('admin.attendance', compact('timesheet', 'employees', 'leave1'));
 
         // $timesheet = DB::table('timesheets')
