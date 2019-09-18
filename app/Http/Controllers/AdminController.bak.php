@@ -12,7 +12,6 @@ use App\Notifications\AssignSchedule;
 
 use Carbon\Carbon;
 
-
 use App\TimeSheet;
 
 use App\Job;
@@ -36,7 +35,7 @@ class AdminController extends Controller
 	    {
 	        $this->middleware('auth');
 	        $this->middleware('role:Admin');
-            	    }
+	    }
 
     public function index()
         {
@@ -392,9 +391,6 @@ class AdminController extends Controller
             $schedule->task = $request->sched_task;
             $schedule->comment = $request->sched_comment;
             // $schedule->duration = $request->sched_duration;
-
-
-
             $from = Carbon::parse($request->sched_date_from);
             $to = Carbon::parse($request->sched_date_to);
             // $from = Carbon::parse('2019-09-16');
@@ -403,10 +399,10 @@ class AdminController extends Controller
             $dt = $from->diffInDays($to). " day/s";
             
             $schedule->duration = $dt;
-
             $schedule->other = $request->sched_other;
             $schedule->save();
         }
+
 
        
         // $schedule = new Schedule([
@@ -427,7 +423,6 @@ class AdminController extends Controller
     }
 
     public function schedule_delete($id){
-
 
          DB::table('schedules')->where('id', $id)->delete();
 
@@ -457,6 +452,10 @@ class AdminController extends Controller
         DB::table('leave_types')->where('id', $id)->delete();
 
         return redirect()->route('leave_types.index');
+    }
+
+    public function payroll_index(){
+        return view ('admin.payroll');
     }
 
     public function leave_index(){
@@ -507,6 +506,7 @@ class AdminController extends Controller
             ->get();
 
         return view ('admin.attendance', compact('timesheet', 'leave'));
+        
     }
 
     public function memo_index(){

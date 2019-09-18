@@ -714,6 +714,10 @@ input[type=search]:focus{
  }
  .nav-item{
  	background-color: #f4f4f4;
+ 	color: #000;
+ }
+ .nav-item:hover{
+ 	color: #000;
  }
  #nav-tab .active{
  	-webkit-border-top-left-radius: 20px !important;

@@ -140,130 +140,264 @@
 	      			<div class="row">
 	      				<div class="col-md-12">
 	      					<nav>
-							<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-								<a class="nav-item nav-link active" id="nav-employee-tab" data-toggle="tab" href="#payroll_employee" role="tab" aria-controls="nav-employee" aria-selected="true" style="color: #000;">Employee/Attendance</a>
-								<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#payroll_holidays" role="tab" aria-controls="nav-contact" aria-selected="false" style="color: #000;">Holidays</a>
-								<a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#payroll_overtime" role="tab" aria-controls="nav-emergency" aria-selected="false" style="color: #000;">Overtime/Night Differential</a>
-								<a class="nav-item nav-link" id="nav-job-tab" data-toggle="tab" href="#payroll_late" role="tab" aria-controls="nav-job" aria-selected="false" style="color: #000;">Late/Undertime</a>
-								<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#payroll_benefitst" role="tab" aria-controls="nav-about" aria-selected="false" style="color: #000;">Benefits</a>
-								<a class="nav-item nav-link" id="nav-record-tab" data-toggle="tab" href="#payroll_loan" role="tab" aria-controls="nav-record" aria-selected="false" style="color: #000;">Loans/Tax</a>
-							</div>
-						</nav>
-						<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-							<div class="tab-pane fade show active" id="payroll_employee" role="tabpanel" aria-labelledby="nav-home-tab" style="padding-top: 30px;">
-								<div class="form-row">
-									<div class="col-lg-6">
-										<label>Select an Employee</label>
-			        	         		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
+								<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+									<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Employees/Attendance</a>
+									<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Holidays/Overtime</a>
+									<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Night Differential/Late/Under Time</a>
+									<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Benefits/Loans/Tax</a>
+								</div>
+							</nav>
+							<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+								<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+									<div style="margin-top: 30px;" class="form-row">
+										<div class="col-lg-6">
+											<label>Select an Employee</label>
+								     		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
 
-			        	         			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
-			        	         				<option></option>  
-			        	         				<option>All</option>  
-			        	         				
-			        	         					<option value=""></option>
-			        	         				
-			        	         			</select>
-			        	         		</div>
+								     			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
+								     				<option></option>  
+								     				<option>All</option>  
+								     				
+								     					<option value=""></option>
+								     				
+								     			</select>
+								     		</div>
+										</div>
+										<div class="col-lg-6">
+											<h3 style="margin-top: 0px;">Bonos, James Russel Grefaldo</h3>
+											<h6 style="margin-top: -20px;">247-OPM-0003</h6>
+										</div>
 									</div>
-									<div class="col-lg-6">
-										<h3 style="margin-top: 0px;">Bonos, James Russel Grefaldo</h3>
-										<h6 style="margin-top: -20px;">247-OPM-0003</h6>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px;">
+										<h4 style="margin-top: 0px;">Payroll Period</h4>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-6">
+								  			<label>Date From</label>
+								   			<input type="date" name="sched_date_from" id="sched_date_from" max="3000-12-31" 
+										          min="1000-01-01" class="form-control">
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			<label>Date To</label>
+								    		<input type="date" name="sched_date_to" id="sched_date_to" max="3000-12-31" 
+										          min="1000-01-01" class="form-control">
+								  		</div>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-3">
+								  			<label>No. days worked</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Daily Rate</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Rate/hour</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Basic Pay</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Absences</h4>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-3">
+								  			<label>Total Absences</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Unpaid Absences</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Charge to SIL</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Allowance & Incentives</h4>
+									</div>	
+									<div class="form-row">
+
+								  		<div class="form-group col-md-6">
+								  			<label>Total Absences</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			<label>Unpaid Absences</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
 									</div>
 								</div>
-								<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px;">
-									<h4 style="margin-top: 0px;">Payroll Period</h4>
+								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+										<h4 style="margin-top: 0px;">Legal Holidays</h4>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+								  			<label>No. of Days</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			<label>Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Overtime</h4>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-3">
+								  			<label>Regular OT Hours</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Regular OT Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Sunday/Rest Day OT Hours </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Sunday/Rest day OT Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-3">
+								  			<label>Legal Holidays OT Hours </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Legal Holiday OT Hours</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Special Holidays OT hours </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Special Holiday OT Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
 								</div>
-								<div class="form-row">
+								<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+										<h4 style="margin-top: 0px;">Night Differential</h4>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+								  			<label>No. of Days Rendered</label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			<label>Amount</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Undertime</h4>
+									</div>
+									<div class="form-row">
 
-		                	  		<div class="form-group col-md-6">
-		                	  			<label>Date From</label>
-		                	   			<input type="date" name="sched_date_from" id="sched_date_from" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
-		                	  		</div>
-		                	  		<div class="form-group col-md-6">
-		                	  			<label>Date To</label>
-		                	    		<input type="date" name="sched_date_to" id="sched_date_to" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
-		                	  		</div>
-			                	</div>
-			                	<div class="form-row">
-
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>No. days worked</label>
-		                	   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Daily Rate</label>
-		                	    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Rate/hour</label>
-		                	   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Basic Pay</label>
-		                	    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-			                	</div>
-			                	<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
-									<h4 style="margin-top: 0px;">Absences</h4>
+								  		<div class="form-group col-md-4">
+								  			<label>No. Of Hours Undertime </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-4">
+								  			<label>No. Of Hours Late</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-4">
+								  			<label>Amount </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
 								</div>
-								<div class="form-row">
+								<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+										<h4 style="margin-top: 0px;">Government Mandated Benefits</h4>
+									</div>
+									<div class="form-row">
 
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Total Absences</label>
-		                	   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Unpaid Absences</label>
-		                	    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Charge to SIL</label>
-		                	   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-3">
-		                	  			<label>Amount</label>
-		                	    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
-		                	  		</div>
-			                	</div>
-			                	<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
-									<h4 style="margin-top: 0px;">Allowance & Incentives</h4>
-								</div>	
-								<div class="form-row">
+								  		<div class="form-group col-md-3">
+								  			<label>SSS </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>PHIC</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>HDMF </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-3">
+								  			<label>Total Deduction</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Loans/Miscellaneous</h4>
+									</div>
+									<div class="form-row">
 
-		                	  		<div class="form-group col-md-6">
-		                	  			<label>Total Absences</label>
-		                	   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-		                	  		<div class="form-group col-md-6">
-		                	  			<label>Unpaid Absences</label>
-		                	    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
-		                	  		</div>
-			                	</div>
+								  		<div class="form-group col-md-4">
+								  			<label>SSS </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-4">
+								  			<label>Company Loan / Advances</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-4">
+								  			<label>HDMF </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control">
+								  		</div>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-6">
+								  			<label>Uniform </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			<label>Total Deduction</label>
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
+								  		</div>
+									</div>
+									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
+										<h4 style="margin-top: 0px;">Tax</h4>
+									</div>
+									<div class="form-row">
+
+								  		<div class="form-group col-md-6">
+								  			<label>Tax </label>
+								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								  		</div>
+								  		<div class="form-group col-md-6">
+								  			
+								  		</div>
+									</div>
+								</div>
 							</div>
-	      				</div>
-	      				<div class="tab-pane fade" id="payroll_holidays" role="tabpanel" aria-labelledby="nav-contact-tab">
-									
-									
 						</div>
-						<div class="tab-pane fade" id="payroll_overtime" role="tabpanel" aria-labelledby="nav-contact-tab">
-									
-									
-						</div>
-						<div class="tab-pane fade" id="payroll_late" role="tabpanel" aria-labelledby="nav-contact-tab">
-									
-									
-						</div>
-						<div class="tab-pane fade" id="payroll_benefitst" role="tabpanel" aria-labelledby="nav-contact-tab">
-									
-									
-						</div>
-						<div class="tab-pane fade" id="payroll_loan" role="tabpanel" aria-labelledby="nav-contact-tab">
-									
-									
-						</div>
-	      			</div>
+	      			</div>	
 	      		</div>
 	      		<div class="modal-footer">
       		        <button type="button" class="btn btn-success"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payroll</button>
