@@ -44,30 +44,27 @@
 				            </tr>
 				          </thead>
 				          <tbody>
-				      		 
-
-				            <tr>
-
-				              <th scope="row"  style="min-width: 200px;">
-				              	
-				              </th>
-				              
-				              <td style="min-width: 200px;">
-				              	
-				              </td>
-				              <td style="min-width: 200px;">
-				              	
-				              </td>
-				             
-				             <td>
-				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<a href="/level_delete/"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-     							</span>
-				             </td>
+				      		@foreach($holidays as $holi)
+				      		<tr>
+					              <td scope="row"  style="min-width: 200px;">
+					              	{{$holi->holiday_name}}
+					              </td>
+					              
+					              <td style="min-width: 200px;">
+					              	{{$holi->date}}
+					              </td>
+					              <td style="min-width: 200px;">
+					              	{{$holi->holiday_type}}
+					              </td>
+					             
+					             <td>
+					             	<span style="float: right;">
+	     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+	     								<a href="/level_delete/"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+	     							</span>
+					             </td>
 				            </tr>
-				              
-				      		
+				      		@endforeach 
 				          </tbody>
 				        </table>
 				       
@@ -133,26 +130,26 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="POST" action="{{route('admin.job_level')}}">
+	              <form method="POST" action="{{route('holidays.create')}}">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Holiday</label>
-	                	   <input type="text" name="level_title" class="form-control" >
+	                	   <input type="text" name="holiday" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Date</label>
-	                	   <input type="date" name="bday" max="3000-12-31" 
+	                	   <input type="date" name="holiday_date" max="3000-12-31" 
 										          min="1000-01-01" class="form-control">
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Holiday Type</label>
-	                	   <select name="department">
-							  	
-							  	<option value=""></option>
-							  	
+	                	   <select name="holiday_type">
+							  	@foreach($holiday_type as $type)
+							  	<option value="{{$type->id}}">{{$type->holiday_type}}</option>
+							  	 @endforeach
 						  </select>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
