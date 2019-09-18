@@ -200,7 +200,7 @@
 								  		</div>
 								  		<div class="form-group col-md-3">
 								  			<label>Basic Pay</label>
-								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" readonly>
 								  		</div>
 									</div>
 									<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
@@ -231,17 +231,17 @@
 									<div class="form-row">
 
 								  		<div class="form-group col-md-6">
-								  			<label>Total Absences</label>
+								  			<label>Allowance</label>
 								   			<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
 								  		</div>
 								  		<div class="form-group col-md-6">
-								  			<label>Unpaid Absences</label>
+								  			<label>Adjustment/Incentive</label>
 								    		<input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
 								  		</div>
 									</div>
 								</div>
 								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+									<div class="form-row" style="padding: 5px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
 										<h4 style="margin-top: 0px;">Legal Holidays</h4>
 									</div>
 									<div class="form-row">
@@ -297,7 +297,7 @@
 									</div>
 								</div>
 								<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+									<div class="form-row" style="padding: 5px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
 										<h4 style="margin-top: 0px;">Night Differential</h4>
 									</div>
 									<div class="form-row">
@@ -330,7 +330,7 @@
 									</div>
 								</div>
 								<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-									<div class="form-row" style="padding:10px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
+									<div class="form-row" style="padding: 5px 0px 0px 0px; margin-bottom: 15px; margin-top: 30px;">
 										<h4 style="margin-top: 0px;">Government Mandated Benefits</h4>
 									</div>
 									<div class="form-row">
