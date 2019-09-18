@@ -454,6 +454,10 @@ class AdminController extends Controller
         return redirect()->route('leave_types.index');
     }
 
+     public function payroll_index(){
+        return view ('admin.payroll');
+    }
+
     public function leave_index(){
 
         $leave = DB::table('leaves')
