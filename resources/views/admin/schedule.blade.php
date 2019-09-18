@@ -228,7 +228,7 @@
 	                	  	</div>
 	                	  </div>
 	                	</div>	
-
+ 
 	                	<div class="form-group col-md-12">
 	                	  <label>Task</label>
 	                	   <textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
