@@ -511,7 +511,7 @@ class AdminController extends Controller
         $columns = [
             'date AS start',
             'date AS end',
-            'id AS id',
+            'id1 AS id',
             'employee_id AS title' 
         ];
         $timesheets = TimeSheet::with('employee')->get($columns);
