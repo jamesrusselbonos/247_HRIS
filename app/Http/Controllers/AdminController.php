@@ -436,6 +436,30 @@ class AdminController extends Controller
         return view('admin.leave_types', compact('leave_index'));
     }
 
+    public function holidays_index(){
+        $holiday_type = DB::table('holiday_types')
+            ->get();
+
+        $holidays = DB::table('holidays')
+            ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+            ->select('holidays.*', 'holiday_types.holiday_type')
+            ->get();
+
+        return view ('admin.holiday', compact('holiday_type', 'holidays'));
+    }
+
+    public function holidays_create(Request $request){
+        $holiday = new Holiday([
+            'holiday_name' => $request->get('holiday'),
+            'date' => $request->get('holiday_date'),
+            'holiday_type_id' => $request->get('holiday_type')
+        ]);
+
+        $holiday->save();
+
+        return redirect()->route('holidays.index');
+    }
+
     public function leave_type_create(Request $request){
         $leave_type = new Leave_type([
             'leave_type' => $request->get('leave_type'),
@@ -469,10 +493,6 @@ class AdminController extends Controller
             ->get();
 
         return view ('admin.leaves', compact('leave'));
-    }
-
-    public function holidays_index(){
-        return view ('admin.holiday');
     }
 
     public function leave_edit(Request $request){
