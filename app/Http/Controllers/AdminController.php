@@ -660,26 +660,28 @@ class AdminController extends Controller
     // }
 
 
-   public function attendLoad(Request $request){
+    public function attendLoad(Request $request){
 
-        
-        $timesheet = DB::table('timesheets')
-            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'timesheets.employee_id')
-            ->select('timesheets.*', 'prototype__employees.*')
-            ->where('timesheets.employee_id', '=', $request->emp_sel)
-            ->get();
+         
+         $timesheet = DB::table('timesheets')
+             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'timesheets.employee_id')
+             ->select('timesheets.*', 'prototype__employees.*')
+             ->where('timesheets.employee_id', '=', $request->emp_sel)
+             ->get();
 
-        $leave = DB::table('leaves')
-            ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
-            ->select('leaves.*', 'leave_types.leave_type')
-            ->where('leaves.emp_id', '=', $request->emp_sel)
-            ->get();
+         $leave = DB::table('leaves')
+             ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+             ->select('leaves.*', 'leave_types.leave_type')
+             ->where('leaves.emp_id', '=', $request->emp_sel)
+             ->get();
 
-        $employees = Prototype_Employee::all();
+         $emp_name = Prototype_Employee::where('employee_id', $request->emp_sel)->get();
 
-        return view ('admin.attendance', compact('timesheet', 'leave','employees'));
-        
+         $employees = Prototype_Employee::all();
 
-    }
+         return view ('admin.attendance', compact('timesheet', 'leave','employees', 'emp_name'));
+         
+
+     }
 
 }

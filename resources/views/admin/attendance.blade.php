@@ -38,13 +38,26 @@
 					<div class="card">
 						<div class="card-body" style="padding-left: 40px; padding-right: 40px;">
 							<form>
-								<div class="row">
-									<input type="hidden" name="txt_a_id" id="txt_a_id">
-									<h5 id="a_lname">Bonos,</h5><h5 id="a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="a_mname">Grefaldo</h5>
-								</div>
-								<div class="row">
-									<p style="margin-top: -8px;" id="a_emp_id">247-OPM-0003</p>
-								</div>
+								@if(isset($emp_name))
+									@foreach($emp_name as $name)
+										<div class="row">
+											<input type="hidden" name="txt_a_id" id="txt_a_id">
+											<h5 id="a_lname">{{$name->lastname}}</h5><h5 id="a_fname">&nbsp;{{$name->firstname}}&nbsp;</h5><h5 id="a_mname">{{$name->middlename}}</h5>
+										</div>
+										<div class="row">
+											<p style="margin-top: -8px;" id="a_emp_id">{{$name->employee_id}}</p>
+										</div>
+									@endforeach
+
+								@else
+									<div class="row">
+										<input type="hidden" name="txt_a_id" id="txt_a_id">
+											<h5 id="a_lname">Bonos,</h5><h5 id="a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="a_mname">Grefaldo</h5>
+									</div>
+									<div class="row">
+										<p style="margin-top: -8px;" id="a_emp_id">247-OPM-0003</p>
+									</div>
+								@endif
 								<div class="row">
 									<input type="hidden" name="txt_a_date" id="txt_a_date">
 									<p>Date: &nbsp;</p><p id="a_date"></p>
@@ -90,7 +103,9 @@
 			$('#emp_sel').select2({
 
 			});
-	        // page is now ready, initialize the calendar...
+
+		  
+			// page is now ready, initialize the calendar...
 	        $('#calendar').fullCalendar({
 	            // put your options and callbacks here
 	          	plugins: [ 'interaction'],
