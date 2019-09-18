@@ -7,15 +7,24 @@
 				<div class="col-lg-8">
 					<div class="card">
 						<div class="card-header">
-							<div class="col-lg-7">
+							<div class="col-lg-12">
 								<form method="POST" action="{{route('attendance.load')}}">
 									{{ csrf_field() }}
-									<select class="js-example-basic-single" id="emp_sel" style="width: 100%;" name="emp_sel"  onchange="this.form.submit()">
-										<option selected disabled>Search Employee</option>
-										@foreach($employees as $emp)
-										  <option value="{{$emp->employee_id}}">{{$emp->firstname}} {{$emp->lastname}}</option>
-									  	@endforeach
-									</select>
+									<div class="row">
+										<div class="col-md-7">
+											<select class="js-example-basic-single" id="emp_sel" style="width: 100%;" name="emp_sel"  onchange="this.form.submit()">
+												<option selected disabled>Search Employee</option>
+												@foreach($employees as $emp)
+												  <option value="{{$emp->employee_id}}">{{$emp->firstname}} {{$emp->lastname}}</option>
+											  	@endforeach
+											</select>
+										</div>
+										<div class="col-md-5">
+											<a href="{{ route('attendance.index') }}" class="btn btn-primary">Show All</a>
+										</div>
+									</div>
+									
+
 								</form>
 								<!-- <input type="search" name="" placeholder="Search Employees" style="padding-left: 10px; height: 40px; width: 100%;"> -->
 							</div>
@@ -88,8 +97,27 @@
 	            selectable: true,
 	            selectHelper: true,
 	            editable: true,
-	            events :  {!! $timesheet !!},
-	            // {!! $leave1 !!},
+	             events : [
+	                @foreach($timesheet as $timesheets)
+	                {
+	                    title : '{{ $timesheets->firstname . ' ' . $timesheets->lastname . ', ' . $timesheets->employee_id }}',
+	                    start : '{{ $timesheets->date }}',
+	                    color : 'green',
+	                    @if ($timesheets->date)
+	                            end: '{{ $timesheets->date }}',
+	                    @endif
+	                },
+	                @endforeach
+	                @foreach($leave as $leaves)
+	                {
+	                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
+	                    start : '{{ $leaves->date_from }}T00:00:00',
+	                    @if ($leaves->date_to)
+	                            end: '{{ $leaves->date_to }}T24:00:00',
+	                    @endif
+	                },
+	                @endforeach
+		        ],
 
 	            	
 		        dayClick: function(date, jsEvent, view){
