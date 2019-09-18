@@ -16,8 +16,8 @@ class CreateTableSchedule extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('employee_id')->unique();
-            $table->dateTime('date_from');
-            $table->dateTime('date_to');
+            $table->date('date_from');
+            $table->date('date_to');
             $table->longText('task');
             $table->longText('comment');
             $table->string('duration');
