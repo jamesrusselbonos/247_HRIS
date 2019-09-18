@@ -393,10 +393,11 @@ class AdminController extends Controller
             // $schedule->duration = $request->sched_duration;
             $from = Carbon::parse($request->sched_date_from);
             $to = Carbon::parse($request->sched_date_to);
+            $new_to = $to->addDays(1);
             // $from = Carbon::parse('2019-09-16');
             // $to = Carbon::parse('2019-09-26');
             
-            $dt = $from->diffInDays($to). " day/s";
+            $dt = $from->diffInDays($new_to). " day/s";
             
             $schedule->duration = $dt;
             $schedule->other = $request->sched_other;
