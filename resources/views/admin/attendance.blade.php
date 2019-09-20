@@ -63,11 +63,12 @@
 
 								@else
 									<div class="row">
+										<h5 id="">Select an Employee</h5>
 										<input type="hidden" name="txt_a_id" id="txt_a_id">
-											<h5 id="txt_a_lname">Bonos,</h5><h5 id="txt_a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="txt_a_mname">Grefaldo</h5>
+										<h5 id="txt_a_lname"></h5><h5 id="txt_a_fname">&nbsp;&nbsp;</h5><h5 id="txt_a_mname"></h5>
 									</div>
 									<div class="row">
-										<p style="margin-top: -8px;" id="txt_a_emp_id">247-OPM-0003</p>
+										<p style="margin-top: -8px;" id="txt_a_emp_id"></p>
 									</div>
 								@endif
 								<div class="row">
