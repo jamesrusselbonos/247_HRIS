@@ -169,6 +169,7 @@
 												<h3 style="margin-top: 0px;" id="txt_p_name"></h3>
 												<h6 style="margin-top: -20px;" id="txt_p_empid"></h6>
 												<input type="hidden" id="p_empid" name="p_empid">
+												<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 											</div>
 										</div>
 										<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px;">
@@ -412,6 +413,68 @@
 
 	<script>
 		$(document).ready(function() {
+
+		var date_from = "";
+		var date_to = "";
+
+			$('#p_date_from').on('change', function(){
+				var from = $(this).val();
+				date_from = from;
+				load(date_from, date_to);
+			});
+
+			$('#p_date_to').on('change', function(){
+				var to = $(this).val();
+				date_to = to;
+				load(date_from, date_to);
+			});
+
+			function load(d_from, d_to){
+				var token = $('#hdn-token').val();
+				var id = $('#txt_p_empid').html();
+				if(date_from != "" && date_to != ""){
+
+				data = { 
+							_token: token,
+							id : id,
+							d_from : d_from,
+							d_to : d_to,
+						};
+				console.log(data);
+
+				$.ajax({
+				        url: '/payroll' ,
+				        type: "POST",
+				        data: data,
+				        success: function( response ) {
+				        	console.log(response);
+				        	// var resp = response/8;
+				        	// var total = resp.toFixed(2);
+				        	// $('#p_no_days_worked').val(total);
+				        	var daily = $('#p_daily_rate').val();
+				        	var hourly = $('#p_rate_hour').val();
+				        	var basic_pay = response.timePayroll * daily;
+				        	var amount = response.absents - response.unpaid;
+				        	var paid_absents = amount * daily;
+				        	var allowance = response.allowance[0][allowance];
+				        	// $('#p_basic_pay').val(basic_pay.toFixed(2));
+				        	$('#p_no_days_worked').val(response.timePayroll);
+				        	$('#p_basic_pay').val(basic_pay);
+				        	$('#p_gross_pay').val(basic_pay + paid_absents + allowance);
+				        	$('#p_net_pay').val(basic_pay + paid_absents + allowance);
+				        	$('#p_total_absences').val(response.absents);
+				        	$('#p_unpaid_absences').val(response.unpaid);
+				        	$('#p_amount_absences').val(paid_absents);
+				        	$('#p_allowance').val(allowance);
+
+				        	
+
+
+				        }
+				      });
+				}
+			}
+
 
 			$('#search_emp').select2({
 				dropdownParent: $('#generate_payroll')

@@ -722,4 +722,37 @@ class AdminController extends Controller
         return redirect()->route('attendance.index');
      }
 
+     public function ajaxPayroll(Request $request)
+     {  
+        $timePayroll = DB::table('timesheets')
+                                ->where('employee_id', $request->id)
+                                ->distinct('date')
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->count('date');
+
+        $absents = Absent::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->count();               
+
+        $unpaid = Absent::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('unpaid', '=', 'yes')
+                                ->count();
+        $allowance = Prototype_Employee::where('employee_id', $request->id)
+                                ->get('allowance');         
+
+         // $timePayroll = TimeSheet::where('employee_id', $request->id)
+         //                            ->whereBetween('date', array($request->d_from, $request->d_to))
+         //                            ->get();
+         // $arr = array($timePayroll);
+         // $total= 0.00 ;
+         // foreach($timePayroll as $duration){
+         //    $num = $duration->time_duration;
+         //    $total += $num;
+         // }
+         
+         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid, 'allowance' => $allowance]);
+        
+     }
+
 }
