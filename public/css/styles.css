@@ -735,3 +735,6 @@ input[type=search]:focus{
  	margin-left: 5px; 
  	margin-right: 5px;
  }
+ .fc-scroller {
+   overflow-y: hidden !important;
+}
