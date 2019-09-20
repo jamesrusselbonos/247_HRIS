@@ -469,6 +469,7 @@
 				        	$('#p_net_pay').val(net);
 				        	$('#p_total_absences').val(response.absents);
 				        	$('#p_unpaid_absences').val(response.unpaid);
+				        	$('#p_charge_to_SIL').val(paid_absents);
 				        	$('#p_amount_absences').val(unpaid_absences);
 				        	$('#p_allowance').val(allowance);
 

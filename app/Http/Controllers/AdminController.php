@@ -741,7 +741,44 @@ class AdminController extends Controller
         $allowances = Prototype_Employee::where('employee_id', $request->id)
                                 ->first('allowance');  
 
+        $late = TimeSheet::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('time_from', '>', '08:15:00')
+                                ->orWhere('time_from', '>', '13:00:00')
+                                ->get();     
 
+        $underTime = TimeSheet::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('time_to', '<', '012:00:00')
+                                ->orWhere('time_to', '<', '17:00:00')
+                                ->get();
+
+        // $total_late = 0.00;
+        // foreach($late as $la){
+        //     $dur = $la->time_duration;
+
+        //     $duration = 8.00 - $dur;
+        //     $total_late += $duration;
+        // }
+
+
+
+        $total_late = 0.00;
+        foreach($late as $la){
+            $dur = $la->time_duration;
+
+            $duration = 4.00 - $dur;
+            $total_late += $duration;
+        }        
+
+        $total_undertime = 0.00;
+        foreach($underTime as $un){
+            $dur = $un->time_duration;
+
+            $duration = 4.00 - $dur;
+            $total_undertime += $duration;
+        }
+        $late_total = $timePayroll * 8 - $timePayroll - $total_undertime;   
 
          // $timePayroll = TimeSheet::where('employee_id', $request->id)
          //                            ->whereBetween('date', array($request->d_from, $request->d_to))
@@ -753,7 +790,9 @@ class AdminController extends Controller
          //    $total += $num;
          // }
          
-         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid, 'allowances' => $allowances]);
+         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid,
+                        'allowances' => $allowances, 'total_late' => $total_late, 
+                        'total_undertime' => $total_undertime, 'late_total' => $late_total]);
         
      }
 
