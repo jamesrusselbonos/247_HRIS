@@ -22,16 +22,13 @@
 										<div class="col-md-2">
 											<a href="{{ route('attendance.index') }}" class="btn btn-primary">Show All</a>
 										</div>
-										<div class="col-md-4">
+										<div class="col-md-5">
 											<div class="row">
-												<div class="col-sm-4">
+												<div class="col-sm-12 color_desc">
 													<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
-												</div>
-												<div class="col-sm-4">
 													<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
-												</div>
-												<div class="col-sm-4">
 													<p style="color: #C82333;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>
+													<p style="color: #808080;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Holidays</p>
 												</div>
 											</div>
 										</div>
@@ -144,6 +141,17 @@
 	                            end: '{{ $leaves->date_to }}T24:00:00',
 	                    @endif
 	                },
+	                @endforeach
+	                @foreach($holidays as $holiday)
+	                {
+	                	title : '{{ $holiday->holiday_name . ' ' . $holiday->holiday_type }} ',
+	                	start : '{{ $holiday->date }}T00:00:00',
+	                	color : 'gray',
+	                    @if ($holiday->date)
+	                            end: '{{ $holiday->date }}T24:00:00',
+	                    @endif
+
+	                }
 	                @endforeach
 		        ],
 

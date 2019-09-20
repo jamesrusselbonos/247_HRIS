@@ -722,8 +722,16 @@ input[type=search]:focus{
  #generate_payroll .nav-item:hover{
  	color: #000;
  }
+ #generate_payroll .active{
+ 	background-color: #fff;
+ }
  #nav-tab .active{
  	-webkit-border-top-left-radius: 20px !important;
 	-moz-border-radius-topleft: 20px !important;
 	border-top-left-radius: 20px !important;
+ }
+ .color_desc p{
+ 	display: inline-block;
+ 	margin-left: 5px; 
+ 	margin-right: 5px;
  }

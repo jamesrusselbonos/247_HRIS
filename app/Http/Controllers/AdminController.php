@@ -20,6 +20,8 @@ use App\Level;
 use App\Status;
 use App\Position;
 
+use App\Holiday;
+
 use App\Prototype_Employee;
 use App\Schedule;
 use App\Memo;
@@ -562,9 +564,14 @@ class AdminController extends Controller
             ->select('leaves.*', 'leave_types.leave_type')
             ->get();
 
+        $holidays = DB::table('holidays')
+            ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+            ->select('holidays.*', 'holiday_types.holiday_type')
+            ->get();
+
         $employees = Prototype_Employee::all();
 
-        return view ('admin.attendance', compact('timesheet', 'leave','employees'));
+        return view ('admin.attendance', compact('timesheet', 'leave','employees','holidays'));
         
     }
 
@@ -676,11 +683,16 @@ class AdminController extends Controller
              ->where('leaves.emp_id', '=', $request->emp_sel)
              ->get();
 
+        $holidays = DB::table('holidays')
+            ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+            ->select('holidays.*', 'holiday_types.holiday_type')
+            ->get();
+
          $emp_name = Prototype_Employee::where('employee_id', $request->emp_sel)->get();
 
          $employees = Prototype_Employee::all();
 
-         return view ('admin.attendance', compact('timesheet', 'leave','employees', 'emp_name'));
+         return view ('admin.attendance', compact('timesheet', 'leave','employees', 'emp_name', 'holidays'));
          
 
      }
