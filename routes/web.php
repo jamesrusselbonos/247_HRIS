@@ -94,6 +94,7 @@ Route::get('/schedule/{id}', 'AdminController@schedule_delete');
 
 Route::get('/attendance', 'AdminController@attendance_index')->name('attendance.index');
 Route::post('/attendance', 'AdminController@attendLoad')->name('attendance.load');
+Route::post('/attendance/absent', 'AdminController@attendance_absent')->name('attendance.absent');
 
 Route::get('/leave_types', 'AdminController@leave_types')->name('leave_types.index');
 Route::post('/leave_types', 'AdminController@leave_type_create')->name('admin.leave_type.create');

@@ -21,6 +21,7 @@ use App\Status;
 use App\Position;
 
 use App\Holiday;
+use App\Absent;
 
 use App\Prototype_Employee;
 use App\Schedule;
@@ -569,9 +570,14 @@ class AdminController extends Controller
             ->select('holidays.*', 'holiday_types.holiday_type')
             ->get();
 
+         $absents = DB::table('absents')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'absents.employee_id')
+            ->select('absents.*', 'prototype__employees.*')
+            ->get();
+
         $employees = Prototype_Employee::all();
 
-        return view ('admin.attendance', compact('timesheet', 'leave','employees','holidays'));
+        return view ('admin.attendance', compact('timesheet', 'leave','employees','holidays','absents'));
         
     }
 
@@ -688,13 +694,32 @@ class AdminController extends Controller
             ->select('holidays.*', 'holiday_types.holiday_type')
             ->get();
 
+         $absents = DB::table('absents')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'absents.employee_id')
+            ->select('absents.*', 'prototype__employees.*')
+            ->where('absents.employee_id', '=', $request->emp_sel)
+            ->get();
+
          $emp_name = Prototype_Employee::where('employee_id', $request->emp_sel)->get();
 
          $employees = Prototype_Employee::all();
 
-         return view ('admin.attendance', compact('timesheet', 'leave','employees', 'emp_name', 'holidays'));
+         return view ('admin.attendance', compact('timesheet', 'leave','employees', 'emp_name', 'holidays','absents'));
          
 
+     }
+
+     public function attendance_absent(Request $request){
+        $absents = new Absent([
+            'employee_id' => $request->get('a_emp_id'),
+            'date' => $request->get('txt_a_date'),
+            'unpaid' => $request->get('unpaid_absent'),
+            'charge_SIL' => $request->get('charge_to_SIL')
+        ]);
+
+        $absents->save();
+
+        return redirect()->route('attendance.index');
      }
 
 }

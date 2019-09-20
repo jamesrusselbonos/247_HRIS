@@ -15,7 +15,7 @@
 											<select class="js-example-basic-single" id="emp_sel" style="width: 100%;" name="emp_sel"  onchange="this.form.submit()">
 												<option selected disabled>Search Employee</option>
 												@foreach($employees as $emp)
-												  <option value="{{$emp->employee_id}}">{{$emp->firstname}} {{$emp->lastname}}</option>
+												  <option value="{{$emp->employee_id}}">{{$emp->lastname}} {{$emp->firstname}} {{$emp->middle_name}}</option>
 											  	@endforeach
 											</select>
 										</div>
@@ -27,7 +27,7 @@
 												<div class="col-sm-12 color_desc">
 													<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
 													<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
-													<p style="color: #C82333;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>
+													<p style="color: #FF0000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>
 													<p style="color: #808080;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Holidays</p>
 												</div>
 											</div>
@@ -47,25 +47,27 @@
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-body" style="padding-left: 40px; padding-right: 40px;">
-							<form>
+							<form method="POST" action="{{ route('attendance.absent') }}">
+								{{ csrf_field() }}
 								@if(isset($emp_name))
 									@foreach($emp_name as $name)
 										<div class="row">
 											<input type="hidden" name="txt_a_id" id="txt_a_id">
-											<h5 id="a_lname">{{$name->lastname}}</h5><h5 id="a_fname">&nbsp;{{$name->firstname}}&nbsp;</h5><h5 id="a_mname">{{$name->middlename}}</h5>
+											<h5 id="a_lname">{{$name->lastname}}</h5><h5 id="a_fname">&nbsp;{{$name->firstname}}&nbsp;</h5><h5 id="a_mname">{{$name->middle_name}}</h5>
 										</div>
 										<div class="row">
-											<p style="margin-top: -8px;" id="a_emp_id">{{$name->employee_id}}</p>
+											<p style="margin-top: -8px;" id="txt_a_emp_id">{{$name->employee_id}}</p>
+											<input type="hidden" name="a_emp_id" id="a_emp_id" value="{{$name->employee_id}}">
 										</div>
 									@endforeach
 
 								@else
 									<div class="row">
 										<input type="hidden" name="txt_a_id" id="txt_a_id">
-											<h5 id="a_lname">Bonos,</h5><h5 id="a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="a_mname">Grefaldo</h5>
+											<h5 id="txt_a_lname">Bonos,</h5><h5 id="txt_a_fname">&nbsp;James Russel&nbsp;</h5><h5 id="txt_a_mname">Grefaldo</h5>
 									</div>
 									<div class="row">
-										<p style="margin-top: -8px;" id="a_emp_id">247-OPM-0003</p>
+										<p style="margin-top: -8px;" id="txt_a_emp_id">247-OPM-0003</p>
 									</div>
 								@endif
 								<div class="row">
@@ -74,15 +76,7 @@
 								</div>
 								<div class="row">
 									<div class="form-check">
-									  	<input class="form-check-input" type="checkbox" value="" id="absent">
-									  	<label class="form-check-label" for="defaultCheck1">
-									    	Mark as Absent
-									  	</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-check">
-									  	<input class="form-check-input" type="checkbox" value="" id="unpaid_absent">
+									  	<input class="form-check-input" type="checkbox" value="Yes" name="unpaid_absent" id="unpaid_absent">
 									  	<label class="form-check-label" for="defaultCheck1">
 									    	Unpaid Absent
 									  	</label>
@@ -90,14 +84,14 @@
 								</div>
 								<div class="row">
 									<div class="form-check">
-									  	<input class="form-check-input" type="checkbox" value="" id="charge_to_SIL">
+									  	<input class="form-check-input" type="checkbox" value="1" name="charge_to_SIL" id="charge_to_SIL">
 									  	<label class="form-check-label" for="defaultCheck1">
 									    	Charge to SIL
 									  	</label>
 									</div>
 								</div>
 								<div class="row" style="float: right;">
-									<button type="button" class="btn btn-danger btn_add_sched" style="margin-top: 20px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; Submit</button>
+									<button type="submit" class="btn btn-danger btn_add_sched" style="margin-top: 20px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; Mark as absent</button>
 								</div>
 							</form>
 						</div>
@@ -128,6 +122,7 @@
 	                    title : '{{ $timesheets->firstname . ' ' . $timesheets->lastname . ', ' . $timesheets->employee_id }}',
 	                    start : '{{ $timesheets->date }}',
 	                    color : 'green',
+	                    textColor: 'white',
 	                    @if ($timesheets->date)
 	                            end: '{{ $timesheets->date }}',
 	                    @endif
@@ -137,6 +132,7 @@
 	                {
 	                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
 	                    start : '{{ $leaves->date_from }}T00:00:00',
+	                    textColor: 'white',
 	                    @if ($leaves->date_to)
 	                            end: '{{ $leaves->date_to }}T24:00:00',
 	                    @endif
@@ -145,13 +141,25 @@
 	                @foreach($holidays as $holiday)
 	                {
 	                	title : '{{ $holiday->holiday_name . ' ' . $holiday->holiday_type }} ',
-	                	start : '{{ $holiday->date }}T00:00:00',
+	                	start : '{{ $holiday->date }}',
 	                	color : 'gray',
+	                	textColor: 'white',
 	                    @if ($holiday->date)
-	                            end: '{{ $holiday->date }}T24:00:00',
+	                            end: '{{ $holiday->date }}',
 	                    @endif
 
 	                }
+	                @endforeach
+	               @foreach($absents as $absent)
+	                {
+	                    title : '{{ $absent->firstname . ' ' . $absent->lastname }}',
+	                    start : '{{ $absent->date }}',
+	                    color : 'red',
+	                    textColor: 'white',
+	                    @if ($absent->date)
+	                            end: '{{ $absent->date }}',
+	                    @endif
+	                },
 	                @endforeach
 		        ],
 
