@@ -738,8 +738,10 @@ class AdminController extends Controller
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->where('unpaid', '=', 'yes')
                                 ->count();
-        $allowance = Prototype_Employee::where('employee_id', $request->id)
-                                ->get('allowance');         
+        $allowances = Prototype_Employee::where('employee_id', $request->id)
+                                ->first('allowance');  
+
+
 
          // $timePayroll = TimeSheet::where('employee_id', $request->id)
          //                            ->whereBetween('date', array($request->d_from, $request->d_to))
@@ -751,7 +753,7 @@ class AdminController extends Controller
          //    $total += $num;
          // }
          
-         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid, 'allowance' => $allowance]);
+         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid, 'allowances' => $allowances]);
         
      }
 

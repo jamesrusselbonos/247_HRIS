@@ -456,7 +456,8 @@
 				        	var basic_pay = response.timePayroll * daily;
 				        	var amount = response.absents - response.unpaid;
 				        	var paid_absents = amount * daily;
-				        	var allowance = response.allowance[0][allowance];
+				        	var unpaid_absences = response.unpaid * daily;
+				        	var allowance = response.allowances.allowance;
 				        	// $('#p_basic_pay').val(basic_pay.toFixed(2));
 				        	$('#p_no_days_worked').val(response.timePayroll);
 				        	$('#p_basic_pay').val(basic_pay);
@@ -464,7 +465,7 @@
 				        	$('#p_net_pay').val(basic_pay + paid_absents + allowance);
 				        	$('#p_total_absences').val(response.absents);
 				        	$('#p_unpaid_absences').val(response.unpaid);
-				        	$('#p_amount_absences').val(paid_absents);
+				        	$('#p_amount_absences').val(unpaid_absences);
 				        	$('#p_allowance').val(allowance);
 
 				        	
