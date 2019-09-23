@@ -732,6 +732,10 @@ class AdminController extends Controller
 
         $absents = Absent::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->count();
+
+        $holidays = Holiday::whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('holiday_type_id', '=', '1')
                                 ->count();               
 
         $unpaid = Absent::where('employee_id', $request->id)
@@ -792,7 +796,7 @@ class AdminController extends Controller
          
          return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 
-                        'total_undertime' => $total_undertime, 'late_total' => $late_total]);
+                        'total_undertime' => $total_undertime, 'late_total' => $late_total, 'holidays' => $holidays]);
         
      }
 

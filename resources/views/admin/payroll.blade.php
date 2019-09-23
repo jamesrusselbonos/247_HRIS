@@ -159,7 +159,7 @@
 														<select class="js-example-basic-single" id="search_emp" style="width: 100%;" name="search_emp">
 															<option selected disabled>Search Employee</option>
 															@foreach($employees as $emp)
-															  <option value="{{$emp->employee_id}}" p_salary="{{$emp->salary}}">{{$emp->lastname}}, {{$emp->firstname}} {{$emp->middle_name}}</option>
+															  <option value="{{$emp->employee_id}}" p_salary="{{$emp->salary}}" p_allowances="{{$emp->allowance}}">{{$emp->lastname}}, {{$emp->firstname}} {{$emp->middle_name}}</option>
 														  	@endforeach
 														</select>
 													</form>
@@ -363,26 +363,26 @@
 
 									  		<div class="form-group col-md-4">
 									  			<label>SSS </label>
-									   			<input type="text" name="p_sss_loan" id="p_sss_loan" class="form-control" >
+									   			<input type="text" name="p_sss_loan" id="p_sss_loan" class="form-control" value="">
 									  		</div>
 									  		<div class="form-group col-md-4">
 									  			<label>Company Loan / Advances</label>
-									    		<input type="text" name="p_company_loan" id="p_company_loan" class="form-control" >
+									    		<input type="text" name="p_company_loan" id="p_company_loan" class="form-control" value="">
 									  		</div>
 									  		<div class="form-group col-md-4">
 									  			<label>HDMF </label>
-									   			<input type="text" name="p_hdmf_loan" id="p_hdmf_loan" class="form-control">
+									   			<input type="text" name="p_hdmf_loan" id="p_hdmf_loan" class="form-control" value="">
 									  		</div>
 										</div>
 										<div class="form-row">
 
 									  		<div class="form-group col-md-6">
 									  			<label>Uniform </label>
-									   			<input type="text" name="p_uniform" id="p_uniform" class="form-control" >
+									   			<input type="text" name="p_uniform" id="p_uniform" class="form-control" value="">
 									  		</div>
 									  		<div class="form-group col-md-6">
 									  			<label>Total Deduction</label>
-									    		<input type="text" name="p_total_deduction_loan" id="p_total_deduction_loan" class="form-control" readonly>
+									    		<input type="text" name="p_total_deduction_loan" id="p_total_deduction_loan" class="form-control" value="" readonly>
 									  		</div>
 										</div>
 										<div class="form-row" style="background-color: #f4f4f4; padding:10px 10px 0px 10px; margin-bottom: 15px; margin-top: 10px;">
@@ -414,6 +414,23 @@
 	<script>
 		$(document).ready(function() {
 /////////////////////PAYROLL////////////////////////////////
+		
+		var loan = $('[name="p_sss_loan"],[name="p_company_loan"],[name="p_hdmf_loan"],[name="p_uniform"]'),
+			loan_sss = $('[name="p_sss_loan"]'),
+			loan_company = $('[name="p_company_loan"]'),
+			loan_hdmf = $('[name="p_hdmf_loan"]'),
+			uniform = $('[name="p_uniform"]'),
+			loan_total = $('[name="p_total_deduction_loan"]');		
+
+		loan.change(function() {
+			 var val1 = (isNaN(parseInt(loan_sss.val()))) ? 0 : parseInt(loan_sss.val());
+			 var val2 = (isNaN(parseInt(loan_company.val()))) ? 0 : parseInt(loan_company.val());
+			 var val3 = (isNaN(parseInt(loan_hdmf.val()))) ? 0 : parseInt(loan_hdmf.val());
+			 var val4 = (isNaN(parseInt(uniform.val()))) ? 0 : parseInt(uniform.val());
+
+			 loan_total.val(val1 + val2 + val3 + val4);
+		});
+
 		var date_from = "";
 		var date_to = "";
 
@@ -462,7 +479,12 @@
 				        	var net_pay = basic_pay + paid_absents + allowance;
 				        	var net = parseInt(net_pay, 10);
 
+				        	var holiday = response.holidays * daily;
+
 				        	// $('#p_basic_pay').val(basic_pay.toFixed(2));
+				        	$('#p_no_holidays').val(response.holidays);
+				        	$('#p_amount_holidays').val(holiday);
+
 				        	$('#p_no_days_worked').val(response.timePayroll);
 				        	$('#p_basic_pay').val(basic_pay);
 				        	$('#p_gross_pay').val(gross_pay_pr);
@@ -471,7 +493,7 @@
 				        	$('#p_unpaid_absences').val(response.unpaid);
 				        	$('#p_charge_to_SIL').val(paid_absents);
 				        	$('#p_amount_absences').val(unpaid_absences);
-				        	$('#p_allowance').val(allowance);
+				        	// $('#p_allowance').val(allowance);
 
 				        	$('#p_adjustment_incentive').keyup(function(){
 				        		var incentives = $(this).val();
@@ -627,11 +649,13 @@
 				var data2 = $('#search_emp').val();
 
 				var data_p_dept = $('#search_emp option:selected').attr('p_salary');
+				var data_p_allowance = $('#search_emp option:selected').attr('p_allowances');
 				var data_rate_hour = data_p_dept/8;
-
+				
 				$('#txt_p_name').html(data);
 				$('#txt_p_empid').html(data2);
 				$('#p_empid').val(data2);
+				$('#p_allowance').val(data_p_allowance);
 				$('#p_daily_rate').val(data_p_dept);
 				$('#p_rate_hour').val(data_rate_hour);
 			});
