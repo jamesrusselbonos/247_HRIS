@@ -92,7 +92,7 @@
 									</div>
 								</div>
 								<div class="row" style="float: right;">
-									<button type="submit" class="btn btn-danger btn_add_sched" style="margin-top: 20px;"><i class="fa fa-times" aria-hidden="true"></i>&nbsp; Mark as absent</button>
+									<button type="submit" class="btn btn-danger btn_add_sched btn_absent" style="margin-top: 20px;"><i class="fa fa-times" aria-hidden="true"></i>&nbsp; Mark as absent</button>
 								</div>
 							</form>
 						</div>

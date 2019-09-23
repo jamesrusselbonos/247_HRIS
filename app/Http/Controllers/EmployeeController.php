@@ -31,9 +31,14 @@ class EmployeeController extends Controller
                ->join('users', 'users.employee_id', '=', 'timesheets.employee_id')
                ->select('users.*', 'timesheets.time_duration')
                ->where('timesheets.employee_id', '=', $user)
-               ->get();
+               ->sum('time_duration');
 
-           return view('employee.employee_index', compact('sum_of_time_duration'));
+            $days_absent = DB::table('absents')
+                ->join('users','users.employee_id', '=', 'absents.employee_id')
+                ->where('absents.employee_id', '=', $user)
+                ->get();
+
+           return view('employee.employee_index', compact('sum_of_time_duration', 'days_absent'));
         }
 
 

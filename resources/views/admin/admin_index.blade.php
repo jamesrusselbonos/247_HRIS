@@ -30,7 +30,7 @@
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>486 Hours</span></h4>
+				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>{{$total_time}} Hours</span></h4>
 				                    <a href="/timesheet" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View TimeSheet</span></p></a>
 				                </div>
 				            </div>
@@ -61,7 +61,35 @@
 				            <div class="card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20"><strong>Timesheet Report</strong></h6>
-					                    <div class="row" style="margin-bottom: 30px;">
+				                    	<table  class="table display nowrap" id="DataTable">
+				                    		 <thead>
+									            <tr>
+									              <th scope="col">Name</th>
+									              <th scope="col">Date</th>
+									              <th scope="col">Time In</th>
+									              <th scope="col">Time Out</th>
+									            </tr>
+									          </thead>
+									          <tbody>
+									          	@foreach($TimeSheet_report as $time_report)
+										          	<tr>
+										          		<td>{{ $time_report->firstname}} {{ $time_report->lastname}}</td>
+										          		<td>{{$time_report->date}}</td>
+										          		<td>{{date('h:i:s a', strtotime($time_report->time_from))}}</td>
+										          		
+										          			@if($time_report->time_to != null || $time_report->time_to != "")
+										                   		<td>
+										                   	{{date('h:i:s a', strtotime($time_report->time_to))}}
+										                   		</td>
+										                   	@else
+										                   		<td></td>
+										                   	@endif
+												        
+										          	</tr>
+									          	@endforeach
+									          </tbody>
+				                    	</table>
+					                    <!-- <div class="row" style="margin-bottom: 30px;">
 					                    	<div class="col-md-3">
 					                    		<h6>Name</h6>
 					                    	</div>
@@ -99,7 +127,7 @@
 					                   			</div>
 					                   		</div>
 					                   	@endforeach
-					                   </div>
+					                   </div> -->
 
 				                    <a href="/timesheet"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
 				                </div>
@@ -231,11 +259,10 @@
 						                    <h6 class="m-b-20"><strong>Leave Report</strong></h6>
 							                   <div style="min-height: 300px; padding-top: 30px;">
 							                   	@foreach($leave_report as $l_report)
-							                   		<a id="" class="memo_view" data-toggle="modal" data-target="#view_memo"
-							                   		>
+							                   		<a id="">
 	                   			                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
 	                   			                   			<div class="col-md-12">
-	                   			                   				<h6>{{ $l_report->lastname }}, &nbsp;{{ $l_report->firstname }} &nbsp;{{ $l_report->middle_name }}</h6>
+	                   			                   				<h6>{{ $l_report->lastname }}, {{ $l_report->firstname }} {{ $l_report->middle_name }}</h6>
 	                   				                   			<p style="margin-top: -15px;">{{ $l_report->emp_id }}</p>
 	                   				                   			<p style="margin-top: -15px;">{{ $l_report->leave_type }} &nbsp;({{ $l_report->leave_status }})</p>
 	                   				                   			<p style="margin-top: -15px;">From:&nbsp;{{ $l_report->date_from }}&nbsp;To:&nbsp;{{ $l_report->date_to }}</p>

@@ -139,7 +139,7 @@
 				</div>
 				  <div class="modal-footer">
 				<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-				 <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+				 <button type="submit" class="btn btn-success btn_leave"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
  			</form>	
        </div>
     </div>

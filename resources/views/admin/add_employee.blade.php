@@ -385,7 +385,7 @@
 									{{ csrf_field() }}
 								</div>
 							</div>
-							<button style="bottom: 50px; right: 50px; position: fixed;" type="subit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+							<button style="bottom: 50px; right: 50px; position: fixed;" type="subit" class="btn btn-success btn_create"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 						</div>	
 					</div>
 				</form>

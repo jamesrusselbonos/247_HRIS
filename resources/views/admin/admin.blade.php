@@ -34,6 +34,10 @@
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
 	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 
+	<!-- SweetAlert2 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+
 </head>
 <body>
 
@@ -219,6 +223,91 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
+
+		$('.btn_create').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Employee created successfull'
+			})
+		});
+
+		$('.btn_absent').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Employee marked as absent'
+			})
+		});
+
+		$('.btn_edit').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Data edit was successfull'
+			})
+		});
+
+		$('.btn_delete').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Deletion on data was successfull'
+			})
+		});
+
+		$('.btn_save').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Data saved successfully'
+			})
+		});
+
+		$('.btn_payroll').click(function(e){
+			const Toast = Swal.mixin({
+			  toast: true,
+			  position: 'top-end',
+			  showConfirmButton: false,
+			  timer: 3000
+			})
+
+			Toast.fire({
+			  type: 'success',
+			  title: 'Payroll Generated'
+			})
+		});
+
 	    $('.edit-dept').on('click', function(event){
 	    	var dept_name = $(this).attr('dep_name');
 	    	var dept_desc = $(this).attr('dep_desc')

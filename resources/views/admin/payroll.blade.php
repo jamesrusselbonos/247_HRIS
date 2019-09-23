@@ -404,7 +404,7 @@
 		      			</div>	
 		      		</div>
 		      		<div class="modal-footer">
-	      		        <button type="button" class="btn btn-success"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payroll</button>
+	      		        <button type="button" class="btn btn-success btn_payroll"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payroll</button>
 	      		     </div>
 	      		</form>
 	    	</div>

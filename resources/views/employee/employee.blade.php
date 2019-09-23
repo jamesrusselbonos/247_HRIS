@@ -30,6 +30,10 @@
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
+    <!-- SweetAlert2 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+
 </head>
 <body>
 	<!--Main-->
@@ -297,6 +301,20 @@
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
+
+			$('.btn_leave').click(function(e){
+				const Toast = Swal.mixin({
+				  toast: true,
+				  position: 'top-end',
+				  showConfirmButton: false,
+				  timer: 3000
+				})
+
+				Toast.fire({
+				  type: 'success',
+				  title: 'Leave request has been sent'
+				})
+			});
 
 		   $(".time").click(function(){
 

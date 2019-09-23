@@ -122,7 +122,7 @@
 						              	ep_cedula="{{ $lt->cedula }}"
      								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 
-     								<a href="/manage_employee/{{ $lt->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+     								<a href="/manage_employee/{{ $lt->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
      							</span>
 				             </td>
 				            </tr>
@@ -448,7 +448,7 @@
 		             	</div>
 		             	<div class="modal-footer">
 				          <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-				           <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+				           <button type="submit" class="btn btn-success btn_edit"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 				         </div>
 		           </form>
 		         </div>   

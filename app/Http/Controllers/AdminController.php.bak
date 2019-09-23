@@ -726,7 +726,7 @@ class AdminController extends Controller
 
      public function ajaxPayroll(Request $request)
      {  
-        $daysWorked = DB::table('timesheets')
+        $timePayroll = DB::table('timesheets')
                                 ->where('employee_id', $request->id)
                                 ->distinct('date')
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
@@ -746,21 +746,18 @@ class AdminController extends Controller
                                 ->count();
         $allowances = Prototype_Employee::where('employee_id', $request->id)
                                 ->first('allowance');  
-///////////////Change when Shift Added/////////////////////////////////////////////////   
-
 
         $late = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
-                                ->whereBetween('time_from', array('08:16:00', '12:00:00'))
-                                ->orWhereBetween('time_from', array('13:01:00', '17:00:00'))
-                                ->get();          
-
+                                ->where('time_from', '>', '08:15:00')
+                                ->orWhere('time_from', '>', '13:00:00')
+                                ->get();     
 
         $underTime = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
-                                ->whereBetween('time_to', array('08:00:59', '11:59:59'))
-                                ->orWhereBetween('time_to', array('13:00:59', '16:59:59'))
-                                ->get();             
+                                ->where('time_to', '<', '012:00:00')
+                                ->orWhere('time_to', '<', '17:00:00')
+                                ->get();
 
         // $total_late = 0.00;
         // foreach($late as $la){
@@ -772,7 +769,7 @@ class AdminController extends Controller
 
 
 
-       $total_late = 0.00;
+        $total_late = 0.00;
         foreach($late as $la){
             $dur = $la->time_duration;
 
@@ -787,6 +784,7 @@ class AdminController extends Controller
             $duration = 4.00 - $dur;
             $total_undertime += $duration;
         }
+        $late_total = $timePayroll * 8 - $timePayroll - $total_undertime;   
 
          // $timePayroll = TimeSheet::where('employee_id', $request->id)
          //                            ->whereBetween('date', array($request->d_from, $request->d_to))
@@ -798,9 +796,9 @@ class AdminController extends Controller
          //    $total += $num;
          // }
          
-         return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
+         return Response()->json(['timePayroll' => $timePayroll, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 
-                        'total_undertime' => $total_undertime, 'holidays' => $holidays]);
+                        'total_undertime' => $total_undertime, 'late_total' => $late_total, 'holidays' => $holidays]);
         
      }
 

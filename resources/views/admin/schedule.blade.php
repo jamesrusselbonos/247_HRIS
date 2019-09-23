@@ -128,7 +128,7 @@
 
 					             		><i class="fa fa-eye" aria-hidden="true"></i></button>
 		 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-		 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+		 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 		 							</span>
 				       		</div>
 				       	@endforeach	
@@ -253,7 +253,7 @@
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success btn_add_sched"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	               <button type="button" class="btn btn-success btn_add_sched btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            	</div>
 	              </form>
 	            </div>

@@ -66,7 +66,7 @@
 				             <td>
 				             	<span style="float: right; margin: 0;">
 				             		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button> -->
-				             		<a href="/time_delete/{{ $tt->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+				             		<a href="/time_delete/{{ $tt->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 				             	</span>
 				             </td>
 				            </tr>
