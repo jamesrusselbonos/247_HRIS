@@ -156,7 +156,7 @@
 									     		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
 													<form method="POST" action="{{route('attendance.load')}}">
 														{{ csrf_field() }}
-														<select class="js-example-basic-single" id="search_emp" style="width: 100%;" name="search_emp">
+														<select class="js-example-basic-single pay_search" id="search_emp" style="width: 100%;" name="search_emp">
 															<option selected disabled>Search Employee</option>
 															@foreach($employees as $emp)
 															  <option value="{{$emp->employee_id}}" p_salary="{{$emp->salary}}" p_allowances="{{$emp->allowance}}">{{$emp->lastname}}, {{$emp->firstname}} {{$emp->middle_name}}</option>
@@ -414,7 +414,33 @@
 	<script>
 		$(document).ready(function() {
 /////////////////////PAYROLL////////////////////////////////
-		
+
+
+		$('.pay_search').change(function(){
+			document.getElementById("p_date_from").valueAsDate = null;
+			document.getElementById("p_date_to").valueAsDate = null;
+			$('#p_no_days_worked').val('');
+			$('#p_basic_pay').val('');
+			$('#p_total_absences').val('');
+			$('#p_unpaid_absences').val('');
+			$('#p_charge_to_SIL').val('');
+			$('#p_amount_absences').val('');
+			$('#p_adjustment_incentive').val('');
+			$('#p_no_holidays').val('');
+			$('#p_amount_holidays').val('');
+			$('#p_gross_pay').val('');
+			$('#p_net_pay').val('');
+			$('#p_no_undertime').val('');
+			$('#p_no_late').val('');
+			$('#p_amount_undertime_late').val('');
+			$('#p_sss').val('');
+			$('#p_phic').val('');
+			$('#p_hdmf').val('');
+			$('#p_total_deduction_benefits').val('');
+			$('#p_total_deduction_benefits').val('');
+		});
+
+
 		var loan = $('[name="p_sss_loan"],[name="p_company_loan"],[name="p_hdmf_loan"],[name="p_uniform"]'),
 			loan_sss = $('[name="p_sss_loan"]'),
 			loan_company = $('[name="p_company_loan"]'),

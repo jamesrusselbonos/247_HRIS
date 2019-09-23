@@ -749,17 +749,27 @@ class AdminController extends Controller
 ///////////////Change when Shift Added/////////////////////////////////////////////////   
 
 
+        // $late = TimeSheet::where('employee_id', $request->id)
+        //                         ->whereBetween('date', array($request->d_from, $request->d_to))
+        //                         ->whereBetween('time_from', array('08:16:00', '12:00:00'))
+        //                         ->orWhereBetween('time_from', array('13:01:00', '17:00:00'))
+        //                         ->get();     
+
         $late = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
-                                ->whereBetween('time_from', array('08:16:00', '12:00:00'))
-                                ->orWhereBetween('time_from', array('13:01:00', '17:00:00'))
+                                ->where(function ($query) {
+                                               $query->whereBetween('time_from', array('08:16:00', '12:00:00'))
+                                                     ->orWhereBetween('time_from', array('13:01:00', '17:00:00'));
+                                           })
                                 ->get();          
 
 
         $underTime = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
-                                ->whereBetween('time_to', array('08:00:59', '11:59:59'))
-                                ->orWhereBetween('time_to', array('13:00:59', '16:59:59'))
+                                ->where(function ($query) {
+                                               $query->whereBetween('time_to', array('08:00:59', '11:59:59'))
+                                                     ->orWhereBetween('time_to', array('13:00:59', '16:59:59'));
+                                           })
                                 ->get();             
 
         // $total_late = 0.00;
