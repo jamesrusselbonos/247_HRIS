@@ -465,12 +465,11 @@
 				        data: data,
 				        success: function( response ) {
 				        	console.log(response);
-				        	// var resp = response/8;
-				        	// var total = resp.toFixed(2);
-				        	// $('#p_no_days_worked').val(total);
+
+				        	var rate_hour = $('#p_rate_hour').val();
 				        	var daily = $('#p_daily_rate').val();
 				        	var hourly = $('#p_rate_hour').val();
-				        	var basic_pay = response.timePayroll * daily;
+				        	var basic_pay = response.daysWorked * daily;
 				        	var amount = response.absents - response.unpaid;
 				        	var paid_absents = amount * daily;
 				        	var unpaid_absences = response.unpaid * daily;
@@ -481,18 +480,31 @@
 
 				        	var holiday = response.holidays * daily;
 
-				        	// $('#p_basic_pay').val(basic_pay.toFixed(2));
+				        	var undertime = response.total_undertime;
+				        	var late = response.total_late;
+				        	var amount_undertime = undertime * rate_hour;
+				        	var amount_late = late * rate_hour;
+
+
+				        	var total_amount_late_undertime = amount_late + amount_undertime;
+				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime;
+				        	var net_pay = basic_pay + paid_absents + allowance - total_amount_late_undertime;
+
+				        	
 				        	$('#p_no_holidays').val(response.holidays);
 				        	$('#p_amount_holidays').val(holiday);
 
-				        	$('#p_no_days_worked').val(response.timePayroll);
+				        	$('#p_no_days_worked').val(response.daysWorked);
 				        	$('#p_basic_pay').val(basic_pay);
 				        	$('#p_gross_pay').val(gross_pay_pr);
-				        	$('#p_net_pay').val(net);
+				        	$('#p_net_pay').val(net_pay);
 				        	$('#p_total_absences').val(response.absents);
 				        	$('#p_unpaid_absences').val(response.unpaid);
 				        	$('#p_charge_to_SIL').val(paid_absents);
 				        	$('#p_amount_absences').val(unpaid_absences);
+				        	$('#p_no_undertime').val(undertime);
+				        	$('#p_no_late').val(late);
+				        	$('#p_amount_undertime_late').val(total_amount_late_undertime);
 				        	// $('#p_allowance').val(allowance);
 
 				        	$('#p_adjustment_incentive').keyup(function(){
