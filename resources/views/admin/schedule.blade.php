@@ -205,7 +205,7 @@
         	         			
         	         			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
         	         				<option></option>  
-        	         				<option>All</option>  
+        	         				<option value = "0001">All</option>  
         	         				@foreach($sched_employee as $sched_emp)
         	         					<option value="{{ $sched_emp->employee_id }}">{{ $sched_emp->lastname }}, {{ $sched_emp->firstname }} {{ $sched_emp->middle_name }}</option>
         	         				@endforeach

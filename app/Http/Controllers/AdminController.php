@@ -369,7 +369,6 @@ class AdminController extends Controller
     public function schedule_index(){
 
         $sched_employee = DB::table('prototype__employees')->get();
-
         $sched_list = DB::table('schedules')
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
             ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
@@ -380,35 +379,77 @@ class AdminController extends Controller
 
     public function schedule_create(Request $request){
         // dd($request->memoemp_search1);
-       
-        foreach($request->memoemp_search as $ids){
-            $users = User::where(array('employee_id' => $ids))->first();
-            // dd($users);
+       if(in_array("0001", $request->memoemp_search))
+       {
+          // $users = Role::with('users')->where('name', 'Employee')->get();
+            $users = User::with('roles')->where('role', '2')->get();
 
-            $schedule = new Schedule;
-            $details = $request;
+        foreach($users as $user){
+                    
+                    $scheds = DB::table('schedules')->where('employee_id', $user->employee_id)->first();
+                   
+                
+                    if(!$scheds){
+                        $schedule = new Schedule;
+                        $details = $request;
 
-            $users->notify(new AssignSchedule($details));
+                        $user->notify(new AssignSchedule($details));
 
-            $schedule->employee_id = $ids;
-            $schedule->date_from = $request->sched_date_from;
-            $schedule->date_to = $request->sched_date_to;
-            $schedule->task = $request->sched_task;
-            $schedule->comment = $request->sched_comment;
-            // $schedule->duration = $request->sched_duration;
-            $from = Carbon::parse($request->sched_date_from);
-            $to = Carbon::parse($request->sched_date_to);
-            $new_to = $to->addDays(1);
-            // $from = Carbon::parse('2019-09-16');
-            // $to = Carbon::parse('2019-09-26');
-            
-            $dt = $from->diffInDays($new_to). " day/s";
-            
-            $schedule->duration = $dt;
-            $schedule->other = $request->sched_other;
-            $schedule->save();
-        }
+                        $schedule->employee_id = $user->employee_id;
+                        $schedule->date_from = $request->sched_date_from;
+                        $schedule->date_to = $request->sched_date_to;
+                        $schedule->task = $request->sched_task;
+                        $schedule->comment = $request->sched_comment;
+                        // $schedule->duration = $request->sched_duration;
+                        $from = Carbon::parse($request->sched_date_from);
+                        $to = Carbon::parse($request->sched_date_to);
+                        $new_to = $to->addDays(1);
+                        // $from = Carbon::parse('2019-09-16');
+                        // $to = Carbon::parse('2019-09-26');
+                        
+                        $dt = $from->diffInDays($new_to). " day/s";
+                        
+                        $schedule->duration = $dt;
+                        $schedule->other = $request->sched_other;
+                        $schedule->save();
+                    }
+                   
+                   
+                }
 
+           
+       }
+       else{
+          foreach($request->memoemp_search as $ids){
+                      $users = User::where(array('employee_id' => $ids))->first();
+                      // dd($users);
+
+                      $schedule = new Schedule;
+                      $details = $request;
+
+                      $users->notify(new AssignSchedule($details));
+
+                      $schedule->employee_id = $ids;
+                      $schedule->date_from = $request->sched_date_from;
+                      $schedule->date_to = $request->sched_date_to;
+                      $schedule->task = $request->sched_task;
+                      $schedule->comment = $request->sched_comment;
+                      // $schedule->duration = $request->sched_duration;
+                      $from = Carbon::parse($request->sched_date_from);
+                      $to = Carbon::parse($request->sched_date_to);
+                      $new_to = $to->addDays(1);
+                      // $from = Carbon::parse('2019-09-16');
+                      // $to = Carbon::parse('2019-09-26');
+                      
+                      $dt = $from->diffInDays($new_to). " day/s";
+                      
+                      $schedule->duration = $dt;
+                      $schedule->other = $request->sched_other;
+                      $schedule->save();
+                  }
+
+       }
+        
 
        
         // $schedule = new Schedule([
@@ -421,7 +462,7 @@ class AdminController extends Controller
         //     'other' => $request->get('sched_other')
         // ]);
 
-        $schedule->save();
+        // $schedule->save();
 
 
 
