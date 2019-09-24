@@ -9,7 +9,7 @@
 
 				    <div class="card-body">
 				   
-				        <table class="table table-bordered" id="addDataTable">
+				        <table class="table table-bordered" id="DataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Name</th>
