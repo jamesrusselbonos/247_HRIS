@@ -2,137 +2,146 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="manage_employee" data-simplebar>
-			<div class="container">
-				<div class="card">
-				    
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Manage Employees</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="manage_employee" data-simplebar>
+				<div class="container">
+					<div class="card">
+					    
 
-				    <div class="card-body">
-				   
-				        <table class="table table-bordered" id="DataTable">
-				          <thead>
-				            <tr>
-				              <th scope="col">Name</th>
-				              <th scope="col">Position</th>
-				              <th scope="col">Employee ID</th>
-				              <th scope="col" style="width: 300px;">Manage</th>
-				            </tr>
-				          </thead>
-				          <tbody>
-				      
-				           @foreach($list as $lt)
-				               <tr>
-				              <th scope="row">
-				              	{{$lt->lastname}}, {{$lt->firstname}} {{$lt->middle_name}}
-				              </th>
-				              <td>
-				              	{{$lt->job_title}}
-				              </td>
-				              <td>
-				              	{{$lt->employee_id}}
-				              </td>
-				               
-				             <td style="width: 300px;">
-				             	<span style="float: right;">
-				             		<button type="button" id="{{ $lt->id }}" class="btn btn-success view_emp" data-toggle="modal" data-target="#view_modal"
-				             			p_id="{{ $lt->id }}"
-						               	p_employeeid="{{ $lt->employee_id }}"
-						               	p_gender="{{ $lt->gender }}"
-						               	p_fname="{{ $lt->firstname }}"
-						               	p_mname="{{ $lt->middle_name }}"
-						               	p_lname="{{ $lt->lastname }}"
-						               	p_department="{{ $lt->department_name }}"
-						               	p_status="{{ $lt->job_status }}"
-						               	p_picture="{{ $lt->employee_img }}"
-						               	p_address="{{ $lt->address }}"
-						               	p_city="{{ $lt->city }}"
-						               	p_province="{{ $lt->province }}"
-						               	p_country="{{ $lt->country }}"
-						               	p_zip="{{ $lt->zip_code }}"
-						               	p_hnumber="{{ $lt->home_number }}"
-						               	p_mnumber="{{ $lt->mobile_number }}"
-						               	p_wemail="{{ $lt->email }}"
-						               	p_pemail="{{ $lt->personal_email }}"
-						               	p_bday="{{ $lt->birthday }}"
-						               	p_ssnsin="{{ $lt->SIN_SSN }}"
-						               	p_ename="{{ $lt->emergency_name }}"
-						               	p_relationship="{{ $lt->relationship }}"
-						               	p_eaddress="{{ $lt->emergency_address }}"
-						               	p_enumber="{{ $lt->emergency_number }}"
-						               	p_jobtitle="{{ $lt->job_title }}"
-						               	p_jobdesc="{{ $lt->job_description }}"
-						               	p_joblevel="{{ $lt->job_level }}"
-						               	p_jobposition="{{ $lt->job_position }}"
-						               	p_datehired="{{ $lt->date_hired }}"
-						               	p_dateterminated="{{ $lt->date_terminated }}"
-						               	p_sss="{{ $lt->SSS_no }}"
-						               	p_pagibig="{{ $lt->philhealth_no }}"
-						               	p_philhealth="{{ $lt->pagibig_no }}"
-						               	p_tin="{{ $lt->TIN_no }}"
-						               	p_nbinumber="{{ $lt->NBI_no }}"
-						               	p_diploma="{{ $lt->diploma }}"
-						               	p_medical="{{ $lt->medical }}"
-						               	p_tor="{{ $lt->TOR }}"
-						               	p_birthcert="{{ $lt->birth_cert }}"
-						               	p_bclearance="{{ $lt->brgy_clearance }}"
-						              	p_cedula="{{ $lt->cedula }}"
-				             		><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
+					    <div class="card-body">
+					   
+					        <table class="table table-bordered" id="DataTable">
+					          <thead>
+					            <tr>
+					              <th scope="col">Name</th>
+					              <th scope="col">Position</th>
+					              <th scope="col">Employee ID</th>
+					              <th scope="col" style="width: 300px;">Manage</th>
+					            </tr>
+					          </thead>
+					          <tbody>
+					      
+					           @foreach($list as $lt)
+					               <tr>
+					              <th scope="row">
+					              	{{$lt->lastname}}, {{$lt->firstname}} {{$lt->middle_name}}
+					              </th>
+					              <td>
+					              	{{$lt->job_title}}
+					              </td>
+					              <td>
+					              	{{$lt->employee_id}}
+					              </td>
+					               
+					             <td style="width: 300px;">
+					             	<span style="float: right;">
+					             		<button type="button" id="{{ $lt->id }}" class="btn btn-success view_emp" data-toggle="modal" data-target="#view_modal"
+					             			p_id="{{ $lt->id }}"
+							               	p_employeeid="{{ $lt->employee_id }}"
+							               	p_gender="{{ $lt->gender }}"
+							               	p_fname="{{ $lt->firstname }}"
+							               	p_mname="{{ $lt->middle_name }}"
+							               	p_lname="{{ $lt->lastname }}"
+							               	p_department="{{ $lt->department_name }}"
+							               	p_status="{{ $lt->job_status }}"
+							               	p_picture="{{ $lt->employee_img }}"
+							               	p_address="{{ $lt->address }}"
+							               	p_city="{{ $lt->city }}"
+							               	p_province="{{ $lt->province }}"
+							               	p_country="{{ $lt->country }}"
+							               	p_zip="{{ $lt->zip_code }}"
+							               	p_hnumber="{{ $lt->home_number }}"
+							               	p_mnumber="{{ $lt->mobile_number }}"
+							               	p_wemail="{{ $lt->email }}"
+							               	p_pemail="{{ $lt->personal_email }}"
+							               	p_bday="{{ $lt->birthday }}"
+							               	p_ssnsin="{{ $lt->SIN_SSN }}"
+							               	p_ename="{{ $lt->emergency_name }}"
+							               	p_relationship="{{ $lt->relationship }}"
+							               	p_eaddress="{{ $lt->emergency_address }}"
+							               	p_enumber="{{ $lt->emergency_number }}"
+							               	p_jobtitle="{{ $lt->job_title }}"
+							               	p_jobdesc="{{ $lt->job_description }}"
+							               	p_joblevel="{{ $lt->job_level }}"
+							               	p_jobposition="{{ $lt->job_position }}"
+							               	p_datehired="{{ $lt->date_hired }}"
+							               	p_dateterminated="{{ $lt->date_terminated }}"
+							               	p_sss="{{ $lt->SSS_no }}"
+							               	p_pagibig="{{ $lt->philhealth_no }}"
+							               	p_philhealth="{{ $lt->pagibig_no }}"
+							               	p_tin="{{ $lt->TIN_no }}"
+							               	p_nbinumber="{{ $lt->NBI_no }}"
+							               	p_diploma="{{ $lt->diploma }}"
+							               	p_medical="{{ $lt->medical }}"
+							               	p_tor="{{ $lt->TOR }}"
+							               	p_birthcert="{{ $lt->birth_cert }}"
+							               	p_bclearance="{{ $lt->brgy_clearance }}"
+							              	p_cedula="{{ $lt->cedula }}"
+					             		><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View</button>
 
-     								<button type="button" id="{{ $lt->id }}" class="btn btn-primary edit_emp" data-toggle="modal" data-target="#edit_modal"
-     									ep_id="{{ $lt->id }}"
-						               	ep_employeeid="{{ $lt->employee_id }}"
-						               	ep_gender="{{ $lt->gender }}"
-						               	ep_fname="{{ $lt->firstname }}"
-						               	ep_mname="{{ $lt->middle_name }}"
-						               	ep_lname="{{ $lt->lastname }}"
-						               	ep_department="{{ $lt->department_id }}"
-						               	ep_status="{{ $lt->status_id }}"
-						               	ep_picture="{{ $lt->employee_img }}"
-						               	ep_address="{{ $lt->address }}"
-						               	ep_city="{{ $lt->city }}"
-						               	ep_province="{{ $lt->province }}"
-						               	ep_country="{{ $lt->country }}"
-						               	ep_zip="{{ $lt->zip_code }}"
-						               	ep_hnumber="{{ $lt->home_number }}"
-						               	ep_mnumber="{{ $lt->mobile_number }}"
-						               	ep_wemail="{{ $lt->email }}"
-						               	ep_pemail="{{ $lt->personal_email }}"
-						               	ep_bday="{{ $lt->birthday }}"
-						               	ep_ssnsin="{{ $lt->SIN_SSN }}"
-						               	ep_ename="{{ $lt->emergency_name }}"
-						               	ep_relationship="{{ $lt->relationship }}"
-						               	ep_eaddress="{{ $lt->emergency_address }}"
-						               	ep_enumber="{{ $lt->emergency_number }}"
-						               	ep_jobtitle="{{ $lt->job_id }}"
-						               	ep_jobdesc="{{ $lt->job_description }}"
-						               	ep_joblevel="{{ $lt->job_level_id }}"
-						               	ep_jobposition="{{ $lt->job_position_id }}"
-						               	ep_datehired="{{ $lt->date_hired }}"
-						               	ep_dateterminated="{{ $lt->date_terminated }}"
-						               	ep_sss="{{ $lt->SSS_no }}"
-						               	ep_pagibig="{{ $lt->philhealth_no }}"
-						               	ep_philhealth="{{ $lt->pagibig_no }}"
-						               	ep_tin="{{ $lt->TIN_no }}"
-						               	ep_nbinumber="{{ $lt->NBI_no }}"
-						               	ep_diploma="{{ $lt->diploma }}"
-						               	ep_medical="{{ $lt->medical }}"
-						               	ep_tor="{{ $lt->TOR }}"
-						               	ep_birthcert="{{ $lt->birth_cert }}"
-						               	ep_bclearance="{{ $lt->brgy_clearance }}"
-						              	ep_cedula="{{ $lt->cedula }}"
-     								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+	     								<button type="button" id="{{ $lt->id }}" class="btn btn-primary edit_emp" data-toggle="modal" data-target="#edit_modal"
+	     									ep_id="{{ $lt->id }}"
+							               	ep_employeeid="{{ $lt->employee_id }}"
+							               	ep_gender="{{ $lt->gender }}"
+							               	ep_fname="{{ $lt->firstname }}"
+							               	ep_mname="{{ $lt->middle_name }}"
+							               	ep_lname="{{ $lt->lastname }}"
+							               	ep_department="{{ $lt->department_id }}"
+							               	ep_status="{{ $lt->status_id }}"
+							               	ep_picture="{{ $lt->employee_img }}"
+							               	ep_address="{{ $lt->address }}"
+							               	ep_city="{{ $lt->city }}"
+							               	ep_province="{{ $lt->province }}"
+							               	ep_country="{{ $lt->country }}"
+							               	ep_zip="{{ $lt->zip_code }}"
+							               	ep_hnumber="{{ $lt->home_number }}"
+							               	ep_mnumber="{{ $lt->mobile_number }}"
+							               	ep_wemail="{{ $lt->email }}"
+							               	ep_pemail="{{ $lt->personal_email }}"
+							               	ep_bday="{{ $lt->birthday }}"
+							               	ep_ssnsin="{{ $lt->SIN_SSN }}"
+							               	ep_ename="{{ $lt->emergency_name }}"
+							               	ep_relationship="{{ $lt->relationship }}"
+							               	ep_eaddress="{{ $lt->emergency_address }}"
+							               	ep_enumber="{{ $lt->emergency_number }}"
+							               	ep_jobtitle="{{ $lt->job_id }}"
+							               	ep_jobdesc="{{ $lt->job_description }}"
+							               	ep_joblevel="{{ $lt->job_level_id }}"
+							               	ep_jobposition="{{ $lt->job_position_id }}"
+							               	ep_datehired="{{ $lt->date_hired }}"
+							               	ep_dateterminated="{{ $lt->date_terminated }}"
+							               	ep_sss="{{ $lt->SSS_no }}"
+							               	ep_pagibig="{{ $lt->philhealth_no }}"
+							               	ep_philhealth="{{ $lt->pagibig_no }}"
+							               	ep_tin="{{ $lt->TIN_no }}"
+							               	ep_nbinumber="{{ $lt->NBI_no }}"
+							               	ep_diploma="{{ $lt->diploma }}"
+							               	ep_medical="{{ $lt->medical }}"
+							               	ep_tor="{{ $lt->TOR }}"
+							               	ep_birthcert="{{ $lt->birth_cert }}"
+							               	ep_bclearance="{{ $lt->brgy_clearance }}"
+							              	ep_cedula="{{ $lt->cedula }}"
+	     								><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 
-     								<a href="/manage_employee/{{ $lt->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-     							</span>
-				             </td>
-				            </tr>
-				           @endforeach
+	     								<a href="/manage_employee/{{ $lt->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+	     							</span>
+					             </td>
+					            </tr>
+					           @endforeach
 
-				          </tbody>
-				        </table>
-				       
-				    </div>
-				</div>
+					          </tbody>
+					        </table>
+					       
+					    </div>
+					</div>
+			</div>
+			</div>
 		</div>
 	</div>
 

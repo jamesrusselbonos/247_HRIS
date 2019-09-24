@@ -2,12 +2,19 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="sched_page" data-simplebar>
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Attendance</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="sched_page" data-simplebar>
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="card">
-						<div class="card-header">
-							<div class="col-lg-12">
+						<div class="card-header"">
+							<div class="col-lg-12"style="padding-top: 10px;">
 								<form method="POST" action="{{route('attendance.load')}}">
 									{{ csrf_field() }}
 									<div class="row">
@@ -98,6 +105,8 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>

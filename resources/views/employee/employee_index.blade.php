@@ -2,9 +2,15 @@
 
 @section('employee_content')
 	<div class="col-lg-12">
-		<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 30px;">
+		<div class="row">
+			<div class="jumbotron">
+			  	<h1 style="margin-top: 130px;" class="display-4">Welcome! {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->lastname }}</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 30px;">
 			<div class="">
-				<div>
+				<div style="background-color: #F8FBFB; padding-left: 80px; padding-right: 80px;">
 					<div class="row">
 				        
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -59,6 +65,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 

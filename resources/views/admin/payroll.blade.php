@@ -3,7 +3,14 @@
 @section('content')
 
 	<div class="col-lg-12">
-		<div class="payroll_index">
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Payroll</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="payroll_index">
 			<div class="card">
 				<div class="card-header">
 					<div class="row">
@@ -102,6 +109,8 @@
 						</tbody>
 					</table>
 				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>

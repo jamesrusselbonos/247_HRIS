@@ -1,10 +1,17 @@
 @extends('employee.employee')
 
 @section('employee_content')
-	<div class="col-lg-12">
-		<div class="timesheet_report" data-simplebar>
-			<div class="container">
-				<div class="card">
+	 <div class="col-lg-12">
+      <div class="row">
+        <div class="jumbotron2">
+          <h1 style="margin-top: 130px;" class="display-4">Timesheet</h1>
+        </div>
+      </div>
+		  <div class="row">
+        <div class="col-xl-12"> 
+          <div class="timesheet_report" data-simplebar>
+        <div class="container">
+        <div class="card">
                 <div class="card-header">
                   <div style="margin-top: 20px;">
                     @if(Auth::user()->status == 0)
@@ -64,8 +71,10 @@
                   
                 </div>
             </div>
-			</div>
-		</div>
+      </div>
+    </div>
+      </div>
+    </div>
 	</div>
 
 @endsection

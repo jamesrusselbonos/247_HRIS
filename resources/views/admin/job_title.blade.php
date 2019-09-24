@@ -2,7 +2,14 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="job_pages">
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Add Job</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="manage_user">
 			<div class="container"> 
 				<div class="card">
 				    <div  class="card-header">
@@ -72,7 +79,9 @@
 				    </div>
 				</div>
 			</div>
-		</div>		
+		</div>	
+			</div>
+		</div>	
 	</div>
 
 	<div class="modal fade Edit_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

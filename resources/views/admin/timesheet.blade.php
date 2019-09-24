@@ -2,32 +2,17 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="timesheet_report" data-simplebar>
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Timesheet</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="timesheet_report" data-simplebar>
 			<div class="container">
 				<div class="card">
-				    <div class="card-header">
-				    	<div class="row">
-				    		<div class="col-lg-4">
-				    			<!-- <div class="dropdown">
-				    			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    			    Export
-				    			  </button>
-				    			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    			    <a class="dropdown-item" href="#">Copy</a>
-				    			    <a class="dropdown-item" href="#">Excel</a>
-				    			    <a class="dropdown-item" href="#">CSV</a>
-				    			    <a class="dropdown-item" href="#">Print</a>
-				    			  </div>
-				    			</div> -->
-				    		</div>
-				    		
-				    		<div class="col-lg-4">
-				    			<!-- <input type="date" name="bday" max="3000-12-31" 
-				    			        min="1000-01-01" class="form-control"> -->
-				    		</div>
-				    	</div>
-				    </div>
-
+				    
 				    <div class="card-body">
 				   
 				        <table class="table display nowrap" id="DataTable">
@@ -78,6 +63,8 @@
 				       
 				    </div>
 				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>

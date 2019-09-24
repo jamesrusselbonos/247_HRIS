@@ -2,12 +2,18 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 100px;">
+		<div class="row">
+			<div class="jumbotron">
+			  	<h1 style="margin-top: 130px;" class="display-4">Welcome! {{ Auth::user()->name }}</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 80px;">
 			<div class="">
-				<div>
+				<div style="background-color: #fbfbfb; padding-left: 80px; padding-right: 80px; width: 100%;">
 					<div class="row">
 						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-				            <div class="card bg-c-blue order-card">
+				            <div class="card bg-c-blue order-card box_shadow">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Employees</h6>
 				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-users f-left"></i><span>{{ $emp_count->count() }}</span></h4>
@@ -17,7 +23,7 @@
 				        </div>
 				        
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-				            <div class="card bg-c-green order-card">
+				            <div class="card bg-c-green order-card box_shadow">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Departments</h6>
 				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-folder-open f-left"></i><span>{{ $dept_count->count() }}</span></h4>
@@ -27,7 +33,7 @@
 				        </div>
 				        
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-				            <div class="card bg-c-yellow order-card">
+				            <div class="card bg-c-yellow order-card box_shadow">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>
 				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-clock-o f-left"></i><span>{{$total_time}} hrs	</span></h4>
@@ -37,7 +43,7 @@
 				        </div>
 
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-				            <div class="card bg-c-pink order-card">
+				            <div class="card bg-c-pink order-card box_shadow">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Pending Leaves</h6>
 				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-outdent f-left"></i><span>{{ $leave_count->count() }}</span></h4>
@@ -372,6 +378,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 
@@ -1147,6 +1154,21 @@
 	    </div>
 	  </div>
 	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			 $(window).scroll(function() {
+			    var scrollPos = $(window).scrollTop(),
+			        navbar = $('.navbar');
+
+			    if (scrollPos > 50) {
+			      navbar.addClass('navbar_scroll');
+			    } else {
+			      navbar.removeClass('navbar_scroll');
+			    }
+			  });
+		});
+	</script>
 
 @endsection
 

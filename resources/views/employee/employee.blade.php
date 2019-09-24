@@ -68,10 +68,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/memo"><i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Memo</a>
+                    <a href="/employee_memo"><i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Memo</a>
                 </li>
                 <li>
-                    <a href="/payroll"><i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Leave</a>
+                    <a href="/employee_leave"><i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Leave</a>
                 </li>
             </ul>
 
@@ -88,7 +88,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        	<nav class="navbar navbar-expand-lg navbar-light">
 				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
 
 			  	<a class="navbar-brand" href="/employee" >Employee Dashboard</a>
@@ -121,6 +121,40 @@
                     </li>
 			    </ul>
 			</nav>
+
+			<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
+
+			  	<a class="navbar-brand" href="/employee" >Employee Dashboard</a>
+
+			  	<ul class="nav navbar-nav ml-auto">
+			  		<li class="nav-item">
+			  			<a href="#" class="notification-trigger">
+							  <span><i style="font-size: 20px;" class="fa fa-bell-o" aria-hidden="true"></i></span>
+							  @if(auth()->user()->unreadNotifications->count())
+							  <span class="badge" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
+							  @endif
+						</a>
+			  		</li>
+			      	<li class="nav-item dropdown" style="padding-top: 10px;">
+                        <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                             <span><img style="height: 35px; width: 35px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+			    </ul>
+			</nav> -->
 			<div class="panel">
 			    <div class="title">Notifications</div>
 			     <ul class="notification-bar" id="not">

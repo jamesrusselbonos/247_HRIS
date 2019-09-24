@@ -2,7 +2,14 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="manage_user" data-simplebar>
+		<div class="row">
+			<div class="jumbotron2">
+		  		<h1 style="margin-top: 130px;" class="display-4">Manage Accounts</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="manage_user" data-simplebar>
 			<div class="container">
 				<div class="card">
 				    
@@ -47,6 +54,8 @@
 				       
 				    </div>
 				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>
