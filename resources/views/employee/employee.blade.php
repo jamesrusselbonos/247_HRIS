@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
+
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Employee Dashboard | 247 HRIS </title>
+	<title>Employee Dashboard | 247 HRIS</title>
 
 	<!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -20,146 +21,75 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <!-- Override CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style2.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
-    <!-- SweetAlert2 -->
+    <!-- FullCalendar -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+	<!-- SweetAlert2 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
 
 </head>
+
 <body>
-	<!--Main-->
-	<div class="row">
-		<div class="col-lg-2 sidebar" data-simplebar>
-			<div class="row">
-				<div style="text-align: center; padding-top: 30px;" class="col-lg-12">
-					<img class="company_logo" src="/img/icon.png">
-					<h6 style="margin-top: 10px;">24/7 Virtual Agent Philippines Inc.</h6>
-				</div>
-			</div>
-			<!-- <div class="row" style="padding-top: 8px; padding-bottom: 8px; border: 1px solid #000; margin-right: 20px; margin-left: 20px; border-radius: 30px;">
-				<div class="col-lg-6" style="text-align: center;">
-					<a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a>
-				</div>
-				<div class="col-lg-6" style="text-align: center;">
-					<a href="{{ route('logout') }}" 
-						onclick="event.preventDefault();
-						              document.getElementById('logout-form').submit();">
-						 <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;{{ __('Logout') }}
-					</a>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-				</div>
-			</div> -->
-			<!-- Navigation-->
-			<div class="row navigation">
-				<div class="col-lg-12">
-					<h6 style="color: #000; padding-left: 20px; padding-right: 20px;">Navigation</h6>
-					<ul>
-						<li>
-							<div class="row nav_link active_nav">
-								
-								<div class="col-lg-12">
-									<i style="color: #fff;" class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
-									<a style="font-size: 15px;" href="/employee">Dashboard</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row nav_link">
-								
-								<div class="col-lg-10">
-									<i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
-									<a style="font-size: 15px;" href="#attendanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
-									<ul class="collapse" id="attendanceSubmenu">
-										<li style="padding-top: 10px; padding-left: 15px;">
-											<a style="font-size: 14px;" href="/punch_in_out"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Time In/Out</a>
-										</li>
-										<!-- <li style="padding-top: 10px;">
-											<a style="font-size: 16px;" href="/employee_list"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Timesheets</a>
-										</li> -->
-									</ul>
-								</div>
-								<div class="col-lg-2">
-									<i class="fa fa-caret-down" aria-hidden="true"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row nav_link">
-								
-								<div class="col-lg-12">
-									<i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
-									<a href="/employee_memo" style="font-size: 15px;" href="#">Memo</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row nav_link">
-								
-								<div class="col-lg-12">
-									<i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>
-									<a href="/employee_leave" style="font-size: 15px;" href="#">Leave</a>
-								</div>
-							</div>
-						</li>
-					</ul>	
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-10 main">
-			<!-- <div class="dashboard_banner">
-				<div class="row">
-					<div class="col-lg-6">
-						<h6>EMPLOYEE DASHBOARD</h6>
 
-					</div>
-					<div class="col-lg-6">
-						<ul style="list-style: none;">
-							<li style="float: right;">
-								<a href="#" class="notification-trigger">
-								  <span><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-								  @if(auth()->user()->unreadNotifications->count())
-								  <span class="badge" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
-								  @endif
-								</a>
-							</li>
-								<li style="float: right; margin-top: 10px; font-size: 16px;" class="nav-item dropdown">
-	                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                                     <span><img style="height: 40px; width: 40px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }}</span>
-	                                </a>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar2" data-simplebar>
+            <div class="sidebar-header">
+            	<img class="company_logo" src="/img/icon2.png">
+                <h5>24/7 Virtual Agent Philippines Inc.</h5>
+            </div>
 
-	                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	                                	<a class="dropdown-item" href="#">
-	                                        <i class="fa fa-user" aria-hidden="true"></i> &nbsp;Profile
-	                                    </a>
-	                                    <a class="dropdown-item" href="{{ route('logout') }}"
-	                                       onclick="event.preventDefault();
-	                                                     document.getElementById('logout-form').submit();">
-	                                        <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;             
-	                                        Logout
-	                                    </a>
+            <ul class="list-unstyled components">
+                <p>Navigation</p>
+                <li class="active">
+                    <a href="/employee"><i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Attendance</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/punch_in_out"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Time In/Out</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/memo"><i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Memo</a>
+                </li>
+                <li>
+                    <a href="/payroll"><i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Leave</a>
+                </li>
+            </ul>
 
-	                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-	                                        @csrf
-	                                    </form>
-	                                </div>
-	                        	</li>
-						</ul>
-					</div>
-				</div>
-			</div> -->
+            <!-- <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul> -->
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<button style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
+				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
 
 			  	<a class="navbar-brand" href="/employee" >Employee Dashboard</a>
 
@@ -190,47 +120,60 @@
                         </div>
                     </li>
 			    </ul>
-
-			  	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    	<span class="navbar-toggler-icon"></span>
-			  	</button> -->
-
-			  	<!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    	<ul class="navbar-nav mr-auto">
-			      		<li class="nav-item active">
-			        		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			      		</li>
-			      		<li class="nav-item">
-			        		<a class="nav-link" href="#">Link</a>
-			      		</li>
-			      		<li class="nav-item dropdown">
-			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          		Dropdown
-			        		</a>
-			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			          			<a class="dropdown-item" href="#">Action</a>
-			          			<a class="dropdown-item" href="#">Another action</a>
-			          			<div class="dropdown-divider"></div>
-			          			<a class="dropdown-item" href="#">Something else here</a>
-			        		</div>
-			      		</li>
-			      		<li class="nav-item">
-			        		<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			      		</li>
-			    	</ul>
-			    	<form class="form-inline my-2 my-lg-0">
-			     		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			      		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			    	</form>
-			  	</div> -->
 			</nav>
 			<div class="panel">
-			     <div class="title">Notifications</div>
-				      <ul class="notification-bar" id="not">
-				      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
-				      	@foreach(auth()->user()->unreadNotifications as $notification)
-					      	@if($notification->type == "App\Notifications\SendMemo")
+			    <div class="title">Notifications</div>
+			     <ul class="notification-bar" id="not">
+			      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+			      	@foreach(auth()->user()->unreadNotifications as $notification)
+				      	@if($notification->type == "App\Notifications\SendMemo")
+				          <li class="unread" id="unread" test="teest">
+				              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
+				              	<i class="ion-checkmark"></i>
+				              	<div>
+				              	
+				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
+				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              	</div>
+				              </a>
+				          </li>
+
+				          @elseif($notification->type == "App\Notifications\RequestLeave")
+				          <li class="unread" id="unread" test="teest">
+				              <a style="cursor: pointer;" id="{{ $notification->id }}" >
+				              	<i class="ion-checkmark"></i>
+				              	<div>
+			              			<h6>Leave Request</h6>
+			              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}} by {{ $notification->data['from'] }}</p>
+				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+				              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
+				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['leave_id']}}</p> -->
+				              	</div>
+				              </a>
+				          </li>
+
+				          @elseif($notification->type == "App\Notifications\AssignSchedule")
 					          <li class="unread" id="unread" test="teest">
+					             <a style="cursor: pointer;" id="{{ $notification->id }}" >
+					              	<i class="ion-checkmark"></i>
+					              	<div>
+					              		<h6>Schedule</h6>
+				              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
+					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		
+					              	</div>
+					              </a>
+					          </li>
+				          @endif
+			          @endforeach
+
+			          @foreach(auth()->user()->readNotifications as $notification)
+			          	  @if($notification->type == "App\Notifications\SendMemo")
+					          <li>
 					              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
 					              	<i class="ion-checkmark"></i>
 					              	<div>
@@ -243,13 +186,13 @@
 					              </a>
 					          </li>
 
-					          @elseif($notification->type == "App\Notifications\RequestLeave")
-					          <li class="unread" id="unread" test="teest">
-					              <a style="cursor: pointer;" id="{{ $notification->id }}" >
+				          @elseif($notification->type == "App\Notifications\RequestLeave")
+					          <li>
+					              <a style="cursor: pointer;" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-				              			<h6>Leave Request</h6>
-				              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}} by {{ $notification->data['from'] }}</p>
+					              		<h6>Leave Request</h6>
+				              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}}</p>
 					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
 					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
@@ -259,71 +202,25 @@
 					              </a>
 					          </li>
 
-					          @elseif($notification->type == "App\Notifications\AssignSchedule")
-						          <li class="unread" id="unread" test="teest">
-						             <a style="cursor: pointer;" id="{{ $notification->id }}" >
-						              	<i class="ion-checkmark"></i>
-						              	<div>
-						              		<h6>Schedule</h6>
-					              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
-						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
-						              		
-						              	</div>
-						              </a>
-						          </li>
-					          @endif
-				          @endforeach
+					      @elseif($notification->type == "App\Notifications\AssignSchedule")
+					          <li>
+					              <a style="cursor: pointer;" >
+					              	<i class="ion-checkmark"></i>
+					              	<div>
+					              		<h6>Schedule</h6>
+				              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
+					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              	</div>
+					              </a>
+					          </li>
 
-				          @foreach(auth()->user()->readNotifications as $notification)
-				          	  @if($notification->type == "App\Notifications\SendMemo")
-						          <li>
-						              <a style="cursor: pointer;" data-toggle="modal" data-target="#view_memo_notif" class="memo_notif_id" id="{{ $notification->id }}" notif_id="{{ $notification->id }}" notif_title="{{ $notification->data['title'] }}" notif_from="{{ $notification->data['from'] }}" notif_data="{{ $notification->data['date'] }}" notif_subject="{{ $notification->data['subject'] }}" notif_file="{{ $notification->data['file'] }}">
-						              	<i class="ion-checkmark"></i>
-						              	<div>
-						              	
-						              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-						              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
-						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
-						              	</div>
-						              </a>
-						          </li>
+				          @endif
+			          @endforeach
 
-					          @elseif($notification->type == "App\Notifications\RequestLeave")
-						          <li>
-						              <a style="cursor: pointer;" >
-						              	<i class="ion-checkmark"></i>
-						              	<div>
-						              		<h6>Leave Request</h6>
-					              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}}</p>
-						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
-						              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
-						              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
-						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
-						              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['leave_id']}}</p> -->
-						              	</div>
-						              </a>
-						          </li>
-
-						      @elseif($notification->type == "App\Notifications\AssignSchedule")
-						          <li>
-						              <a style="cursor: pointer;" >
-						              	<i class="ion-checkmark"></i>
-						              	<div>
-						              		<h6>Schedule</h6>
-					              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
-						              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
-						              	</div>
-						              </a>
-						          </li>
-
-					          @endif
-				          @endforeach
-
-				      </ul>
-				      <div class="notif_footer">
-				      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
-				      </div>
+			      </ul>
+			      <div class="notif_footer">
+			      	<a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+			      </div>
 			    </div>
 			    <div class="modal fade view_memo_notif" id="view_memo_notif" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			      <div class="modal-dialog modal-lg">
@@ -363,9 +260,34 @@
 			      </div>
 			    </div>
 			@yield('employee_content')
-		</div>
-	</div>
-	<script type="text/javascript">
+        </div>
+    </div>
+
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar2").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar2, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
+
+   <script type="text/javascript">
 		$(document).ready(function() {
 
 			$('.btn_leave').click(function(e){
@@ -530,4 +452,5 @@
 		})
 	</script>
 </body>
+
 </html>

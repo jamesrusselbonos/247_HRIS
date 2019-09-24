@@ -2,46 +2,46 @@
 
 @section('content')
 	<div class="col-lg-12">
-		<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 30px;">
+		<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 100px;">
 			<div class="">
 				<div>
 					<div class="row">
-						<div class="col-md-3 col-xl-3">
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-blue order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Employees</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-users f-left"></i><span>{{ $emp_count->count() }}</span></h4>
-				                    <a href="/add_employee" style="color: #fff;"><p><span class="f-left"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add Employee</span></p></a>
+				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-users f-left"></i><span>{{ $emp_count->count() }}</span></h4>
+				                    <a href="/add_employee" style="color: #fff; font-size: 1em;"><p><span class="f-left"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add Employee</span></p></a>
 				                </div>
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-3 col-xl-3">
+				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-green order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Departments</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-folder-open f-left"></i><span>{{ $dept_count->count() }}</span></h4>
-				                    <a href="/department" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add Department</span></p></a>
+				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-folder-open f-left"></i><span>{{ $dept_count->count() }}</span></h4>
+				                    <a href="/department" style="color: #fff; font-size: 1em;"><p class="m-b-0"><span class="f-left"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add Department</span></p></a>
 				                </div>
 				            </div>
 				        </div>
 				        
-				        <div class="col-md-3 col-xl-3">
+				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Overall Attendance</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-clock-o f-left"></i><span>{{$total_time}} Hours</span></h4>
-				                    <a href="/timesheet" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View TimeSheet</span></p></a>
+				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-clock-o f-left"></i><span>{{$total_time}} hrs	</span></h4>
+				                    <a href="/timesheet" style="color: #fff; font-size: 1em;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View TimeSheet</span></p></a>
 				                </div>
 				            </div>
 				        </div>
 
-				        <div class="col-md-3 col-xl-3">
+				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-pink order-card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20">Pending Leaves</h6>
-				                    <h4 class="text-right"><i style="font-size: 40px;" class="fa fa-outdent f-left"></i><span>{{ $leave_count->count() }}</span></h4>
-				                    <a href="/leave" style="color: #fff;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View Leaves</span></p></a>
+				                    <h4 class="text-right"><i style="font-size: 0.9em;" class="fa fa-outdent f-left"></i><span>{{ $leave_count->count() }}</span></h4>
+				                    <a href="/leave" style="color: #fff; font-size: 1em;"><p class="m-b-0"><span class="f-left"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View Leaves</span></p></a>
 				                </div>
 				            </div>
 				        </div>
@@ -136,55 +136,72 @@
 						<div class="col-md-4 col-xl-4">
 				            <div class="card">
 				                <div class="card-block">
-				                    <h6 class="m-b-20"><strong>Quick Access</strong></h6>
-
-			                    	<a href="/add_employee" style="cursor: pointer; color: #000;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_schedule" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Schedule
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_memo" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Memo
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_job" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_job_status" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Status
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_department" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#Add_Job_level" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Level
-			                    		</div>
-			                    	</a>
-			                    	<a data-toggle="modal" data-target="#add_position" style="cursor: pointer;">
-			                    		<div class="row quick_wrapper">
-			                    			<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Position
-			                    		</div>
-			                    	</a>
+				                    <h6 class="m-b-20"><strong>Employees</strong></h6>
+				                    <div style="padding-bottom: 30px; min-height: 550px; padding-top: 25px;">
+    		                    		@foreach($list as $emp_list)
+    		                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
+    		                    				p_id="{{ $emp_list->id }}"
+    							               	p_employeeid="{{ $emp_list->employee_id }}"
+    							               	p_gender="{{ $emp_list->gender }}"
+    							               	p_fname="{{ $emp_list->firstname }}"
+    							               	p_mname="{{ $emp_list->middle_name }}"
+    							               	p_lname="{{ $emp_list->lastname }}"
+    							               	p_department="{{ $emp_list->department_name }}"
+    							               	p_status="{{ $emp_list->job_status }}"
+    							               	p_picture="{{ $emp_list->employee_img }}"
+    							               	p_address="{{ $emp_list->address }}"
+    							               	p_city="{{ $emp_list->city }}"
+    							               	p_province="{{ $emp_list->province }}"
+    							               	p_country="{{ $emp_list->country }}"
+    							               	p_zip="{{ $emp_list->zip_code }}"
+    							               	p_hnumber="{{ $emp_list->home_number }}"
+    							               	p_mnumber="{{ $emp_list->mobile_number }}"
+    							               	p_wemail="{{ $emp_list->email }}"
+    							               	p_pemail="{{ $emp_list->personal_email }}"
+    							               	p_bday="{{ $emp_list->birthday }}"
+    							               	p_ssnsin="{{ $emp_list->SIN_SSN }}"
+    							               	p_ename="{{ $emp_list->emergency_name }}"
+    							               	p_relationship="{{ $emp_list->relationship }}"
+    							               	p_eaddress="{{ $emp_list->emergency_address }}"
+    							               	p_enumber="{{ $emp_list->emergency_number }}"
+    							               	p_jobtitle="{{ $emp_list->job_title }}"
+    							               	p_jobdesc="{{ $emp_list->job_description }}"
+    							               	p_joblevel="{{ $emp_list->job_level }}"
+    							               	p_jobposition="{{ $emp_list->job_position }}"
+    							               	p_datehired="{{ $emp_list->date_hired }}"
+    							               	p_dateterminated="{{ $emp_list->date_terminated }}"
+    							               	p_sss="{{ $emp_list->SSS_no }}"
+    							               	p_pagibig="{{ $emp_list->philhealth_no }}"
+    							               	p_philhealth="{{ $emp_list->pagibig_no }}"
+    							               	p_tin="{{ $emp_list->TIN_no }}"
+    							               	p_nbinumber="{{ $emp_list->NBI_no }}"
+    							               	p_diploma="{{ $emp_list->diploma }}"
+    							               	p_medical="{{ $emp_list->medical }}"
+    							               	p_tor="{{ $emp_list->TOR }}"
+    							               	p_birthcert="{{ $emp_list->birth_cert }}"
+    							               	p_bclearance="{{ $emp_list->brgy_clearance }}"
+    							              	p_cedula="{{ $emp_list->cedula }}"
+    		                    			>
+    		                    				<div class="row row_animation">
+    		                    					<div class="col-md-3">
+    		                    						<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
+    		                    					</div>
+    		                    					<div class="col-md-9" style="margin-top: -5px;">
+    		                    						<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
+    		                    						<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
+    		                    					</div>
+    		                    				</div>
+    		                    			</a>
+    		                    		@endforeach
+    		                    	</div>
+    		                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 				                </div>
 				            </div>
 				        </div>
 					</div>
 					<div class="row">
 						<div class="col-md-5 col-xl-5">
-				            <div class="row">
+				            <!-- <div class="row">
 				            	<div class="col-md-12 col-xl-12">
             			            <div class="card">
             			                <div class="card-block">
@@ -251,7 +268,7 @@
             			                </div>
             			            </div>
 				            	</div>
-				            </div>
+				            </div> -->
 				            <div class="row">
 				            	<div class="col-md-12">
 				            		<div class="card">

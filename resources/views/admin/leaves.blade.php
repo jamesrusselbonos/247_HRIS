@@ -99,7 +99,7 @@
 								</div>
 								<div class="col-lg-5">
 									<span style="float: right;">
-				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave btn_edit" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i></button>
+				             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i></button>
 				             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 									</span>
 								</div>
