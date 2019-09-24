@@ -61,7 +61,8 @@
 				            <div class="card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20"><strong>Timesheet Report</strong></h6>
-				                    	<table  class="table display nowrap" id="DataTable">
+				                    	<div>
+				                    		<table  class="table display nowrap" id="DataTable">
 				                    		 <thead>
 									            <tr>
 									              <th scope="col">Name</th>
@@ -88,7 +89,8 @@
 										          	</tr>
 									          	@endforeach
 									          </tbody>
-				                    	</table>
+				                    		</table>
+				                    	</div>
 					                    <!-- <div class="row" style="margin-bottom: 30px;">
 					                    	<div class="col-md-3">
 					                    		<h6>Name</h6>
