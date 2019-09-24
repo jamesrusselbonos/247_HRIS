@@ -9,6 +9,7 @@ use App\Leave_type;
 use App\Leave;
 
 use App\TimeSheet;
+use App\Overtime;
 
 use Auth;
 use DB;
@@ -97,5 +98,37 @@ class EmployeeController extends Controller
         $leave_save->save();
 
         return redirect()->route('employee.employee_leave');
+    }    
+
+    public function requestOvertime(Request $request){
+
+        $overtime = new Overtime;
+
+        $overtime->employee_id = $request->overtime_empid;
+        $overtime->date = $request->overtime_date;
+        $overtime->time_from = $request->time_from;
+        $overtime->time_to = $request->time_to;
+        $overtime->duration = $request->duration;
+        $overtime->reason = $request->overtime_reason;
+
+        // $overtime = new Overtime([
+        //     'employee_id' => $request->get('overtime_empid'),
+        //     'date' => $request->get('overtime_date'),
+        //     'time_from' => $request->get('time_from'),
+        //     'time_to' => $request->get('time_to'),
+        //     'duration' => $request->get('duration'),
+        //     'reason' => $request->get('overtime_reason')
+        //     // 'status' => $request->get('leave_date')
+        // ]);
+
+        $overtime->save();
+
+        return redirect()->route('employee.overtime');
+    }    
+
+
+    public function overtime(){
+        $overtime = Overtime::all();
+        return view('employee.employee_overtime', compact('overtime'));
     }
 }

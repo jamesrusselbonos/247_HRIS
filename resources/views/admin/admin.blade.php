@@ -88,6 +88,9 @@
                             <a href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
                         </li>
                         <li>
+                            <a href="/overtime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Overtime</a>
+                        </li>
+                        <li>
                             <a href="/schedule"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Schedule</a>
                         </li>
                     </ul>
@@ -842,6 +845,36 @@
 
     				 }); 
     		});
+
+            $('.overtime_view').on('click', function(){
+
+                var id = $(this).attr('id');
+                var token = $(".hdn-token").val();
+
+                data = { 
+                            _token: token,
+                            id : id
+                        };
+                console.log(data);
+
+                $.ajax({
+                        url: '/ajaxShowOvertime' ,
+                        type: "POST",
+                        data: data,
+                        success: function( response ) {
+                            console.log(response.overtimes.lastname);
+                            $('#vo_lname').html(response.overtimes.lastname);
+                            $('#vo_fname').html(response.overtimes.firstname);
+                            $('#vo_mname').html(response.overtimes.middle_name);
+                            $('#vo_date').html(response.overtimes.date);
+                            $('#vo_timefrom').html(response.overtimes.time_from);
+                            $('#vo_timeto').html(response.overtimes.time_to);
+                            $('#vo_duration').html(response.overtimes.duration);
+                            $('#vo_reason').html(response.overtimes.reason);
+                            $('#vo_status').val(response.overtimes.status);
+                        }
+                    });
+            });
     	});
     </script>
 </body>

@@ -106,6 +106,13 @@ Route::get('/payroll', 'AdminController@payroll_index')->name('payroll.index');
 Route::post('/ajaxPayroll', 'AdminController@ajaxPayroll')->name('payroll.ajaxPayroll');
 Route::post('/payroll', 'AdminController@generatePayroll')->name('payroll.generatePayroll');
 
+Route::get('/employee_overtime', 'EmployeeController@overtime')->name('employee.overtime');
+Route::post('/employee_overtime', 'EmployeeController@requestOvertime')->name('employee.request_overtime');
+
+Route::post('/ajaxShowOvertime', 'AdminController@ajaxShowOvertime')->name('admin.ajaxShowOvertime');
+Route::get('/overtime', 'AdminController@overtime')->name('admin.overtime');
+Route::post('/overtime', 'AdminController@overtimeEdit')->name('admin.overtime.edit');
+
 Route::get('/holidays', 'AdminController@holidays_index')->name('holidays.index');
 Route::post('/holidays', 'AdminController@holidays_create')->name('holidays.create');
 

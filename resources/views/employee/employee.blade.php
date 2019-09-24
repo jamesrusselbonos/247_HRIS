@@ -76,6 +76,9 @@
                 <li>
                     <a href="/employee_leave"><i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Leave</a>
                 </li>
+                <li>
+                    <a href="/employee_overtime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Overtime</a>
+                </li>
             </ul>
 
             <!-- <ul class="list-unstyled CTAs">

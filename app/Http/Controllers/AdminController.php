@@ -910,4 +910,31 @@ class AdminController extends Controller
         return redirect()->back();
      }
 
+    public function overtime(){
+
+        $overtimes = DB::table('overtimes')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'overtimes.employee_id')
+            ->select('overtimes.*', 'prototype__employees.*')
+            ->get();
+
+        return view('admin.overtime', compact('overtimes'));
+    }    
+
+    public function ajaxShowOvertime(Request $request){
+
+        $overtimes = DB::table('overtimes')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'overtimes.employee_id')
+            ->select('overtimes.*', 'prototype__employees.*')
+            ->where('overtimes.otime_id', '=', $request->id)
+            ->first();
+
+         return Response()->json(['overtimes' => $overtimes ]);
+
+    }
+
+    public function overtimeEdit(){
+
+
+    }
+
 }
