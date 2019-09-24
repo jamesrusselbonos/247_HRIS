@@ -42,6 +42,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
 
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+
 </head>
 
 <body>
@@ -107,7 +110,7 @@
                              <span><img style="height: 35px; width: 35px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}"> &nbsp;&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i></span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -155,7 +158,7 @@
                     </li>
 			    </ul>
 			</nav> -->
-			<div class="panel">
+			<div class="panel animated bounceIn">
 			    <div class="title">Notifications</div>
 			     <ul class="notification-bar" id="not">
 			      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -166,10 +169,10 @@
 				              	<i class="ion-checkmark"></i>
 				              	<div>
 				              	
-				              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
-				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
+				              		<h6 style="font-size: 13px;"><strong>{{$notification->data['title']}}</strong></h6>
+				              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}}</p>
+				              		<p style="margin-top: -18px; font-size: 10px;">{{$notification->data['date']}}</p>
+				              		<p class="memo_subj" style="margin-top: -12px; font-size: 10px;">{{$notification->data['subject']}}</p>
 				              	</div>
 				              </a>
 				          </li>
@@ -179,9 +182,9 @@
 				              <a style="cursor: pointer;" id="{{ $notification->id }}" >
 				              	<i class="ion-checkmark"></i>
 				              	<div>
-			              			<h6>Leave Request</h6>
-			              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}} by {{ $notification->data['from'] }}</p>
-				              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+			              			<h6 style="font-size: 13px;">Leave Request</h6>
+			              			<p style="margin-top: -18px; font-size: 10px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}} by {{ $notification->data['from'] }}</p>
+				              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 				              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
 				              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
 				              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
@@ -195,9 +198,9 @@
 					             <a style="cursor: pointer;" id="{{ $notification->id }}" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6>Schedule</h6>
-				              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
-					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		<h6 style="font-size: 13px;">Schedule</h6>
+				              			<p style="margin-top: -18px; font-size: 10px;">Your Schedule</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              		
 					              	</div>
 					              </a>
@@ -212,10 +215,10 @@
 					              	<i class="ion-checkmark"></i>
 					              	<div>
 					              	
-					              		<h6><strong>{{$notification->data['title']}}</strong></h6>
-					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['from']}}</p>
-					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date']}}</p>
-					              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['subject']}}</p>
+					              		<h6 style="font-size: 13px;"><strong>{{$notification->data['title']}}</strong></h6>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}}</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">{{$notification->data['date']}}</p>
+					              		<p class="memo_subj" style="margin-top: -12px; font-size: 10px;">{{$notification->data['subject']}}</p>
 					              	</div>
 					              </a>
 					          </li>
@@ -225,9 +228,9 @@
 					              <a style="cursor: pointer;" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6>Leave Request</h6>
-				              			<p style="margin-top: -10px; font-size: 13px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}}</p>
-					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		<h6 style="font-size: 13px;">Leave Request</h6>
+				              			<p style="margin-top: -18px; font-size: 10px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}}</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
 					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
 					              		<p class="memo_subj" style="margin-top: -12px; font-size: 13px;">{{$notification->data['status']}}</p>
@@ -241,9 +244,9 @@
 					              <a style="cursor: pointer;" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6>Schedule</h6>
-				              			<p style="margin-top: -10px; font-size: 13px;">Your Schedule</p>
-					              		<p style="margin-top: -18px; font-size: 13px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		<h6 style="font-size: 13px;">Schedule</h6>
+				              			<p style="margin-top: -18px; font-size: 10px;">Your Schedule</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              	</div>
 					              </a>
 					          </li>

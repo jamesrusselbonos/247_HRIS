@@ -44,6 +44,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
 
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+
 </head>
 
 <body>
@@ -159,7 +162,7 @@
 								
 	                    </a>
 
-	                    <div class="dropdown-menu dropdown-menu-right quick_access" aria-labelledby="navbarDropdown2">
+	                    <div class="dropdown-menu dropdown-menu-right quick_access animated bounceIn" aria-labelledby="navbarDropdown2">
 	                        <a href="/add_employee" style="cursor: pointer; color: #000;">
 	                        	<div class="row quick_wrapper">
 	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee
@@ -207,7 +210,7 @@
                             {{ Auth::user()->name }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
