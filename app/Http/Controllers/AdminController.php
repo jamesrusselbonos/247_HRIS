@@ -22,6 +22,7 @@ use App\Position;
 
 use App\Holiday;
 use App\Absent;
+use App\Payroll;
 
 use App\Prototype_Employee;
 use App\Schedule;
@@ -529,7 +530,13 @@ class AdminController extends Controller
 
         $employees = Prototype_Employee::all();
 
-        return view ('admin.payroll', compact('employees'));
+        $payrolls = DB::table('payrolls')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'payrolls.employee_id')
+            ->join('departments', 'departments.id', '=', 'prototype__employees.department_id')
+            ->select('prototype__employees.*', 'departments.*', 'payrolls.*')
+            ->get();
+
+        return view ('admin.payroll', compact('employees','payrolls'));
     }
 
     public function leave_index(){
@@ -853,6 +860,54 @@ class AdminController extends Controller
                         'allowances' => $allowances, 'total_late' => $total_late, 
                         'total_undertime' => $total_undertime, 'holidays' => $holidays]);
         
+     }
+
+
+     public function generatePayroll(Request $request){
+
+        $payroll = new Payroll;
+
+        $payroll->employee_id = $request->p_empid;
+        $payroll->no_days_worked = $request->p_no_days_worked;
+        $payroll->daily_rate = $request->p_daily_rate;
+        $payroll->rate_per_hour = $request->p_rate_hour;
+        $payroll->basic_pay =  $request->p_basic_pay;
+        $payroll->total_absences = $request->p_total_absences;
+        $payroll->unpaid_absences = $request->p_unpaid_absences;
+        $payroll->charged_to_SIL = $request->p_charge_to_SIL;
+        $payroll->amount_absences = $request->p_amount_absences;
+        $payroll->allowance = $request->p_allowance;
+        $payroll->adjustment_incentives = $request->p_adjustment_incentive;
+        $payroll->no_legal_holidays = $request->p_no_holidays;
+        $payroll->amount_holidays = $request->p_amount_holidays;
+        $payroll->regular_OT_hours = $request->p_reg_OT_hours;
+        $payroll->regular_OT_amount = $request->p_reg_OT_amount;
+        $payroll->restday_OT_hours = $request->p_rest_OT_hours;
+        $payroll->restday_OT_amount = $request->p_rest_OT_amount;
+        $payroll->legal_holiday_OT_hours = $request->p_lholiday_hours;
+        $payroll->legal_holiday_OT_amount = $request->p_lholiday_amount;
+        $payroll->special_holiday_OT_hours = $request->p_sholiday_hours;
+        $payroll->special_holiday_OT_amount = $request->p_sholiday_amount;
+        $payroll->no_hours_rendered = $request->p_no_rendered;
+        $payroll->amount_night_diffential = $request->p_amount_night;
+        $payroll->no_hours_undertime = $request->p_no_undertime;
+        $payroll->no_hours_late = $request->p_no_late;
+        $payroll->gross_pay = $request->p_gross_pay;
+        $payroll->SSS_payroll = $request->p_sss;
+        $payroll->PHIC_payroll = $request->p_phic;
+        $payroll->HDMF_payroll = $request->p_hdmf;
+        $payroll->total_deduction_benefits = $request->p_total_deduction_benefits;
+        $payroll->SSS_loan = $request->p_sss_loan;
+        $payroll->company_loan = $request->p_company_loan;
+        $payroll->HDMF_loan = $request->p_hdmf_loan;
+        $payroll->uniform = $request->p_uniform;
+        $payroll->total_deduction_loan = $request->p_total_deduction_loan;
+        $payroll->tax = $request->p_tax;
+        $payroll->net_pay = $request->p_net_pay;
+
+        $payroll->save();
+        
+        return redirect()->back();
      }
 
 }

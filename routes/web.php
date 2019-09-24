@@ -103,7 +103,8 @@ Route::get('/delete_leave_type/{id}', 'AdminController@leave_type_delete');
 Route::post('/employee_leave', 'EmployeeController@request_leave_create')->name('employee.request_leave');
 
 Route::get('/payroll', 'AdminController@payroll_index')->name('payroll.index');
-Route::post('/payroll', 'AdminController@ajaxPayroll')->name('payroll.ajaxPayroll');
+Route::post('/ajaxPayroll', 'AdminController@ajaxPayroll')->name('payroll.ajaxPayroll');
+Route::post('/payroll', 'AdminController@generatePayroll')->name('payroll.generatePayroll');
 
 Route::get('/holidays', 'AdminController@holidays_index')->name('holidays.index');
 Route::post('/holidays', 'AdminController@holidays_create')->name('holidays.create');

@@ -57,46 +57,48 @@
 			            	</tr>
 						</thead>
 						<tbody>
-							<tr>
-							  <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-				              <td style="min-width: 200px;">sample</td>
-							</tr>
+							@foreach($payrolls as $payroll)
+								<tr>
+								  <td style="min-width: 200px;">{{ $payroll->lastname }}, {{ $payroll->firstname }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->department_name }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->no_days_worked }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->daily_rate }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->rate_per_hour }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->basic_pay }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->total_absences }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->unpaid_absences }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->charged_to_SIL }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->amount_absences }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->allowance }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->adjustment_incentives }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->no_legal_holidays }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->amount_holidays }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->regular_OT_hours }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->regular_OT_amount }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->restday_OT_hours }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->restday_OT_amount }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->legal_holiday_OT_hours }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->legal_holiday_OT_amount }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->special_holiday_OT_hours }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->special_holiday_OT_amount }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->no_hours_rendered }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->amount_night_diffential }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->no_hours_undertime }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->no_hours_late }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->gross_pay }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->SSS_payroll }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->PHIC_payroll }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->HDMF_payroll }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->total_deduction_benefits }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->SSS_loan }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->company_loan }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->HDMF_loan }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->uniform }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->total_deduction_loan }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->tax }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->net_pay }}</td>
+								</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -113,7 +115,8 @@
 			          <span aria-hidden="true">&times;</span>
 			        </button>
 	      		</div>
-	      		<form method="" action="">
+	      		<form method="POST" action="{{route('payroll.generatePayroll')}}" name="genarateForm" id="genarateForm">
+	      			{{ csrf_field() }}
 		      		<div class="modal-body" style="padding-left: 30px; padding-right: 30px;">
 		      			<div class="row" style="padding-bottom: 10px;">
 		      				<div class="col-md-4"></div>
@@ -404,7 +407,7 @@
 		      			</div>	
 		      		</div>
 		      		<div class="modal-footer">
-	      		        <button type="button" class="btn btn-success btn_payroll"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payroll</button>
+	      		        <button type="submit" class="btn btn-success btn_payroll" form="genarateForm"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payroll</button>
 	      		     </div>
 	      		</form>
 	    	</div>
@@ -486,7 +489,7 @@
 				console.log(data);
 
 				$.ajax({
-				        url: '/payroll' ,
+				        url: '/ajaxPayroll' ,
 				        type: "POST",
 				        data: data,
 				        success: function( response ) {
