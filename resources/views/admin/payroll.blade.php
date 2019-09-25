@@ -146,6 +146,7 @@
 									</div>
 									<div class="col-sm-7">
 										<input type="text" name="p_net_pay" id="p_net_pay" class="form-control" readonly>
+										<input type="hidden" name="p_net_pay2" id="p_net_pay2" class="form-control" readonly>
 									</div>
 								</div>
 		      				</div>
@@ -452,23 +453,6 @@
 			$('#p_total_deduction_benefits').val('');
 		});
 
-
-		var loan = $('[name="p_sss_loan"],[name="p_company_loan"],[name="p_hdmf_loan"],[name="p_uniform"]'),
-			loan_sss = $('[name="p_sss_loan"]'),
-			loan_company = $('[name="p_company_loan"]'),
-			loan_hdmf = $('[name="p_hdmf_loan"]'),
-			uniform = $('[name="p_uniform"]'),
-			loan_total = $('[name="p_total_deduction_loan"]');		
-
-		loan.change(function() {
-			 var val1 = (isNaN(parseInt(loan_sss.val()))) ? 0 : parseInt(loan_sss.val());
-			 var val2 = (isNaN(parseInt(loan_company.val()))) ? 0 : parseInt(loan_company.val());
-			 var val3 = (isNaN(parseInt(loan_hdmf.val()))) ? 0 : parseInt(loan_hdmf.val());
-			 var val4 = (isNaN(parseInt(uniform.val()))) ? 0 : parseInt(uniform.val());
-
-			 loan_total.val(val1 + val2 + val3 + val4);
-		});
-
 		var date_from = "";
 		var date_to = "";
 
@@ -512,10 +496,7 @@
 				        	var paid_absents = amount * daily;
 				        	var unpaid_absences = response.unpaid * daily;
 				        	var allowance = response.allowances.allowance;
-				        	var gross_pay_pr = basic_pay + paid_absents + allowance;
-				        	var net_pay = basic_pay + paid_absents + allowance;
-				        	var net = parseInt(net_pay, 10);
-
+				           	
 				        	var holiday = response.holidays * daily;
 
 				        	var undertime = response.total_undertime;
@@ -525,8 +506,7 @@
 
 
 				        	var total_amount_late_undertime = amount_late + amount_undertime;
-				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime;
-				        	var net_pay = basic_pay + paid_absents + allowance - total_amount_late_undertime;
+				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime + holiday;
 
 				        	
 				        	$('#p_no_holidays').val(response.holidays);
@@ -535,7 +515,7 @@
 				        	$('#p_no_days_worked').val(response.daysWorked);
 				        	$('#p_basic_pay').val(basic_pay);
 				        	$('#p_gross_pay').val(gross_pay_pr);
-				        	$('#p_net_pay').val(net_pay);
+				        	
 				        	$('#p_total_absences').val(response.absents);
 				        	$('#p_unpaid_absences').val(response.unpaid);
 				        	$('#p_charge_to_SIL').val(paid_absents);
@@ -545,140 +525,178 @@
 				        	$('#p_amount_undertime_late').val(total_amount_late_undertime);
 				        	// $('#p_allowance').val(allowance);
 
-				        	$('#p_adjustment_incentive').keyup(function(){
+				        			
+				        	
+	        	        	var phic = basic_pay * 0.02;
+	        	        	var hdmf = basic_pay * 0.02;
+	        	        	var gross_pay =  $('#p_gross_pay').val();
+
+	        	        	if (gross_pay >= 0 && gross_pay <= 2250) {
+	        				  	var msc = 2000;
+	        				}
+	        				else if (gross_pay >= 2250 && gross_pay <= 2749.99) {
+	        					var msc = 2500;
+	        				}
+	        				else if (gross_pay >= 2750 && gross_pay <= 3249.99) {
+	        					var msc = 3000;
+	        				}
+	        				else if (gross_pay >= 3250 && gross_pay <= 3749.99) {
+	        					var msc = 3500;
+	        				}
+	        				else if (gross_pay >= 3750 && gross_pay <= 4249.99) {
+	        					var msc = 4000;
+	        				}
+	        				else if (gross_pay >= 4250 && gross_pay <= 4749.99) {
+	        					var msc = 4500;
+	        				}
+	        				else if (gross_pay >= 4750 && gross_pay <= 5249.99) {
+	        					var msc = 5000;
+	        				}
+	        				else if (gross_pay >= 5250 && gross_pay <= 5749.99) {
+	        					var msc = 5500;
+	        				}
+	        				else if (gross_pay >= 5750 && gross_pay <= 6249.99) {
+	        					var msc = 6000;
+	        				}
+	        				else if (gross_pay >= 6250 && gross_pay <= 6749.99) {
+	        					var msc = 6500;
+	        				}
+	        				else if (gross_pay >= 6750 && gross_pay <= 7249.99) {
+	        					var msc = 7000;
+	        				}
+	        				else if (gross_pay >= 7250 && gross_pay <= 7749.99) {
+	        					var msc = 7500;
+	        				}
+	        				else if (gross_pay >= 7750 && gross_pay <= 8249.99) {
+	        					var msc = 8000;
+	        				}
+	        				else if (gross_pay >= 8250 && gross_pay <= 8749.99) {
+	        					var msc = 8500;
+	        				}
+	        				else if (gross_pay >= 8750 && gross_pay <= 9249.99) {
+	        					var msc = 9000;
+	        				}
+	        				else if (gross_pay >= 9250 && gross_pay <= 9749.99) {
+	        					var msc = 9500;
+	        				}
+	        				else if (gross_pay >= 9750 && gross_pay <= 10249.99) {
+	        					var msc = 10000;
+	        				}
+	        				else if (gross_pay >= 10250 && gross_pay <= 10749.99) {
+	        					var msc = 10500;
+	        				}
+	        				else if (gross_pay >= 10750 && gross_pay <= 11249.99) {
+	        					var msc = 11000;
+	        				}
+	        				else if (gross_pay >= 11250 && gross_pay <= 11749.99) {
+	        					var msc = 11500;
+	        				}
+	        				else if (gross_pay >= 11750 && gross_pay <= 12249.99) {
+	        					var msc = 12000;
+	        				}
+	        				else if (gross_pay >= 12250 && gross_pay <= 12749.99) {
+	        					var msc = 12500;
+	        				}
+	        				else if (gross_pay >= 12750 && gross_pay <= 13249.99) {
+	        					var msc = 13000;
+	        				}
+	        				else if (gross_pay >= 13250 && gross_pay <= 13749.99) {
+	        					var msc = 13500;
+	        				}
+	        				else if (gross_pay >= 13750 && gross_pay <= 14249.99) {
+	        					var msc = 14000;
+	        				}
+	        				else if (gross_pay >= 14250 && gross_pay <= 14749.99) {
+	        					var msc = 14500;
+	        				}
+	        				else if (gross_pay >= 14750 && gross_pay <= 15249.99) {
+	        					var msc = 15000;
+	        				}
+	        				else if (gross_pay >= 15250 && gross_pay <= 15749.99) {
+	        					var msc = 15500;
+	        				}
+	        				else if (gross_pay >= 15750 && gross_pay <= 16249.99) {
+	        					var msc = 16000;
+	        				}
+	        				else if (gross_pay >= 16250 && gross_pay <= 16749.99) {
+	        					var msc = 16500;
+	        				}
+	        				else if (gross_pay >= 16750 && gross_pay <= 17249.99) {
+	        					var msc = 17000;
+	        				}
+	        				else if (gross_pay >= 17250 && gross_pay <= 17749.99) {
+	        					var msc = 17500;
+	        				}
+	        				else if (gross_pay >= 17750 && gross_pay <= 18249.99) {
+	        					var msc = 18000;
+	        				}
+	        				else if (gross_pay >= 18250 && gross_pay <= 18749.99) {
+	        					var msc = 18500;
+	        				}
+	        				else if (gross_pay >= 18750 && gross_pay <= 19249.99) {
+	        					var msc = 19000;
+	        				}
+	        				else if (gross_pay >= 19250 && gross_pay <= 19749.99) {
+	        					var msc = 19500;
+	        				}
+	        				else if (gross_pay >= 19750 && gross_pay <= 1000000) {
+	        					var msc = 20000;
+	        				}
+
+	        				var sss = msc * 0.04;
+
+	        				var amount_benefits = sss + phic + hdmf;
+
+	        	        	$('#p_phic').val(phic);
+	        	        	$('#p_hdmf').val(hdmf);
+	        	        	$('#p_sss').val(sss);
+	        	        	$('#p_total_deduction_benefits').val(amount_benefits);
+
+	        	        	var net_pay = gross_pay_pr - amount_benefits;
+
+	        	        	var net = parseInt(net_pay, 10);
+
+	        	        	$('#p_adjustment_incentive').keyup(function(){
 				        		var incentives = $(this).val();
 				        		var new_incentives = parseInt(incentives, 10);
 
 				        		$('#p_gross_pay').val(gross_pay_pr + new_incentives);
 				        		$('#p_net_pay').val(net + new_incentives);
+				        		$('#p_net_pay2').val(net + new_incentives);
 				        		
-				        		
-				        		
-				        	});			
-				        	
-				        	        	var phic = basic_pay * 0.02;
-				        	        	var hdmf = basic_pay * 0.02;
-				        	        	var gross_pay =  $('#p_gross_pay').val();
+				        	});
 
-				        	        	if (gross_pay >= 0 && gross_pay <= 2250) {
-				        				  	var msc = 2000;
-				        				}
-				        				else if (gross_pay >= 2250 && gross_pay <= 2749.99) {
-				        					var msc = 2500;
-				        				}
-				        				else if (gross_pay >= 2750 && gross_pay <= 3249.99) {
-				        					var msc = 3000;
-				        				}
-				        				else if (gross_pay >= 3250 && gross_pay <= 3749.99) {
-				        					var msc = 3500;
-				        				}
-				        				else if (gross_pay >= 3750 && gross_pay <= 4249.99) {
-				        					var msc = 4000;
-				        				}
-				        				else if (gross_pay >= 4250 && gross_pay <= 4749.99) {
-				        					var msc = 4500;
-				        				}
-				        				else if (gross_pay >= 4750 && gross_pay <= 5249.99) {
-				        					var msc = 5000;
-				        				}
-				        				else if (gross_pay >= 5250 && gross_pay <= 5749.99) {
-				        					var msc = 5500;
-				        				}
-				        				else if (gross_pay >= 5750 && gross_pay <= 6249.99) {
-				        					var msc = 6000;
-				        				}
-				        				else if (gross_pay >= 6250 && gross_pay <= 6749.99) {
-				        					var msc = 6500;
-				        				}
-				        				else if (gross_pay >= 6750 && gross_pay <= 7249.99) {
-				        					var msc = 7000;
-				        				}
-				        				else if (gross_pay >= 7250 && gross_pay <= 7749.99) {
-				        					var msc = 7500;
-				        				}
-				        				else if (gross_pay >= 7750 && gross_pay <= 8249.99) {
-				        					var msc = 8000;
-				        				}
-				        				else if (gross_pay >= 8250 && gross_pay <= 8749.99) {
-				        					var msc = 8500;
-				        				}
-				        				else if (gross_pay >= 8750 && gross_pay <= 9249.99) {
-				        					var msc = 9000;
-				        				}
-				        				else if (gross_pay >= 9250 && gross_pay <= 9749.99) {
-				        					var msc = 9500;
-				        				}
-				        				else if (gross_pay >= 9750 && gross_pay <= 10249.99) {
-				        					var msc = 10000;
-				        				}
-				        				else if (gross_pay >= 10250 && gross_pay <= 10749.99) {
-				        					var msc = 10500;
-				        				}
-				        				else if (gross_pay >= 10750 && gross_pay <= 11249.99) {
-				        					var msc = 11000;
-				        				}
-				        				else if (gross_pay >= 11250 && gross_pay <= 11749.99) {
-				        					var msc = 11500;
-				        				}
-				        				else if (gross_pay >= 11750 && gross_pay <= 12249.99) {
-				        					var msc = 12000;
-				        				}
-				        				else if (gross_pay >= 12250 && gross_pay <= 12749.99) {
-				        					var msc = 12500;
-				        				}
-				        				else if (gross_pay >= 12750 && gross_pay <= 13249.99) {
-				        					var msc = 13000;
-				        				}
-				        				else if (gross_pay >= 13250 && gross_pay <= 13749.99) {
-				        					var msc = 13500;
-				        				}
-				        				else if (gross_pay >= 13750 && gross_pay <= 14249.99) {
-				        					var msc = 14000;
-				        				}
-				        				else if (gross_pay >= 14250 && gross_pay <= 14749.99) {
-				        					var msc = 14500;
-				        				}
-				        				else if (gross_pay >= 14750 && gross_pay <= 15249.99) {
-				        					var msc = 15000;
-				        				}
-				        				else if (gross_pay >= 15250 && gross_pay <= 15749.99) {
-				        					var msc = 15500;
-				        				}
-				        				else if (gross_pay >= 15750 && gross_pay <= 16249.99) {
-				        					var msc = 16000;
-				        				}
-				        				else if (gross_pay >= 16250 && gross_pay <= 16749.99) {
-				        					var msc = 16500;
-				        				}
-				        				else if (gross_pay >= 16750 && gross_pay <= 17249.99) {
-				        					var msc = 17000;
-				        				}
-				        				else if (gross_pay >= 17250 && gross_pay <= 17749.99) {
-				        					var msc = 17500;
-				        				}
-				        				else if (gross_pay >= 17750 && gross_pay <= 18249.99) {
-				        					var msc = 18000;
-				        				}
-				        				else if (gross_pay >= 18250 && gross_pay <= 18749.99) {
-				        					var msc = 18500;
-				        				}
-				        				else if (gross_pay >= 18750 && gross_pay <= 19249.99) {
-				        					var msc = 19000;
-				        				}
-				        				else if (gross_pay >= 19250 && gross_pay <= 19749.99) {
-				        					var msc = 19500;
-				        				}
-				        				else if (gross_pay >= 19750 && gross_pay <= 1000000) {
-				        					var msc = 20000;
-				        				}
+				        	$('#p_net_pay').val(net_pay);
+				        	$('#p_net_pay2').val(net_pay);
 
-				        				var sss = msc * 0.04;
+				        	var loan = $('[name="p_sss_loan"],[name="p_company_loan"],[name="p_hdmf_loan"],[name="p_uniform"],[name="p_tax"]'),
+								loan_sss = $('[name="p_sss_loan"]'),
+								loan_company = $('[name="p_company_loan"]'),
+								loan_hdmf = $('[name="p_hdmf_loan"]'),
+								uniform = $('[name="p_uniform"]'),
+								tax = $('[name="p_tax"]'),
+								loan_total = $('[name="p_total_deduction_loan"]');		
 
-				        	        	$('#p_phic').val(phic);
-				        	        	$('#p_hdmf').val(hdmf);
-				        	        	$('#p_sss').val(sss);
-				        	        	$('#p_total_deduction_benefits').val(sss + phic + hdmf);
+							loan.change(function() {
+								 var val1 = (isNaN(parseInt(loan_sss.val()))) ? 0 : parseInt(loan_sss.val());
+								 var val2 = (isNaN(parseInt(loan_company.val()))) ? 0 : parseInt(loan_company.val());
+								 var val3 = (isNaN(parseInt(loan_hdmf.val()))) ? 0 : parseInt(loan_hdmf.val());
+								 var val4 = (isNaN(parseInt(uniform.val()))) ? 0 : parseInt(uniform.val());
+								 var val5 = (isNaN(parseInt(tax.val()))) ? 0 : parseInt(tax.val());
 
+								 loan_total.val(val1 + val2 + val3 + val4);
+
+								 var loans = loan_total.val();
+								 var net_pay_amount = $('#p_net_pay2').val();
+
+								 console.log(net_pay_amount);
+
+								 var net_loan = net_pay_amount - loans;
+
+								 console.log(net_loan);
+
+								 $('#p_net_pay').val(net_loan - val5);
+							});
 
 				        }
 				      });
