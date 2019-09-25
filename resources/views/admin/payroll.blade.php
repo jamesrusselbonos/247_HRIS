@@ -510,19 +510,19 @@
 
 				        	
 				        	$('#p_no_holidays').val(response.holidays);
-				        	$('#p_amount_holidays').val(holiday);
+				        	$('#p_amount_holidays').val(holiday.toFixed(2));
 
 				        	$('#p_no_days_worked').val(response.daysWorked);
-				        	$('#p_basic_pay').val(basic_pay);
-				        	$('#p_gross_pay').val(gross_pay_pr);
+				        	$('#p_basic_pay').val(basic_pay.toFixed(2));
+				        	$('#p_gross_pay').val(gross_pay_pr.toFixed(2));
 				        	
 				        	$('#p_total_absences').val(response.absents);
 				        	$('#p_unpaid_absences').val(response.unpaid);
 				        	$('#p_charge_to_SIL').val(paid_absents);
-				        	$('#p_amount_absences').val(unpaid_absences);
-				        	$('#p_no_undertime').val(undertime);
-				        	$('#p_no_late').val(late);
-				        	$('#p_amount_undertime_late').val(total_amount_late_undertime);
+				        	$('#p_amount_absences').val(unpaid_absences.toFixed(2));
+				        	$('#p_no_undertime').val(undertime.toFixed(2));
+				        	$('#p_no_late').val(late.toFixed(2));
+				        	$('#p_amount_undertime_late').val(total_amount_late_undertime.toFixed(2));
 				        	// $('#p_allowance').val(allowance);
 
 				        			
@@ -647,10 +647,10 @@
 
 	        				var amount_benefits = sss + phic + hdmf;
 
-	        	        	$('#p_phic').val(phic);
-	        	        	$('#p_hdmf').val(hdmf);
-	        	        	$('#p_sss').val(sss);
-	        	        	$('#p_total_deduction_benefits').val(amount_benefits);
+	        	        	$('#p_phic').val(phic.toFixed(2));
+	        	        	$('#p_hdmf').val(hdmf.toFixed(2));
+	        	        	$('#p_sss').val(sss.toFixed(2));
+	        	        	$('#p_total_deduction_benefits').val(amount_benefits.toFixed(2));
 
 	        	        	var net_pay = gross_pay_pr - amount_benefits;
 
@@ -660,14 +660,15 @@
 				        		var incentives = $(this).val();
 				        		var new_incentives = parseInt(incentives, 10);
 
-				        		$('#p_gross_pay').val(gross_pay_pr + new_incentives);
+				        		var gross = gross_pay_pr + new_incentives;
+				        		$('#p_gross_pay').val(gross.toFixed(2));
 				        		$('#p_net_pay').val(net + new_incentives);
 				        		$('#p_net_pay2').val(net + new_incentives);
 				        		
 				        	});
 
-				        	$('#p_net_pay').val(net_pay);
-				        	$('#p_net_pay2').val(net_pay);
+				        	$('#p_net_pay').val(net_pay.toFixed(2));
+				        	$('#p_net_pay2').val(net_pay.toFixed(2));
 
 				        	var loan = $('[name="p_sss_loan"],[name="p_company_loan"],[name="p_hdmf_loan"],[name="p_uniform"],[name="p_tax"]'),
 								loan_sss = $('[name="p_sss_loan"]'),
