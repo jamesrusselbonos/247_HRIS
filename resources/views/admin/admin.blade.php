@@ -134,6 +134,9 @@
                         <li>
                             <a href="/holidays"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Holidays</a>
                         </li>
+                        <li>
+                            <a href="/shift"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Shifts</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

@@ -966,43 +966,10 @@ class AdminController extends Controller
 
     }
 
+    public function shift_index(){
+
+        return view('admin.shift');
+    }
 
 
-    // if(time duration >= ot time + 4)
-    //     new Ot time duration = ot time
-    // else if(time duration < ot time + 4)
-    //     new Ot time duration = time duration - 4
-
-
-    // ot time = 2hrs (2.00)
-
-    // time duration = 5hrs (5.00)
-    // new OT time = time duration - 4.00
-    // new OT time = 5.00 - 4.00
-    // new OT time = 1.00
-
-    // ot table
-    // status duration
-
-    // TimeSheet
-    // ot id
-
-    // select * from timesheet table join ot table where timesheet.otid = ot.otid AND ot.status = approved where between date 00-00-0000 00-00-0000
-
-
-    // TimeSheet
-    // employee = select * from timesheet table join ot table where timesheet.otid = ot.otid AND ot.status = approved where between date 00-00-0000 00-00-0000
-    
-    // if (!employee) 
-    //     if(request->time duration >= 4)
-    //         timeduration = 4
-    //     else if (request->time < 4)
-    //         timeduration = request->time
-    // else
-    //     if(request->time duration >= ot time + 4)
-    //         new Ot time duration = ot time
-    //         timeduration = 4
-    //     else if(request->time duration < ot time + 4)
-    //         new Ot time duration = time duration - 4
-    //         timeduration = 4
 }

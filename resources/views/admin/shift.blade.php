@@ -19,23 +19,7 @@
 				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add A Holiday</button>
 				    			</span>
 				    		</div>
-				    		<!-- <div class="col-lg-4">
-				    			<div style="float: right;" class="dropdown">
-				    			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    			    Export
-				    			  </button>
-				    			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    			    <a class="dropdown-item" href="#">Copy</a>
-				    			    <a class="dropdown-item" href="#">Excel</a>
-				    			    <a class="dropdown-item" href="#">CSV</a>
-				    			    <a class="dropdown-item" href="#">Print</a>
-				    			  </div>
-				    			</div>
-				    		</div>
-				    		<div class="col-lg-4">
-				    			<input type="date" name="bday" max="3000-12-31" 
-				    			        min="1000-01-01" class="form-control">
-				    		</div> -->
+				    		
 				    	</div>
 				    </div>
 
@@ -51,17 +35,17 @@
 				            </tr>
 				          </thead>
 				          <tbody>
-				      		@foreach($holidays as $holi)
+
 				      		<tr>
 					              <td scope="row"  style="min-width: 200px;">
-					              	{{$holi->holiday_name}}
+		
 					              </td>
 					              
 					              <td style="min-width: 200px;">
-					              	{{$holi->date}}
+					              	
 					              </td>
 					              <td style="min-width: 200px;">
-					              	{{$holi->holiday_type}}
+					              	
 					              </td>
 					             
 					             <td>
@@ -71,7 +55,7 @@
 	     							</span>
 					             </td>
 				            </tr>
-				      		@endforeach 
+				      	
 				          </tbody>
 				        </table>
 				       
@@ -133,7 +117,7 @@
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	          <h5 class="modal-title" id="exampleModalLabel">Add Holiday</h5>
+	          <h5 class="modal-title" id="exampleModalLabel">Add Shift</h5>
 	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	            <span aria-hidden="true">&times;</span>
 	          </button>
@@ -143,31 +127,35 @@
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
-	                	  <label>Holiday</label>
-	                	   <input type="text" name="holiday" class="form-control" >
+	                	  <label>Shift Name</label>
+	                	   <input type="text" name="shift_name" class="form-control" >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
-	                	  <label>Date</label>
-	                	   <input type="date" name="holiday_date" max="3000-12-31" 
-										          min="1000-01-01" class="form-control">
+	                	  <h6>Shift</h6>
+	                	</div>
+	                	<div class="form-group col-md-12">
+	                	  <label>Start</label>
+	                	  <input type="time" name="shift_start" class="form-control">
 	                	</div>
 
 	                	<div class="form-group col-md-12">
-	                	  <label>Holiday Type</label>
-	                	   <select name="holiday_type">
-							  	@foreach($holiday_type as $type)
-							  	<option value="{{$type->id}}">{{$type->holiday_type}}</option>
-							  	 @endforeach
-						  </select>
+	                	  <label>End</label>
+	                	  <input type="time" name="shift_end" class="form-control">
 	                	</div>
-	                	<!-- <div class="form-group col-md-4">
-	                	  <label>Role</label>
-	                	   <select>
-	                	  	<option value="2">Employee</option>
-	                	    <option value="1">Admin</option>
-	                	  </select>
-	                	</div> -->
+
+	                	<div class="form-group col-md-12">
+	                	  <h6>Lunch/Rest Break</h6>
+	                	</div>
+	                	<div class="form-group col-md-12">
+	                		<label>Start</label>
+	                		<input type="time" name="lunch_rest_start" class="form-control">
+	                	</div>	                	  	
+	                	<div class="form-group col-md-12">
+	                		<label>End</label>
+	                		<input type="time" name="lunch_rest_end" class="form-control">
+	                	</div>
+
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
