@@ -18,6 +18,7 @@ class CreateTableSchedule extends Migration
             $table->string('employee_id')->unique();
             $table->date('date_from');
             $table->date('date_to');
+            $table->integer('shift_id');
             $table->longText('task');
             $table->longText('comment');
             $table->string('duration');

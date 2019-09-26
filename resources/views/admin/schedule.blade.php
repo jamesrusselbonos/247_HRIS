@@ -241,14 +241,22 @@
 	                	<div class="form-group col-md-12">
 	                	  <div class="row">
 	                	  	<div class="form-group col-md-6">
-	                	  		<select class="shift_sel form-control" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
+	                	  		<select class="shift_sel form-control" id="shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
 	                	  			<option selected disabled>Select Shift</option>  
 	                	  			@foreach($shifts as $shift)
-	                	  				<option value="{{ $shift->id }}">{{ $shift->name }}</option>
+	                	  				<option value="{{ $shift->id }}" s_data_tfrom="{{ $shift->shift_start }}" s_data_tto="{{ $shift->shift_end }}">{{ $shift->name }}</option>
 	                	  			@endforeach
 	                	  		</select>
 	                	  	</div>
-	                	  	
+	                	  	<div class="form-group col-md-6">
+	                	  		<div class="row">
+	                	  			<div class="col-md-6" style="margin-top: -28px;">
+	                	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_sstart"></h6>
+	                	  			</div>
+	                	  			<div class="col-md-6" style="margin-top: -28px;">
+	                	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_send"></h6>
+	                	  			</div>
+	                	  		</div>
 	                	  </div>
 	                	</div>		
 
@@ -304,6 +312,15 @@
             ],
             hiddenDays: [7,7],
         });
+
+        $('#shift_sel').on('change', function() {
+
+			var data = $('#shift_sel option:selected').attr('s_data_tfrom');
+			var data2 = $('#shift_sel option:selected').attr('s_data_tto');
+			
+			$('#txt_sstart').html(data);
+			$('#txt_send').html(data2);
+		});
     });
 </script>
 @endsection
