@@ -8,6 +8,7 @@ use App\TimeSheet;
 use Auth;
 use DB;
 use Carbon\Carbon;
+use App\Overtime;
 
 class TimesheetController extends Controller
 {
@@ -177,22 +178,62 @@ class TimesheetController extends Controller
     public function timeOut(Request $request, $id)
     {   
 
+
         $userId = Auth::user()->id;
+        $user_emp = Auth::user()->employee_id;
         $users = User::find($userId);
         $dur = TimeSheet::where('id', $request->testID)->get('time_from');
-        
+
+
        $to = Carbon::now();
        $from = $dur['0']['time_from'];
        $duration = new Carbon;
        $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
        $xplode = explode(":", $duration);
        $decDuration = $xplode[0] + ($xplode[1]/60);
-   
 
+   
+        $overtime = Overtime::where('employee_id', $user_emp)
+                            ->where('date', date('Y-m-d'))
+                            ->first();
+
+        $time_duration = "0.00";
+        $ot_duration = "0.00";
+
+        if (!$overtime){
+            if($decDuration >= 4.00){
+                $time_duration = 4.02;
+            }
+
+            else if($decDuration < 4.00){
+                $time_duration = $decDuration;
+            }
+        } 
+            
+        else{
+            if($decDuration >= $overtime->duration + 4.00){
+                $ot_duration = $overtime->duration;
+                $time_duration = 4.00;
+            }
+                
+            else if($decDuration < $overtime->duration + 4.00){
+                $ot_duration = $decDuration - 4.00;
+                if($decDuration < 4.00){
+                    $time_duration = $decDuration;
+                }
+                else{
+                    $time_duration = 4.00;
+                }
+ 
+            }
+        }
+
+        // $time_duration = $ot_duration;
         DB::table('timesheets')
                     ->where('id', $request->testID)
                     ->update(['time_to' => date('H:i:s'),
-                        'time_duration' => $decDuration ]);
+                        'time_duration' => $time_duration,
+                        'overtime_duration' => $ot_duration ]);
         // (new Carbon($timeSheet->time_to))->diff(new Carbon($timeSheet->time_from))->format('%h:%I') 
         // $to = new Carbon;
         // $to = $timeSheet->time_to;

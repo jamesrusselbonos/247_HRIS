@@ -25,6 +25,7 @@ use App\Absent;
 use App\Payroll;
 
 use App\Prototype_Employee;
+use App\Overtime;
 use App\Schedule;
 use App\Memo;
 use App\Leave_type;
@@ -418,7 +419,6 @@ class AdminController extends Controller
                    
                 }
 
-           
        }
        else{
           foreach($request->memoemp_search as $ids){
@@ -452,7 +452,7 @@ class AdminController extends Controller
        }
         
 
-       
+
         // $schedule = new Schedule([
         //     'employee_id' => $request->get('memoemp_search'),
         //     'date_from' => $request->get('sched_date_from'),
@@ -794,17 +794,16 @@ class AdminController extends Controller
                                 ->count();
         $allowances = Prototype_Employee::where('employee_id', $request->id)
                                 ->first('allowance');  
+
+        $overtimes = TimeSheet::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->sum('overtime_duration');
 ///////////////Change when Shift Added/////////////////////////////////////////////////   
 
 
-        // $late = TimeSheet::where('employee_id', $request->id)
-        //                         ->whereBetween('date', array($request->d_from, $request->d_to))
-        //                         ->whereBetween('time_from', array('08:16:00', '12:00:00'))
-        //                         ->orWhereBetween('time_from', array('13:01:00', '17:00:00'))
-        //                         ->get();     
-
         $late = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('time_to', '!=', null)
                                 ->where(function ($query) {
                                                $query->whereBetween('time_from', array('08:16:00', '12:00:00'))
                                                      ->orWhereBetween('time_from', array('13:01:00', '17:00:00'));
@@ -814,6 +813,7 @@ class AdminController extends Controller
 
         $underTime = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('time_to', '!=', null)
                                 ->where(function ($query) {
                                                $query->whereBetween('time_to', array('08:00:59', '11:59:59'))
                                                      ->orWhereBetween('time_to', array('13:00:59', '16:59:59'));
@@ -827,15 +827,37 @@ class AdminController extends Controller
         //     $duration = 8.00 - $dur;
         //     $total_late += $duration;
         // }
+        // $time_from = new Carbon('08:00:00'); 
 
 
-
+      
        $total_late = 0.00;
         foreach($late as $la){
-            $dur = $la->time_duration;
+            if($la->time_to < '16:59:59'){
 
-            $duration = 4.00 - $dur;
-            $total_late += $duration;
+               $duration = Carbon::parse('13:00:00')->diff(Carbon::parse($la->time_from))->format('%h:%I');
+               $xplode = explode(":", $duration);
+               $decDuration = $xplode[0] + ($xplode[1]/60);
+
+               $total_late += $decDuration;
+            }            
+
+            else if($la->time_to < '11:59:59'){
+
+                $duration = Carbon::parse('08:00:00')->diff(Carbon::parse($la->time_from))->format('%h:%I');
+                $xplode = explode(":", $duration);
+                $decDuration = $xplode[0] + ($xplode[1]/60);
+
+                $total_late += $decDuration;
+               
+            }
+            else{
+                $dur = $la->time_duration;
+
+                $duration = 4.00 - $dur;
+                $total_late += $duration;
+            }
+           
         }        
 
         $total_undertime = 0.00;
@@ -858,7 +880,7 @@ class AdminController extends Controller
          
          return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 
-                        'total_undertime' => $total_undertime, 'holidays' => $holidays]);
+                        'total_undertime' => $total_undertime, 'holidays' => $holidays, 'overtimes' => $overtimes ]);
         
      }
 
@@ -932,9 +954,55 @@ class AdminController extends Controller
 
     }
 
-    public function overtimeEdit(){
+    public function overtimeEdit(Request $request){
 
+        $overtime = Overtime::where('otime_id', $request->hdn_id)->first();
+        
+        $overtime->status = $request->eo_status;
+
+        $overtime->save();
+
+        return redirect()->back();
 
     }
 
+
+
+    // if(time duration >= ot time + 4)
+    //     new Ot time duration = ot time
+    // else if(time duration < ot time + 4)
+    //     new Ot time duration = time duration - 4
+
+
+    // ot time = 2hrs (2.00)
+
+    // time duration = 5hrs (5.00)
+    // new OT time = time duration - 4.00
+    // new OT time = 5.00 - 4.00
+    // new OT time = 1.00
+
+    // ot table
+    // status duration
+
+    // TimeSheet
+    // ot id
+
+    // select * from timesheet table join ot table where timesheet.otid = ot.otid AND ot.status = approved where between date 00-00-0000 00-00-0000
+
+
+    // TimeSheet
+    // employee = select * from timesheet table join ot table where timesheet.otid = ot.otid AND ot.status = approved where between date 00-00-0000 00-00-0000
+    
+    // if (!employee) 
+    //     if(request->time duration >= 4)
+    //         timeduration = 4
+    //     else if (request->time < 4)
+    //         timeduration = request->time
+    // else
+    //     if(request->time duration >= ot time + 4)
+    //         new Ot time duration = ot time
+    //         timeduration = 4
+    //     else if(request->time duration < ot time + 4)
+    //         new Ot time duration = time duration - 4
+    //         timeduration = 4
 }

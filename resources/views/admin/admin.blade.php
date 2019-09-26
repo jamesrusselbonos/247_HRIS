@@ -846,7 +846,7 @@
     				 }); 
     		});
 
-            $('.overtime_view').on('click', function(){
+            $('.overtime_view_edit').on('click', function(){
 
                 var id = $(this).attr('id');
                 var token = $(".hdn-token").val();
@@ -863,6 +863,8 @@
                         data: data,
                         success: function( response ) {
                             console.log(response.overtimes.lastname);
+                            $('#hdn_id').val(response.overtimes.otime_id);
+                            $('#txt_vo_empid').val(response.overtimes.employee_id);
                             $('#vo_lname').html(response.overtimes.lastname);
                             $('#vo_fname').html(response.overtimes.firstname);
                             $('#vo_mname').html(response.overtimes.middle_name);
@@ -871,7 +873,16 @@
                             $('#vo_timeto').html(response.overtimes.time_to);
                             $('#vo_duration').html(response.overtimes.duration);
                             $('#vo_reason').html(response.overtimes.reason);
-                            $('#vo_status').val(response.overtimes.status);
+                            $('#vo_status').html(response.overtimes.status);                            
+                            $('#eo_lname').html(response.overtimes.lastname);
+                            $('#eo_fname').html(response.overtimes.firstname);
+                            $('#eo_mname').html(response.overtimes.middle_name);
+                            $('#eo_date').html(response.overtimes.date);
+                            $('#eo_timefrom').html(response.overtimes.time_from);
+                            $('#eo_timeto').html(response.overtimes.time_to);
+                            $('#eo_duration').html(response.overtimes.duration);
+                            $('#eo_reason').html(response.overtimes.reason);
+                            $('#eo_status').val(response.overtimes.status);
                         }
                     });
             });
