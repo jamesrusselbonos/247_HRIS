@@ -36,10 +36,43 @@ class EmployeeController extends Controller
 
             $days_absent = DB::table('absents')
                 ->join('users','users.employee_id', '=', 'absents.employee_id')
+                ->join('prototype__employees','prototype__employees.employee_id', '=', 'absents.employee_id')
+                ->select('users.*', 'absents.*','prototype__employees.*')
                 ->where('absents.employee_id', '=', $user)
                 ->get();
 
-           return view('employee.employee_index', compact('sum_of_time_duration', 'days_absent'));
+             $leave = DB::table('leaves')
+                ->join('users', 'users.employee_id', '=', 'leaves.emp_id')
+                ->join('prototype__employees','prototype__employees.employee_id', '=', 'leaves.emp_id')
+                ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+                ->select('leaves.*', 'leave_types.leave_type','prototype__employees.*','users.*')
+                ->where('leaves.emp_id', '=', $user)
+                ->get();
+
+            $timeSheets =  DB::table('timesheets')
+                 ->select('*')
+                 ->where('employee_id', $user)
+                 ->get();
+
+            $holidays = DB::table('holidays')
+                ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+                ->select('holidays.*', 'holiday_types.holiday_type')
+                ->get();
+
+            $info = DB::table('prototype__employees')
+                ->join('users', 'users.employee_id', '=', 'prototype__employees.employee_id')
+                ->select('users.*', 'prototype__employees.*')
+                ->where('prototype__employees.employee_id', '=', $user)
+                ->get();
+
+            $sched_list = DB::table('schedules')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
+            ->join('users', 'users.employee_id', '=', 'prototype__employees.employee_id')
+            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
+            ->where('schedules.employee_id', '=', $user)
+            ->get();
+
+           return view('employee.employee_index', compact('sum_of_time_duration', 'days_absent', 'timeSheets', 'holidays','leave', 'sched_list'));
         }
 
 

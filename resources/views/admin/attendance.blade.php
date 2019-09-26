@@ -31,7 +31,7 @@
 										</div>
 										<div class="col-md-5">
 											<div class="row">
-												<div class="col-sm-12 color_desc">
+												<div class="col-sm-12 color_desc" style="text-align: right;">
 													<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
 													<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
 													<p style="color: #FF0000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>

@@ -163,7 +163,7 @@
 			</nav> -->
 			<div class="panel animated bounceIn">
 			    <div class="title">Notifications</div>
-			     <ul class="notification-bar" id="not">
+			     <ul class="notification-bar" id="not" data-simplebar>
 			      	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 			      	@foreach(auth()->user()->unreadNotifications as $notification)
 				      	@if($notification->type == "App\Notifications\SendMemo")
