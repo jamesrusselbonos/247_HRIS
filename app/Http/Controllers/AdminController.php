@@ -27,6 +27,7 @@ use App\Payroll;
 use App\Prototype_Employee;
 use App\Overtime;
 use App\Schedule;
+use App\Shift;
 use App\Memo;
 use App\Leave_type;
 use App\Leave;
@@ -375,8 +376,9 @@ class AdminController extends Controller
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
             ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
             ->get();
+        $shifts = Shift::all();
             
-        return view('admin.schedule', compact('sched_employee', 'sched_list'));
+        return view('admin.schedule', compact('sched_employee', 'sched_list', 'shifts'));
     }
 
     public function schedule_create(Request $request){
@@ -968,7 +970,22 @@ class AdminController extends Controller
 
     public function shift_index(){
 
-        return view('admin.shift');
+        $shifts = Shift::all();
+
+        return view('admin.shift', compact('shifts'));
+    }
+    public function shift_create(Request $request){
+
+        $shift = new Shift;
+        $shift->name = $request->shift_name;
+        $shift->shift_start = $request->shift_start;
+        $shift->shift_end = $request->shift_end;
+        $shift->break_start = $request->lunch_rest_start;
+        $shift->break_end = $request->lunch_rest_end;
+
+        $shift->save();
+
+        return redirect()->back();
     }
 
 

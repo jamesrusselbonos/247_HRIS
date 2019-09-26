@@ -236,7 +236,21 @@
 								          min="1000-01-01" class="form-control">
 	                	  	</div>
 	                	  </div>
-	                	</div>	
+	                	</div>
+
+	                	<div class="form-group col-md-12">
+	                	  <div class="row">
+	                	  	<div class="form-group col-md-6">
+	                	  		<select class="shift_sel form-control" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
+	                	  			<option selected disabled>Select Shift</option>  
+	                	  			@foreach($shifts as $shift)
+	                	  				<option value="{{ $shift->id }}">{{ $shift->name }}</option>
+	                	  			@endforeach
+	                	  		</select>
+	                	  	</div>
+	                	  	
+	                	  </div>
+	                	</div>		
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Task</label>

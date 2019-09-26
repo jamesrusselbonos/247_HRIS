@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="jumbotron2">
-		  		<h1 style="margin-top: 130px;" class="display-4">Add Holiday</h1>
+		  		<h1 style="margin-top: 130px;" class="display-4">Add Shift</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -16,7 +16,7 @@
 				    	<div class="row">
 				    		<div class="col-lg-12">
 				    			<span>
-				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add A Holiday</button>
+				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add A Shift</button>
 				    			</span>
 				    		</div>
 				    		
@@ -28,34 +28,45 @@
 				        <table class="table display nowrap" id="DataTable">
 				          <thead>
 				            <tr>
-				              <th scope="col">Holiday</th>
-				              <th scope="col">Date</th>
-				              <th scope="col">Holiday Type</th>
+				              <th scope="col">Shift Name</th>
+				              <th scope="col">Shift Start</th>
+				              <th scope="col">Shift End</th>				              
+				              <th scope="col">Lunch/Rest Break Start</th>
+				              <th scope="col">Lunch/Rest Break End</th>
 				              <th scope="col">Manage</th>
 				            </tr>
 				          </thead>
 				          <tbody>
-
+				          	@foreach($shifts as $shift)
 				      		<tr>
-					              <td scope="row"  style="min-width: 200px;">
-		
+					              <td scope="row">
+									{{ $shift->name }}
 					              </td>
 					              
-					              <td style="min-width: 200px;">
-					              	
+					              <td style="min-width: 50px;">
+					              	{{ $shift->shift_start }}
 					              </td>
-					              <td style="min-width: 200px;">
-					              	
+
+					              <td style="min-width: 50px;">
+					              	{{ $shift->shift_end }}
+					              </td>					              
+
+					              <td style="min-width: 150px;">
+					              	{{ $shift->break_start }}
+					              </td>
+
+					              <td style="min-width: 150px;">
+					              	{{ $shift->break_end }}
 					              </td>
 					             
-					             <td>
+					             <td style="min-width: 200px;">
 					             	<span style="float: right;">
 	     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 	     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 	     							</span>
 					             </td>
 				            </tr>
-				      	
+				      		@endforeach
 				          </tbody>
 				        </table>
 				       
@@ -123,7 +134,7 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="POST" action="{{route('holidays.create')}}">
+	              <form method="POST" action="{{route('admin.shift.create')}}">
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
@@ -132,9 +143,7 @@
 	                	</div>
 
 	                	<div class="form-group col-md-12">
-	                	  <h6>Shift</h6>
-	                	</div>
-	                	<div class="form-group col-md-12">
+	                	  <div><h6>Shift</h6></div>
 	                	  <label>Start</label>
 	                	  <input type="time" name="shift_start" class="form-control">
 	                	</div>
@@ -145,9 +154,7 @@
 	                	</div>
 
 	                	<div class="form-group col-md-12">
-	                	  <h6>Lunch/Rest Break</h6>
-	                	</div>
-	                	<div class="form-group col-md-12">
+	                		<div><h6>Lunch/Rest Break</h6></div>
 	                		<label>Start</label>
 	                		<input type="time" name="lunch_rest_start" class="form-control">
 	                	</div>	                	  	
@@ -159,7 +166,7 @@
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		               <button type="submit" class="btn btn-success btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+		               <button type="submit" class="btn btn-success btn_save_shift"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 		            </div>
 	              </form>
 	            </div>
