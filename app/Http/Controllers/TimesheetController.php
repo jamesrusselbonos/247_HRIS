@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use Carbon\Carbon;
 use App\Overtime;
+use App\Shift;
 
 class TimesheetController extends Controller
 {
@@ -29,6 +30,7 @@ class TimesheetController extends Controller
                      ->select('*')
                      ->where('employee_id', $userId)
                      ->get();
+
          
         // $timeSheets = TimeSheet::where('employee_id' , $userId);
 
@@ -184,25 +186,25 @@ class TimesheetController extends Controller
         $users = User::find($userId);
         $dur = TimeSheet::where('id', $request->testID)->first();
 
+        $shift = DB::table('schedules')
+            ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
+            ->select('shifts.*', 'schedules.*')
+            ->where('schedules.employee_id', '=', $user_emp)
+            ->first();
+ 
+
         // ////////////shifts added
-        // $decDuration = 0.00;
-        // if timefrom > shift start
-        //     if timeto >= shift end
-        //         duration = timefrom diff(shiftend)
-        //     else if timeto < shift end
-        //         duration = timefrom diff(timeto)
-        // else if timefrom <= shift start
-        //     if timeto >= shift end
-        //         duration = shiftstart diff(shiftend)
-        //     else if timeto < shift end
-        //         duration = shiftstart diff(timeto)
+
+
+        $start = Carbon::parse($shift->shift_start);
+        $end = Carbon::parse($shift->shift_end);   
 
        $to = Carbon::now();
        $from = $dur->time_from;
-       $duration = new Carbon;
-       $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
-       $xplode = explode(":", $duration);
-       $decDuration = $xplode[0] + ($xplode[1]/60);
+       // $duration = new Carbon;
+       // $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
+       // $xplode = explode(":", $duration);
+       // $decDuration = $xplode[0] + ($xplode[1]/60);
 
    
         $overtime = Overtime::where('employee_id', $user_emp)
@@ -217,15 +219,47 @@ class TimesheetController extends Controller
 
         $time_duration = "0.00";
         $ot_duration = "0.00";
+        $decDuration = "0.00";
 
         if (!$overtime){
-            if($decDuration >= 4.00){
-                $time_duration = 4.00;
-            }
 
-            else if($decDuration < 4.00){
-                $time_duration = $decDuration;
+            if($from > $start){
+                if($to >= $end){
+                    $duration = $from->diff($end)->format('%h:%I');
+                    $xplode = explode(":", $duration);
+                    $decDuration = $xplode[0] + ($xplode[1]/60);
+                    $time_duration = $decDuration;
+                }
+                else if($to < $end){
+                    $duration = $from->diff($to)->format('%h:%I');
+                    $xplode = explode(":", $duration);
+                    $decDuration = $xplode[0] + ($xplode[1]/60);
+                    $time_duration = $decDuration;
+                }
             }
+                // 13:00 < 8:00
+                // 4:00 < 5:00 strtotime
+            else if($from <= $start){
+                if($to >= $end){
+                    $duration = $start->diff($end)->format('%h:%I');
+                    $xplode = explode(":", $duration);
+                    $decDuration = $xplode[0] + ($xplode[1]/60);
+                    $time_duration = $decDuration;
+                }
+                else if($to < $end){
+                    $duration = $to->diff($start)->format('%h:%I');
+                    $xplode = explode(":", $duration);
+                    $decDuration = $xplode[0] + ($xplode[1]/60);
+                    $time_duration = $decDuration;
+                }
+            }
+            // if($decDuration >= 4.00){
+            //     $time_duration = 4.00;
+            // }
+
+            // else if($decDuration < 4.00){
+            //     $time_duration = $decDuration;
+            // }
         } 
             
         else{

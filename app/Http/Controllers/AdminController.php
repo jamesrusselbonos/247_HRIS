@@ -382,6 +382,7 @@ class AdminController extends Controller
     }
 
     public function schedule_create(Request $request){
+      
         // dd($request->memoemp_search1);
        if(in_array("0001", $request->memoemp_search))
        {
@@ -400,6 +401,7 @@ class AdminController extends Controller
                         $user->notify(new AssignSchedule($details));
 
                         $schedule->employee_id = $user->employee_id;
+                        $schedule->shift_id = $request->shift_sel;
                         $schedule->date_from = $request->sched_date_from;
                         $schedule->date_to = $request->sched_date_to;
                         $schedule->task = $request->sched_task;
@@ -433,6 +435,7 @@ class AdminController extends Controller
                       $users->notify(new AssignSchedule($details));
 
                       $schedule->employee_id = $ids;
+                      $schedule->shift_id = $request->shift_sel;
                       $schedule->date_from = $request->sched_date_from;
                       $schedule->date_to = $request->sched_date_to;
                       $schedule->task = $request->sched_task;
