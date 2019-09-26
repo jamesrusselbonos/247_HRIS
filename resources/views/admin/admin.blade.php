@@ -171,42 +171,42 @@
 	                    <div class="dropdown-menu dropdown-menu-right quick_access animated bounceIn" aria-labelledby="navbarDropdown2">
 	                        <a href="/add_employee" style="cursor: pointer; color: #000;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Employee
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Employee</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_schedule" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Schedule
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Schedule</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_memo" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Memo
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Memo</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_job" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Job</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_job_status" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Status
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Status</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_department" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Department</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#Add_Job_level" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Level
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Level</i>
 	                        	</div>
 	                        </a>
 	                        <a data-toggle="modal" data-target="#add_position" style="cursor: pointer;">
 	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Position
+	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Position</i>
 	                        	</div>
 	                        </a>
 	                    </div>
@@ -832,16 +832,17 @@
     			var asigned_to = $('.memoemp_search').val();
     			var sched_date_from = $('#sched_date_from').val();
     			var sched_date_to = $('#sched_date_to').val();
+                var shift_sel = $('#shift_sel').val();
     			var sched_task = $('#sched_task').val();
     			var sched_comment = $('#sched_comment').val();
     			var sched_duration = $('#sched_duration').val();
     			var sched_other = $('#sched_other').val();
     			var token = $("#mod_sched .hdn-token").val();
-    			console.log(memoemp_search);
+    			console.log(shift_sel);
 
     				$.post('/schedule',
-    				{'from':from, 'memoemp_search':memoemp_search,'asigned_to':asigned_to, 'sched_date_from':sched_date_from, 'sched_date_to':sched_date_to, 
-    				'sched_task':sched_task, 'sched_comment':sched_comment, 'sched_duration':sched_duration, 'sched_other':sched_other, '_token':token}, 
+    				{'from':from, 'memoemp_search':memoemp_search,'asigned_to':asigned_to, 'sched_date_from':sched_date_from, 'sched_date_to':sched_date_to,
+    				'shift_sel':shift_sel, 'sched_task':sched_task, 'sched_comment':sched_comment, 'sched_duration':sched_duration, 'sched_other':sched_other, '_token':token}, 
     				function(data){
 
     				location.reload();

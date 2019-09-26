@@ -712,11 +712,11 @@ input[type=search]:focus{
 	border-radius: 30px;
 	padding: 20px 20px 20px 20px;
 }
- .quick_wrapper{
- 	margin-top: 5px;
- 	margin-bottom: 5px;
+ .quick_wrapper {
+ 	margin-top: 8px;
+ 	margin-bottom: 8px;
 
- 	font-size: 14px;
+ 	font-size: 16px;
 
  	transition: all .2s ease-in-out;
  }
@@ -731,6 +731,7 @@ input[type=search]:focus{
 	 /*z-index: 3;*/
 		
 	 background-color: #F8FBFB;
+	 padding-left: 10px;
 	/* color: #fff;
 
 	 border-radius: 30px;*/
