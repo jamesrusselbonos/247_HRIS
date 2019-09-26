@@ -182,11 +182,23 @@ class TimesheetController extends Controller
         $userId = Auth::user()->id;
         $user_emp = Auth::user()->employee_id;
         $users = User::find($userId);
-        $dur = TimeSheet::where('id', $request->testID)->get('time_from');
+        $dur = TimeSheet::where('id', $request->testID)->first();
 
+        // ////////////shifts added
+        // $decDuration = 0.00;
+        // if timefrom > shift start
+        //     if timeto >= shift end
+        //         duration = timefrom diff(shiftend)
+        //     else if timeto < shift end
+        //         duration = timefrom diff(timeto)
+        // else if timefrom <= shift start
+        //     if timeto >= shift end
+        //         duration = shiftstart diff(shiftend)
+        //     else if timeto < shift end
+        //         duration = shiftstart diff(timeto)
 
        $to = Carbon::now();
-       $from = $dur['0']['time_from'];
+       $from = $dur->time_from;
        $duration = new Carbon;
        $duration = $to->diff(Carbon::parse($from))->format('%h:%I');
        $xplode = explode(":", $duration);
@@ -195,14 +207,20 @@ class TimesheetController extends Controller
    
         $overtime = Overtime::where('employee_id', $user_emp)
                             ->where('date', date('Y-m-d'))
+                            ->where('status', '=', 'Approved')
                             ->first();
+        if($overtime){
+            $ot_from = Carbon::parse($overtime->time_from);
+            $ot_to = Carbon::parse($overtime->time_to);
+        }
+        
 
         $time_duration = "0.00";
         $ot_duration = "0.00";
 
         if (!$overtime){
             if($decDuration >= 4.00){
-                $time_duration = 4.02;
+                $time_duration = 4.00;
             }
 
             else if($decDuration < 4.00){
@@ -211,21 +229,60 @@ class TimesheetController extends Controller
         } 
             
         else{
-            if($decDuration >= $overtime->duration + 4.00){
-                $ot_duration = $overtime->duration;
-                $time_duration = 4.00;
-            }
+            if($from >= $ot_from){
+                if($to >= $ot_to){
+                    $dur = $from->diff($ot_to)->format('%h:%I');
+                    $xplode = explode(":", $dur);
+                    $decOtDuration = $xplode[0] + ($xplode[1]/60);
+                    $ot_duration = $decOtDuration;
+                    $time_duration = 0.00;
+                }
                 
-            else if($decDuration < $overtime->duration + 4.00){
-                $ot_duration = $decDuration - 4.00;
-                if($decDuration < 4.00){
+                else if($to < $ot_to){
+                    $dur = $from->diff($ot_to)->format('%h:%I');
+                    $xplode = explode(":", $dur);
+                    $decOtDuration = $xplode[0] + ($xplode[1]/60);
+                    $ot_duration = $decOtDuration;
+                    $time_duration = 0.00;
+                }
+               
+            }
+               
+
+            else if($from < $ot_from){
+                if($to >= $ot_to){
+                    $dur = $ot_from->diff($ot_to)->format('%h:%I');
+                    $xplode = explode(":", $dur);
+                    $decOtDuration = $xplode[0] + ($xplode[1]/60);
+                    $ot_duration = $decOtDuration;
                     $time_duration = $decDuration;
                 }
-                else{
-                    $time_duration = 4.00;
+                
+                else if($to < $ot_to){
+                    $dur = $ot_from->diff($to)->format('%h:%I');
+                    $xplode = explode(":", $dur);
+                    $decOtDuration = $xplode[0] + ($xplode[1]/60);
+                    $ot_duration = $decOtDuration;
+                    $time_duration = $decDuration;
                 }
- 
+               
             }
+                
+            // if($decDuration >= $overtime->duration + 4.00){
+            //     $ot_duration = $overtime->duration;
+            //     $time_duration = 4.00;
+            // }
+                
+            // else if($decDuration < $overtime->duration + 4.00){
+            //     $ot_duration = $decDuration - 4.00;
+            //     if($decDuration < 4.00){
+            //         $time_duration = $decDuration;
+            //     }
+            //     else{
+            //         $time_duration = 4.00;
+            //     }
+ 
+            // }
         }
 
         // $time_duration = $ot_duration;
