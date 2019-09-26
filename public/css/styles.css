@@ -80,7 +80,10 @@ a, a:hover{
 	padding-left: 100px;
 	padding-right: 100px;
 
-	height: auto;
+	padding-top: 150px;
+	padding-bottom: 150px;
+
+	height: 100vh;
 }
 .employee_list{
 	padding-left: 100px;
@@ -103,13 +106,16 @@ a, a:hover{
 	padding-right: 80px;
 
 	padding-top: 150px;
+	padding-bottom: 100px;
+
+	height: 100vh;
 }
 .sched_page{
 	padding-left: 30px;
 	padding-right: 30px;
 
 	padding-top: 150px;
-	padding-bottom: 50px;
+	padding-bottom: 100px;
 
 	height: 100vh;
 }
@@ -177,6 +183,13 @@ a, a:hover{
 	width: 200px;
 	height: 200px;
 }
+.profile_photo2{
+	border-radius: 360px;
+	width: 130px;
+	height: 130px;
+
+	margin: 0 auto;
+}
 .profile_thumb{
 	border-radius: 100%;
 	width: 70px;
@@ -192,9 +205,6 @@ a, a:hover{
 }
 .profile_list h3{
 	display: inline-block;
-}
-.add_employee_tab{
-	margin-top: 150px;
 }
 .add_employee_tab a{
 	color: #000;
@@ -655,7 +665,8 @@ ul.notification-bar {
 	padding-bottom: 50px;
 	/*padding-right: 35px !important;*/
 
-	overflow-y: auto;
+	/*overflow-y: auto*/;
+	overflow-x: hidden;
 }
 .attach a, .attach a:hover {
 	color: #282828;
