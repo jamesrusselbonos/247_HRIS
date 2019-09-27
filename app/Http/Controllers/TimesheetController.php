@@ -196,8 +196,8 @@ class TimesheetController extends Controller
         // ////////////shifts added
 
 
-        $start = Carbon::parse($shift->shift_start);
-        $end = Carbon::parse($shift->shift_end);   
+        $start = $shift->shift_start;
+        $end = $shift->shift_end;   
 
        $to = Carbon::now();
        $from = $dur->time_from;
@@ -223,15 +223,15 @@ class TimesheetController extends Controller
 
         if (!$overtime){
 
-            if($from > $start){
-                if($to >= $end){
-                    $duration = $from->diff($end)->format('%h:%I');
+            if(strtotime($from) > strtotime($start)){
+                if(strtotime($to) >= strtotime($end)){
+                    $duration = $from->diff(Carbon::parse($end))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
                     $time_duration = $decDuration;
                 }
-                else if($to < $end){
-                    $duration = $from->diff($to)->format('%h:%I');
+                else if(strtotime($to) < strtotime($end)){
+                    $duration = Carbon::parse($from)->diff(Carbon::parse($to))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
                     $time_duration = $decDuration;
@@ -239,15 +239,15 @@ class TimesheetController extends Controller
             }
                 // 13:00 < 8:00
                 // 4:00 < 5:00 strtotime
-            else if($from <= $start){
-                if($to >= $end){
-                    $duration = $start->diff($end)->format('%h:%I');
+            else if(strtotime($from) <= strtotime($start)){
+                if(strtotime($to) >= strtotime($end)){
+                    $duration = Carbon::parse($start)->diff(Carbon::parse($end))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
                     $time_duration = $decDuration;
                 }
-                else if($to < $end){
-                    $duration = $to->diff($start)->format('%h:%I');
+                else if(strtotime($to) < strtotime($end)){
+                    $duration = Carbon::parse($to)->diff(Carbon::parse($start))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
                     $time_duration = $decDuration;
