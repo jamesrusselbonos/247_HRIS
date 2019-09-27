@@ -812,20 +812,22 @@ class AdminController extends Controller
 
         $shift_start = $shift->shift_start;
         $shift_start_str = strtotime($shift->shift_start);
-        $shift_end = strtotime($shift->shift_end);
+        $shift_end = $shift->shift_end;
+        $shift_end_str = strtotime($shift->shift_end);
         $break_end_str = strtotime($shift->break_end);
         $break_start_str = strtotime($shift->break_start);
         $break_end = $shift->break_end;
         $break_start = $shift->break_start;
-        $late_start = date("H:i", strtotime('+16 minutes', $shift_start_str));
+        $grace_period = date("H:i", strtotime('+15 minutes', $shift_start_str));
+        $late_start = date("H:i", strtotime('+15 minutes', $shift_start_str));
         $late_start1 = date("H:i", strtotime('+1 minutes', $break_end_str));
 
         $late = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->where('time_to', '!=', null)
-                                ->where(function ($query) use ($break_start, $break_end, $late_start, $late_start1) {
+                                ->where(function ($query) use ($break_start, $shift_end, $late_start, $late_start1) {
                                                $query->whereBetween('time_from', array($late_start, $break_start))
-                                                     ->orWhereBetween('time_from', array($late_start1, $break_end));
+                                                     ->orWhereBetween('time_from', array($late_start1, $shift_end));
                                            })
                                 ->get();       
 
@@ -859,38 +861,46 @@ class AdminController extends Controller
         // $time_from = new Carbon('08:00:00'); 
 
         $late_end1 = date("H:i", strtotime('-1 minutes', $shift_end));
+        // $late_end1 = date("H:i", strtotime('-1 minutes', $break_end));
         $late_end = date("H:i", strtotime('-1 minutes', $break_start_str));
       // if to is less than shif end 
       //   get diff between 
-                return Response()->json(['late'=>$late_end]);
+                // return Response()->json(['late'=>$late]);
+ 
        $total_late = 0.00;
         foreach($late as $la){
-            if($la->time_to < $late_end1){
+            if($la->time_to > $break_end){
+                if($la->)
 
-               $duration = Carbon::parse($break_end)->diff(Carbon::parse($la->time_from))->format('%h:%I');
+               $duration = Carbon::parse($la->time_from)->diff(Carbon::parse($la->time_to))->format('%h:%I');
                $xplode = explode(":", $duration);
                $decDuration = $xplode[0] + ($xplode[1]/60);
 
                $total_late += $decDuration;
+               return Response()->json(['late'=>$la->time_from]);
             }            
 
             else if($la->time_to < $late_end){
 
-                $duration = Carbon::parse($shift_start_str)->diff(Carbon::parse($la->time_from))->format('%h:%I');
+                $duration = Carbon::parse($grace_period)->diff(Carbon::parse($la->time_from))->format('%h:%I');
                 $xplode = explode(":", $duration);
                 $decDuration = $xplode[0] + ($xplode[1]/60);
 
                 $total_late += $decDuration;
+                // return Response()->json(['late'=>$duration]);
+
              // if to > break_end
              //    2 > 1
              //    from to  
             }
             else {
-                $duration = Carbon::parse($shift_start_str)->diff(Carbon::parse($la->time_from))->format('%h:%I');
+             
+                $duration = Carbon::parse($grace_period)->diff(Carbon::parse($la->time_from))->format('%h:%I');
                 $xplode = explode(":", $duration);
                 $decDuration = $xplode[0] + ($xplode[1]/60);
 
                 $total_late += $decDuration;
+
                 // $dur = $la->time_duration;
 
                 // $duration = 4.00 - $dur;
