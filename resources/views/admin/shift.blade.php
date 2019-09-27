@@ -151,6 +151,11 @@
 	                	<div class="form-group col-md-12">
 	                	  <label>End</label>
 	                	  <input type="time" name="shift_end" class="form-control">
+	                	</div>	                	
+
+	                	<div class="form-group col-md-12">
+	                		<input type='hidden' value='0' name='night_diff'>
+	                	  <input type="checkbox" name="night_diff" value="1"> Night Differential<br>
 	                	</div>
 
 	                	<div class="form-group col-md-12">

@@ -491,6 +491,9 @@
 				        	var rate_hour = $('#p_rate_hour').val();
 				        	var daily = $('#p_daily_rate').val();
 				        	var hourly = $('#p_rate_hour').val();
+				        	var night_differential = response.night_differential;
+				        	var night_differential_rate = rate_hour * .10 * 8;
+				        	var amount_night_differential = night_differential * night_differential_rate;
 				        	var overtime = response.overtimes;
 				        	var overtime_amount = overtime * rate_hour * 0.25;
 				        	var basic_pay = response.daysWorked * daily;
@@ -498,7 +501,7 @@
 				        	var paid_absents = amount * daily;
 				        	var unpaid_absences = response.unpaid * daily;
 				        	var allowance = response.allowances.allowance;
-				           	
+				           	console.log(night_differential_rate);
 				        	var holiday = response.holidays * daily;
 
 				        	var undertime = response.total_undertime;
@@ -526,6 +529,8 @@
 				        	$('#p_no_late').val(late.toFixed(2));
 				        	$('#p_amount_undertime_late').val(total_amount_late_undertime.toFixed(2));
 				        	$('#p_reg_OT_hours').val(overtime);
+				        	$('#p_no_rendered').val(night_differential);
+				        	$('#p_amount_night').val(amount_night_differential);
 				        	$('#p_reg_OT_amount').val(overtime_amount.toFixed(2));
 
 				        	// $('#p_allowance').val(allowance);

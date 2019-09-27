@@ -783,6 +783,7 @@ class AdminController extends Controller
                                 ->where('employee_id', $request->id)
                                 ->distinct('date')
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('night_differential', '=', '0')
                                 ->count('date');
 
         $absents = Absent::where('employee_id', $request->id)
@@ -803,6 +804,14 @@ class AdminController extends Controller
         $overtimes = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->sum('overtime_duration');
+
+        $night_differential = TimeSheet::where('employee_id', $request->id)
+                                ->distinct('date')
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('night_differential', '=', '1')
+                                ->count();
+
+
 ///////////////Change when Shift Added/////////////////////////////////////////////////   
         $shift = DB::table('schedules')
             ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
@@ -947,7 +956,7 @@ class AdminController extends Controller
          
          return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 
-                        'total_undertime' => $total_undertime, 'holidays' => $holidays, 'overtimes' => $overtimes ]);
+                        'total_undertime' => $total_undertime, 'holidays' => $holidays, 'overtimes' => $overtimes, 'night_differential' => $night_differential ]);
         
      }
 
@@ -1045,6 +1054,7 @@ class AdminController extends Controller
         $shift->name = $request->shift_name;
         $shift->shift_start = $request->shift_start;
         $shift->shift_end = $request->shift_end;
+        $shift->night_diff = $request->night_diff;
         $shift->break_start = $request->lunch_rest_start;
         $shift->break_end = $request->lunch_rest_end;
 
