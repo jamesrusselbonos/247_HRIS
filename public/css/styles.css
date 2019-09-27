@@ -837,3 +837,6 @@ box-shadow: -2px 32px 41px -26px rgba(0,0,0,0.34);
 .d_shift2{
 	display: inline-block;
 }
+.material-icons{
+	font-size: 1.1em !important;
+}
