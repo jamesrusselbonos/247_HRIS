@@ -860,7 +860,7 @@ class AdminController extends Controller
         // }
         // $time_from = new Carbon('08:00:00'); 
 
-        $late_end1 = date("H:i", strtotime('-1 minutes', $shift_end));
+        $late_end1 = date("H:i", strtotime('-1 minutes', $shift_end_str));
         // $late_end1 = date("H:i", strtotime('-1 minutes', $break_end));
         $late_end = date("H:i", strtotime('-1 minutes', $break_start_str));
       // if to is less than shif end 
@@ -870,14 +870,21 @@ class AdminController extends Controller
        $total_late = 0.00;
         foreach($late as $la){
             if($la->time_to > $break_end){
-                if($la->)
+                if($la->time_from >= $break_end){
+                    $duration = Carbon::parse($break_end)->diff(Carbon::parse($la->time_from))->format('%h:%I');
+                    $xplode = explode(":", $duration);
+                    $decDuration = $xplode[0] + ($xplode[1]/60);
+
+                    $total_late += $decDuration;
+                    // return Response()->json(['late'=> $decDuration]);
+                }
 
                $duration = Carbon::parse($la->time_from)->diff(Carbon::parse($la->time_to))->format('%h:%I');
                $xplode = explode(":", $duration);
                $decDuration = $xplode[0] + ($xplode[1]/60);
 
                $total_late += $decDuration;
-               return Response()->json(['late'=>$la->time_from]);
+               // return Response()->json(['late'=>$la->time_from]);
             }            
 
             else if($la->time_to < $late_end){
