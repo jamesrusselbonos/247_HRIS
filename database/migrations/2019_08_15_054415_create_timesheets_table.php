@@ -18,6 +18,7 @@ class CreateTimesheetsTable extends Migration
             $table->bigIncrements('id1');
             $table->string('employee_id');
             $table->date('date');
+            $table->boolean('night_differential')->default('0');
             $table->time('time_from');
             $table->time('time_to')->nullable();
             $table->decimal('time_duration', 8, 2)->nullable();

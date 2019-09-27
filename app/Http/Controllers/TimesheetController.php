@@ -108,9 +108,15 @@ class TimesheetController extends Controller
     {
         
         $userId = Auth::user()->id;
+        $employee_id = Auth::user()->employee_id;
         
         $users = User::find($userId);
 
+        $shift = DB::table('schedules')
+            ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
+            ->select('shifts.*', 'schedules.*')
+            ->where('schedules.employee_id', '=', $employee_id)
+            ->first();
         // if($users->status == "0")
         // {
             $timeSheets = new TimeSheet;
@@ -120,6 +126,12 @@ class TimesheetController extends Controller
             $timeSheets->time_from = date('H:i:s');
             $timeSheets->id = $request->randId;
             
+            if($shift->night_diff == "1"){
+                $timeSheets->night_differential = "1";
+            }
+            else{
+                $timeSheets->night_differential = "0";
+            }
         // }
         // else{
         //    $timeSheets = TimeSheet::find($id);
