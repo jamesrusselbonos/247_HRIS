@@ -170,7 +170,7 @@
        		</div>
        		<div class="modal-footer">
 	             <div id="btn">
-         			<button type="button" class="btn btn-info" id="btn_send"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
+         			<button type="button" class="btn btn-info btn_sent" id="btn_send"><i class="fa fa-paper-plane" aria-hidden="true"> Send</i></button>
          		</div>
 	         </div>
        	</form>	

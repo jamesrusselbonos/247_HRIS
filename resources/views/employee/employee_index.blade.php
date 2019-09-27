@@ -9,10 +9,8 @@
 		</div>
 		<div class="row">
 			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 100px;">
-			<div class="">
-				<div style="background-color: #F8FBFB; padding-left: 80px; padding-right: 80px;">
+				<div class="admin_cards">
 					<div class="row">
-				        
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-yellow order-card">
 				                <div class="card-block">
@@ -63,15 +61,17 @@
 				            </div>
 				        </div> -->
 					</div>
+				</div>
+				<div class="admin_index_wrapper">
 					<div class="row">
-						<div class="col-md-7 col-xl-7">
-							<div class="card" style="min-height: 600px;">
+						<div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+							<div class="card">
 								<div class="card-block">
 									<div class="row">
-										<div class="col-xl-6">
+										<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 											<h6 class="m-b-20"><strong>Attendance Report</strong></h6>
 										</div>
-										<div class="col-xl-6 color_desc" style="padding-top: 15px; text-align: right;">
+										<div class="col-xl-8 col-lg-8 col-md-6 col-sm-6 color_desc" style="padding-top: 15px; text-align: right;">
 											<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
 											<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
 											<p style="color: #FF0000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>
@@ -79,16 +79,16 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-xl-12">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 											<div id="calendar"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-5 col-xl-5">
+						<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-12 col-md-12 col-sm-12">
 									<div class="card" style="max-height: 300px;">
 										<div class="card-block">
 											<div class="row">
@@ -120,7 +120,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-12 col-md-12 col-sm-12">
 									<div class="card">
 										<div class="card-block">
 											<div class="row">
@@ -141,7 +141,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 

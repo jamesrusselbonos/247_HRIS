@@ -24,18 +24,18 @@
 				</div>
 				 <div class="card-body">
 				   
-			        <table class="table display nowrap" id="DataTable">
+			        <table class="table display nowrap" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
-			              <th scope="col">Name</th>
+			              <th scope="col" style="min-width: 250px;">Name</th>
 			              <th scope="col">Date</th>
 			              <th scope="col">Leave Type</th>
 			              <th scope="col">Date From</th>
 			              <th scope="col">Date To</th>
 			              <th scope="col">Reason</th>
 			              <th scope="col">Status</th>
-			              <th scope="col">Manage</th>
+			              <th scope="col" style="min-width: 200px;">Manage</th>
 			            </tr>
 			          </thead>
 			          <tbody>

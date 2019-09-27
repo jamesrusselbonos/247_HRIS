@@ -136,8 +136,23 @@ a, a:hover{
 	padding-top: 350px;
 
 	display: flex;
-    width: 100%;
+    width: 100%; 
 }
+
+.admin_index_wrapper{
+	padding-left: 80px; 
+    padding-right: 80px;
+    width: 100%;
+    background-color: #fbfbfb;
+}
+.admin_cards{
+	padding-left: 80px; 
+    padding-right: 80px;
+    width: 100%;
+
+    margin-top: -150px;
+}
+
 .jumbotron{
 	width: 100%;
 	padding-left: 80px;
@@ -346,8 +361,6 @@ a, a:hover{
 
   background-color: #636363;
 
-  margin-top: -150px;
-
 }
 
 .bg-c-green {
@@ -357,7 +370,6 @@ a, a:hover{
 
    background-color: #636363;
 
-   margin-top: -150px;
 }
 
 .bg-c-yellow {
@@ -367,7 +379,6 @@ a, a:hover{
 
   background-color: #636363;
 
-  margin-top: -150px;
 
 }
 
@@ -380,7 +391,6 @@ a, a:hover{
 
     background-color: #636363;
 
-    margin-top: -150px;
 }
 
 
@@ -483,17 +493,30 @@ a:active {
 	padding: 5px 10px 5px 10px;
 }
 .fa-bell-o{
-	padding: 10px 10px 10px 10px;
+	padding: 5px 5px 5px 5px;
+	border-radius: 100%;
+	background-color: transparent;
+	border: solid 1px #000; 
+	margin-top: -20px !important;
 	color: #000;
-	font-size: 25px;
+	font-size: 20px !important;
+}
+.fa-bell-o:hover{
+	padding: 5px 5px 5px 5px;
+	border-radius: 100%;
+	background-color: #000;
+	border: solid 1px #000; 
+	margin-top: -20px !important;
+	color: #fff;
+	font-size: 20px !important;
 }
 .notification-trigger .badge {
   position: absolute;
-  top: 0px;
-  right: 3px;
+  top: -8px;
+  right: 0px;
   padding: 3px 3px 3px 3px;`
   border-radius: 100%;
-  background: #000;
+  background: #C82333;
   color: #fff;
   font-size: 14px;
 }
@@ -784,14 +807,14 @@ input[type=search]:focus{
  	margin-right: 5px;
  }
  .fc-scroller {
-   overflow-y: hidden !important;
+   overflow-y: hidden;
 }
 .navbar{
 
 	background-color: #EEEEEC;
 
-    padding-right: 100px !important;
-    padding-left: 100px !important;
+    padding-right: 100px;
+    padding-left: 100px;
 
     height: 60px !important;
     z-index: 999 !important;
@@ -839,4 +862,13 @@ box-shadow: -2px 32px 41px -26px rgba(0,0,0,0.34);
 }
 .material-icons{
 	font-size: 1.1em !important;
+}
+.m-b-20{
+	font-size: 1.1em !important;	
+}
+.nav_dash{
+	display: inline-block;
+}
+#addDataTable{
+	width: 100% !important;
 }

@@ -138,7 +138,7 @@ a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #sidebar2 {
         margin-left: -250px;
     }
@@ -155,4 +155,100 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+    .admin_index_wrapper{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .jumbotron{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .jumbotron2{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .navbar{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .card .card-block {
+        /*padding: 25px;*/
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-bottom: 25px;
+    }
+    .fc-scroller {
+       overflow-y: auto;
+    }
+    .admin_cards{
+       padding-left: 25px !important;
+        padding-right: 25px !important;
+        width: 100%;
+
+        margin-top: -150px;
+    }
+    .add_employee_tab{
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    height: 100vh;
+    }
+    .employee_list{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .timesheet_report{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+    }
+    .payroll_index{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+    }
+    .memo_page{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+        padding-bottom: 100px;
+
+        height: 100vh;
+    }
+    .sched_page{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+        padding-bottom: 100px;
+
+        height: 100vh;
+    }
+    .manage_employee{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+    }
+    .manage_user{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 150px;
+    }
+    .job_pages{
+        
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+
+        padding-top: 50px;
+
+    }
+
 }

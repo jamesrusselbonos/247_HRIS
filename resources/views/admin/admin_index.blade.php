@@ -9,8 +9,7 @@
 		</div>
 		<div class="row">
 			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 80px;">
-			<div class="">
-				<div style="background-color: #fbfbfb; padding-left: 80px; padding-right: 80px; width: 100%;">
+				<div class="admin_cards">
 					<div class="row">
 						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				            <div class="card bg-c-blue order-card box_shadow">
@@ -62,8 +61,10 @@
 				            </div>
 				        </div> -->
 					</div>
+				</div>
+				<div class="admin_index_wrapper">
 					<div class="row">
-						<div class="col-md-8 col-xl-8">
+						<div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 ">
 				            <div class="card">
 				                <div class="card-block">
 				                    <h6 class="m-b-20"><strong>Timesheet Report</strong></h6>
@@ -141,66 +142,12 @@
 				                </div>
 				            </div>
 				        </div>
-						<div class="col-md-4 col-xl-4">
+						<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
 				            <div class="card">
 				                <div class="card-block">
-				                    <h6 class="m-b-20"><strong>Employees</strong></h6>
-				                    <div style="padding-bottom: 30px; min-height: 550px; padding-top: 25px;">
-    		                    		@foreach($list as $emp_list)
-    		                    			<a id="{{ $emp_list->id }}" class="view_emp" data-toggle="modal" data-target="#view_modal" 
-    		                    				p_id="{{ $emp_list->id }}"
-    							               	p_employeeid="{{ $emp_list->employee_id }}"
-    							               	p_gender="{{ $emp_list->gender }}"
-    							               	p_fname="{{ $emp_list->firstname }}"
-    							               	p_mname="{{ $emp_list->middle_name }}"
-    							               	p_lname="{{ $emp_list->lastname }}"
-    							               	p_department="{{ $emp_list->department_name }}"
-    							               	p_status="{{ $emp_list->job_status }}"
-    							               	p_picture="{{ $emp_list->employee_img }}"
-    							               	p_address="{{ $emp_list->address }}"
-    							               	p_city="{{ $emp_list->city }}"
-    							               	p_province="{{ $emp_list->province }}"
-    							               	p_country="{{ $emp_list->country }}"
-    							               	p_zip="{{ $emp_list->zip_code }}"
-    							               	p_hnumber="{{ $emp_list->home_number }}"
-    							               	p_mnumber="{{ $emp_list->mobile_number }}"
-    							               	p_wemail="{{ $emp_list->email }}"
-    							               	p_pemail="{{ $emp_list->personal_email }}"
-    							               	p_bday="{{ $emp_list->birthday }}"
-    							               	p_ssnsin="{{ $emp_list->SIN_SSN }}"
-    							               	p_ename="{{ $emp_list->emergency_name }}"
-    							               	p_relationship="{{ $emp_list->relationship }}"
-    							               	p_eaddress="{{ $emp_list->emergency_address }}"
-    							               	p_enumber="{{ $emp_list->emergency_number }}"
-    							               	p_jobtitle="{{ $emp_list->job_title }}"
-    							               	p_jobdesc="{{ $emp_list->job_description }}"
-    							               	p_joblevel="{{ $emp_list->job_level }}"
-    							               	p_jobposition="{{ $emp_list->job_position }}"
-    							               	p_datehired="{{ $emp_list->date_hired }}"
-    							               	p_dateterminated="{{ $emp_list->date_terminated }}"
-    							               	p_sss="{{ $emp_list->SSS_no }}"
-    							               	p_pagibig="{{ $emp_list->philhealth_no }}"
-    							               	p_philhealth="{{ $emp_list->pagibig_no }}"
-    							               	p_tin="{{ $emp_list->TIN_no }}"
-    							               	p_nbinumber="{{ $emp_list->NBI_no }}"
-    							               	p_diploma="{{ $emp_list->diploma }}"
-    							               	p_medical="{{ $emp_list->medical }}"
-    							               	p_tor="{{ $emp_list->TOR }}"
-    							               	p_birthcert="{{ $emp_list->birth_cert }}"
-    							               	p_bclearance="{{ $emp_list->brgy_clearance }}"
-    							              	p_cedula="{{ $emp_list->cedula }}"
-    		                    			>
-    		                    				<div class="row row_animation">
-    		                    					<div class="col-md-3">
-    		                    						<img class="profile_thumb" src="{{ $emp_list->employee_img }}">
-    		                    					</div>
-    		                    					<div class="col-md-9" style="margin-top: -5px;">
-    		                    						<h6>{{ $emp_list->lastname }}, {{ $emp_list->firstname }} {{ $emp_list->middle_name }}</h6>
-    		                    						<p style="margin-top: -15px;">{{$emp_list->employee_id}}</p>
-    		                    					</div>
-    		                    				</div>
-    		                    			</a>
-    		                    		@endforeach
+				                    <h6 class="m-b-20"><strong>Leaves</strong></h6>
+				                    <div style="padding-bottom: 30px;">
+    		                    		<div id="calendar3"></div>
     		                    	</div>
     		                    	<a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
 				                </div>
@@ -208,8 +155,81 @@
 				        </div>
 					</div>
 					<div class="row">
-						<div class="col-md-5 col-xl-5">
-				            <!-- <div class="row">
+						<div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+				            <div class="row">
+	            	            <div class="col-md-12">
+	            	            	<div class="card">
+		            	                <div class="card-block">
+		            	                    <h6 class="m-b-20"><strong>Schedules Report</strong></h6>
+		            		                   <div>
+		            		                   		<div id="calendar4"></div>
+		            		                   	<!-- @foreach($sched_report as $sc_report)
+		            		                   		<a id="{{ $sc_report->id }}" class="sched_view_button" data-toggle="modal" data-target="#sched_view_modal"
+		            		                   			v_schedid="{{ $sc_report->id }}"
+									             		v_sched_empid="{{ $sc_report->employee_id }}"
+									             		v_sched_fname="{{ $sc_report->firstname }}"
+									             		v_sched_lname="{{ $sc_report->lastname }}"
+									             		v_sched_mname="{{ $sc_report->middle_name }}"
+									             		v_sched_datefrom="{{ $sc_report->date_from }}"
+									             		v_sched_dateto="{{ $sc_report->date_to }}"
+									             		v_sched_task="{{ $sc_report->task }}"
+									             		v_sched_comment="{{ $sc_report->comment }}"
+									             		v_Sched_duration="{{ $sc_report->duration }}"
+									             		v_sched_other="{{ $sc_report->other }}"
+									             	>
+			            		                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
+			            		                   			<div class="col-md-12">
+			            		                   				<h6>{{ $sc_report->lastname }}, {{ $sc_report->firstname }} {{ $sc_report->middle_name }}</h6>
+									                   			<p style="margin-top: -15px;">{{ $sc_report->employee_id }}</p>
+									                   			<p style="margin-top: -15px;">From:&nbsp;{{ $sc_report->date_from }}&nbsp;To:&nbsp;{{ $sc_report->date_to }}&nbsp;Duration:&nbsp;{{ $sc_report->duration }}</p>
+									                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $sc_report->task }}</p>
+			            		                   			</div>
+			            		                   		</div>
+		            		                   		</a>
+		            		                   	@endforeach -->
+		            		                   </div>
+
+		            	                    <a href="/schedule"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Schedules</a>
+		            	                </div>
+		            	            </div>
+	            	            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-md-12">
+				            		<div class="card">
+						                <div class="card-block">
+						                    <h6 class="m-b-20"><strong>Memo Report</strong></h6>
+							                   <div style="min-height: 300px; padding-top: 30px;">
+							                   	@foreach($memo_report as $mem_report)
+							                   		<a id="{{ $mem_report->id }}" class="memo_view" data-toggle="modal" data-target="#view_memo" 
+							                   			v_memoid="{{$mem_report->id}}"
+							                   			v_memo="{{ $mem_report->memo }}" 
+							                   			v_subject="{{ $mem_report->subject }}" 
+							                   			v_attachment="{{ $mem_report->attachment }}" 
+							                   			v_memodate="{{ $mem_report->memo_date }}"
+							                   		>
+	                   			                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
+	                   			                   			<div class="col-md-9">
+	                   			                   				<h6>{{ $mem_report->memo }}</h6>
+	                   				                   			<p style="margin-top: -15px;">{{ $mem_report->memo_date }}</p>
+	                   				                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $mem_report->subject }}</p>
+	                   			                   			</div>
+	                   			                   			<div class="col-md-3">
+	                   			                   				<button style="margin-top: 30px; float: right;" id="" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+	                   			                   			</div>
+	                   			                   		</div>
+							                   		</a>
+							                   	@endforeach
+							                   </div>
+
+						                    <a href="/memo"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Memos</a>
+						                </div>
+						            </div>
+				            	</div>
+				            </div>
+				        </div>
+						<div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+				            <div class="row">
 				            	<div class="col-md-12 col-xl-12">
             			            <div class="card">
             			                <div class="card-block">
@@ -276,8 +296,8 @@
             			                </div>
             			            </div>
 				            	</div>
-				            </div> -->
-				            <div class="row">
+				            </div>
+				            <!-- <div class="row">
 				            	<div class="col-md-12">
 				            		<div class="card">
 						                <div class="card-block">
@@ -301,84 +321,11 @@
 						                </div>
 						            </div>
 				            	</div>
-				            </div>
-				        </div>
-				        <div class="col-md-7 col-xl-7">
-				            <div class="row">
-				            	<div class="col-md-12">
-				            		<div class="card">
-						                <div class="card-block">
-						                    <h6 class="m-b-20"><strong>Memo Report</strong></h6>
-							                   <div style="min-height: 300px; padding-top: 30px;">
-							                   	@foreach($memo_report as $mem_report)
-							                   		<a id="{{ $mem_report->id }}" class="memo_view" data-toggle="modal" data-target="#view_memo" 
-							                   			v_memoid="{{$mem_report->id}}"
-							                   			v_memo="{{ $mem_report->memo }}" 
-							                   			v_subject="{{ $mem_report->subject }}" 
-							                   			v_attachment="{{ $mem_report->attachment }}" 
-							                   			v_memodate="{{ $mem_report->memo_date }}"
-							                   		>
-	                   			                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
-	                   			                   			<div class="col-md-9">
-	                   			                   				<h6>{{ $mem_report->memo }}</h6>
-	                   				                   			<p style="margin-top: -15px;">{{ $mem_report->memo_date }}</p>
-	                   				                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $mem_report->subject }}</p>
-	                   			                   			</div>
-	                   			                   			<div class="col-md-3">
-	                   			                   				<button style="margin-top: 30px; float: right;" id="" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-	                   			                   			</div>
-	                   			                   		</div>
-							                   		</a>
-							                   	@endforeach
-							                   </div>
-
-						                    <a href="/memo"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Memos</a>
-						                </div>
-						            </div>
-				            	</div>
-				            </div>
-				            <div class="row">
-	            	            <div class="col-md-12">
-	            	            	<div class="card">
-		            	                <div class="card-block">
-		            	                    <h6 class="m-b-20"><strong>Schedules Report</strong></h6>
-		            		                   <div style="min-height: 300px; padding-top: 30px;">
-		            		                   	@foreach($sched_report as $sc_report)
-		            		                   		<a id="{{ $sc_report->id }}" class="sched_view_button" data-toggle="modal" data-target="#sched_view_modal"
-		            		                   			v_schedid="{{ $sc_report->id }}"
-									             		v_sched_empid="{{ $sc_report->employee_id }}"
-									             		v_sched_fname="{{ $sc_report->firstname }}"
-									             		v_sched_lname="{{ $sc_report->lastname }}"
-									             		v_sched_mname="{{ $sc_report->middle_name }}"
-									             		v_sched_datefrom="{{ $sc_report->date_from }}"
-									             		v_sched_dateto="{{ $sc_report->date_to }}"
-									             		v_sched_task="{{ $sc_report->task }}"
-									             		v_sched_comment="{{ $sc_report->comment }}"
-									             		v_Sched_duration="{{ $sc_report->duration }}"
-									             		v_sched_other="{{ $sc_report->other }}"
-									             	>
-			            		                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
-			            		                   			<div class="col-md-12">
-			            		                   				<h6>{{ $sc_report->lastname }}, {{ $sc_report->firstname }} {{ $sc_report->middle_name }}</h6>
-									                   			<p style="margin-top: -15px;">{{ $sc_report->employee_id }}</p>
-									                   			<p style="margin-top: -15px;">From:&nbsp;{{ $sc_report->date_from }}&nbsp;To:&nbsp;{{ $sc_report->date_to }}&nbsp;Duration:&nbsp;{{ $sc_report->duration }}</p>
-									                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $sc_report->task }}</p>
-			            		                   			</div>
-			            		                   		</div>
-		            		                   		</a>
-		            		                   	@endforeach
-		            		                   </div>
-
-		            	                    <a href="/schedule"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Schedules</a>
-		            	                </div>
-		            	            </div>
-	            	            </div>
-				            </div>
+				            </div> -->
 				        </div>
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 
@@ -1157,6 +1104,37 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			 $('#calendar4').fullCalendar({
+			 	events : [
+	                @foreach($sched_report as $sch_list)
+	                {
+	                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
+	                    start : '{{ $sch_list->date_from }}T00:00:00',
+	                    textColor: 'white',
+	                    @if ($sch_list->date_to)
+	                            end: '{{ $sch_list->date_to }}T24:00:00',
+	                    @endif
+	                },
+	                @endforeach
+	            ],
+			 });
+
+			 $('#calendar3').fullCalendar({
+			 	events : [
+	                @foreach($leave_report as $leaves)
+	                {
+	                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
+	                    start : '{{ $leaves->date_from }}T00:00:00',
+	                    textColor: 'white',
+	                    @if ($leaves->date_to)
+	                            end: '{{ $leaves->date_to }}T24:00:00',
+	                    @endif
+	                },
+	                @endforeach
+	            ],
+			 });
+
 			 $(window).scroll(function() {
 			    var scrollPos = $(window).scrollTop(),
 			        navbar = $('.navbar');

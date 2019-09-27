@@ -161,77 +161,83 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
 
-			  	<a class="navbar-brand" href="/admin" >Admin Dashboard</a>
+			  	<a class="navbar-brand mr-auto" href="/admin" >Admin Dashboard</a>
 
-			  	<ul class="nav navbar-nav ml-auto">
-			  		<li class="nav-item dropdown" style="padding-top: 8px; margin-right: 20px;">
-	                    <a style="color: #000;" id="navbarDropdown2" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-	                         <span><i style="font-size: 20px;" class="fa fa-cogs" aria-hidden="true"></i></span>
-								 Quick Access
-								  <span class="badge" id="bell_badge"></span>
-								
-	                    </a>
+			  	<ul class="nav navbar-nav">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <li class="nav-item dropdown" style="padding-top: 8px; margin-right: 20px;">
+                                <a style="color: #000;" id="navbarDropdown2" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                     <span><i style="font-size: 20px;" class="fa fa-cogs" aria-hidden="true"></i></span>
+                                         Quick Access
+                                          <span class="badge" id="bell_badge"></span>
+                                        
+                                </a>
 
-	                    <div class="dropdown-menu dropdown-menu-right quick_access animated bounceIn" aria-labelledby="navbarDropdown2">
-	                        <a href="/add_employee" style="cursor: pointer; color: #000;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Employee</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_schedule" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Schedule</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_memo" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Memo</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_job" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Job</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_job_status" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Status</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_department" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Department</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#Add_Job_level" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Level</i>
-	                        	</div>
-	                        </a>
-	                        <a data-toggle="modal" data-target="#add_position" style="cursor: pointer;">
-	                        	<div class="row quick_wrapper">
-	                        		<i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Position</i>
-	                        	</div>
-	                        </a>
-	                    </div>
-	                </li>
-			      	<li class="nav-item dropdown"  style="padding-top: 8px;">
-                        <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                                <div class="dropdown-menu dropdown-menu-right quick_access animated bounceIn" aria-labelledby="navbarDropdown2" style="position: absolute;">
+                                    <a href="/add_employee" style="cursor: pointer; color: #000;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Employee</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_schedule" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Schedule</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_memo" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Memo</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_job" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Job</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_job_status" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Status</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_department" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Department</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#Add_Job_level" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Level</i>
+                                        </div>
+                                    </a>
+                                    <a data-toggle="modal" data-target="#add_position" style="cursor: pointer;">
+                                        <div class="row quick_wrapper">
+                                            <i class="fa fa-plus-circle" aria-hidden="true">&nbsp; Add Position</i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
                         </div>
-                    </li>
+                        <div class="col-md-6 col-sm-6">
+                            <li class="nav-item dropdown"  style="padding-top: 8px;">
+                                <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </a>
+
+                                <div style="position: absolute;" class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
 			    </ul>
 			</nav>
 			@yield('content')
@@ -292,6 +298,20 @@
     			  title: 'Employee marked as absent'
     			})
     		});
+
+            $('.btn_sent').click(function(e){
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000
+                })
+
+                Toast.fire({
+                  type: 'success',
+                  title: 'Memo sent'
+                })
+            });
 
     		$('.btn_edit').click(function(e){
     			const Toast = Swal.mixin({
