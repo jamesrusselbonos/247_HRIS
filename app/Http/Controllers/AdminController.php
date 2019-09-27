@@ -845,9 +845,9 @@ class AdminController extends Controller
         $underTime = TimeSheet::where('employee_id', $request->id)
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->where('time_to', '!=', null)
-                                ->where(function ($query) {
-                                               $query->whereBetween('time_to', array('08:00:59', '11:59:59'))
-                                                     ->orWhereBetween('time_to', array('13:00:59', '16:59:59'));
+                                ->where(function ($query) use ($shift_start, $break_start, $break_end, $shift_end ) {
+                                               $query->whereBetween('time_to', array($shift_start, $break_start))
+                                                     ->orWhereBetween('time_to', array($break_end, $shift_end));
                                            })
                                 ->get();             
 
@@ -871,19 +871,19 @@ class AdminController extends Controller
         foreach($late as $la){
             if($la->time_to > $break_end){
                 if($la->time_from >= $break_end){
-                    $duration = Carbon::parse($break_end)->diff(Carbon::parse($la->time_from))->format('%h:%I');
+                    $duration = Carbon::parse($la->time_from)->diff(Carbon::parse($break_end))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
 
                     $total_late += $decDuration;
-                    // return Response()->json(['late'=> $decDuration]);
+                    // return Response()->json(['late'=> $duration]);
                 }
 
-               $duration = Carbon::parse($la->time_from)->diff(Carbon::parse($la->time_to))->format('%h:%I');
-               $xplode = explode(":", $duration);
-               $decDuration = $xplode[0] + ($xplode[1]/60);
+               // $duration = Carbon::parse($la->time_from)->diff(Carbon::parse($la->time_to))->format('%h:%I');
+               // $xplode = explode(":", $duration); 4.12
+               // $decDuration = $xplode[0] + ($xplode[1]/60);
 
-               $total_late += $decDuration;
+               // $total_late += $decDuration;
                // return Response()->json(['late'=>$la->time_from]);
             }            
 
@@ -895,6 +895,7 @@ class AdminController extends Controller
 
                 $total_late += $decDuration;
                 // return Response()->json(['late'=>$duration]);
+
 
              // if to > break_end
              //    2 > 1
@@ -912,27 +913,37 @@ class AdminController extends Controller
 
                 // $duration = 4.00 - $dur;
                 // $total_late += $duration;
+                // return Response()->json(['late'=>$duration]);
             }
            
         }        
 
         $total_undertime = 0.00;
         foreach($underTime as $un){
-            $dur = $un->time_duration;
+            if($un->time_to < $break_start){
 
-            $duration = 4.00 - $dur;
-            $total_undertime += $duration;
+                $duration = Carbon::parse($un->time_to)->diff(Carbon::parse($break_start))->format('%h:%I');
+                $xplode = explode(":", $duration);
+                $decDuration = $xplode[0] + ($xplode[1]/60);
+
+                $total_undertime += $decDuration;
+               
+                // return Response()->json(['undertime'=>$un->time_to]);
+            }
+
+            else if($un->time_to < $shift_end)
+
+                $duration = Carbon::parse($un->time_to)->diff(Carbon::parse($shift_end))->format('%h:%I');
+                $xplode = explode(":", $duration);
+                $decDuration = $xplode[0] + ($xplode[1]/60);
+
+                $total_undertime += $decDuration;
+
+                // return Response()->json(['undertime'=> $total_undertime]);
+
         }
 
-         // $timePayroll = TimeSheet::where('employee_id', $request->id)
-         //                            ->whereBetween('date', array($request->d_from, $request->d_to))
-         //                            ->get();
-         // $arr = array($timePayroll);
-         // $total= 0.00 ;
-         // foreach($timePayroll as $duration){
-         //    $num = $duration->time_duration;
-         //    $total += $num;
-         // }
+
          
          return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 
