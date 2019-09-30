@@ -237,7 +237,7 @@ class TimesheetController extends Controller
 
             if(strtotime($from) > strtotime($start)){
                 if(strtotime($to) >= strtotime($end)){
-                    $duration = $from->diff(Carbon::parse($end))->format('%h:%I');
+                    $duration = Carbon::parse($from)->diff(Carbon::parse($end))->format('%h:%I');
                     $xplode = explode(":", $duration);
                     $decDuration = $xplode[0] + ($xplode[1]/60);
                     $time_duration = $decDuration;
