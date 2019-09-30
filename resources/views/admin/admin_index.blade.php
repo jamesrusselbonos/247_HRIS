@@ -170,18 +170,16 @@
 									             		v_sched_fname="{{ $sc_report->firstname }}"
 									             		v_sched_lname="{{ $sc_report->lastname }}"
 									             		v_sched_mname="{{ $sc_report->middle_name }}"
-									             		v_sched_datefrom="{{ $sc_report->date_from }}"
-									             		v_sched_dateto="{{ $sc_report->date_to }}"
+									             		
 									             		v_sched_task="{{ $sc_report->task }}"
 									             		v_sched_comment="{{ $sc_report->comment }}"
-									             		v_Sched_duration="{{ $sc_report->duration }}"
 									             		v_sched_other="{{ $sc_report->other }}"
 									             	>
 			            		                   		<div class="row row_animation" style="margin-bottom: 30px; margin-top: -30px;">
 			            		                   			<div class="col-md-12">
 			            		                   				<h6>{{ $sc_report->lastname }}, {{ $sc_report->firstname }} {{ $sc_report->middle_name }}</h6>
 									                   			<p style="margin-top: -15px;">{{ $sc_report->employee_id }}</p>
-									                   			<p style="margin-top: -15px;">From:&nbsp;{{ $sc_report->date_from }}&nbsp;To:&nbsp;{{ $sc_report->date_to }}&nbsp;Duration:&nbsp;{{ $sc_report->duration }}</p>
+									                   			<p style="margin-top: -15px;">From:&nbsp;&nbsp;To:&nbsp;&nbsp;Duration:&nbsp;</p>
 									                   			<p style="margin-top: -15px; text-overflow: ellipsis; max-width: 500px; min-height: 10px; white-space: nowrap; overflow: hidden;">{{ $sc_report->task }}</p>
 			            		                   			</div>
 			            		                   		</div>
@@ -1110,10 +1108,10 @@
 	                @foreach($sched_report as $sch_list)
 	                {
 	                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
-	                    start : '{{ $sch_list->date_from }}T00:00:00',
+	                    start : '{{ $sch_list->day_from }}T00:00:00',
 	                    textColor: 'white',
-	                    @if ($sch_list->date_to)
-	                            end: '{{ $sch_list->date_to }}T24:00:00',
+	                    @if ($sch_list->day_to)
+	                            end: '{{ $sch_list->day_to }}T24:00:00',
 	                    @endif
 	                },
 	                @endforeach
