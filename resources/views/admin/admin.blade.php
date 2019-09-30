@@ -760,7 +760,7 @@
     		  	var edit_m_attachment = $(this).attr('e_attachment'); 
     		  	var edit_m_date = $(this).attr('e_memodate'); 
 
-    		  	console.log(edit_m_attachment);
+    		  	console.log(edit_m_id);
 
     		  	$('#edit_memo_id').val(edit_m_id);
     		  	$('#edit_memo_title').val(edit_m_title);

@@ -206,7 +206,7 @@
 	                	<div class="form-group col-md-12">
 	                	  <label>Memo</label>
 	                	   <input class="form-control" rows="5" id="edit_memo_title" name="edit_memo_title">
-	                	   <input type="hidden" name="edit_memo_id" name="edit_memo_id">
+	                	   <input type="hidden" name="edit_memo_id" id="edit_memo_id">
 	                	</div>
 
 	                	<div class="form-group col-md-12">

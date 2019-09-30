@@ -677,6 +677,17 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function memo_edit(Request $request){
+        $memo_edit = Memo::find($request->edit_memo_id);
+        $memo_edit->memo = $request->edit_memo_title;
+        $memo_edit->attachment = $request->edit_memo_file;
+        $memo_edit->subject = $request->edit_memo_subject;
+        $memo_edit->memo_date = $request->edit_memo_date;
+        $memo_edit->save();
+
+        return redirect()->route('admin.memo'); 
+    }
+
     public function memo_delete($id){
 
         DB::table('memos')->where('id', $id)->delete();
