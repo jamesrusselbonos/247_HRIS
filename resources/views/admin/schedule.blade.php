@@ -27,73 +27,7 @@
 
 					 	<div id='calendar'></div>
 					   
-				        <!-- <table class="table table-bordered" id="addDataTable">
-				          <thead>
-				            <tr>
-				              
-				              <th scope="col">Employee</th>
-				              <th scope="col">Date</th>
-				              <th scope="col">Task</th>
-				              <th scope="col">Comment</th>
-				              <th scope="col">Duration</th>
-				              <th scope="col">Other Task</th>
-				              <th scope="col">Manage</th>
-				            </tr>
-				          </thead>
-				          <tbody>
-				      
-				      		
-				          	@foreach($sched_list as $sch_list)
-				          	
-					            <tr>
 
-					              <th style="max-width: 140px;">
-					              	<p>{{ $sch_list->lastname }}, {{ $sch_list->firstname }} {{ $sch_list->middle_name }}</p>
-					              	<p style="margin-top: -15px;">{{ $sch_list->employee_id }}</p>
-					              </th>
-					              <th style="text-overflow: ellipsis; max-width: 130px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-					              	<p>{{ $sch_list->date_from }} to {{ $sch_list->date_to }}</p>
-					              </th>
-					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-					              	{{ $sch_list->task }}
-					              </td>
-					               <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-					              	{{ $sch_list->comment }}
-					              </td>
-					               <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-					              	{{ $sch_list->duration }}
-					              </td>
-					               <td style="text-overflow: ellipsis; max-width: 50px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-					              	{{ $sch_list->other }}
-					              </td>
-					             
-					             <td style="max-width: 200px;">
-					             	<span style="float: right;">
-					             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
-
-					             		v_schedid="{{ $sch_list->id }}"
-					             		v_sched_empid="{{ $sch_list->employee_id }}"
-					             		v_sched_fname="{{ $sch_list->firstname }}"
-					             		v_sched_lname="{{ $sch_list->lastname }}"
-					             		v_sched_mname="{{ $sch_list->middle_name }}"
-					             		v_sched_datefrom="{{ $sch_list->date_from }}"
-					             		v_sched_dateto="{{ $sch_list->date_to }}"
-					             		v_sched_task="{{ $sch_list->task }}"
-					             		v_sched_comment="{{ $sch_list->comment }}"
-					             		v_Sched_duration="{{ $sch_list->duration }}"
-					             		v_sched_other="{{ $sch_list->other }}"
-
-					             		><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-		 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
-		 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</button></a>
-		 							</span>
-					             </td>
-					            </tr>
-				      		
-				      		  @endforeach      
-				           
-				          </tbody>
-				        </table> -->
 				       
 				    </div>
 				</div>
@@ -126,11 +60,11 @@
 					             		v_sched_fname="{{ $sch_list->firstname }}"
 					             		v_sched_lname="{{ $sch_list->lastname }}"
 					             		v_sched_mname="{{ $sch_list->middle_name }}"
-					             		v_sched_datefrom="{{ $sch_list->date_from }}"
-					             		v_sched_dateto="{{ $sch_list->date_to }}"
+					             		v_sched_dayfrom="{{ $sch_list->day_from }}"
+					             		v_sched_dayto="{{ $sch_list->day_to }}"
+					             		v_sched_restday="{{ $sch_list->restday }}"
 					             		v_sched_task="{{ $sch_list->task }}"
 					             		v_sched_comment="{{ $sch_list->comment }}"
-					             		v_Sched_duration="{{ $sch_list->duration }}"
 					             		v_sched_other="{{ $sch_list->other }}"
 
 					             		><i class="fa fa-eye" aria-hidden="true"></i></button>
@@ -167,7 +101,10 @@
       		<h6 id="v_sched_empid" style="margin-top: -10px;"></h6>
       	</div>
       	<div class="row">
-      		<p><strong>From: &nbsp;</strong></p><p id="v_sched_datefrom"></p><p><strong> &nbsp;To: &nbsp;</strong></p><p id="v_sched_dateto"></p><p><strong>&nbsp; Duration: &nbsp;</strong></p><p id="v_sched_duration"></p>
+      		<p><strong>From: &nbsp;</strong></p><p id="v_sched_dayfrom"></p><p><strong> &nbsp;To: &nbsp;</strong></p><p id="v_sched_dayto"></p>
+      	</div>
+      	<div class="row">
+      		<p><strong>Restday: &nbsp;</strong></p><p id="v_sched_restday"></p>
       	</div>
       	<div class="row" style="padding-top: 30px;">
   			<p><strong>Task: &nbsp;</strong></p>
@@ -193,13 +130,13 @@
 </div>
 
 <div class="modal fade bd-example-modal-lg" id="mod_sched" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
+	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
-	      	<div class="modal-header">
-	          	<h5 class="modal-title" id="exampleModalLabel">Add A Schedule</h5>
-	          	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	            	<span aria-hidden="true">&times;</span>
-	          	</button>
+	      <div class="modal-header">
+	          <h5 class="modal-title" id="exampleModalLabel">Add A Schedule</h5>
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	            <span aria-hidden="true">&times;</span>
+	          </button>
 	       </div>
 	       <div class="modal-body">
 	              <form enctype="multipart/form-data">
@@ -222,7 +159,7 @@
         	         			
         	         		</div>
 	                	</div>
-
+<!-- 
 	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
 	                	  	<div class="row">
 	                	  		<div class="form-group col-lg-6 col-md-6 col-sm-12">
@@ -236,11 +173,41 @@
 								          min="1000-01-01" class="form-control">
 	                	  		</div>
 	                	  	</div>
-	                	</div>
+	                	</div> -->
 
 	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
 	                	  	<div class="row">
+		                	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
+		                	  		<label>From</label>
+		                	   		<select name="sched_day_from" id="sched_day_from" class="form-control">
+		                	   			<option value="Sunday">Sunday</option>
+		                	   			<option value="Monday">Monday</option>
+		                	   			<option value="Tuesday">Tuesday</option>
+		                	   			<option value="Wednesday">Wednesday</option>
+		                	   			<option value="Thursday">Thursday</option>
+		                	   			<option value="Friday">Friday</option>
+		                	   			<option value="Saturday">Saturday</option>
+		                	   		</select>
+		                	  	</div>
+			                	<div class="form-group col-lg-6 col-md-12 col-sm-12">
+		                	  		<label>To</label>
+		                	  		<select name="sched_day_to" id="sched_day_to" class="form-control">
+		                	  			<option value="Sunday">Sunday</option>
+		                	   			<option value="Monday">Monday</option>
+		                	   			<option value="Tuesday">Tuesday</option>
+		                	   			<option value="Wednesday">Wednesday</option>
+		                	   			<option value="Thursday">Thursday</option>
+		                	   			<option value="Friday">Friday</option>
+		                	   			<option value="Saturday">Saturday</option>
+		                	  		</select>
+		                	  	</div>
+		                	</div>
+		                	
+		                
+		                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+		                	<div class="row">
 	                	  		<div class="form-group col-lg-6 col-md-12 col-sm-12">
+	                	  			<label>Shift</label>
 	                	  			<select class="shift_sel form-control" id="shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
 	                	  				<option selected disabled>Select Shift</option>  
 	                	  				@foreach($shifts as $shift)
@@ -248,25 +215,40 @@
 	                	  				@endforeach
 	                	  			</select>
 	                	  		</div>
-	                	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
-	                	  		<div class="row">
-	                	  			<div class="col-md-6" style="margin-top: -28px;">
-	                	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_sstart"></h6>
-	                	  			</div>
-	                	  			<div class="col-md-6" style="margin-top: -28px;">
-	                	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_send"></h6>
-	                	  			</div>
+	                	  		<div class="form-group col-lg-6 col-md-12 col-sm-12">
+		                	  		<label>Restday</label>
+		                	  		<select name="sched_rest_day" id="sched_rest_day" class="form-control">
+		                	  			<option value="Sunday">Sunday</option>
+		                	   			<option value="Monday">Monday</option>
+		                	   			<option value="Tuesday">Tuesday</option>
+		                	   			<option value="Wednesday">Wednesday</option>
+		                	   			<option value="Thursday">Thursday</option>
+		                	   			<option value="Friday">Friday</option>
+		                	   			<option value="Saturday">Saturday</option>
+		                	  		</select>
 	                	  		</div>
-	                	 	</div>
-	                	</div>		
+	                	  		
+	                	  	</div>
+	                	</div>
+
+                	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
+                	  		<div class="row">
+                	  			<div class="col-md-6" style="margin-top: -28px;">
+                	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_sstart"></h6>
+                	  			</div>
+                	  			<div class="col-md-6" style="margin-top: -28px;">
+                	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_send"></h6>
+                	  			</div>
+                	  		</div>
+                	 	</div>
 
 	                	<div class="form-row">
 	                		<div class="form-group col-md-12">
 	                		  	<label>Task</label>
 	                		   <textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
 	                		</div>
+	                	
 	                	</div>
-
 	                	<div class="form-row">
 	                		<div class="form-group col-md-12">
 	                		  <label>Comment</label>
@@ -298,7 +280,6 @@
 	          </div>
 	    </div>
 	  </div>
-	</div>
 
 	<script>
     $(document).ready(function() {
@@ -309,9 +290,9 @@
                 @foreach($sched_list as $sch_list)
                 {
                     title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
-                    start : '{{ $sch_list->date_from }}T00:00:00',
-                    @if ($sch_list->date_to)
-                            end: '{{ $sch_list->date_to }}T24:00:00',
+                    start : '{{ $sch_list->day_from }}T00:00:00',
+                    @if ($sch_list->day_to)
+                            end: '{{ $sch_list->day_to }}T24:00:00',
                     @endif
                 },
                 @endforeach

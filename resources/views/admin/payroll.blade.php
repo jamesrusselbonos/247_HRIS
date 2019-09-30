@@ -422,8 +422,7 @@
 	    	</div>
 	  	</div>
 	</div>
-
-	<script>
+<script>
 		$(document).ready(function() {
 /////////////////////PAYROLL////////////////////////////////
 
@@ -491,16 +490,21 @@
 				        	var daily = $('#p_daily_rate').val();
 				        	var hourly = $('#p_rate_hour').val();
 				        	var night_differential = response.night_differential;
-				        	var night_differential_rate = rate_hour * .10 * 8;
-				        	var amount_night_differential = night_differential * night_differential_rate;
-				        	var overtime = response.overtimes;
+				        	var amount_night_differential = night_differential * rate_hour * 0.1;
+
+
+				        	var rest_ot = response.rest_ot_duration;
+				        	var rest_ot_amount = response.daysWorked * rest_ot * 1 ;
+
+				        	// var amount_night_differential = night_differential * night_differential_rate;
+				        	var overtime = response.regular_ot_duration;
 				        	var overtime_amount = overtime * rate_hour * 0.25;
 				        	var basic_pay = response.daysWorked * daily;
 				        	var amount = response.absents - response.unpaid;
 				        	var paid_absents = amount * daily;
 				        	var unpaid_absences = response.unpaid * daily;
 				        	var allowance = response.allowances.allowance;
-				           	console.log(night_differential_rate);
+				           	
 				        	var holiday = response.holidays * daily;
 
 				        	var undertime = response.total_undertime;
@@ -510,7 +514,7 @@
 
 
 				        	var total_amount_late_undertime = amount_late + amount_undertime;
-				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime + holiday;
+				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime + holiday + amount_night_differential;
 
 				        	
 				        	$('#p_no_holidays').val(response.holidays);
@@ -529,8 +533,10 @@
 				        	$('#p_amount_undertime_late').val(total_amount_late_undertime.toFixed(2));
 				        	$('#p_reg_OT_hours').val(overtime);
 				        	$('#p_no_rendered').val(night_differential);
-				        	$('#p_amount_night').val(amount_night_differential);
+				        	$('#p_amount_night').val(amount_night_differential.toFixed(2));
 				        	$('#p_reg_OT_amount').val(overtime_amount.toFixed(2));
+				        	$('#p_rest_OT_hours').val(rest_ot.toFixed(2));
+				        	$('#p_rest_OT_amount').val(rest_ot_amount.toFixed(2));
 
 				        	// $('#p_allowance').val(allowance);
 
@@ -668,11 +674,21 @@
 	        	        	$('#p_adjustment_incentive').keyup(function(){
 				        		var incentives = $(this).val();
 				        		var new_incentives = parseInt(incentives, 10);
+				        		var new_net = net_pay + new_incentives;
 
 				        		var gross = gross_pay_pr + new_incentives;
 				        		$('#p_gross_pay').val(gross.toFixed(2));
-				        		$('#p_net_pay').val(net + new_incentives);
-				        		$('#p_net_pay2').val(net + new_incentives);
+				        		$('#p_net_pay').val(new_net.toFixed(2));
+				        		$('#p_net_pay2').val(new_net.toFixed(2));
+
+
+				        		$('#p_sss_loan').val('');
+				        		$('#p_company_loan').val('');
+				        		$('#p_hdmf_loan').val('');
+				        		$('#p_uniform').val('');
+				        		$('#p_total_deduction_loan').val('');
+				        		$('#p_tax').val('');
+				        		
 				        		
 				        	});
 
@@ -739,5 +755,4 @@
 			});
 	    });
 	</script>
-
 @endsection

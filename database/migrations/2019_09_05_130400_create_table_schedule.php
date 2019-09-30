@@ -16,12 +16,11 @@ class CreateTableSchedule extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('employee_id')->unique();
-            $table->date('date_from');
-            $table->date('date_to');
+            $table->string('day_from');
+            $table->string('day_to');
             $table->integer('shift_id');
             $table->longText('task');
             $table->longText('comment');
-            $table->string('duration');
             $table->longText('other');
             $table->timestamps();
         });

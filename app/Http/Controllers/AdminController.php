@@ -37,11 +37,11 @@ use App\Role;
 
 class AdminController extends Controller
 {
-	public function __construct()
-	    {
-	        $this->middleware('auth');
-	        $this->middleware('role:Admin');
-	    }
+    public function __construct()
+        {
+            $this->middleware('auth');
+            $this->middleware('role:Admin');
+        }
 
     public function index()
         {
@@ -382,7 +382,7 @@ class AdminController extends Controller
     }
 
     public function schedule_create(Request $request){
-      
+        // return $request;
         // dd($request->memoemp_search1);
        if(in_array("0001", $request->memoemp_search))
        {
@@ -402,20 +402,21 @@ class AdminController extends Controller
 
                         $schedule->employee_id = $user->employee_id;
                         $schedule->shift_id = $request->shift_sel;
-                        $schedule->date_from = $request->sched_date_from;
-                        $schedule->date_to = $request->sched_date_to;
+                        $schedule->day_from = $request->sched_day_from;
+                        $schedule->day_to = $request->sched_day_to;
+                        $schedule->restday = $request->sched_rest_day;
                         $schedule->task = $request->sched_task;
                         $schedule->comment = $request->sched_comment;
                         // $schedule->duration = $request->sched_duration;
-                        $from = Carbon::parse($request->sched_date_from);
-                        $to = Carbon::parse($request->sched_date_to);
-                        $new_to = $to->addDays(1);
-                        // $from = Carbon::parse('2019-09-16');
-                        // $to = Carbon::parse('2019-09-26');
+                        // $from = Carbon::parse($request->sched_from);
+                        // $to = Carbon::parse($request->sched_to);
+                        // $new_to = $to->addDays(1);
+                        // // $from = Carbon::parse('2019-09-16');
+                        // // $to = Carbon::parse('2019-09-26');
                         
-                        $dt = $from->diffInDays($new_to). " day/s";
+                        // $dt = $from->diffInDays($new_to). " day/s";
                         
-                        $schedule->duration = $dt;
+                        // $schedule->duration = $dt;
                         $schedule->other = $request->sched_other;
                         $schedule->save();
                     }
@@ -436,20 +437,21 @@ class AdminController extends Controller
 
                       $schedule->employee_id = $ids;
                       $schedule->shift_id = $request->shift_sel;
-                      $schedule->date_from = $request->sched_date_from;
-                      $schedule->date_to = $request->sched_date_to;
+                      $schedule->day_from = $request->sched_day_from;
+                      $schedule->day_to = $request->sched_day_to;
+                      $schedule->restday = $request->sched_rest_day;
                       $schedule->task = $request->sched_task;
                       $schedule->comment = $request->sched_comment;
                       // $schedule->duration = $request->sched_duration;
-                      $from = Carbon::parse($request->sched_date_from);
-                      $to = Carbon::parse($request->sched_date_to);
-                      $new_to = $to->addDays(1);
-                      // $from = Carbon::parse('2019-09-16');
-                      // $to = Carbon::parse('2019-09-26');
+                      // $from = Carbon::parse($request->sched_date_from);
+                      // $to = Carbon::parse($request->sched_date_to);
+                      // $new_to = $to->addDays(1);
+                      // // $from = Carbon::parse('2019-09-16');
+                      // // $to = Carbon::parse('2019-09-26');
                       
-                      $dt = $from->diffInDays($new_to). " day/s";
+                      // $dt = $from->diffInDays($new_to). " day/s";
                       
-                      $schedule->duration = $dt;
+                      // $schedule->duration = $dt;
                       $schedule->other = $request->sched_other;
                       $schedule->save();
                   }
@@ -676,7 +678,7 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
-
+    
     public function memo_edit(Request $request){
         $memo_edit = Memo::find($request->edit_memo_id);
         $memo_edit->memo = $request->edit_memo_title;
@@ -789,7 +791,9 @@ class AdminController extends Controller
      }
 
      public function ajaxPayroll(Request $request)
-     {  
+     {
+
+
         $daysWorked = DB::table('timesheets')
                                 ->where('employee_id', $request->id)
                                 ->distinct('date')
@@ -812,18 +816,50 @@ class AdminController extends Controller
         $allowances = Prototype_Employee::where('employee_id', $request->id)
                                 ->first('allowance');  
 
-        $overtimes = TimeSheet::where('employee_id', $request->id)
-                                ->whereBetween('date', array($request->d_from, $request->d_to))
-                                ->sum('overtime_duration');
+
 
         $night_differential = TimeSheet::where('employee_id', $request->id)
                                 ->distinct('date')
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->where('night_differential', '=', '1')
-                                ->count();
+                                ->sum('time_duration');
+
+                                
+        $holiday_ot = DB::table('timesheets')
+                                ->where('employee_id', '=', $request->id)
+                                ->join('holidays', 'holidays.date', '=', 'timesheets.date')
+                                ->get();
+
+        $schedule = Schedule::where('employee_id', $request->id)->first();
+
+        $restday = $schedule->restday;
 
 
-///////////////Change when Shift Added/////////////////////////////////////////////////   
+        // $overtimes = TimeSheet::where('employee_id', $request->id)
+        //                         ->whereBetween('date', array($request->d_from, $request->d_to))
+        //                         ->sum('overtime_duration');
+
+
+        $sunday_rest_ot = TimeSheet::where('employee_id', $request->id)
+                                ->whereBetween('date', array($request->d_from, $request->d_to))
+                                ->get();
+
+
+        $rest_ot_duration = 0.00;
+        $regular_ot_duration = 0.00;
+        foreach($sunday_rest_ot as $rest_ot){
+            $date = strtotime($rest_ot->date);
+            $day = date('l', $date);
+
+            if($day == $restday){
+                $rest_ot_duration += $rest_ot->overtime_duration;
+            }
+            else{
+                $regular_ot_duration += $rest_ot->overtime_duration;
+            }
+        }
+
+
         $shift = DB::table('schedules')
             ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
             ->select('shifts.*', 'schedules.*')
@@ -966,8 +1002,9 @@ class AdminController extends Controller
 
          
          return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
-                        'allowances' => $allowances, 'total_late' => $total_late, 
-                        'total_undertime' => $total_undertime, 'holidays' => $holidays, 'overtimes' => $overtimes, 'night_differential' => $night_differential ]);
+                        'allowances' => $allowances, 'total_late' => $total_late, 'rest_ot_duration' => $rest_ot_duration,
+                        'total_undertime' => $total_undertime, 'holidays' => $holidays, 'regular_ot_duration' => $regular_ot_duration, 
+                        'night_differential' => $night_differential ]);
         
      }
 
