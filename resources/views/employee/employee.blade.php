@@ -66,10 +66,10 @@
                 <li class="{{ (request()->segment(1) == 'employee') ? 'active' : '' }}">
                     <a href="/employee"><i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Dashboard</a>
                 </li>
-                <li>
+                <li class="submenu_employee_attendance">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Attendance<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li class="{{ (request()->segment(1) == 'punch_in_out') ? 'active' : '' }}">
+                        <li class="link_in_out {{ (request()->segment(1) == 'punch_in_out') ? 'active' : '' }}">
                             <a href="/punch_in_out"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Time In/Out</a>
                         </li>
                     </ul>
@@ -320,9 +320,20 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar2").mCustomScrollbar({
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
+
+   <script type="text/javascript">
+		$(document).ready(function() {
+
+			var pathname = window.location.pathname;
+
+            if (pathname == "/punch_in_out") {
+                $('#sidebar2').find('.link_in_out').closest('.submenu_employee_attendance').children('.dropdown-toggle').trigger('click');
+            }
+
+			 $("#sidebar2").mCustomScrollbar({
                 theme: "minimal"
             });
 
@@ -331,14 +342,6 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-        });
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
-
-   <script type="text/javascript">
-		$(document).ready(function() {
 
 			$('.btn_leave').click(function(e){
 				const Toast = Swal.mixin({

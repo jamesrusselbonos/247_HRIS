@@ -68,10 +68,10 @@
                 <li class="{{ (request()->segment(1) == 'admin') ? 'active' : '' }}">
                     <a href="/admin"><i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Dashboard</a>
                 </li>
-                <li>
+                <li class="submenu_employee">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Employee<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li class="{{ (request()->segment(1) == 'add_employee') ? 'active' : '' }}">
+                        <li class="link_add_employee {{ (request()->segment(1) == 'add_employee') ? 'active' : '' }}">
                             <a href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
                         </li>
                         <li class="{{ (request()->segment(1) == 'manage_employee') ? 'active' : '' }}">
@@ -82,10 +82,10 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="submenu_attendance">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Attendance<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li class="{{ (request()->segment(1) == 'attendance') ? 'active' : '' }}">
+                        <li class="link_attendance {{ (request()->segment(1) == 'attendance') ? 'active' : '' }}">
                             <a href="/attendance"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Attendance</a>
                         </li>
                         <li class="{{ (request()->segment(1) == 'timesheet') ? 'active' : '' }}">
@@ -106,18 +106,18 @@
                     <a href="/payroll"><i style="color: #fff;" class="fa fa-usd" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Payroll</a>
                 </li>
                 <p>Configurations</p>
-                <li>
+                <li class="submenu_accounts">
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-users" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>User Accounts<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
-                        <li class="{{ (request()->segment(1) == 'manage_user') ? 'active' : '' }}">
+                        <li class="link_accounts {{ (request()->segment(1) == 'manage_user') ? 'active' : '' }}">
                             <a href="/manage_user"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="submenu_add">
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Add<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
-                        <li class="{{ (request()->segment(1) == 'job_title') ? 'active' : '' }}">
+                        <li class="link_add_job {{ (request()->segment(1) == 'job_title') ? 'active' : '' }}">
                             <a href="/job_title"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job</a>
                         </li>
                         <li class="{{ (request()->segment(1) == 'department') ? 'active' : '' }}">
@@ -251,8 +251,68 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
-        $(document).ready(function () {
+
+    	$( document ).ready(function() {
+
+            var pathname = window.location.pathname;
+
+            if (pathname == "/add_employee") {
+                $('#sidebar2').find('.link_add_employee').closest('.submenu_employee').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/manage_employee") {
+                $('#sidebar2').find('.link_add_employee').closest('.submenu_employee').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/leave") {
+                $('#sidebar2').find('.link_add_employee').closest('.submenu_employee').children('.dropdown-toggle').trigger('click');
+            }
+
+            if (pathname == "/attendance") {
+                $('#sidebar2').find('.link_attendance').closest('.submenu_attendance').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/timesheet") {
+                $('#sidebar2').find('.link_attendance').closest('.submenu_attendance').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/overtime") {
+                $('#sidebar2').find('.link_attendance').closest('.submenu_attendance').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/schedule") {
+                $('#sidebar2').find('.link_attendance').closest('.submenu_attendance').children('.dropdown-toggle').trigger('click');
+            }
+
+            if (pathname == "/job_title") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/department") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/job_status") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/job_level") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/job_position") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/leave_types") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/holidays") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+            if (pathname == "/shift") {
+                $('#sidebar2').find('.link_add_job').closest('.submenu_add').children('.dropdown-toggle').trigger('click');
+            }
+
+            if (pathname == "/manage_user") {
+                $('#sidebar2').find('.link_accounts').closest('.submenu_accounts').children('.dropdown-toggle').trigger('click');
+            }
+
             $("#sidebar2").mCustomScrollbar({
                 theme: "minimal"
             });
@@ -262,15 +322,6 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-        });
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-    	$( document ).ready(function() {
 
     		$('.btn_create').click(function(e){
     			const Toast = Swal.mixin({
