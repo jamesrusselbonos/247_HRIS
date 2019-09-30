@@ -55,13 +55,23 @@
 
 #sidebar2 ul li a:hover {
     color: #fff;
-    background: #636363;
+    /*background: #2594A6;*/
+   background: rgb(71,71,71);
+   background: -moz-linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+   background: -webkit-linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+   background: linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#474747",endColorstr="#00838f",GradientType=1);
 }
 
 #sidebar2 ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #636363;
+    /*background: #2594A6;*/
+    background: rgb(71,71,71);
+    background: -moz-linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+    background: linear-gradient(90deg, rgba(71,71,71,1) 6%, rgba(0,131,143,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#474747",endColorstr="#00838f",GradientType=1);
 }
 
 a[data-toggle="collapse"] {

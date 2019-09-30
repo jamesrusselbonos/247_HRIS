@@ -183,8 +183,8 @@
 				              	<div>
 				              	
 				              		<h6 style="font-size: 13px;"><strong>{{$notification->data['title']}}</strong></h6>
-				              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}}</p>
-				              		<p style="margin-top: -18px; font-size: 10px;">{{$notification->data['date']}}</p>
+				              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}} {{$notification->data['date']}}</p>
+				              		
 				              		<p class="memo_subj" style="margin-top: -12px; font-size: 10px;">{{$notification->data['subject']}}</p>
 				              	</div>
 				              </a>
@@ -229,8 +229,8 @@
 					              	<div>
 					              	
 					              		<h6 style="font-size: 13px;"><strong>{{$notification->data['title']}}</strong></h6>
-					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}}</p>
-					              		<p style="margin-top: -18px; font-size: 10px;">{{$notification->data['date']}}</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}} {{$notification->data['date']}}</p>
+					              		
 					              		<p class="memo_subj" style="margin-top: -12px; font-size: 10px;">{{$notification->data['subject']}}</p>
 					              	</div>
 					              </a>
