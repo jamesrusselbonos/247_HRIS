@@ -113,11 +113,11 @@
 				       <div class="row">
 
 				       	@foreach($sched_list as $sch_list)
-				       		<div class="col-md-7">
+				       		<div class="col-lg-7 col-md-7 col-sm-7">
 				       			<p>{{ $sch_list->lastname }}, {{ $sch_list->firstname }} {{ $sch_list->middle_name }}</p>
 					            <p style="margin-top: -15px;">{{ $sch_list->employee_id }}</p>
 				       		</div>
-				       		<div class="col-lg-5">
+				       		<div class="col-lg-5 col-md-5 col-sm-5">
 				       			<span style="float: right;">
 					             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
 
@@ -208,8 +208,8 @@
 	                	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
 	                	<input id="hdn-name" class="hdn-name" type="hidden" name="name" value="{{auth()->user()->name}}">
 
-	                	<div class="form-group col-md-12">
-	                	  <label>Select an Employee</label>
+	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
+	                	  	<label>Select an Employee</label>
         	         		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
         	         			
         	         			<select class="memoemp_search form-control" data-placeholder="Select Recipient" data-allow-clear="true" style="width: 100%;" name="memoemp_search1" name="memos[]" multiple="multiple" >
@@ -223,32 +223,32 @@
         	         		</div>
 	                	</div>
 
-	                	<div class="form-group col-md-12">
-	                	  <div class="row">
-	                	  	<div class="form-group col-md-6">
-	                	  		<label>Date From</label>
-	                	   		<input type="date" name="sched_date_from" id="sched_date_from" max="3000-12-31" 
+	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
+	                	  	<div class="row">
+	                	  		<div class="form-group col-lg-6 col-md-6 col-sm-12">
+	                	  			<label>Date From</label>
+	                	   			<input type="date" name="sched_date_from" id="sched_date_from" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
-	                	  	</div>
-	                	  	<div class="form-group col-md-6">
-	                	  		<label>Date To</label>
-	                	    	<input type="date" name="sched_date_to" id="sched_date_to" max="3000-12-31" 
+	                	  		</div>
+	                	  		<div class="form-group col-lg-6 col-md-6 col-sm-12">
+	                	  			<label>Date To</label>
+	                	    		<input type="date" name="sched_date_to" id="sched_date_to" max="3000-12-31" 
 								          min="1000-01-01" class="form-control">
+	                	  		</div>
 	                	  	</div>
-	                	  </div>
 	                	</div>
 
-	                	<div class="form-group col-md-12">
-	                	  <div class="row">
-	                	  	<div class="form-group col-md-6">
-	                	  		<select class="shift_sel form-control" id="shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
-	                	  			<option selected disabled>Select Shift</option>  
-	                	  			@foreach($shifts as $shift)
-	                	  				<option value="{{ $shift->id }}" s_data_tfrom="{{ $shift->shift_start }}" s_data_tto="{{ $shift->shift_end }}">{{ $shift->name }}</option>
-	                	  			@endforeach
-	                	  		</select>
-	                	  	</div>
-	                	  	<div class="form-group col-md-6">
+	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
+	                	  	<div class="row">
+	                	  		<div class="form-group col-lg-6 col-md-12 col-sm-12">
+	                	  			<select class="shift_sel form-control" id="shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
+	                	  				<option selected disabled>Select Shift</option>  
+	                	  				@foreach($shifts as $shift)
+	                	  					<option value="{{ $shift->id }}" s_data_tfrom="{{ $shift->shift_start }}" s_data_tto="{{ $shift->shift_end }}">{{ $shift->name }}</option>
+	                	  				@endforeach
+	                	  			</select>
+	                	  		</div>
+	                	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	                	  		<div class="row">
 	                	  			<div class="col-md-6" style="margin-top: -28px;">
 	                	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_sstart"></h6>
@@ -257,22 +257,28 @@
 	                	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_send"></h6>
 	                	  			</div>
 	                	  		</div>
-	                	  </div>
+	                	 	</div>
 	                	</div>		
 
-	                	<div class="form-group col-md-12">
-	                	  <label>Task</label>
-	                	   <textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
+	                	<div class="form-row">
+	                		<div class="form-group col-md-12">
+	                		  	<label>Task</label>
+	                		   <textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
+	                		</div>
 	                	</div>
 
-	                	<div class="form-group col-md-12">
-	                	  <label>Comment</label>
-	                	   <textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
+	                	<div class="form-row">
+	                		<div class="form-group col-md-12">
+	                		  <label>Comment</label>
+	                		   <textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
+	                		</div>
 	                	</div>
 
-	                	<div class="form-group col-md-12">
-	                	  <label>Other Task</label>
-	                	   <textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
+	                	<div class="form-row">
+	                		<div class="form-group col-md-12">
+	                		  <label>Other Task</label>
+	                		   <textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
+	                		</div>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -282,9 +288,9 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
-	                <div class="modal-footer">
+	                <div class="modal-footer" style="text-align: right;">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	               <button type="button" class="btn btn-success btn_add_sched btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	               		<button type="button" class="btn btn-success btn_add_sched btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	            	</div>
 	              </form>
 	            </div>

@@ -64,10 +64,18 @@
 				              </td>
 				             
 				             <td>
-				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<a href="/delete/{{ $depart->id }}"><button id="{{$depart->id}}" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-     							</span>
+				             	<div class="btn_desktop">
+				             		<span style="float: right;">
+	     								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+	     								<a href="/delete/{{ $depart->id }}"><button id="{{$depart->id}}" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+	     							</span>
+				             	</div>
+				             	<div class="btn_mobile">
+				             		<span style="float: right;">
+	     								<button type="button" class="btn btn-primary edit-dept" data-toggle="modal" data-target=".Edit_modal" id="{{$depart->id}}" dep_name="{{$depart->department_name}}" dep_desc="{{$depart->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+	     								<a href="/delete/{{ $depart->id }}"><button id="{{$depart->id}}" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+	     							</span>
+				             	</div>
 				             </td>
 				            </tr>
 				                  

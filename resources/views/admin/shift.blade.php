@@ -25,7 +25,7 @@
 
 				    <div class="card-body">
 				   
-				        <table class="table display nowrap" id="DataTable">
+				        <table class="table display nowrap" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Shift Name</th>
@@ -39,31 +39,39 @@
 				          <tbody>
 				          	@foreach($shifts as $shift)
 				      		<tr>
-					              <td scope="row">
+					              <td scope="row" style="min-width: 150px;">
 									{{ $shift->name }}
 					              </td>
 					              
-					              <td style="min-width: 50px;">
+					              <td style="min-width: 150px;">
 					              	{{ $shift->shift_start }}
 					              </td>
 
-					              <td style="min-width: 50px;">
+					              <td style="min-width: 150px;">
 					              	{{ $shift->shift_end }}
 					              </td>					              
 
-					              <td style="min-width: 150px;">
+					              <td style="min-width: 200px;">
 					              	{{ $shift->break_start }}
 					              </td>
 
-					              <td style="min-width: 150px;">
+					              <td style="min-width: 200px;">
 					              	{{ $shift->break_end }}
 					              </td>
 					             
 					             <td style="min-width: 200px;">
-					             	<span style="float: right;">
-	     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-	     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-	     							</span>
+					             	<div class="btn_desktop">
+					             		<span style="float: right;">
+		     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+		     							</span>
+					             	</div>
+					             	<div class="btn_mobile">
+					             		<span style="float: right;">
+		     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+		     							</span>
+					             	</div>
 					             </td>
 				            </tr>
 				      		@endforeach

@@ -3,78 +3,85 @@
 @section('employee_content')
 
 <div class="col-lg-12">
-	<div class="memo_page" data-simplebar>
-		<div class="">
-			<div class="card">
-				<div class="card-header">
-					<div class="row">
-						<div class="col-lg-12">
-			    			<span>
-			    				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#request_overtime"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Request Overtime</button>
-			    			</span>
-			    		</div>
+	<div class="row">
+		 <div class="jumbotron2">
+          <h1 style="margin-top: 130px;" class="display-4">Overtime</h1>
+        </div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="memo_page" data-simplebar>
+				<div class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-lg-12">
+				    			<span>
+				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#request_overtime"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Request Overtime</button>
+				    			</span>
+				    		</div>
+						</div>
 					</div>
-				</div>
-				 <div class="card-body">
-				   
-			        <table class="table display nowrap" id="DataTable">
-			          <thead>
-			            <tr>
-			              
-			              <th scope="col">Name</th>
-			              <th scope="col">Date</th>
-			              <th scope="col">Time From</th>
-			              <th scope="col">Time To</th>
-			              <th scope="col">Duration</th>
-			              <th scope="col">Reason</th>
-			              <th scope="col">Status</th>
-			              <th scope="col">Manage</th>
-			            </tr>
-			          </thead>
-			          <tbody>
-			      
-			      		@foreach($overtime as $ot)
-
+					 <div class="card-body">
+					   
+				        <table class="table display nowrap" id="DataTable">
+				          <thead>
 				            <tr>
-
-				              <th style="max-width: 200px;">
-				              	<p></p>
-				              	<p style="margin-top: -15px;">{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</p>
-				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->date }}
-				              </th>				              
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->time_from }}
-				              </th>				              
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->time_to }}
-				              </th>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->duration }}
-				              </td>
-				               <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->reason }}
-				              </td>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
-				              	{{ $ot->status }}
-				              </td>
-				              <td style="max-width: 200px;">
-				             	<span style="float: right;">
-				             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-				             		
-				             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
-	 								
-	 							</span>
-				             </td>
+				              
+				              <th scope="col">Name</th>
+				              <th scope="col">Date</th>
+				              <th scope="col">Time From</th>
+				              <th scope="col">Time To</th>
+				              <th scope="col">Duration</th>
+				              <th scope="col">Reason</th>
+				              <th scope="col">Status</th>
+				              <th scope="col">Manage</th>
 				            </tr>
-			      				       
-			      		@endforeach
-			           
-			          </tbody>
-			        </table>
-			       
-			    </div>
+				          </thead>
+				          <tbody>
+				      
+				      		@foreach($overtime as $ot)
+
+					            <tr>
+
+					              <th style="max-width: 200px;">
+					              	<p></p>
+					              	<p style="margin-top: -15px;">{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</p>
+					              </th>
+					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->date }}
+					              </th>				              
+					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->time_from }}
+					              </th>				              
+					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->time_to }}
+					              </th>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->duration }}
+					              </td>
+					               <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->reason }}
+					              </td>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              	{{ $ot->status }}
+					              </td>
+					              <td style="max-width: 200px;">
+					             	<span style="float: right;">
+					             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+					             		
+					             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
+		 								
+		 							</span>
+					             </td>
+					            </tr>
+				      				       
+				      		@endforeach
+				           
+				          </tbody>
+				        </table>
+				       
+				    </div>
+				</div>
 			</div>
 		</div>
 	</div>

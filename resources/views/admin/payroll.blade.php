@@ -128,8 +128,7 @@
 	      			{{ csrf_field() }}
 		      		<div class="modal-body" style="padding-left: 30px; padding-right: 30px;">
 		      			<div class="row" style="padding-bottom: 10px;">
-		      				<div class="col-md-4"></div>
-		      				<div class="col-md-4">
+		      				<div class="col-md-6">
 								<div class="row">
 									<div class="col-sm-5" style="text-align: right;">
 										<p style="margin-top: 5px;">Gross Pay</p>
@@ -139,7 +138,7 @@
 									</div>
 								</div>
 		      				</div>
-		      				<div class="col-md-4">
+		      				<div class="col-md-6">
 		      					<div class="row">
 									<div class="col-sm-5" style="text-align: right;">
 										<p style="margin-top: 5px;">Net Pay</p>

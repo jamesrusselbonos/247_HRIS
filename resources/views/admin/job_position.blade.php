@@ -63,10 +63,18 @@
 				              </td>
 				             
 				             <td>
-				             	<span style="float: right;">
-     								<button type="button" class="btn btn-primary edit-position" data-toggle="modal" data-target=".Edit_modal" position_id="{{$post->id}}" position_name="{{$post->job_position}}" position_desc="{{$post->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
-     								<a href="/position_delete/{{ $post->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
-     							</span>
+				             	<div class="btn_desktop">
+				             		<span style="float: right;">
+	     								<button type="button" class="btn btn-primary edit-position" data-toggle="modal" data-target=".Edit_modal" position_id="{{$post->id}}" position_name="{{$post->job_position}}" position_desc="{{$post->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+	     								<a href="/position_delete/{{ $post->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+	     							</span>
+				             	</div>
+				             	<div class="btn_mobile">
+				             		<span style="float: right;">
+	     								<button type="button" class="btn btn-primary edit-position" data-toggle="modal" data-target=".Edit_modal" position_id="{{$post->id}}" position_name="{{$post->job_position}}" position_desc="{{$post->description}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+	     								<a href="/position_delete/{{ $post->id }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+	     							</span>
+				             	</div>
 				             </td>
 				            </tr>
 				      		@endforeach

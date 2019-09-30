@@ -16,18 +16,18 @@
 
 				 <div class="card-body">
 				   <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
-			        <table class="table display nowrap" id="DataTable">
+			        <table class="table display nowrap" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
-			              <th scope="col">Employee Name</th>
-			              <th scope="col">Date</th>
-			              <th scope="col">Time From</th>
-			              <th scope="col">Time To</th>
-			              <th scope="col">Duration</th>
-			              <th scope="col">Reason</th>
-			              <th scope="col">Status</th>
-			              <th scope="col">Manage</th>
+			              <th scope="col" style="min-width: 200px;">Employee</th>
+			              <th scope="col" style="min-width: 150px;">Date</th>
+			              <th scope="col" style="min-width: 200px;">Time From</th>
+			              <th scope="col" style="min-width: 200px;">Time To</th>
+			              <th scope="col" style="min-width: 150px;">Duration</th>
+			              <th scope="col" style="min-width: 200px;">Reason</th>
+			              <th scope="col" style="min-width: 150px;">Status</th>
+			              <th scope="col" style="min-width: 150px;">Manage</th>
 			            </tr>
 			          </thead>
 			          <tbody>
@@ -37,36 +37,46 @@
 
 			            <tr>
 
-			              <th style="max-width: 100px;">
+			              <th style="min-width: 200px;">
 			              	{{ $ot->lastname }}, {{ $ot->firstname }} {{ $ot->middle_name }}
 			              </th>
-			              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <th style="text-overflow: ellipsis; min-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->date }}
 			              </th>
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <td style="text-overflow: ellipsis; min-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->time_from }}
 			              </td>			              
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <td style="text-overflow: ellipsis; min-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->time_to }}
 			              </td>
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <td style="text-overflow: ellipsis; min-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->duration }}
 			              </td>			              
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <td style="text-overflow: ellipsis; min-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->reason }}
 			              </td>
-			               <td style="max-width: 50px;">
+			               <td style="min-width: 150px;">
 			              	{{ $ot->status }}
 			              </td>
 			              
 			             
-			             <td style="max-width: 200px;">
-			             	<span style="float: right;">
-			             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-success overtime_view_edit" data-toggle="modal" data-target="#view_overtime" ><i class="fa fa-eye" aria-hidden="true"></i></button>
-			             	@if($ot->status == "Pending")
-			             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-primary overtime_view_edit" data-toggle="modal" data-target="#edit_overtime_modal" ><i class="fa fa-check" aria-hidden="true"></i></button>
- 							@endif	
- 							</span>
+			             <td style="min-width: 150px;">
+			             	<div class="btn_desktop">
+			             		<span style="float: right;">
+				             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-success overtime_view_edit" data-toggle="modal" data-target="#view_overtime" ><i class="fa fa-eye" aria-hidden="true"></i></button>
+				             	@if($ot->status == "Pending")
+				             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-primary overtime_view_edit" data-toggle="modal" data-target="#edit_overtime_modal" ><i class="fa fa-check" aria-hidden="true"></i></button>
+	 							@endif	
+	 							</span>
+			             	</div>
+			             	<div class="btn_mobile">
+			             		<span style="float: right;">
+				             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-success overtime_view_edit" data-toggle="modal" data-target="#view_overtime" ><i class="fa fa-eye" aria-hidden="true"></i></button>
+				             	@if($ot->status == "Pending")
+				             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-primary overtime_view_edit" data-toggle="modal" data-target="#edit_overtime_modal" ><i class="fa fa-check" aria-hidden="true"></i></button>
+	 							@endif	
+	 							</span>
+			             	</div>
 			             </td>
 			            </tr>
 			      		

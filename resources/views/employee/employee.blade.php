@@ -63,24 +63,24 @@
 
             <ul class="list-unstyled components">
                 <p>Navigation</p>
-                <li class="active">
+                <li class="{{ (request()->segment(1) == 'employee') ? 'active' : '' }}">
                     <a href="/employee"><i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Dashboard</a>
                 </li>
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Attendance<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'punch_in_out') ? 'active' : '' }}">
                             <a href="/punch_in_out"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Time In/Out</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ (request()->segment(1) == 'employee_memo') ? 'active' : '' }}">
                     <a href="/employee_memo"><i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Memo</a>
                 </li>
-                <li>
+                <li class="{{ (request()->segment(1) == 'employee_leave') ? 'active' : '' }}">
                     <a href="/employee_leave"><i style="color: #fff;" class="fa fa-outdent" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Leave</a>
                 </li>
-                <li>
+                <li class="{{ (request()->segment(1) == 'employee_overtime') ? 'active' : '' }}">
                     <a href="/employee_overtime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Overtime</a>
                 </li>
             </ul>
@@ -110,7 +110,7 @@
                       			<a href="#" class="notification-trigger">
                     				  <i style="font-size: 25px;" class="fa fa-bell-o" aria-hidden="true"></i>
                     				  @if(auth()->user()->unreadNotifications->count())
-                    				  <span class="badge" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
+                    				  <span class="badge infinite animated heartBeat" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
                     				  @endif
                     			</a>
                             </li>

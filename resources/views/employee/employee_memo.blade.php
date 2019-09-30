@@ -24,7 +24,7 @@
 				</div> -->
 				 <div class="card-body">
 				   
-			        <table class="table display nowrap" id="DataTable">
+			        <table class="table display nowrap" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
@@ -42,24 +42,31 @@
 			      		@if($notification->type == "App\Notifications\SendMemo")
 				            <tr>
 
-				              <th style="max-width: 100px;">
+				              <th style="min-width: 150px;">
 				              	{{$notification->data['title']}}
 				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              <th style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{$notification->data['subject']}}
 				              </th>
-				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              <td style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{$notification->data['file']}}
 				              </td>
-				               <td style="max-width: 50px;">
+				               <td style="min-width: 150px;">
 				              	{{$notification->data['date']}}
 				              </td>
 				              
 				             
-				             <td style="max-width: 200px;">
-				             	<span style="float: right;">
-				             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-	 							</span>
+				             <td style="min-width: 200px;">
+				             	<div class="btn_desktop">
+				             		<span style="float: right;">
+					             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+		 							</span>
+				             	</div>
+				             	<div class="btn_mobile">
+				             		<span style="float: right;">
+					             		<button id="{{ $notification->id }}" type="button" class="btn btn-success memo_view" memo_id="{{ $notification->id }}" memo_title="{{ $notification->data['title'] }}" memo_subj="{{ $notification->data['subject'] }}" memo_file="{{ $notification->data['file'] }}" memo_date="{{ $notification->data['date'] }}" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i></button>
+		 							</span>
+				             	</div>
 				             </td>
 				            </tr>
 			      		@endif

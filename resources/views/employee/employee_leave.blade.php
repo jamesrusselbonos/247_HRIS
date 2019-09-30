@@ -31,9 +31,9 @@
 			              <th scope="col" style="min-width: 250px;">Name</th>
 			              <th scope="col">Date</th>
 			              <th scope="col">Leave Type</th>
-			              <th scope="col">Date From</th>
-			              <th scope="col">Date To</th>
-			              <th scope="col">Reason</th>
+			              <th scope="col" style="min-width: 200px;">Date From</th>
+			              <th scope="col" style="min-width: 200px;">Date To</th>
+			              <th scope="col" style="min-width: 200px;">Reason</th>
 			              <th scope="col">Status</th>
 			              <th scope="col" style="min-width: 200px;">Manage</th>
 			            </tr>
@@ -67,12 +67,22 @@
 				              	{{ $l->leave_status }}
 				              </td>
 				             <td style="max-width: 200px;">
-				             	<span style="float: right;">
-				             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-				             		@if($l->leave_status =="Pending")
-				             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
-	 								@endif
-	 							</span>
+				             	<div class="btn_desktop">
+				             		<span style="float: right;">
+					             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+					             		@if($l->leave_status =="Pending")
+					             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+		 								@endif
+		 							</span>
+				             	</div>
+				             	<div class="btn_mobile">
+				             		<span style="float: right;">
+					             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i></button>
+					             		@if($l->leave_status =="Pending")
+					             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+		 								@endif
+		 							</span>
+				             	</div>
 				             </td>
 				            </tr>
 			      				       

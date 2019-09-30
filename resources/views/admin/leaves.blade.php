@@ -100,11 +100,11 @@
 
 							 	<div class="row">
 									@foreach($leave as $l)
-										<div class="col-lg-7">
+										<div class="col-lg-7 col-md-7 col-sm-7">
 											<p>{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</p>
 										    <p style="margin-top: -15px;">{{ $l->emp_id }}</p>
 										</div>
-										<div class="col-lg-5">
+										<div class="col-lg-5 col-md-5 col-sm-5">
 											<span style="float: right;">
 						             		<button id="{{ $l->id }}" type="button" class="btn btn-primary btn_view_leave" data-toggle="modal" data-target="#view_leave" v_leave_id="{{ $l->id }}" v_leave_lname="{{ $l->lastname }}" v_leave_fname="{{ $l->firstname }}" v_leave_mname="{{ $l->middle_name }}" v_leave_empid="{{ $l->emp_id }}" v_leave_date="{{ $l->date }}" v_leave_leave_type="{{ $l->leave_type }}" v_leave_datefrom="{{ $l->date_from }}" v_leave_dateto="{{ $l->date_to }}" v_leave_reason="{{ $l->reason }}" v_leave_status="{{ $l->leave_status }}" v_leave_leave_type_id="{{ $l->leave_id }}"><i class="fa fa-check" aria-hidden="true"></i></button>
 						             		<a href="/delete_leave/{{ $l->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
@@ -131,8 +131,9 @@
       				<span aria-hidden="true">&times;</span>
     			</button>
   			</div>
-      		<div class="modal-body" style="padding-right: 50px; padding-left: 50px;">
-  				<form method="POST" action="{{route('admin.leave.edit')}}">
+  			<form method="POST" action="{{route('admin.leave.edit')}}">
+      			<div class="modal-body" style="padding-right: 50px; padding-left: 50px;">
+  				
   					{{ csrf_field() }}
 		      		<div class="row">
 		      			<h4 id="vl_lname"></h4>, <h4 id="vl_fname"></h4>&nbsp;<h4 id="vl_mname"></h4>
@@ -176,12 +177,12 @@
 					    	<option value="Declined">Declined</option>
 					  	</select>
 		      		</div>
-		      		<div class="modal-footer" style="margin-top: 20px;">
-	              	   	<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		               	<button type="submit" class="btn btn-success btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
-		            </div>
-  				</form>
-    		</div>
+    			</div>
+    			<div class="modal-footer" style="margin-top: 20px;">
+              	   	<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+	               	<button type="submit" class="btn btn-success btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	            </div>
+    		</form>
   		</div>
   	</div>
 </div>
@@ -196,6 +197,7 @@
                 {
                     title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
                     start : '{{ $leaves->date_from }}T00:00:00',
+                    textColor: 'white',
                     @if ($leaves->date_to)
                             end: '{{ $leaves->date_to }}T24:00:00',
                     @endif

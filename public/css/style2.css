@@ -188,13 +188,13 @@ a.article:hover {
         margin-top: -150px;
     }
     .add_employee_tab{
-    padding-left: 25px !important;
-    padding-right: 25px !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
 
-    padding-top: 150px;
-    padding-bottom: 150px;
+        padding-top: 150px;
+        padding-bottom: 150px;
 
-    height: 100vh;
+        height: 100vh;
     }
     .employee_list{
         padding-left: 25px !important;
@@ -248,7 +248,55 @@ a.article:hover {
         padding-right: 25px !important;
 
         padding-top: 50px;
-
     }
+    .profile_field{
+      display: block;
+      margin-left: 30%;
+      margin-right: 30%;
+      width: 50%;
+    }
+}
+@media (max-width: 1076px) {
+    #sidebar2 {
+        margin-left: -250px;
+    }
+    #sidebar2.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        /*width: calc(100% - 250px);*/
+        margin-right: -250px;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .btn_mobile{
+        display: block !important;
+    }
+    .btn_desktop{
+        display: none !important;
+    }
+    .color_desc{
+        margin-top: 5px;
 
+        text-align: left !important;
+    }
+    .employee_list_display_row{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .modal_name{
+        display: inline-block;
+        font-size: 25px !important;
+
+        margin-top: 20px !important; 
+    }
+    .profile_list{
+        text-align: center !important;
+    }
 }

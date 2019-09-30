@@ -24,7 +24,7 @@
 				</div>
 				 <div class="card-body">
 				   
-			        <table class="table display nowrap" id="DataTable">
+			        <table class="table display nowrap" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
@@ -42,27 +42,37 @@
 
 			            <tr>
 
-			              <th style="max-width: 100px;">
+			              <th style="min-width: 200px;">
 			              	{{ $mem->memo }}
 			              </th>
-			              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <th style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->subject }}
 			              </th>
-			              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              <td style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->attachment }}
 			              </td>
-			               <td style="max-width: 50px;">
+			               <td style="min-width: 150px;">
 			              	{{ $mem->memo_date }}
 			              </td>
 			              
 			             
-			             <td style="max-width: 200px;">
-			             	<span style="float: right;">
+			             <td style="min-width: 200px;">
+			             	<div class="btn_desktop">
+			             		<span style="float: right;">
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;Send</button>
  								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
  								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</button></a>
  							</span>
+			             	</div>
+			             	<div class="btn_mobile">
+			             		<span style="float: right;">
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i></button>
+			             		<button id="{{ $mem->id }}" type="button" class="btn btn-info send_memo" data-toggle="modal" data-target="#send_memo" s_memoid="{{$mem->id}}" s_memo="{{ $mem->memo }}" s_subject="{{ $mem->subject }}" s_attachment="{{ $mem->attachment }}" s_memodate="{{ $mem->memo_date }}"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+ 								<button id="{{ $mem->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal" e_memoid="{{$mem->id}}" e_memo="{{ $mem->memo }}" e_subject="{{ $mem->subject }}" e_attachment="{{ $mem->attachment }}" e_memodate="{{ $mem->memo_date }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+ 								<a href="/memo_delete/{{ $mem->id }}"><button id="{{ $mem->id }}" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+ 							</span>
+			             	</div>
 			             </td>
 			            </tr>
 			      		
@@ -156,7 +166,7 @@
        				<div class="col-lg-12">
        					<div class="attach">
        						<div class="row">
-       							<div class="col-lg-1" style="text-align: center;">
+       							<div class="col-lg-1">
        								<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
        							</div>
        							<div class="col-lg-11">

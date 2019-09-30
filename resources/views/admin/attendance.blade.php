@@ -18,7 +18,7 @@
 								<form method="POST" action="{{route('attendance.load')}}">
 									{{ csrf_field() }}
 									<div class="row">
-										<div class="col-md-5">
+										<div class="col-xl-5 col-lg-7 col-md-7 col-sm-7">
 											<select class="js-example-basic-single" id="emp_sel" style="width: 100%;" name="emp_sel"  onchange="this.form.submit()">
 												<option selected disabled>Search Employee</option>
 												@foreach($employees as $emp)
@@ -26,12 +26,12 @@
 											  	@endforeach
 											</select>
 										</div>
-										<div class="col-md-2">
+										<div class="col-xl-2 col-lg-5 col-md-5 col-sm-5">
 											<a href="{{ route('attendance.index') }}" class="btn btn-primary">Show All</a>
 										</div>
-										<div class="col-md-5">
+										<div class="col-xl-5 col-lg-12 col-md-12 col-sm-12">
 											<div class="row">
-												<div class="col-sm-12 color_desc" style="text-align: right;">
+												<div class="col-sm-12 color_desc">
 													<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
 													<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
 													<p style="color: #FF0000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>

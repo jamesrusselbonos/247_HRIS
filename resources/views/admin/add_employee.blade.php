@@ -13,12 +13,12 @@
 					<div class="row employee_forms">
 						<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
 							<div class="row">
-									<div class="col-lg-3">
+								<div class="col-lg-3 profile_field" style="margin-bottom: 50px;">
 									<img class="profile_photo" src="/img/profile.png">
 									<div class="input_photo">
 										<h6>Upload a photo</h6>
 										<div class="input-group">
-										    <span class="input-group-btn" style="margin-right:70px;">
+										    <span class="input-group-btn">
 										        <span class="btn btn-default btn-file">
 										          <!--  <button class="btn btn-outline-secondary"  type="button"> Browse… </button> -->
 										        </span>

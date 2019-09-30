@@ -351,7 +351,7 @@
 	       				<div class="col-lg-12">
 	       					<div class="attach">
 	       						<div class="row">
-	       							<div class="col-lg-1" style="text-align: center;">
+	       							<div class="col-lg-1">
 	       								<i class="fa fa-file-text-o" aria-hidden="true" style="font-size: 50px; color: #282828;"></i>
 	       							</div>
 	       							<div class="col-lg-11">
@@ -771,8 +771,8 @@
 						<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
 					</div>
 					<div  class="col-lg-8 profile_list">
-						<h3 id="elist_lname"></h3>, &nbsp;<h3 id="elist_fname"></h3> <h3 id="elist_mname"></h3>
-						<h5 style="margin-top: -18px; font-size: 25px;" id="elist_position"></h5>
+						<h4 id="elist_lname" class="modal_name"></h4>, &nbsp;<h4 id="elist_fname" class="modal_name"></h4> <h4 id="elist_mname" class="modal_name"></h4>
+						<h5 style="margin-top: 0px; font-size: 19px;" id="elist_position"></h5>
 						<h6 style="margin-top: -5px;" id="elist_id"></h6>
 						<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
 					</div>
@@ -782,10 +782,10 @@
 					
 					<div style="padding-top: 20px;" class="col-lg-12">
 						<div class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6 id="">Address:</h6>	
+										<h6 id=""><strong>Address:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<strong><h6 id="elist_address"></h6></strong>
@@ -793,7 +793,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>City:</h6>	
+										<h6><strong>City:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_city"></h6>	
@@ -801,7 +801,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Province:</h6>	
+										<h6><strong>Province:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_province"></h6>	
@@ -809,7 +809,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Country:</h6>	
+										<h6><strong>Country:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_country"></h6>	
@@ -817,17 +817,17 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Birthday:</h6>	
+										<h6><strong>Birthday:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_bday"></h6>	
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Department:</h6>	
+										<h6><strong>Department:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_department"></h6>	
@@ -835,7 +835,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Status:</h6>	
+										<h6><strong>Status:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_status"></h6>	
@@ -843,7 +843,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Gender:</h6>	
+										<h6><strong>Gender:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_gender"></h6>	
@@ -856,10 +856,10 @@
 						<h3 style="color: #9e9e9e;">Contact Info</h3>
 
 						<div style="padding-top: 20px;" class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Postal / ZIP Code:</h6>	
+										<h6><strong>Postal / ZIP Code:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_zip"></h6>	
@@ -867,7 +867,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Home Number:</h6>	
+										<h6><strong>Home Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_hnumber"></h6>	
@@ -875,17 +875,17 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Phone Number:</h6>	
+										<h6><strong>Phone Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_pnumber"></h6>	
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Work Email:</h6>	
+										<h6><strong>Work Email:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_wemail"></h6>	
@@ -893,7 +893,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Personal Email:</h6>	
+										<h6><strong>Personal Email:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_pemail"></h6>	
@@ -901,7 +901,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>SIN / SSN:</h6>	
+										<h6><strong>SIN / SSN:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_ssn_sin"></h6>	
@@ -914,10 +914,10 @@
 						<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
 
 						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Name:</h6>	
+										<h6><strong>Name:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_ename"></h6>	
@@ -925,17 +925,17 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Address:</h6>	
+										<h6><strong>Address:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_eaddress"></h6>	
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Relationship:</h6>	
+										<h6><strong>Relationship:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_relationship"></h6>	
@@ -943,7 +943,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Phone Number:</h6>	
+										<h6><strong>Phone Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_enumber"></h6>	
@@ -955,10 +955,10 @@
 						<h3 style="color: #9e9e9e;">Job</h3>
 
 						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Job Title:</h6>	
+										<h6><strong>Job Title:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_job"></h6>	
@@ -966,7 +966,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Job Level:</h6>	
+										<h6><strong>Job Level:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_staff"></h6>	
@@ -974,17 +974,17 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Job Description:</h6>	
+										<h6><strong>Job Description:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_jdesc"></h6>	
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Date Hired:</h6>	
+										<h6><strong>Date Hired:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_hired"></h6>	
@@ -992,7 +992,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Date Terminated:</h6>	
+										<h6><strong>Date Terminated:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_terminated"></h6>	
@@ -1001,10 +1001,10 @@
 							</div>
 						</div>
 						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>SSS Number:</h6>	
+										<h6><strong>SSS Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_sss"></h6>	
@@ -1012,7 +1012,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Pagibig Number:</h6>	
+										<h6><strong>Pagibig Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_pagibig"></h6>	
@@ -1020,7 +1020,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>PhilHealth Number:</h6>	
+										<h6><strong>PhilHealth Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_philhealth"></h6>	
@@ -1028,7 +1028,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>TIN Number:</h6>	
+										<h6><strong>TIN Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_TIN"></h6>	
@@ -1036,7 +1036,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>NBI Number:</h6>	
+										<h6><strong>NBI Number:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_NBI"></h6>	
@@ -1044,17 +1044,17 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Diploma:</h6>	
+										<h6><strong>Diploma:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_diploma"></h6>	
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Medical Certificate:</h6>	
+										<h6><strong>Medical Certificate:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_medical"></h6>	
@@ -1062,7 +1062,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>TOR:</h6>	
+										<h6><strong>TOR:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_TOR"></h6>	
@@ -1070,7 +1070,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Birth Certificate:</h6>	
+										<h6><strong>Birth Certificate:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_bcert"></h6>	
@@ -1078,7 +1078,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Brgy. Clearance:</h6>	
+										<h6><strong>Brgy. Clearance:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_bclearance"></h6>	
@@ -1086,7 +1086,7 @@
 								</div>
 								<div class="row">
 									<div class="col-lg-4">
-										<h6>Cedula:</h6>	
+										<h6><strong>Cedula:</strong></h6>	
 									</div>
 									<div class="col-lg-8">
 										<h6 id="elist_cedula"></h6>	

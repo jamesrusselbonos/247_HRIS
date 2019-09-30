@@ -65,19 +65,19 @@
 
             <ul class="list-unstyled components">
                 <p>Navigation</p>
-                <li class="active">
+                <li class="{{ (request()->segment(1) == 'admin') ? 'active' : '' }}">
                     <a href="/admin"><i class="fa fa-inbox" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Dashboard</a>
                 </li>
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Employee<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'add_employee') ? 'active' : '' }}">
                             <a href="/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Add Employee</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'manage_employee') ? 'active' : '' }}">
                             <a href="/manage_employee"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Employees</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'leave') ? 'active' : '' }}">
                             <a href="/leave"><i class="fa fa-outdent" aria-hidden="true"></i>&nbsp; Employee Leaves</a>
                         </li>
                     </ul>
@@ -85,31 +85,31 @@
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-calendar" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Attendance<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'attendance') ? 'active' : '' }}">
                             <a href="/attendance"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Attendance</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'timesheet') ? 'active' : '' }}">
                             <a href="/timesheet"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Timesheets</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'overtime') ? 'active' : '' }}">
                             <a href="/overtime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; Overtime</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'schedule') ? 'active' : '' }}">
                             <a href="/schedule"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Schedule</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ (request()->segment(1) == 'memo') ? 'active' : '' }}">
                     <a href="/memo"><i style="color: #fff;" class="fa fa-file-text-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Memo</a>
                 </li>
-                <li>
+                <li class="{{ (request()->segment(1) == 'payroll') ? 'active' : '' }}">
                     <a href="/payroll"><i style="color: #fff;" class="fa fa-usd" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Payroll</a>
                 </li>
                 <p>Configurations</p>
                 <li>
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-users" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>User Accounts<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'manage_user') ? 'active' : '' }}">
                             <a href="/manage_user"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp; Manage Users</a>
                         </li>
                     </ul>
@@ -117,28 +117,28 @@
                 <li>
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i style="color: #fff;" class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Add<i style="float: right; margin-top: 5px; margin-right: 5px;" class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'job_title') ? 'active' : '' }}">
                             <a href="/job_title"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'department') ? 'active' : '' }}">
                             <a href="/department"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Department</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'job_status') ? 'active' : '' }}">
                             <a href="/job_status"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Status</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'job_level') ? 'active' : '' }}">
                             <a href="/job_level"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Level</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'job_position') ? 'active' : '' }}">
                             <a href="/job_position"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Job Position</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'leave_types') ? 'active' : '' }}">
                             <a href="/leave_types"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Leave Types</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'holidays') ? 'active' : '' }}">
                             <a href="/holidays"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Holidays</a>
                         </li>
-                        <li>
+                        <li class="{{ (request()->segment(1) == 'shift') ? 'active' : '' }}">
                             <a href="/shift"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Shifts</a>
                         </li>
                     </ul>
@@ -269,6 +269,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.0.1/interaction/main.js" integrity="sha256-8M6FzVt1+EcYNYqAJqg0kameW+aOR5l7xAfksE2J+hI=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+
     	$( document ).ready(function() {
 
     		$('.btn_create').click(function(e){
