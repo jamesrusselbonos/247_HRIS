@@ -42,13 +42,13 @@
 
 			            <tr>
 
-			              <th style="min-width: 200px;">
+			              <td style="min-width: 200px;">
 			              	{{ $mem->memo }}
-			              </th>
-			              <th style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              </td>
+			              <td style="text-overflow: ellipsis; max-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->subject }}
-			              </th>
-			              <td style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              </td>
+			              <td style="text-overflow: ellipsis; max-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $mem->attachment }}
 			              </td>
 			               <td style="min-width: 150px;">
@@ -56,7 +56,7 @@
 			              </td>
 			              
 			             
-			             <td style="min-width: 200px;">
+			             <td style="min-width: 400px;">
 			             	<div class="btn_desktop">
 			             		<span style="float: right;">
 			             		<button id="{{ $mem->id }}" type="button" class="btn btn-success memo_view" data-toggle="modal" data-target="#view_memo" v_memoid="{{$mem->id}}" v_memo="{{ $mem->memo }}" v_subject="{{ $mem->subject }}" v_attachment="{{ $mem->attachment }}" v_memodate="{{ $mem->memo_date }}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>

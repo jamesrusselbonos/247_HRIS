@@ -255,6 +255,9 @@ a.article:hover {
       margin-right: 30%;
       width: 50%;
     }
+    .sched_btn{
+        float: left !important;
+    }
 }
 @media (max-width: 1076px) {
     #sidebar2 {

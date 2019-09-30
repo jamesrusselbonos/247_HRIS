@@ -113,12 +113,12 @@
 				       <div class="row">
 
 				       	@foreach($sched_list as $sch_list)
-				       		<div class="col-lg-7 col-md-7 col-sm-7">
+				       		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 				       			<p>{{ $sch_list->lastname }}, {{ $sch_list->firstname }} {{ $sch_list->middle_name }}</p>
 					            <p style="margin-top: -15px;">{{ $sch_list->employee_id }}</p>
 				       		</div>
-				       		<div class="col-lg-5 col-md-5 col-sm-5">
-				       			<span style="float: right;">
+				       		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+				       			<span class="sched_btn">
 					             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
 
 					             		v_schedid="{{ $sch_list->id }}"

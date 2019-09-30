@@ -90,8 +90,8 @@ a, a:hover{
 	padding-right: 100px;
 }
 .timesheet_report{
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 70px;
+	padding-right: 70px;
 
 	padding-top: 150px;
 }
@@ -102,8 +102,8 @@ a, a:hover{
 	padding-top: 150px;
 }
 .memo_page{
-	padding-left: 80px;
-	padding-right: 80px;
+	padding-left: 50px;
+	padding-right: 50px;
 
 	padding-top: 150px;
 	padding-bottom: 100px;
@@ -120,8 +120,8 @@ a, a:hover{
 	height: 100vh;
 }
 .manage_employee{
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
 
 	padding-top: 150px;
 }
@@ -889,4 +889,7 @@ box-shadow: -2px 32px 41px -26px rgba(0,0,0,0.34);
 }
 .btn_desktop{
 	display: block;
+}
+.sched_btn{
+	float: left;
 }
