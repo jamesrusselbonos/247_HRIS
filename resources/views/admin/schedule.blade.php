@@ -202,6 +202,7 @@
 		                	  		</select>
 		                	  	</div>
 		                	</div>
+		                </div>	
 		                	
 		                
 		                <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -226,8 +227,7 @@
 		                	   			<option value="Friday">Friday</option>
 		                	   			<option value="Saturday">Saturday</option>
 		                	  		</select>
-	                	  		</div>
-	                	  		
+	                	  		</div>	
 	                	  	</div>
 	                	</div>
 
@@ -242,26 +242,37 @@
                 	  		</div>
                 	 	</div>
 
-	                	<div class="form-row">
-	                		<div class="form-group col-md-12">
-	                		  	<label>Task</label>
-	                		   <textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
-	                		</div>
 	                	
-	                	</div>
-	                	<div class="form-row">
-	                		<div class="form-group col-md-12">
-	                		  <label>Comment</label>
-	                		   <textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
-	                		</div>
-	                	</div>
+                		<div class="form-group col-md-12">
+                		  	<div class="row">
+                		  		<div class="col-md-12">
+                		  			<label>Task</label>
+                		   			<textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
+                		  		</div>
+                		  	</div>
+                		</div>
+	                	
+	                	
+                		<div class="form-group col-md-12">
+                		  	<div class="row">
+                		  		<div class="col-md-12">
+                		  			<label>Comment</label>
+                		  			<textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
+                		  		</div>
+                		  	</div>
+                		</div>
+	                	
 
-	                	<div class="form-row">
-	                		<div class="form-group col-md-12">
-	                		  <label>Other Task</label>
-	                		   <textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
-	                		</div>
-	                	</div>
+	                	
+                		<div class="form-group col-md-12">
+                		  	<div class="row">
+                		  		<div class="col-md-12">
+            		  				<label>Other Task</label>
+            		  			 	<textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
+                		  		</div>
+                		  	</div>
+                		</div>
+	                	
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
 	                	   <select>

@@ -52,12 +52,12 @@ class CreatePrototypeEmployeeTable extends Migration
             $table->string('pagibig_no')->nullable()->unique();
             $table->string('TIN_no')->nullable()->unique();
             $table->string('NBI_no')->nullable()->unique();
-            $table->string('diploma');
-            $table->string('medical');
-            $table->string('TOR');
-            $table->string('birth_cert');
-            $table->string('brgy_clearance');
-            $table->string('cedula');
+            $table->string('diploma')->nullable();
+            $table->string('medical')->nullable();
+            $table->string('TOR')->nullable();
+            $table->string('birth_cert')->nullable();
+            $table->string('brgy_clearance')->nullable();
+            $table->string('cedula')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

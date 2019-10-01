@@ -259,52 +259,68 @@ class AdminController extends Controller
         $user->roles()->attach($role);
 
        $user->save();
+
+       $files_diploma = $request->file('file_diploma');
+       $files_tor = $request->file('file_tor');
+       $files_bclearance = $request->file('file_bclearance');
+       $files_mcert = $request->file('file_mcert');
+       $files_bcert = $request->file('file_bcert');
+       $files_cedula = $request->file('file_cedula');
+
+       $filename_diploma = $files_diploma->getClientOriginalName();
+       $filename_tor = $files_tor->getClientOriginalName();
+       $filename_bclearance = $files_bclearance->getClientOriginalName();
+       $filename_mcert = $files_mcert->getClientOriginalName();
+       $filename_bcert = $files_bcert->getClientOriginalName();
+       $filename_cedula = $files_cedula->getClientOriginalName();
+
+
    
         $proto = new Prototype_Employee;
 
-            $proto->employee_id = $request->get('employee_id');
-            $proto->email = $request->email;
-            $proto->employee_img = $fileNameToStore;
-            $proto->gender = $request->get('gender');
-            $proto->firstname = $request->get('fname');
-            $proto->middle_name = $request->get('m_name');
-            $proto->lastname = $request->get('lname');
-            $proto->department_id = $request->get('department');
-            $proto->status_id = $request->get('status');
-            $proto->address = $request->get('address');
-            $proto->city = $request->get('city');
-            $proto->province = $request->get('province');
-            $proto->country = $request->get('country');
-            $proto->zip_code = $request->get('zip_code');
-            $proto->home_number = $request->get('h_number');
-            $proto->mobile_number = $request->get('m_number');
-            $proto->personal_email = $request->get('p_email');
-            $proto->birthday = $request->get('bday');
-            $proto->SIN_SSN = $request->get('ssn_sin');
-            $proto->emergency_name = $request->get('e_name');
-            $proto->relationship = $request->get('relationship');
-            $proto->emergency_address = $request->get('e_address');
-            $proto->emergency_number = $request->get('e_number');
-            $proto->job_id = $request->get('jjob_title');
-            $proto->job_description = $request->get('info_area');
-            $proto->job_level_id = $request->get('job_level');
-            $proto->job_position_id = $request->get('job_position');
-            $proto->date_hired = $request->get('d_hired');
-            $proto->date_terminated = $request->get('d_terminated');
-            $proto->leave_credit = $request->get('leave_credit');
-            $proto->salary = $request->get('salary');
-            $proto->allowance = $request->get('allowance');
-            $proto->SSS_no = $request->get('sss_n');
-            $proto->philhealth_no = $request->get('philhealth_n');
-            $proto->pagibig_no = $request->get('pagibig_n');
-            $proto->TIN_no = $request->get('tin_n');
-            $proto->NBI_no = $request->get('nbi_n');
-            $proto->diploma = $request->get('diploma');
-            $proto->medical = $request->get('medical');
-            $proto->TOR = $request->get('TOR');
-            $proto->birth_cert = $request->get('birth_cert');
-            $proto->brgy_clearance = $request->get('brgy');
-            $proto->cedula = $request->get('cedula');
+        $proto->employee_id = $request->get('employee_id');
+        $proto->email = $request->email;
+        $proto->employee_img = $fileNameToStore;
+        $proto->gender = $request->get('gender');
+        $proto->firstname = $request->get('fname');
+        $proto->middle_name = $request->get('m_name');
+        $proto->lastname = $request->get('lname');
+        $proto->department_id = $request->get('department');
+        $proto->status_id = $request->get('status');
+        $proto->address = $request->get('address');
+        $proto->city = $request->get('city');
+        $proto->province = $request->get('province');
+        $proto->country = $request->get('country');
+        $proto->zip_code = $request->get('zip_code');
+        $proto->home_number = $request->get('h_number');
+        $proto->mobile_number = $request->get('m_number');
+        $proto->personal_email = $request->get('p_email');
+        $proto->birthday = $request->get('bday');
+        $proto->SIN_SSN = $request->get('ssn_sin');
+        $proto->emergency_name = $request->get('e_name');
+        $proto->relationship = $request->get('relationship');
+        $proto->emergency_address = $request->get('e_address');
+        $proto->emergency_number = $request->get('e_number');
+        $proto->job_id = $request->get('jjob_title');
+        $proto->job_description = $request->get('info_area');
+        $proto->job_level_id = $request->get('job_level');
+        $proto->job_position_id = $request->get('job_position');
+        $proto->date_hired = $request->get('d_hired');
+        $proto->date_terminated = $request->get('d_terminated');
+        $proto->leave_credit = $request->get('leave_credit');
+        $proto->salary = $request->get('salary');
+        $proto->allowance = $request->get('allowance');
+        $proto->SSS_no = $request->get('sss_n');
+        $proto->philhealth_no = $request->get('philhealth_n');
+        $proto->pagibig_no = $request->get('pagibig_n');
+        $proto->TIN_no = $request->get('tin_n');
+        $proto->NBI_no = $request->get('nbi_n');
+        $proto->diploma = $filename_diploma;
+        $proto->medical = $filename_mcert;
+        $proto->TOR = $filename_tor;
+        $proto->birth_cert = $filename_bcert;
+        $proto->brgy_clearance = $filename_bclearance;
+        $proto->cedula = $filename_cedula;
 
         // $proto = new Prototype_Employee([
             
@@ -351,6 +367,13 @@ class AdminController extends Controller
         // ]);
 
         $proto->save();
+
+         $files_diploma->move('documents/employee_documents/diplomas', $filename_diploma);
+         $files_tor->move('documents/employee_documents/TOR', $filename_tor);
+         $files_bclearance->move('documents/employee_documents/brgy_clearance', $filename_bclearance);
+         $files_mcert->move('documents/employee_documents/medical_certificate', $filename_mcert);
+         $files_bcert->move('documents/employee_documents/birth_certificate', $filename_bcert);
+         $files_cedula->move('documents/employee_documents/cedula', $filename_cedula);
 
         return redirect()->route('admin.add_employee');
     }
@@ -659,7 +682,7 @@ class AdminController extends Controller
         if($files = $request->file('file')){
             $filename = $files->getClientOriginalName();
 
-            if($files->move('documents', $filename)){
+            if($files->move('documents/memos', $filename)){
                 $memo = new Memo();
                 $memp_name = $request->get('memo');
                 $memp_subj = $request->get('subject');

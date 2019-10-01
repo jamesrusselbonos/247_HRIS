@@ -35,7 +35,7 @@
 											<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact Info</a>
 											<a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">Emergency Info</a>
 											<a class="nav-item nav-link" id="nav-job-tab" data-toggle="tab" href="#nav-job" role="tab" aria-controls="nav-job" aria-selected="false">Job</a>
-											<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Background</a>
+											<a class="nav-item nav-link" id="nav-attachment-tab" data-toggle="tab" href="#nav-attachment" role="tab" aria-controls="nav-about" aria-selected="false">Attachments</a>
 											<a class="nav-item nav-link" id="nav-record-tab" data-toggle="tab" href="#nav-record" role="tab" aria-controls="nav-record" aria-selected="false">Records</a>
 										</div>
 									</nav>
@@ -309,6 +309,39 @@
 												</div>
 											</div>
 										</div>
+										<div class="tab-pane fade" id="nav-attachment" role="tabpanel" aria-labelledby="nav-attachment-tab">
+											
+											<div style="margin-top: 30px;" class="form-row">
+												<div class="form-group col-md-4">
+													<label>Diploma</label></br>
+	                	  							<input type="file" name="file_diploma" id="file_diploma" />
+												</div>
+												<div class="form-group col-md-4">
+													<label>TOR</label></br>
+	                	  							<input type="file" name="file_tor" id="file_tor" />
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-4">
+													<label>Brgy. Clearance</label></br>
+	                	  							<input type="file" name="file_bclearance" id="file_bclearance" />
+												</div>
+												<div class="form-group col-md-4">
+													<label>Medical Certificate</label></br>
+	                	  							<input type="file" name="file_mcert" id="file_mcert" />
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-4">
+													<label>Birth Certificate</label></br>
+	                	  							<input type="file" name="file_bcert" id="file_bcert" />
+												</div>
+												<div class="form-group col-md-4">
+													<label>Cedula</label></br>
+	                	  							<input type="file" name="file_cedula" id="file_cedula" />
+												</div>
+											</div>
+										</div>
 										<div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab">
 
 											<div style="margin-top: 30px;" class="form-row">
@@ -339,7 +372,7 @@
 												  <input type="text" name="nbi_n" class="form-control" >
 												</div>
 											</div>
-											<div class="form-row">
+											<!-- <div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Diploma</label></br>
 												  <label for="diploma_yes">Yes</label>
@@ -388,7 +421,7 @@
 										          <label for="cedula_no">No</label>
 										          <input type="radio" name="cedula" id="cedula_no" value="None">
 												</div>
-											</div>
+											</div> -->
 											{{ csrf_field() }}
 										</div>
 									</div>

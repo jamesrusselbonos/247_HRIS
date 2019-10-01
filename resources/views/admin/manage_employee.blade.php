@@ -243,311 +243,293 @@
 	<div class="modal fade edit_modal" id="edit_modal" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  	<div class="modal-dialog modal-xl">
 		    <div class="modal-content">
-		      <div class="modal-header">
-		         <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
-		         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		           <span aria-hidden="true">&times;</span>
-		         </button>
-		       </div>
+		      	<div class="modal-header">
+		         	<h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
+		         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		           		<span aria-hidden="true">&times;</span>
+		         	</button>
+		       	</div>
 		       <div class="modal-body">
-		           <form method="POST" action="{{route('admin.employee_list.edit')}}" enctype="multipart/form-data">
-		           	{{ csrf_field() }}
-		             <div style="padding-left: 50px; padding-right: 50px;" class="row">
-		             	<div class="col-lg-4">
-		             		<img class="profile_photo" src="/img/profile.png">
-		             		<div class="input_photo">
-		             			<!-- <h6>Upload a photo</h6> -->
-		             			<div class="input-group" id="editemp_img">
-		             			    <span class="input-group-btn" style="margin-right:70px;">
-		             			        <span class="btn btn-default btn-file">
-		             			          <!--  <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
-		             			        </span>
-		             			    </span>
-		             			    <!-- <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
+		           	<form method="POST" action="{{route('admin.employee_list.edit')}}" enctype="multipart/form-data">
+		           		{{ csrf_field() }}
+		             	<div style="padding-left: 50px; padding-right: 50px;" class="row">
+		             		<div class="col-lg-4">
+		             			<img class="profile_photo" src="/img/profile.png">
+		             				<div class="input_photo">
+		             				<!-- <h6>Upload a photo</h6> -->
+		             				<div class="input-group" id="editemp_img">
+		             			    	<span class="input-group-btn" style="margin-right:70px;">
+		             			        	<span class="btn btn-default btn-file">
+		             			          		<!--  <button class="btn btn-outline-secondary"  type="button"> Browse… </button> --> <input type="file"  name="edit_product_image" id="edi_imgInp">
+		             			        	</span>
+		             			    	</span>
+		             			    	<!-- <input type="text" style="cursor:not-allowed;"  class="form-control" readonly> -->
+		             				</div>
+		             			</div>
+		             			<div class="display_img">
+		             				<span>
+		             					<input type="text" name="edit_product_image" id="display_img_modal">
+		             					<button type="button" class="editemp_btn">Edit</button>
+		             				</span>
 		             			</div>
 		             		</div>
-		             		<div class="display_img">
-		             			<span>
-		             				<input type="text" name="edit_product_image" id="display_img_modal">
-		             				<button type="button" class="editemp_btn">Edit</button>
-		             			</span>
-		             		</div>
-		             	</div>
-		             	<div class="col-lg-8">
-		             		<h3 style="color: #9e9e9e;"><I></I>Information</h3>
-	             			<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Employee ID</label>
-								  <input type="text" name="edit_employee_id" id="edit_employee_id" class="form-control" >
-								  <input type="hidden" name="edit_id" id="edit_id" class="form-control" >
-								</div>
+		             		<div class="col-lg-8">
+		             			<h3 style="color: #9e9e9e;"><I></I>Information</h3>
+	             				<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Employee ID</label>
+								  		<input type="text" name="edit_employee_id" id="edit_employee_id" class="form-control" >
+								  		<input type="hidden" name="edit_id" id="edit_id" class="form-control" >
+									</div>
 
-								<div class="form-group col-md-4">
-								  <label>Gender</label>
-								  <select id="edit_egender" name="edit_egender">
-								    <option value="Male">Male</option>
-								    <option value="Female">Female</option>
-								  </select>
+									<div class="form-group col-md-4">
+								  		<label>Gender</label>
+								 	 	<select id="edit_egender" name="edit_egender">
+								    		<option value="Male">Male</option>
+								    		<option value="Female">Female</option>
+								  		</select>
+									</div>
 								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>First Name</label>
-								  <input type="text" name="edit_efname" id="edit_fname" class="form-control" >
-								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>First Name</label>
+								  		<input type="text" name="edit_efname" id="edit_fname" class="form-control" >
+									</div>
 
-								<div class="form-group col-md-4">
-								  <label>Middle Name</label>
-								  <input type="text" name="edit_emname" id="edit_emname" class="form-control" >
+									<div class="form-group col-md-4">
+								  		<label>Middle Name</label>
+								  		<input type="text" name="edit_emname" id="edit_emname" class="form-control" >
+									</div>
 								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Last Name</label>
-								  <input type="text" name="edit_elname" id="edit_elname" class="form-control" >
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Last Name</label>
+								  		<input type="text" name="edit_elname" id="edit_elname" class="form-control" >
+									</div>
 								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Department</label>
-								  <select id="edit_edepartmant" name="edit_edepartmant">
-								  	@foreach($e_depart as $dlist)
-								  		<option value="{{$dlist->id}}">{{$dlist->department_name}}</option>
-								  	@endforeach
-								  </select>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Department</label>
+								  		<select id="edit_edepartmant" name="edit_edepartmant">
+								  		@foreach($e_depart as $dlist)
+								  			<option value="{{$dlist->id}}">{{$dlist->department_name}}</option>
+								  		@endforeach
+								  		</select>
+									</div>
+									<div class="form-group col-md-4">
+								  		<label>Status</label>
+								  		<select id="edit_estatus" name="edit_estatus">
+								  			@foreach($e_status as $slist)
+								  				<option value="{{$slist->id}}">{{$slist->job_status}}</option> 
+								  			@endforeach
+								  		</select>
+								 	 <!-- <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" > -->
+									</div>
 								</div>
-								<div class="form-group col-md-4">
-								  <label>Status</label>
-								  <select id="edit_estatus" name="edit_estatus">
-								  	@foreach($e_status as $slist)
-								  		<option value="{{$slist->id}}">{{$slist->job_status}}</option> 
-								  	@endforeach
-								  </select>
-								  <!-- <input type="text" name="edit_estatus" id="edit_estatus" class="form-control" > -->
-								</div>
-							</div>
-							<h3 style="color: #9e9e9e;">Contact Info</h3>
-							<div style="margin-top: 30px;" class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Address</label>
-								  <input type="text" name="edit_eaddress" id="edit_eaddress" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>City</label>
-								  <input type="text" name="edit_ecity" id="edit_ecity" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Province</label>
-								  <input type="text" name="edit_eprovince" id="edit_eprovince" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Country</label>
-								  <input type="text" name="edit_ecountry" id="edit_ecountry" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Postal / ZIP Code</label>
-								  <input type="text" name="edit_ezip" id="edit_ezip" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Home Phone Number</label>
-								  <input type="text" name="edit_ehnumber" id="edit_ehnumber" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Mobile Phone Number</label>
-								  <input type="text" name="edit_emnumber" id="edit_emnumber" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Work Email Address</label>
-								  <input type="text" name="edit_ewemail" id="edit_ewemail" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Personal Email Address</label>
-								  <input type="text" name="edit_epemail" id="edit_epemail" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Birthday</label>
-								  <input type="date" name="edit_ebday" id="edit_ebday" max="3000-12-31" 
-								          min="1000-01-01" class="form-control">
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>SIN / SSN</label>
-								  <input type="text" name="edit_essnsin" id="edit_essnsin" class="form-control" >
-								</div>
-							</div>
-							<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
-							<div style="margin-top: 30px;" class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Name</label>
-								  <input type="text" name="edit_emgname" id="edit_emgname" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Relationship</label>
-								  <input type="text" name="edit_emgrelationship" id="edit_emgrelationship" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Address</label>
-								  <input type="text" name="edit_emgaddress" id="edit_emgaddress" class="form-control" >
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Phone Number</label>
-								  <input type="text" name="edit_emgnumber" id="edit_emgnumber" class="form-control" >
-								</div>
-							</div>
-							<h3 style="color: #9e9e9e;">Job</h3>
-							<div style="margin-top: 30px;" class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Job Title</label></br>
-								  <select id="edit_ejobtitle" name="edit_ejobtitle">
-								  	@foreach($e_jobs as $jlist)
-								  		<option value="{{$jlist->id}}">{{$jlist->job_title}}</option> 
-								  	@endforeach
-								  </select>
-								  <!-- <select id="edit_ejobtitle">
-								    <option value="ecommerce">E-Commerce Support Specialist</option>
-								    <option value="web_dev">Web Developer</option>
-								    <option value="graphics_artist">Graphic Artist</option>
-								    <option value="social_media_assistant">Social Media Assistant</option>
-								  </select> -->
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Job Description</label>
-								  <input type="text" name="edit_ejobdesc" id="edit_ejobdesc" class="form-control" >
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Job Level</label>
-								  <select id="edit_ejoblevel" name="edit_ejoblevel">
-								  	@foreach($e_level as $llist)
-								  		<option value="{{$llist->id}}">{{$llist->job_level}}</option> 
-								  	@endforeach
-								  </select>
-								 <!--  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" > -->
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Position</label>
-								   <select id="edit_ejobposition" name="edit_ejobposition">
-								  	@foreach($e_position as $plist)
-								  		<option value="{{$plist->id}}">{{$plist->job_position}}</option> 
-								  	@endforeach
-								  </select>
-								 <!--  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" > -->
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								  <label>Date Hired</label>
-								  <input type="date" name="edit_edatehired" id="edit_edatehired" max="3000-12-31" 
-								          min="1000-01-01" class="form-control">
-								</div>
-
-								<div class="form-group col-md-4">
-								  <label>Date Terminated</label>
-								  <input type="date" name="edit_edateterminated" id="edit_edateterminated" max="3000-12-31" 
-								          min="1000-01-01" class="form-control">
-								</div>
-							</div>
-							<h3 style="color: #9e9e9e;">Record</h3>
+								<h3 style="color: #9e9e9e;">Contact Info</h3>
 								<div style="margin-top: 30px;" class="form-row">
 									<div class="form-group col-md-4">
-									  <label>SSS</label>
-									  <input type="text" name="edit_esss" id="edit_esss" class="form-control" >
+								  		<label>Address</label>
+								  		<input type="text" name="edit_eaddress" id="edit_eaddress" class="form-control" >
 									</div>
 
 									<div class="form-group col-md-4">
-									  <label>PhilHealth</label>
-									  <input type="text" name="edit_ephilhealth" id="edit_ephilhealth" class="form-control" >
+								  		<label>City</label>
+								  		<input type="text" name="edit_ecity" id="edit_ecity" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
-									  <label>Pagibig</label>
-									  <input type="text" name="edit_epagibig" id="edit_epagibig" class="form-control" >
+								  		<label>Province</label>
+								  		<input type="text" name="edit_eprovince" id="edit_eprovince" class="form-control" >
 									</div>
 
 									<div class="form-group col-md-4">
-									  <label>TIN</label>
-									  <input type="text" name="edit_etin" id="edit_etin" class="form-control" >
+								  		<label>Country</label>
+								  		<input type="text" name="edit_ecountry" id="edit_ecountry" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
-									  <label>NBI Number</label>
-									  <input type="text" name="edit_enbi" id="edit_enbi" class="form-control" >
+								  		<label>Postal / ZIP Code</label>
+								  		<input type="text" name="edit_ezip" id="edit_ezip" class="form-control" >
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Home Phone Number</label>
+								  		<input type="text" name="edit_ehnumber" id="edit_ehnumber" class="form-control" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-4">
-									  <label>Diploma</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_ediploma" id="diploma_passed" value="Passed" >
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_ediploma" id="diploma_none" value="None">
+								  		<label>Mobile Phone Number</label>
+								  		<input type="text" name="edit_emnumber" id="edit_emnumber" class="form-control" >
 									</div>
+
 									<div class="form-group col-md-4">
-									  <label>Medical Certificate</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_emedical" id="medical_passed" value="Passed" checked>
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_emedical" id="medical_none" value="None">
+								  		<label>Work Email Address</label>
+								  		<input type="text" name="edit_ewemail" id="edit_ewemail" class="form-control" >
 									</div>
 								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Personal Email Address</label>
+								  		<input type="text" name="edit_epemail" id="edit_epemail" class="form-control" >
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Birthday</label>
+								  		<input type="date" name="edit_ebday" id="edit_ebday" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>SIN / SSN</label>
+								  		<input type="text" name="edit_essnsin" id="edit_essnsin" class="form-control" >
+									</div>
+								</div>
+								<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
+								<div style="margin-top: 30px;" class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Name</label>
+								  		<input type="text" name="edit_emgname" id="edit_emgname" class="form-control" >
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Relationship</label>
+								  		<input type="text" name="edit_emgrelationship" id="edit_emgrelationship" class="form-control" >
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Address</label>
+								  		<input type="text" name="edit_emgaddress" id="edit_emgaddress" class="form-control" >
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Phone Number</label>
+								  		<input type="text" name="edit_emgnumber" id="edit_emgnumber" class="form-control" >
+									</div>
+								</div>
+								<h3 style="color: #9e9e9e;">Job</h3>
+								<div style="margin-top: 30px;" class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Job Title</label></br>
+								  		<select id="edit_ejobtitle" name="edit_ejobtitle">
+								  			@foreach($e_jobs as $jlist)
+								  				<option value="{{$jlist->id}}">{{$jlist->job_title}}</option> 
+								  			@endforeach
+								  		</select>
+								  		<!-- <select id="edit_ejobtitle">
+								    	<option value="ecommerce">E-Commerce Support Specialist</option>
+								    	<option value="web_dev">Web Developer</option>
+								    	<option value="graphics_artist">Graphic Artist</option>
+								    	<option value="social_media_assistant">Social Media Assistant</option>
+								  		</select> -->
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Job Description</label>
+								  		<input type="text" name="edit_ejobdesc" id="edit_ejobdesc" class="form-control" >
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Job Level</label>
+								  		<select id="edit_ejoblevel" name="edit_ejoblevel">
+								  			@foreach($e_level as $llist)
+								  				<option value="{{$llist->id}}">{{$llist->job_level}}</option> 
+								  			@endforeach
+								  		</select>
+								 			<!--  <input type="text" name="edit_ejoblevel" id="edit_ejoblevel" class="form-control" > -->
+									</div>
+
+									<div class="form-group col-md-4">
+								  		<label>Position</label>
+								   		<select id="edit_ejobposition" name="edit_ejobposition">
+										  	@foreach($e_position as $plist)
+										  		<option value="{{$plist->id}}">{{$plist->job_position}}</option> 
+										  	@endforeach
+								  		</select>
+									 <!--  <input type="text" name="edit_ejobposition" id="edit_ejobposition" class="form-control" > -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+								  		<label>Date Hired</label>
+								  		<input type="date" name="edit_edatehired" id="edit_edatehired" max="3000-12-31" 
+								          min="1000-01-01" class="form-control">
+									</div>
+
+									<div class="form-group col-md-4">
+									  <label>Date Terminated</label>
+									  <input type="date" name="edit_edateterminated" id="edit_edateterminated" max="3000-12-31" 
+									          min="1000-01-01" class="form-control">
+									</div>
+								</div>
+								<h3 style="color: #9e9e9e;">Record</h3>
+									<div style="margin-top: 30px;" class="form-row">
+										<div class="form-group col-md-4">
+									  		<label>SSS</label>
+									  		<input type="text" name="edit_esss" id="edit_esss" class="form-control" >
+										</div>
+
+										<div class="form-group col-md-4">
+										  <label>PhilHealth</label>
+										  <input type="text" name="edit_ephilhealth" id="edit_ephilhealth" class="form-control" >
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  <label>Pagibig</label>
+										  <input type="text" name="edit_epagibig" id="edit_epagibig" class="form-control" >
+										</div>
+
+										<div class="form-group col-md-4">
+										  <label>TIN</label>
+										  <input type="text" name="edit_etin" id="edit_etin" class="form-control" >
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  	<label>NBI Number</label>
+										  	<input type="text" name="edit_enbi" id="edit_enbi" class="form-control" >
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+									  		<label>Diploma</label></br>
+									 	 	<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
+										<div class="form-group col-md-4">
+									  		<label>Medical Certificate</label></br>
+									  		<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
+									</div>
 								
-								<div class="form-row">
-									<div class="form-group col-md-4">
-									  <label>TOR</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_etor" id="tor_passed" value="Passed" checked>
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_etor" id="tor_none" value="None">
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  	<label>TOR</label></br>
+										  	<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
+										<div class="form-group col-md-4">
+										  	<label>Birth Certificate</label></br>
+										  	<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
 									</div>
-									<div class="form-group col-md-4">
-									  <label>Birth Certificate</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_ebirth" id="birth_cert_passed" value="Passed" checked>
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_ebirth" id="birth_cert_none" value="None">
+								
+									<div class="form-row">
+										<div class="form-group col-md-4">
+										  	<label>Brgy. Clearance</label></br>
+										  	<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
+										<div class="form-group col-md-4">
+										  	<label>Cedula</label></br>
+										  	<input type="file" name="file_mcert" id="file_mcert" />
+										</div>
 									</div>
 								</div>
-								
-								<div class="form-row">
-									<div class="form-group col-md-4">
-									  <label>Brgy. Clearance</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_eclearance" id="clearance_passed" value="Passed" checked>
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_eclearance" id="clearance_none" value="None">
-									</div>
-									<div class="form-group col-md-4">
-									  <label>Cedula</label></br>
-									  <label for="male">Yes</label>
-							          <input type="radio" name="edit_ecedula" id="cedula_passed" value="Passed" checked>
-							          <label for="female">No</label>
-							          <input type="radio" name="edit_ecedula" id="cedula_none" value="None">
-									</div>
-								</div>
-								
 			             	</div>
 		             	</div>
 		             	<div class="modal-footer">
@@ -562,351 +544,352 @@
 
 	<!-- Large modal -->
 	<div class="modal fade view_modal" id="view_modal" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-xl">
-	    <div class="modal-content">
-	      <div class="modal-header">
+	  	<div class="modal-dialog modal-xl">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
 	        <!-- <h5 class="modal-title" id="exampleModalLongTitle">View Employee</h5> -->
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>	
-	      <div class="modal-body">
-	      	<div class="col-lg-12 employee_list_display">
-				<div class="row">
-					<div style="text-align: center; padding-top: 30px;" class="col-lg-4">
-						<img class="profile_photo" src="/img/profile.png">
-						<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
-					</div>
-					<div  class="col-lg-8 profile_list">
-						<h4 id="elist_lname" class="modal_name"></h4>, &nbsp;<h4 id="elist_fname" class="modal_name"></h4> <h4 id="elist_mname" class="modal_name"></h4>
-						<h5 style="margin-top: 0px; font-size: 19px;" id="elist_position"></h5>
-						<h6 style="margin-top: -5px;" id="elist_id"></h6>
-						<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
-					</div>
-				</div>
-				<div style="margin-top: 50px;" class="row employee_list_display_row">
-					<h3 style="color: #9e9e9e;">Information</h3>
-					
-					<div style="padding-top: 20px;" class="col-lg-12">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          			<span aria-hidden="true">&times;</span>
+	        		</button>
+	      		</div>	
+	      		<div class="modal-body">
+	      			<div class="col-lg-12 employee_list_display">
 						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6 id=""><strong>Address:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<strong><h6 id="elist_address"></h6></strong>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>City:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_city"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Province:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_province"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Country:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_country"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Birthday:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_bday"></h6>	
-									</div>
-								</div>
+							<div style="text-align: center; padding-top: 30px;" class="col-lg-4">
+								<img class="profile_photo" src="/img/profile.png">
+								<input type="hidden" class="form-control e_pic" rows="5" id="e_pic" name="e_pic"></input>
 							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Department:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_department"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Status:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_status"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Gender:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_gender"></h6>	
-									</div>
-								</div>
+							<div  class="col-lg-8 profile_list">
+								<h4 id="elist_lname" class="modal_name"></h4>, &nbsp;<h4 id="elist_fname" class="modal_name"></h4> <h4 id="elist_mname" class="modal_name"></h4>
+								<h5 style="margin-top: 0px; font-size: 19px;" id="elist_position"></h5>
+								<h6 style="margin-top: -5px;" id="elist_id"></h6>
+								<input type="hidden" class="form-control e_id" rows="5" id="e_id" name="e_id"></input>
 							</div>
 						</div>
-					</div>
-					<div style="padding-top: 20px;"  class="col-lg-12">
-						<h3 style="color: #9e9e9e;">Contact Info</h3>
-
-						<div style="padding-top: 20px;" class="row">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Postal / ZIP Code:</strong></h6>	
+					<div style="margin-top: 50px;" class="row employee_list_display_row">
+						<h3 style="color: #9e9e9e;">Information</h3>
+					
+						<div style="padding-top: 20px;" class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6 id=""><strong>Address:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<strong><h6 id="elist_address"></h6></strong>
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_zip"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>City:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_city"></h6>	
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Home Number:</strong></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Province:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_province"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_hnumber"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Country:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_country"></h6>	
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Phone Number:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_pnumber"></h6>	
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Work Email:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_wemail"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Personal Email:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_pemail"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>SIN / SSN:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_ssn_sin"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Birthday:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_bday"></h6>	
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-					<div style="padding-top: 20px;"  class="col-lg-12">
-						<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
-
-						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Name:</strong></h6>	
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Department:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_department"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_ename"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Status:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_status"></h6>	
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Address:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_eaddress"></h6>	
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Relationship:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_relationship"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Phone Number:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_enumber"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Gender:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_gender"></h6>	
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div style="padding-top: 20px;"  class="col-lg-12">
-						<h3 style="color: #9e9e9e;">Job</h3>
+							<h3 style="color: #9e9e9e;">Contact Info</h3>
 
-						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Job Title:</strong></h6>	
+							<div style="padding-top: 20px;" class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Postal / ZIP Code:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_zip"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_job"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Home Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_hnumber"></h6>	
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Job Level:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_staff"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Job Description:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_jdesc"></h6>	
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Date Hired:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_hired"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Phone Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_pnumber"></h6>	
+										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Date Terminated:</strong></h6>	
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Work Email:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_wemail"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_terminated"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Personal Email:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_pemail"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>SIN / SSN:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_ssn_sin"></h6>	
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div style="padding-top: 20px;" class="row ">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>SSS Number:</strong></h6>	
+						<div style="padding-top: 20px;"  class="col-lg-12">
+							<h3 style="color: #9e9e9e;">Emergency Contact Info</h3>
+
+							<div style="padding-top: 20px;" class="row ">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Name:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_ename"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_sss"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Pagibig Number:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_pagibig"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>PhilHealth Number:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_philhealth"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Address:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_eaddress"></h6>	
+										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>TIN Number:</strong></h6>	
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Relationship:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_relationship"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_TIN"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>NBI Number:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_NBI"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Diploma:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_diploma"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Phone Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_enumber"></h6>	
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Medical Certificate:</strong></h6>	
+						</div>
+						<div style="padding-top: 20px;"  class="col-lg-12">
+							<h3 style="color: #9e9e9e;">Job</h3>
+
+							<div style="padding-top: 20px;" class="row ">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Job Title:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_job"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_medical"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Job Level:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_staff"></h6>	
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>TOR:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_TOR"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Birth Certificate:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_bcert"></h6>	
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Brgy. Clearance:</strong></h6>	
-									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_bclearance"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Job Description:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_jdesc"></h6>	
+										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<h6><strong>Cedula:</strong></h6>	
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Date Hired:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_hired"></h6>	
+										</div>
 									</div>
-									<div class="col-lg-8">
-										<h6 id="elist_cedula"></h6>	
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Date Terminated:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_terminated"></h6>	
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="padding-top: 20px;" class="row ">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>SSS Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_sss"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Pagibig Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_pagibig"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>PhilHealth Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_philhealth"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>TIN Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_TIN"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>NBI Number:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_NBI"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Diploma:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_diploma"></h6>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Medical Certificate:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_medical"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>TOR:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_TOR"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Birth Certificate:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_bcert"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Brgy. Clearance:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_bclearance"></h6>	
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-4">
+											<h6><strong>Cedula:</strong></h6>	
+										</div>
+										<div class="col-lg-8">
+											<h6 id="elist_cedula"></h6>	
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-	      </div>
-	    </div>
-	  </div>
+	     	</div>
+	   	</div>
 	</div>
+</div>
 
 @endsection
