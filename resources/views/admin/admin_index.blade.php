@@ -160,7 +160,7 @@
 	            	            <div class="col-md-12">
 	            	            	<div class="card">
 		            	                <div class="card-block">
-		            	                    <h6 class="m-b-20"><strong>Schedules Report</strong></h6>
+		            	                    <h6 class="m-b-20"><strong>Absents Report</strong></h6>
 		            		                   <div>
 		            		                   		<div id="calendar4"></div>
 		            		                   	<!-- @foreach($sched_report as $sc_report)
@@ -1105,13 +1105,14 @@
 
 			 $('#calendar4').fullCalendar({
 			 	events : [
-	                @foreach($sched_report as $sch_list)
+	                @foreach($absents as $absent)
 	                {
-	                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
-	                    start : '{{ $sch_list->day_from }}T00:00:00',
+	                    title : '{{ $absent->firstname . ' ' . $absent->lastname }}',
+	                    start : '{{ $absent->date }}',
+	                    color : 'red',
 	                    textColor: 'white',
-	                    @if ($sch_list->day_to)
-	                            end: '{{ $sch_list->day_to }}T24:00:00',
+	                    @if ($absent->date)
+	                            end: '{{ $absent->date }}',
 	                    @endif
 	                },
 	                @endforeach

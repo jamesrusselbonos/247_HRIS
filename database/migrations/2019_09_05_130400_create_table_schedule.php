@@ -19,6 +19,7 @@ class CreateTableSchedule extends Migration
             $table->string('day_from');
             $table->string('day_to');
             $table->integer('shift_id');
+            $table->string('restday');
             $table->longText('task');
             $table->longText('comment');
             $table->longText('other');

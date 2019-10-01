@@ -83,7 +83,12 @@ class AdminController extends Controller
                 ->select('leaves.*', 'leave_types.*')
                 ->get();
 
-            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list', 'leave_report','timesheet', 'total_time'));
+            $absents = DB::table('absents')
+            ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'absents.employee_id')
+            ->select('absents.*', 'prototype__employees.*')
+            ->get();
+
+            return view('admin.admin_index', compact('emp_count', 'dept_count', 'TimeSheet_report', 'memo_report', 'sched_report', 'leave_count', 'list', 'leave_report','timesheet', 'total_time','absents'));
         }    
 
     public function addEmployee()

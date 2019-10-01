@@ -73,7 +73,6 @@
 										</div>
 										<div class="col-xl-8 col-lg-8 col-md-6 col-sm-6 color_desc" style="padding-top: 15px; text-align: right;">
 											<p style="color: #008000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Present</p>
-											<p style="color: #3A87AD;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Leave</p>
 											<p style="color: #FF0000;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Absent</p>
 											<p style="color: #808080;"><i class="fa fa-circle" aria-hidden="true" style="margin-top: 12px;"></i>&nbsp;Holidays</p>
 										</div>
@@ -125,7 +124,7 @@
 										<div class="card-block">
 											<div class="row">
 												<div class="col-md-12">
-													<h6 class="m-b-20"><strong>Schedule</strong></h6>
+													<h6 class="m-b-20"><strong>Leaves</strong></h6>
 												</div>
 											</div>
 											<div class="row">
@@ -154,28 +153,18 @@
 	            selectHelper: true,
 	            editable: true,
 	             events : [
-	                @foreach($sched_list as $sch_list)
-                {
-                    title : '{{ $sch_list->firstname . ' ' . $sch_list->lastname . ', ' . $sch_list->employee_id }}',
-                    start : '{{ $sch_list->date_from }}T00:00:00',
-                    textColor: 'white',
-                    @if ($sch_list->date_to)
-                            end: '{{ $sch_list->date_to }}T24:00:00',
-                    @endif
-                },
-                @endforeach
+	               
+	                @foreach($leave as $leaves)
+	                {
+	                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
+	                    start : '{{ $leaves->date_from }}T00:00:00',
+	                    textColor: 'white',
+	                    @if ($leaves->date_to)
+	                            end: '{{ $leaves->date_to }}T24:00:00',
+	                    @endif
+	                }
+	                @endforeach
 		        ],
-
-	            	
-		        dayClick: function(date, jsEvent, view){
-		        	var attendance_date = date.format();
-
-		        	console.log(attendance_date);
-
-		        	$('#a_date').html(attendance_date);
-		        	$('#txt_a_date').val(attendance_date);
-		        },
-		        hiddenDays: '7',
 	        });
 
 	        $('#calendar').fullCalendar({
@@ -219,16 +208,7 @@
 
 	                },
 	                @endforeach
-	                @foreach($leave as $leaves)
-	                {
-	                    title : '{{ $leaves->firstname . ' ' . $leaves->lastname . ', ' . $leaves->leave_type . ', ' . $leaves->leave_status }}',
-	                    start : '{{ $leaves->date_from }}T00:00:00',
-	                    textColor: 'white',
-	                    @if ($leaves->date_to)
-	                            end: '{{ $leaves->date_to }}T24:00:00',
-	                    @endif
-	                }
-	                @endforeach
+	                
 		        ],
 
 	            	
