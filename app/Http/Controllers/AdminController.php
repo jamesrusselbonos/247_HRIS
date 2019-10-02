@@ -402,7 +402,8 @@ class AdminController extends Controller
         $sched_employee = DB::table('prototype__employees')->get();
         $sched_list = DB::table('schedules')
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
-            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
+            ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
+            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id', 'shifts.name')
             ->get();
         $shifts = Shift::all();
             
@@ -851,18 +852,44 @@ class AdminController extends Controller
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->where('night_differential', '=', '1')
                                 ->sum('time_duration');
+    // SELECT * FROM `timesheets` join holidays on holidays.date = timesheets.date 
+    // JOIN holiday_types on holiday_types.id = holidays.holiday_type_id  WHERE timesheets.employee_id = 247-01
+    
+        // $holiday_ot = DB::table('timesheets')
+        //                         ->where('employee_id', '=', $request->id)
+        //                         ->join('holidays', 'holidays.date', '=', 'timesheets.date')
+        //                         ->get();
+        // $holiday_ot = DB::table('timesheets')
+        //             ->join('holidays', 'holidays.date', '=', 'timesheets.date')
+        //             ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+        //             ->where('holiday_types.holiday_type', '=', 'Legal Holiday')
+        //             ->where('timesheets.employee_id', '=', $request->id)
+        //             ->whereBetween('timesheets.date', array($request->d_from, $request->d_to))
+        //             ->sum('timesheets.overtime_duration');
 
-                                
-        $holiday_ot = DB::table('timesheets')
-                                ->where('employee_id', '=', $request->id)
-                                ->join('holidays', 'holidays.date', '=', 'timesheets.date')
-                                ->get();
+
+        // $holiday_ot = DB::table('timesheets')
+        //                         ->where('employee_id', '=', $request->id)
+        //                         ->whereBetween('date', array($request->d_from, $request->d_to))
+        //                         ->join('holidays', 'holidays.date', '=', 'timesheets.date')
+        //                         ->join('holiday_types', 'holiday_types.id', '=', 'holidays.holiday_type_id')
+        //                         ->select('timesheets.*')
+        //                         ->where('holiday_types.holiday_type', '=', 'Legal Holiday')
+        //                         ->get();
+
 
         $schedule = Schedule::where('employee_id', $request->id)->first();
 
         $restday = $schedule->restday;
 
+        $legal_holidays = Holiday::whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('holiday_type_id', '=', '1')
+                                ->pluck('date')->toArray();         
 
+        $special_holidays = Holiday::whereBetween('date', array($request->d_from, $request->d_to))
+                                ->where('holiday_type_id', '=', '2')
+                                ->pluck('date')->toArray(); 
+                                // Foo::where('b', 15)->pluck('a')->toArray();      
         // $overtimes = TimeSheet::where('employee_id', $request->id)
         //                         ->whereBetween('date', array($request->d_from, $request->d_to))
         //                         ->sum('overtime_duration');
@@ -872,15 +899,27 @@ class AdminController extends Controller
                                 ->whereBetween('date', array($request->d_from, $request->d_to))
                                 ->get();
 
+        
 
         $rest_ot_duration = 0.00;
         $regular_ot_duration = 0.00;
+        $legal_holiday_ot_duration = 0.00;
+        $special_holiday_ot_duration = 0.00;
         foreach($sunday_rest_ot as $rest_ot){
             $date = strtotime($rest_ot->date);
+            $ndate = date("Y-m-d", $date);
             $day = date('l', $date);
+
+            // return Response()->json(['tet' => $ndate]);
 
             if($day == $restday){
                 $rest_ot_duration += $rest_ot->overtime_duration;
+            }
+            else if(in_array($ndate, $legal_holidays)){
+               $legal_holiday_ot_duration += $rest_ot->overtime_duration;
+            }            
+            else if(in_array($ndate, $special_holidays)){
+               $special_holiday_ot_duration += $rest_ot->overtime_duration;
             }
             else{
                 $regular_ot_duration += $rest_ot->overtime_duration;
@@ -1028,11 +1067,12 @@ class AdminController extends Controller
         }
 
 
-         
+         // 'holiday_ot' => $holiday_ot,
          return Response()->json(['daysWorked' => $daysWorked, 'absents' => $absents, 'unpaid' => $unpaid,
                         'allowances' => $allowances, 'total_late' => $total_late, 'rest_ot_duration' => $rest_ot_duration,
                         'total_undertime' => $total_undertime, 'holidays' => $holidays, 'regular_ot_duration' => $regular_ot_duration, 
-                        'night_differential' => $night_differential ]);
+                        'night_differential' => $night_differential,  
+                        'special_holiday_ot_duration'=> $special_holiday_ot_duration, 'legal_holiday_ot_duration' => $legal_holiday_ot_duration ]);
         
      }
 

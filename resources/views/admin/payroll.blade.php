@@ -477,14 +477,14 @@
 							d_from : d_from,
 							d_to : d_to,
 						};
-				console.log(data);
+	
 
 				$.ajax({
 				        url: '/ajaxPayroll' ,
 				        type: "POST",
 				        data: data,
 				        success: function( response ) {
-				        	console.log(response);
+				        	// console.log(response);
 
 				        	var rate_hour = $('#p_rate_hour').val();
 				        	var daily = $('#p_daily_rate').val();
@@ -495,10 +495,14 @@
 
 				        	var rest_ot = response.rest_ot_duration;
 				        	var rest_ot_amount = response.daysWorked * rest_ot * 1 ;
+				        	var legal_ot = response.legal_holiday_ot_duration;
+				        	var legal_ot_amount = rate_hour * legal_ot * 1;
+				        	var special_ot = response.special_holiday_ot_duration;
+				        	var special_ot_amount = rate_hour * special_ot * 0.30;
 
 				        	// var amount_night_differential = night_differential * night_differential_rate;
 				        	var overtime = response.regular_ot_duration;
-				        	var overtime_amount = overtime * rate_hour * 0.25;
+				        	var overtime_amount = rate_hour * overtime * 0.25;
 				        	var basic_pay = response.daysWorked * daily;
 				        	var amount = response.absents - response.unpaid;
 				        	var paid_absents = amount * daily;
@@ -514,7 +518,8 @@
 
 
 				        	var total_amount_late_undertime = amount_late + amount_undertime;
-				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime + holiday + amount_night_differential;
+				        	var gross_pay_pr = basic_pay + paid_absents + allowance - total_amount_late_undertime + holiday + 
+				        	amount_night_differential + rest_ot_amount + legal_ot_amount + special_ot_amount + overtime_amount;
 
 				        	
 				        	$('#p_no_holidays').val(response.holidays);
@@ -537,6 +542,11 @@
 				        	$('#p_reg_OT_amount').val(overtime_amount.toFixed(2));
 				        	$('#p_rest_OT_hours').val(rest_ot.toFixed(2));
 				        	$('#p_rest_OT_amount').val(rest_ot_amount.toFixed(2));
+				        	$('#p_lholiday_hours').val(legal_ot_amount.toFixed(2));
+				        	$('#p_lholiday_hours').val(legal_ot.toFixed(2));
+				        	$('#p_lholiday_amount').val(legal_ot_amount.toFixed(2));				        	
+				        	$('#p_sholiday_hours').val(special_ot.toFixed(2));
+				        	$('#p_sholiday_amount').val(special_ot_amount.toFixed(2));
 
 				        	// $('#p_allowance').val(allowance);
 
