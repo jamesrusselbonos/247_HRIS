@@ -402,8 +402,7 @@ class AdminController extends Controller
         $sched_employee = DB::table('prototype__employees')->get();
         $sched_list = DB::table('schedules')
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'schedules.employee_id')
-            ->join('shifts', 'shifts.id', '=', 'schedules.shift_id')
-            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id', 'shifts.name')
+            ->select('schedules.*', 'prototype__employees.firstname', 'prototype__employees.lastname', 'prototype__employees.middle_name', 'prototype__employees.employee_id')
             ->get();
         $shifts = Shift::all();
             
