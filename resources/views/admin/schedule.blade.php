@@ -4,81 +4,107 @@
 
 <div class="col-lg-12">
 	<div class="row">
-			<div class="jumbotron2">
+		<div class="jumbotron2">
 		  		<h1 style="margin-top: 130px;" class="display-4">Employee Schedules</h1>
-			</div>
 		</div>
+	</div>
 	<div class="row">
 		<div class="col-xl-12">
 			<div class="sched_page" data-simplebar>
-		<div class="row">
-			<div class="col-lg-8">
-				<div class="card">
-					<div class="card-header">
-						<div class="row">
-							<div class="col-lg-12">
-				    			<span>
-				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add Schedule</button>
-				    			</span>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<div class="row">
+									<div class="col-lg-12">
+				    					<span>
+				    						<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add Schedule</button>
+				    					</span>
+				    				</div>
+								</div>
+							</div>
+					 		<div class="card-body">
+								<table class="table display nowrap" id="addDataTable">
+									<thead>
+										<tr>
+											<th>Employee</th>
+											<th>Day From</th>
+											<th>Day To</th>
+											<th>Shift</th>
+											<th>Restday</th>
+											<th>Task</th>
+											<th>Comment</th>
+											<th>Other</th>
+											<th>Manage</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach($sched_list as $sch_list)
+											<tr>
+												<td style="min-width: 250px;">
+													{{$sch_list->lastname}}, {{$sch_list->firstname}} {{$sch_list->middle_name}}</br>
+													{{$sch_list->employee_id}}
+												</td>
+												<td style="min-width: 150px;">{{$sch_list->day_from}}</td>
+												<td style="min-width: 150px;">{{$sch_list->day_to}}</td>
+												<td style="min-width: 150px;">{{$sch_list->name}}</td>
+												<td style="min-width: 150px;">{{$sch_list->restday}}</td>
+												<td style="text-overflow: ellipsis; max-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">{{$sch_list->task}}</td>
+												<td style="text-overflow: ellipsis; max-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">{{$sch_list->comment}}</td>
+												<td style="text-overflow: ellipsis; max-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">{{$sch_list->other}}</td>
+												<td style="min-width: 250px;">
+													<div class="btn_desktop">
+														<span class="sched_btn">
+										             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
+
+										             		v_schedid="{{ $sch_list->id }}"
+										             		v_sched_empid="{{ $sch_list->employee_id }}"
+										             		v_sched_fname="{{ $sch_list->firstname }}"
+										             		v_sched_lname="{{ $sch_list->lastname }}"
+										             		v_sched_mname="{{ $sch_list->middle_name }}"
+										             		v_sched_dayfrom="{{ $sch_list->day_from }}"
+										             		v_sched_dayto="{{ $sch_list->day_to }}"
+										             		v_sched_restday="{{ $sch_list->restday }}"
+										             		v_sched_task="{{ $sch_list->task }}"
+										             		v_sched_comment="{{ $sch_list->comment }}"
+										             		v_sched_other="{{ $sch_list->other }}"
+
+										             		><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+							 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button></a>
+							 							</span>
+													</div>
+													<div class="btn_mobile">
+														<span class="sched_btn">
+										             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
+
+										             		v_schedid="{{ $sch_list->id }}"
+										             		v_sched_empid="{{ $sch_list->employee_id }}"
+										             		v_sched_fname="{{ $sch_list->firstname }}"
+										             		v_sched_lname="{{ $sch_list->lastname }}"
+										             		v_sched_mname="{{ $sch_list->middle_name }}"
+										             		v_sched_dayfrom="{{ $sch_list->day_from }}"
+										             		v_sched_dayto="{{ $sch_list->day_to }}"
+										             		v_sched_restday="{{ $sch_list->restday }}"
+										             		v_sched_task="{{ $sch_list->task }}"
+										             		v_sched_comment="{{ $sch_list->comment }}"
+										             		v_sched_other="{{ $sch_list->other }}"
+
+										             		><i class="fa fa-eye" aria-hidden="true"></i></button>
+							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+							 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+							 							</span>
+													</div>
+												</td>
+											</tr>
+										@endforeach
+									</tbody>
+								</table>
 				    		</div>
 						</div>
 					</div>
-					 <div class="card-body">
-
-					 	<div id='calendar'></div>
-					   
-
-				       
-				    </div>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="card">
-					<div class="card-header">
-						<div class="row">
-							<div class="col-lg-12">
-				    			<span>
-				    				<h5>Manage Schedules</h5>
-				    			</span>
-				    		</div>
-						</div>
-					</div>
-					 <div class="card-body">
-				       <div class="row">
-
-				       	@foreach($sched_list as $sch_list)
-				       		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-				       			<p>{{ $sch_list->lastname }}, {{ $sch_list->firstname }} {{ $sch_list->middle_name }}</p>
-					            <p style="margin-top: -15px;">{{ $sch_list->employee_id }}</p>
-				       		</div>
-				       		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-				       			<span class="sched_btn">
-					             		<button id="{{ $sch_list->id }}" type="button" class="btn btn-success sched_view_button" data-toggle="modal" data-target="#sched_view"
-
-					             		v_schedid="{{ $sch_list->id }}"
-					             		v_sched_empid="{{ $sch_list->employee_id }}"
-					             		v_sched_fname="{{ $sch_list->firstname }}"
-					             		v_sched_lname="{{ $sch_list->lastname }}"
-					             		v_sched_mname="{{ $sch_list->middle_name }}"
-					             		v_sched_dayfrom="{{ $sch_list->day_from }}"
-					             		v_sched_dayto="{{ $sch_list->day_to }}"
-					             		v_sched_restday="{{ $sch_list->restday }}"
-					             		v_sched_task="{{ $sch_list->task }}"
-					             		v_sched_comment="{{ $sch_list->comment }}"
-					             		v_sched_other="{{ $sch_list->other }}"
-
-					             		><i class="fa fa-eye" aria-hidden="true"></i></button>
-		 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit_memo" data-toggle="modal" data-target="#edit_memo_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-		 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-		 							</span>
-				       		</div>
-				       	@endforeach	
-				       </div>
-				    </div>
-				</div>
-			</div>
-		</div>
-	</div>
 		</div>
 	</div>
 </div>
@@ -94,7 +120,7 @@
       <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
       	<div class="row">
 
-      		<h4 id="v_sched_lname"></h4><h4 id="v_sched_fname"></h4><h4 id="v_sched_mname"></h4>
+      		<h4 id="v_sched_lname">,&nbsp;</h4>&nbsp;<h4 id="v_sched_fname"></h4>&nbsp;<h4 id="v_sched_mname"></h4>
       		<input type="hidden" name="v_schedid" id="v_schedid">
       	</div>
       	<div class="row">
