@@ -217,13 +217,8 @@
 	                	<div class="form-group col-md-12">
 	                	  <label>Attachment</label></br>
 	                	  <input type="file" name="edit_memo_file" id="edit_memo_file" />
+	                	  <input type="hidden" name="hidden_edit_attachment" id="hidden_edit_attachment">
 	                	</div>	
-
-	                	<div class="form-group col-md-12">
-	                	  <label>Date</label>
-	                	    <input type="date" name="edit_memo_date" id="edit_memo_date" max="3000-12-31" 
-								          min="1000-01-01" class="form-control">
-	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
 	                	   <select>

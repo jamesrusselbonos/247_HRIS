@@ -40,7 +40,7 @@
 				    </div>
 
 				    <div class="card-body">
-				   
+				    	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">				   
 				        <table class="table display nowrap" id="DataTable">
 				          <thead>
 				            <tr>
@@ -67,13 +67,15 @@
 					             <td>
 					             	<div class="btn_desktop">
 					             		<span style="float: right;">
-		     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
+		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type="{{ $holi->holiday_type }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"
+		     									
+		     									></i>&nbsp; Edit</button>
 		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 		     							</span>
 					             	</div>
 					             	<div class="btn_mobile">
 					             		<span style="float: right;">
-		     								<button type="button" class="btn btn-primary edit-level" data-toggle="modal" data-target=".Edit_modal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type="{{ $holi->holiday_type }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 		     							</span>
 					             	</div>
@@ -91,31 +93,41 @@
 		</div>		
 	</div>
 
-	<div class="modal fade Edit_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade bd-example-modal-lg" id="edit_holiday" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	          <h5 class="modal-title" id="exampleModalLabel">Edit Job Level</h5>
+	          <h5 class="modal-title" id="exampleModalLabel">Edit Holiday</h5>
 	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	            <span aria-hidden="true">&times;</span>
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="POST" action="{{route('admin.job_level.edit')}}">
+	              
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
-	                	  <label>Job Level</label>
-	                	   <input type="text" name="mlevel_title" id="mlevel_title" class="form-control" >
+	                		<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
+	                		<input id="hdn-id" class="hdn-id" type="hidden" name="_token">
+	                	  <label>Holiday</label>
+	                	   <input id="hdn-name" type="text" class="form-control">
+	                	   
 	                	</div>
 
 	                	<div class="form-group col-md-12">
-	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="mlevel_desc" name="mlevel_desc"></textarea>
+	                	  <label>Date</label>
+	                	   <input type="date" name="edit_holiday_date" id="edit_holiday_date" max="3000-12-31" 
+										          min="1000-01-01" class="form-control">
 	                	</div>
+
 	                	<div class="form-group col-md-12">
-	                	 
-	                	   <input type="hidden" class="form-control mlevel_id" rows="5" id="mlevel_id" name="mlevel_id"></input>
+	                	  <label>Holiday Type</label>
+
+            	   <select name="edit_holiday_type" id="edit_holiday_type" class="edit_holiday_type">
+							  	@foreach($holiday_type as $type)
+							  	<option value="{{$type->id}}">{{$type->holiday_type}}</option>
+							  	 @endforeach
+						  </select>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
@@ -126,16 +138,14 @@
 	                	</div> -->
 	                </div>
 	                <div class="modal-footer">
-		              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		               <button type="submit" class="btn btn-success btn_edit"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+		               <button type="submit" class="btn btn-success btn_update_holiday"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 		            </div>
-	              </form>
+	         
 	            </div>
-	            
 	          </div>
 	    </div>
 	  </div>
-	</div>
 
 	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">

@@ -488,25 +488,19 @@
                            }
                        ]
               });
-              // $('#addDataTable').DataTable({
-              //   "scrollX": true,
-              //   columnDefs: [
-              //              {
-              //                  targets: [ 0, 1, 2 ],
-              //                  className: 'mdl-data-table__cell--non-numeric'
-              //              }
-              //          ],
-              //   dom: 'Bfrtip',
-              //   buttons: [
-              //       {
-              //           extend: 'print',
-              //       },
-              //   ],
 
+         $('#addDataTable').DataTable({
+                "scrollX": true,
+                columnDefs: [
+                           {
+                               targets: [ 0, 1, 2 ],
+                               className: 'mdl-data-table__cell--non-numeric'
+                           }
+                       ],
 
-              // });
+              });
 
-              $('#addDataTable').DataTable( {
+              $('#payroll_table').DataTable( {
                      dom: 'Bfrtip',
                      autoWidth: true,
                   buttons: [
@@ -515,7 +509,7 @@
                               customize: function(win)
                               {
                                 $(win.document.body).find( 'table' )
-                                                    .css( 'font-size', '5pt' );
+                                                    .css( 'font-size', '10px' );
                                   var last = null;
                                   var current = null;
                                   var bod = [];
@@ -542,6 +536,12 @@
                         },
                   ]
                  } );
+
+
+                $('input[name="edit_memo_file"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_attachment').val(fileName);
+                });  
 
                 $('input[name="edit_ediploma"]').change(function(e){
                     var fileName = e.target.files[0].name;
@@ -847,6 +847,7 @@
                 $('#edit_memo_title').val(edit_m_title);
                 $('#edit_memo_subject').val(edit_m_subject);
                 $('#edit_memo_file').val(edit_m_attachment);
+                $('#hidden_edit_attachment').val(edit_m_attachment);
                 $('#edit_memo_date').val(edit_m_date);
                 // $('.memo_download').attr('href', 'documents/' + view_vm_attachment);
                 // $('.memo_download').attr('download', view_vm_attachment);
@@ -1049,6 +1050,20 @@
                         }
                     });
             });
+
+        $('.edit-holiday').on('click', function(){
+            var id = $(this).attr('hol_id');
+            var hol_name = $(this).attr('hol_name');
+            var date = $(this).attr('hol_date');
+            var type = $(this).attr('hol_type');
+            console.log(hol_name);
+            $('#edit_holiday').val(hol_name);
+            $('#edit_holiday_date').val(date);
+            $('#edit_holiday_type').val(type);
+            $('#hdn-id').val(id);
+            $('#hdn-name').val(hol_name);
+            document.getElementById("edit_holiday_type").value = type;
+        })
         });
     </script>
 </body>

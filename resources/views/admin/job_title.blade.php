@@ -101,8 +101,9 @@
 	            <span aria-hidden="true">&times;</span>
 	          </button>
 	       </div>
+	       <form method="POST" action="{{route('admin.job_title.edit')}}">
 	       <div class="modal-body">
-	              <form method="POST" action="{{route('admin.job_title.edit')}}">
+	              
 	              	{{ csrf_field() }}
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
@@ -126,6 +127,7 @@
 	                	  </select>
 	                	</div> -->
 	                </div>
+	         </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 		               <button type="submit" class="btn btn-success btn_edit"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
@@ -135,8 +137,7 @@
 	            
 	          </div>
 	    </div>
-	  </div>
-	</div>
+
 
 	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">

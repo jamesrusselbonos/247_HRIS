@@ -119,6 +119,7 @@ Route::post('/overtime', 'AdminController@overtimeEdit')->name('admin.overtime.e
 
 Route::get('/holidays', 'AdminController@holidays_index')->name('holidays.index');
 Route::post('/holidays', 'AdminController@holidays_create')->name('holidays.create');
+Route::post('/editHoliday', 'AdminController@edit_holiday')->name('holidays.edit');
 
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');

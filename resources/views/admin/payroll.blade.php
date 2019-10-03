@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<table class="table display nowrap" id="addDataTable">	
+					<table class="table display nowrap" id="payroll_table">	
 						<thead>
 							<tr>
 				              <th style="min-width: 250px;">Employees</th>

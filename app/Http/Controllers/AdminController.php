@@ -234,7 +234,6 @@ class AdminController extends Controller
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'users.employee_id')
             ->select('timesheets.*', 'users.*', 'prototype__employees.*')
             ->get();
-
         return view('admin.timesheet', compact('time'));
     }    
 
@@ -405,7 +404,7 @@ class AdminController extends Controller
 
     public function timesheet_delete($id){
 
-        DB::table('timesheets')->where('id', $id)->delete();
+        DB::table('timesheets')->where('id1', $id)->delete();
 
         return redirect()->route('admin.timesheet');
     }
@@ -552,6 +551,10 @@ class AdminController extends Controller
         return view ('admin.holiday', compact('holiday_type', 'holidays'));
     }
 
+    public function edit_holiday(Request $request){
+        dd($request);
+    }
+
     public function holidays_create(Request $request){
         $holiday = new Holiday([
             'holiday_name' => $request->get('holiday'),
@@ -629,6 +632,13 @@ class AdminController extends Controller
 
         return redirect()->route('admin.employee_leave'); 
     }
+
+    public function delete_leave($id){
+        
+        DB::table('leaves')->where('id', $id)->delete();
+
+        return redirect()->route('admin.employee_leave');
+    }    
 
     public function attendance_index(){
 
@@ -731,9 +741,13 @@ class AdminController extends Controller
     public function memo_edit(Request $request){
         $memo_edit = Memo::find($request->edit_memo_id);
         $memo_edit->memo = $request->edit_memo_title;
-        $memo_edit->attachment = $request->edit_memo_file;
+
+        if($request->hidden_edit_attachment){
+            $memo_edit->attachment = $request->hidden_edit_attachment;
+        }
+
         $memo_edit->subject = $request->edit_memo_subject;
-        $memo_edit->memo_date = $request->edit_memo_date;
+        $memo_edit->memo_date = date('Y-m-d');
         $memo_edit->save();
 
         return redirect()->route('admin.memo'); 
