@@ -894,3 +894,15 @@ box-shadow: -2px 32px 41px -26px rgba(0,0,0,0.34);
 .sched_btn{
 	float: left;
 }
+.payslip_date{
+	display: inline-block;
+	font-size: 14px;
+	margin-top: -20px;
+}
+.payslip_name{
+	display: inline-block;
+}
+.payslip_modal input{
+	border: none;
+	background-color: transparent;
+}

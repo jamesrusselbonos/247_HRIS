@@ -1118,6 +1118,8 @@ class AdminController extends Controller
         $payroll->total_deduction_loan = $request->p_total_deduction_loan;
         $payroll->tax = $request->p_tax;
         $payroll->net_pay = $request->p_net_pay;
+        $payroll->date_from = $request->p_date_from;
+        $payroll->date_to = $request->p_date_to;
 
         $payroll->save();
         

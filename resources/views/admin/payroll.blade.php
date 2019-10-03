@@ -15,7 +15,11 @@
 				<div class="card-header">
 					<div class="row">
 						<div class="col-lg-12">
-							<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payroll</button>
+							<span>
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payroll</button>
+								
+								<button style="float: right;" type="button" class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i>&nbsp; Print</button>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -23,12 +27,12 @@
 					<table class="table display nowrap" id="addDataTable">	
 						<thead>
 							<tr>
-				              <th style="min-width: 200px;">Employees</th>
+				              <th style="min-width: 250px;">Employees</th>
 				              <th style="min-width: 200px;">Dep't</th>
 				              <th style="min-width: 200px;">No. of Days Worked</th>
 				              <th style="min-width: 200px;">Daily Rate</th>
 				              <th style="min-width: 200px;">Rate/Hour</th>
-				              <th style="min-width: 200px;">Basic Pay</th>
+				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Basic Pay</th>
 				              <th style="min-width: 200px;">Total Absences</th>
 				              <th style="min-width: 200px;">Unpaid Absences</th>
 				              <th style="min-width: 200px;">Charge to SIL</th>
@@ -49,29 +53,33 @@
 				              <th style="min-width: 200px;">Amount</th>
 				              <th style="min-width: 200px;">No. of hours undertime</th>
 				              <th style="min-width: 200px;">No. of hours late</th>
-				              <th style="min-width: 200px;">Gross Pay</th>
+				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Gross Pay</th>
 				              <th style="min-width: 200px;">SSS</th>
 				              <th style="min-width: 200px;">PHIC</th>
 				              <th style="min-width: 200px;">HDMF</th>
-				              <th style="min-width: 200px;">Total deduction</th>
+				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Total deduction</th>
 				              <th style="min-width: 200px;">SSS (Loan)</th>
 				              <th style="min-width: 200px;">Company loan/Advances</th>
 				              <th style="min-width: 200px;">HDMF (Loan)</th>
 				              <th style="min-width: 200px;">Uniform</th>
-				              <th style="min-width: 200px;">Total deduction</th>
-				              <th style="min-width: 200px;">Tax</th>
-				              <th style="min-width: 200px;">Net Pay</th>
+				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Total deduction</th>
+				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Tax</th>
+				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Net Pay</th>
+				              <th style="min-width: 200px;">Manage</th>
 			            	</tr>
 						</thead>
 						<tbody>
 							@foreach($payrolls as $payroll)
 								<tr>
-								  <td style="min-width: 200px;">{{ $payroll->lastname }}, {{ $payroll->firstname }}</td>
+								  <td style="min-width: 250px;">
+								  	{{ $payroll->lastname }}, {{ $payroll->firstname }} {{$payroll->middle_name}}</br>
+								  	{{$payroll->employee_id}}
+								  </td>
 					              <td style="min-width: 200px;">{{ $payroll->department_name }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_days_worked }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->daily_rate }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->rate_per_hour }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->basic_pay }}</td>
+					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->basic_pay }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->total_absences }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->unpaid_absences }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->charged_to_SIL }}</td>
@@ -92,18 +100,62 @@
 					              <td style="min-width: 200px;">{{ $payroll->amount_night_diffential }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_undertime }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_late }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->gross_pay }}</td>
+					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->gross_pay }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->SSS_payroll }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->PHIC_payroll }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->HDMF_payroll }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->total_deduction_benefits }}</td>
+					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->total_deduction_benefits }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->SSS_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->company_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->HDMF_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->uniform }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->total_deduction_loan }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->tax }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->net_pay }}</td>
+					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->total_deduction_loan }}</td>
+					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->tax }}</td>
+					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->net_pay }}</td>
+					              <td style="min-width: 200px;">
+					              	<button id="{{ $payroll->id }}" type="button" class="btn btn-success btn_payslip" data-toggle="modal" data-target="#payslip_modal"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_lname="{{ $payroll->lastname }}"
+					              		payslip_dept="{{ $payroll->department_name }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_fname="{{ $payroll->firstname }}"
+					              	><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payslip</button>
+					              </td>
 								</tr>
 							@endforeach
 						</tbody>
@@ -422,6 +474,430 @@
 	    	</div>
 	  	</div>
 	</div>
+
+	<div class="modal fade payslip_modal" id="payslip_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog modal-xl">
+	    	<div class="modal-content">
+	     	 	<div class="modal-header">
+	     	 		<h5 class="modal-title" id="exampleModalLabel">Payslip</h5>
+ 	 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ 	 		          	<span aria-hidden="true">&times;</span>
+ 	 		        </button>
+	     	 	</div>
+	     	 	<form>
+	     	 		<div class="modal-body" style="padding-right: 20px; padding-left: 20px;">
+	     	 			<div class="form-row" style="margin-top: 5px;">
+	     	 				<div class="col-md-6">
+	     	 					<div class="row">
+	     	 						<div class="col-md-4">
+	     	 							<h6>EMPLOYEE NAME:</h6>
+	     	 						</div>
+	     	 						<div class="col-md-8">
+	     	 							<h6 class="payslip_name" id="payslip_fname">James Russel</h6><h6 class="payslip_name" id="payslip_lname">&nbsp;Bonos</h6>
+	     	 							<input type="hidden" name="txt_slip_fname">
+	     	 							<input type="hidden" name="txt_slip_lname">
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row" style="margin-top: -20px;">
+	     	 						<div class="col-md-4">
+	     	 							<h6>DEPT./POSITION:</h6>
+	     	 						</div>
+	     	 						<div class="col-md-8">
+	     	 							<h6 id="payslip_dept">Web Designer</h6>
+	     	 							<input type="hidden" name="txt_payslip_dept">
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 				<div class="col-md-6">
+	     	 					<div class="row">
+	     	 						<div class="col-md-6">
+	     	 							<h4>PAYSLIP</h4>
+	     	 							<h6 class="payslip_date" id="payslip_dateform">August 1, 2019</h6><h6 class="payslip_date">&nbsp;to&nbsp;</h6><h6 class="payslip_date" id="payslip_dateto">August 15, 2019</h6>
+	     	 							<input type="hidden" name="txt_payslip_datefrom">
+	     	 							<input type="hidden" name="txt_payslip_dateto">
+	     	 						</div>
+	     	 						<div class="col-md-6" style="background-color: #000;">
+	     	 							<img src="/img/icon2.png" style="width: 100px; height: 100px; display: block; margin: 0 auto;">
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 			</div>
+	     	 			<div class="form-row" style="margin-top: 30px;">
+	     	 				<div class="col-md-6" style="padding-right: 20px;">
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold; margin-top: 5px;">BASIC PAY:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_basic_pay">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>No. of Days</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_days">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row" style="background-color: #f4f4f4;">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">HOLIDAY:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_holiday">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_holiday_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row" style="background-color: #f4f4f4; margin-top: 10px;">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">ALLOWANCES:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_allowance">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row" style="margin-top: 15px;">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">ABSENCES:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_absent">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Unpaid absences</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_unpaid_absent">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Charge to SL/VL</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_SL_VL">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">TARDINESS:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_tardiness">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_tardiness_total">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p">Late</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_late">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Undertime</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_undertime">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>		
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">OVERTIME:</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_overtime">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_overtime_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p">Regular</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_regular_OT">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_regular_OT_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Legal Holiday</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_legal_OT">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_legal_OT_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Sund/Rest Day</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_lrestday_OT">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_lrestday_OT_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p>Special Holiday</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_special_OT">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_special_OT_amount">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">Night Shift Diff</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_night">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_amount">
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">ADJUSTMENT</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_adjustment">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 				<div class="col-md-6"  style="padding-left: 20px;">
+	     	 					<div class="row" style="background-color: #f4f4f4;">
+	     	 						<div class="col-md-12" style="text-align: center;">
+	     	 							<p style="font-weight: bold;">DEDUCTIONS:</p>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;; margin-top: 10px;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">TAX</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_tax">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;; margin-top: 10px;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">EMPLOYEE CONTRIBUTION</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>SSS Premium</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_sss">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>PhilHealth</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_philhealth">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>Pag-Ibig Fund</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_pagibig">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">STANDARD DEDUCTION</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>SSS Loan</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_sss_loan">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>Pag-Ibig Loan</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_pagibig_loan">
+	     	 								</div>
+	     	 							</div>
+	     	 							<div class="row">
+	     	 								<div class="col-md-8">
+	     	 									<p>Company Loan/Advances</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_company_loan">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">UNIFORM</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_uniform">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 			</div>
+	     	 			<div class="form-row" style="margin-top: 20px;">
+	     	 				<div class="col-md-6" style="padding-right: 20px;">
+	     	 					<div class="row" style="background-color: #f4f4f4;">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row">
+	     	 								<div class="col-md-4">
+	     	 									<p style="font-weight: bold;">GROSS PAY</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_gross">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 				<div class="col-md-6" style="padding-left: 20px;">
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">NET PAY</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_net">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 				</div>
+	     	 			</div>
+	     	 		</div>
+	     	 		<div class="modal-footer">
+	     	 			<button type="submit" class="btn btn-success btn_payroll" form="genarateForm"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payslip</button>
+	     	 		</div>
+	     	 	</form>
+	    	</div>
+	  	</div>
+	</div>
+
 <script>
 		$(document).ready(function() {
 /////////////////////PAYROLL////////////////////////////////
@@ -731,7 +1207,9 @@
 
 								 console.log(net_loan);
 
-								 $('#p_net_pay').val(net_loan - val5);
+								 var net_pay_final = net_loan - val5;
+
+								 $('#p_net_pay').val(net_pay_final.toFixed(2));
 							});
 
 				        }

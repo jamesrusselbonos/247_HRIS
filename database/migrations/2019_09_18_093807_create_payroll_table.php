@@ -52,6 +52,8 @@ class CreatePayrollTable extends Migration
             $table->double('total_deduction_loan', 8, 2)->default('0.00')->nullable();
             $table->double('tax', 8, 2)->default('0.00')->nullable();
             $table->double('net_pay', 8, 2);
+            $table->date('date_from');
+            $table->date('date_to');
             $table->timestamps();
         });
     }
