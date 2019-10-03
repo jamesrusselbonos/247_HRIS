@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Prototype_Employee;
 
 use DB;
+use Auth;
 
 class prototypeEmployeeController extends Controller
 {
@@ -105,5 +106,23 @@ class prototypeEmployeeController extends Controller
     	// ))->save();
 
     	return redirect()->route('admin.add_employee');
+    }
+
+    public function redirectDashboard(){
+
+    if(Auth::user()){
+        if(Auth::user()->role == 1){
+            return redirect('admin');
+        }
+        else if(Auth::user()->role == 2){
+            return redirect('employee');
+        }
+    }
+    else{
+        return view('auth.login');
+    }
+
+        
+        
     }
 }

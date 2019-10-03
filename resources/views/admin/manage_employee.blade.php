@@ -500,33 +500,39 @@
 									<div class="form-row">
 										<div class="form-group col-md-4">
 									  		<label>Diploma</label></br>
-									 	 	<input type="file" name="file_mcert" id="file_mcert" />
+									 	 	<input type="file" name="edit_ediploma" id="edit_ediploma" />
+									 	 	<input type="hidden" name="hidden_edit_ediploma" id="hidden_edit_ediploma" />
 										</div>
 										<div class="form-group col-md-4">
 									  		<label>Medical Certificate</label></br>
-									  		<input type="file" name="file_mcert" id="file_mcert" />
+									  		<input type="file" name="edit_emedical" id="edit_emedical" />
+									  		<input type="hidden" name="hidden_edit_emedical" id="hidden_edit_emedical" />
 										</div>
 									</div>
 								
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  	<label>TOR</label></br>
-										  	<input type="file" name="file_mcert" id="file_mcert" />
+										  	<input type="file" name="edit_etor" id="edit_etor" />
+										  	<input type="hidden" name="hidden_edit_etor" id="hidden_edit_etor" />
 										</div>
 										<div class="form-group col-md-4">
 										  	<label>Birth Certificate</label></br>
-										  	<input type="file" name="file_mcert" id="file_mcert" />
+										  	<input type="file" name="edit_ebirth" id="edit_ebirth" />
+										  	<input type="hidden" name="hidden_edit_ebirth" id="hidden_edit_ebirth" />
 										</div>
 									</div>
 								
 									<div class="form-row">
 										<div class="form-group col-md-4">
 										  	<label>Brgy. Clearance</label></br>
-										  	<input type="file" name="file_mcert" id="file_mcert" />
+										  	<input type="file" name="edit_bclearance" id="edit_bclearance" />
+										  	<input type="hidden" name="hidden_edit_bclearance" id="hidden_edit_bclearance" />
 										</div>
 										<div class="form-group col-md-4">
 										  	<label>Cedula</label></br>
-										  	<input type="file" name="file_mcert" id="file_mcert" />
+										  	<input type="file" name="edit_ecedula" id="edit_ecedula" />
+										  	<input type="hidden" name="hidden_edit_ecedula" id="hidden_edit_ecedula" />
 										</div>
 									</div>
 								</div>

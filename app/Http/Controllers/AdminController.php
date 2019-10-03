@@ -183,12 +183,32 @@ class AdminController extends Controller
         $e_employee->pagibig_no = $request->edit_epagibig;
         $e_employee->TIN_no = $request->edit_etin;
         $e_employee->NBI_no = $request->edit_enbi;
-        $e_employee->diploma = $request->edit_ediploma;
-        $e_employee->medical = $request->edit_emedical;
-        $e_employee->TOR = $request->edit_etor;
-        $e_employee->birth_cert = $request->edit_ebirth;
-        $e_employee->brgy_clearance = $request->edit_ebirth;
-        $e_employee->cedula = $request->edit_ecedula;
+
+        if($request->hidden_edit_ediploma){
+            $e_employee->diploma = $request->hidden_edit_ediploma;    
+        }
+        if($request->hidden_edit_emedical){
+            $e_employee->medical = $request->hidden_edit_emedical;
+        }
+        if($request->hidden_edit_etor){
+            $e_employee->TOR = $request->hidden_edit_etor;   
+        }
+        if($request->hidden_edit_ebirth){
+            $e_employee->birth_cert = $request->hidden_edit_ebirth;  
+        }
+        if($request->hidden_edit_bclearance){
+            $e_employee->brgy_clearance = $request->hidden_edit_bclearance;   
+        }
+        if($request->hidden_edit_ecedula){
+            $e_employee->cedula = $request->hidden_edit_ecedula;   
+        }
+
+        
+        // $e_employee->medical = $request->edit_emedical;
+        // $e_employee->TOR = $request->edit_etor;
+        // $e_employee->birth_cert = $request->edit_ebirth;
+        // $e_employee->brgy_clearance = $request->edit_bclearance;
+        // $e_employee->cedula = $request->edit_ecedula;
 
         $e_employee->save();
 

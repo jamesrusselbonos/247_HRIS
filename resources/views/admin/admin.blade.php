@@ -29,6 +29,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+
+
+
 
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style2.css">
@@ -483,15 +488,91 @@
                            }
                        ]
               });
-              $('#addDataTable').DataTable({
-                "scrollX": true,
-                columnDefs: [
-                           {
-                               targets: [ 0, 1, 2 ],
-                               className: 'mdl-data-table__cell--non-numeric'
+              // $('#addDataTable').DataTable({
+              //   "scrollX": true,
+              //   columnDefs: [
+              //              {
+              //                  targets: [ 0, 1, 2 ],
+              //                  className: 'mdl-data-table__cell--non-numeric'
+              //              }
+              //          ],
+              //   dom: 'Bfrtip',
+              //   buttons: [
+              //       {
+              //           extend: 'print',
+              //       },
+              //   ],
+
+
+              // });
+
+              $('#addDataTable').DataTable( {
+                     dom: 'Bfrtip',
+                     autoWidth: true,
+                  buttons: [
+                          {
+                              extend: "print",
+                              customize: function(win)
+                              {
+                                $(win.document.body).find( 'table' )
+                                                    .css( 'font-size', '5pt' );
+                                  var last = null;
+                                  var current = null;
+                                  var bod = [];
+                   
+                                  var css = '@page { size: landscape; }',
+                                      head = win.document.head || win.document.getElementsByTagName('head')[0],
+                                      style = win.document.createElement('style');
+
+                   
+                                  style.type = 'text/css';
+                                  style.media = 'print';
+                   
+                                  if (style.styleSheet)
+                                  {
+                                    style.styleSheet.cssText = css;
+                                  }
+                                  else
+                                  {
+                                    style.appendChild(win.document.createTextNode(css));
+                                  }
+                   
+                                  head.appendChild(style);
                            }
-                       ]
-              });
+                        },
+                  ]
+                 } );
+
+                $('input[name="edit_ediploma"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_ediploma').val(fileName);
+                });     
+
+                $('input[name="edit_emedical"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_emedical').val(fileName);
+                });                
+
+                $('input[name="edit_etor"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_etor').val(fileName);
+                });        
+
+                $('input[name="edit_ebirth"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_ebirth').val(fileName);
+                });                
+
+                $('input[name="edit_bclearance"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_bclearance').val(fileName);
+                });               
+
+                $('input[name="edit_ecedula"]').change(function(e){
+                    var fileName = e.target.files[0].name;
+                    $('#hidden_edit_ecedula').val(fileName);
+                });
+
 
               $('.view_emp').on('click',  function(event){
                 var id = $(this).attr('p_id');

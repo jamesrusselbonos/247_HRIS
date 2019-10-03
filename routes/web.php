@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/', 'prototypeEmployeeController@redirectDashboard');
+
 // Route::get('/admin', function () {
 //     return view('admin');
 // });
