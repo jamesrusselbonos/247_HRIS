@@ -1140,6 +1140,7 @@ class AdminController extends Controller
         $payroll->amount_night_diffential = $request->p_amount_night;
         $payroll->no_hours_undertime = $request->p_no_undertime;
         $payroll->no_hours_late = $request->p_no_late;
+        $payroll->tardiness_amount = $request->p_amount_undertime_late;
         $payroll->gross_pay = $request->p_gross_pay;
         $payroll->SSS_payroll = $request->p_sss;
         $payroll->PHIC_payroll = $request->p_phic;

@@ -40,6 +40,7 @@ class CreatePayrollTable extends Migration
             $table->double('amount_night_diffential', 8, 2)->default('0.00')->nullable();
             $table->double('no_hours_undertime', 8, 2);
             $table->double('no_hours_late', 8, 2);
+            $table->double('tardiness_amount', 8, 2);
             $table->double('gross_pay', 8, 2);
             $table->double('SSS_payroll', 8, 2);
             $table->double('PHIC_payroll', 8, 2);

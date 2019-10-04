@@ -53,6 +53,7 @@
 				              <th style="min-width: 200px;">Amount</th>
 				              <th style="min-width: 200px;">No. of hours undertime</th>
 				              <th style="min-width: 200px;">No. of hours late</th>
+				              <th style="min-width: 200px;">Amount</th>
 				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Gross Pay</th>
 				              <th style="min-width: 200px;">SSS</th>
 				              <th style="min-width: 200px;">PHIC</th>
@@ -100,6 +101,7 @@
 					              <td style="min-width: 200px;">{{ $payroll->amount_night_diffential }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_undertime }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_late }}</td>
+					              <td style="min-width: 200px;">{{ $payroll->tardiness_amount }}</td>
 					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->gross_pay }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->SSS_payroll }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->PHIC_payroll }}</td>
@@ -127,6 +129,7 @@
 					              		payslip_SLVL="{{ $payroll->charged_to_SIL }}"
 					              		payslip_late="{{ $payroll->no_hours_late }}"
 					              		payslip_undertime="{{ $payroll->no_hours_undertime }}"
+					              		payslip_tardiness_amount="{{ $payroll->tardiness_amount }}"
 					              		payslip_regular_OT="{{ $payroll->regular_OT_hours }}"
 					              		payslip_regular_OT_amount="{{ $payroll->regular_OT_amount }}"
 					              		payslip_legal_OT="{{ $payroll->legal_holiday_OT_hours }}"
@@ -148,6 +151,8 @@
 					              		payslip_uniform="{{ $payroll->uniform }}"
 					              		payslip_gross="{{ $payroll->gross_pay }}"
 					              		payslip_net="{{ $payroll->net_pay }}"
+					              		payslip_datefrom="{{ $payroll->date_from }}"
+					              		payslip_dateto="{{ $payroll->date_to }}"
 					              	><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payslip</button>
 					              </td>
 								</tr>
@@ -498,7 +503,7 @@
 	     	 						</div>
 	     	 						<div class="col-md-8">
 	     	 							<h6 id="payslip_dept"></h6>
-	     	 							<input type="hidden" name="txt_payslip_dept">
+	     	 							<input type="hidden" name="txt_payslip_dept" id="txt_payslip_dept">
 	     	 						</div>
 	     	 					</div>
 	     	 				</div>
@@ -506,7 +511,7 @@
 	     	 					<div class="row">
 	     	 						<div class="col-md-6">
 	     	 							<h4>PAYSLIP</h4>
-	     	 							<h6 class="payslip_date" id="payslip_dateform">August 1, 2019</h6><h6 class="payslip_date">&nbsp;to&nbsp;</h6><h6 class="payslip_date" id="payslip_dateto">August 15, 2019</h6>
+	     	 							<h6 class="payslip_date" id="txt_payslip_dateform"></h6><h6 class="payslip_date">&nbsp;to&nbsp;</h6><h6 class="payslip_date" id="txt_payslip_dateto"</h6>
 	     	 							<input type="hidden" name="txt_payslip_datefrom">
 	     	 							<input type="hidden" name="txt_payslip_dateto">
 	     	 						</div>
@@ -850,7 +855,7 @@
 	     	 					</div>
 	     	 					<div class="row">
 	     	 						<div class="col-md-12">
-	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 							<div class="row" style="background-color: #f4f4f4; margin-top: 10px;">
 	     	 								<div class="col-md-8">
 	     	 									<p style="font-weight: bold;">TOTAL DEDUCTION</p>
 	     	 								</div>
@@ -897,7 +902,7 @@
 	     	 			</div>
 	     	 		</div>
 	     	 		<div class="modal-footer">
-	     	 			<button type="submit" class="btn btn-success btn_payroll" form="genarateForm"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Generate Payslip</button>
+	     	 			<button style="float: right;" type="button" class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i>&nbsp; Print</button>
 	     	 		</div>
 	     	 	</form>
 	    	</div>
@@ -921,6 +926,7 @@
             var slip_slvl = $(this).attr('payslip_SLVL');
             var slip_late = $(this).attr('payslip_late');
             var slip_undertime = $(this).attr('payslip_undertime');
+            var slip_tardiness_amount = $(this).attr('payslip_tardiness_amount');
             var slip_regularOT = $(this).attr('payslip_regular_OT');
             var slip_regularOT_amount = $(this).attr('payslip_regular_OT_amount');
             var slip_legalOT = $(this).attr('payslip_legal_OT');
@@ -942,6 +948,8 @@
             var slip_uniform = $(this).attr('payslip_uniform');
             var slip_gross = $(this).attr('payslip_gross');
             var slip_net = $(this).attr('payslip_net');
+            var slip_datefrom = $(this).attr('payslip_datefrom');
+            var slip_dateto = $(this).attr('payslip_dateto');
 
             console.log(slip_specialOT_amount);
 
@@ -977,7 +985,9 @@
             
             $('#txt_payslip_fname').html(slip_fname);
             $('#txt_payslip_lname').html(slip_lname);
-            $('#txt_payslip_dept').html(slip_dept);
+            $('#payslip_dept').html(slip_dept);
+            $('#txt_payslip_dateform').html(slip_datefrom);
+            $('#txt_payslip_dateto').html(slip_dateto);
             $('#txt_payslip_basic_pay').val(slip_basicpay);
             $('#txt_payslip_days').val(slip_nodays);
             $('#txt_payslip_holiday').val(slip_holiday);
@@ -1013,6 +1023,7 @@
             $('#txt_payslip_tardiness').val(tardiness);
             $('#txt_payslip_overtime').val(OT);
             $('#txt_payslip_overtime_amount').val(OT_amount);
+            $('#txt_payslip_tardiness_total').val(slip_tardiness_amount);
             
          });
 
