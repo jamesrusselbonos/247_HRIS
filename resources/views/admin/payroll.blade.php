@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<table class="table display nowrap" id="payroll_table">	
+					<table class="table display nowrap" id="addDataTable">	
 						<thead>
 							<tr>
 				              <th style="min-width: 250px;">Employees</th>
@@ -117,43 +117,37 @@
 					              		payslip_fname="{{ $payroll->firstname }}"
 					              		payslip_lname="{{ $payroll->lastname }}"
 					              		payslip_dept="{{ $payroll->department_name }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
-					              		payslip_fname="{{ $payroll->firstname }}"
+					              		payslip_basicpay="{{ $payroll->basic_pay }}"
+					              		payslip_nodays="{{ $payroll->no_days_worked }}"
+					              		payslip_holiday="{{ $payroll->no_legal_holidays }}"
+					              		payslip_holiday_amount="{{ $payroll->amount_holidays }}"
+					              		payslip_allowance="{{ $payroll->allowance }}"
+					              		payslip_absences="{{ $payroll->total_absences }}"
+					              		payslip_unpaid="{{ $payroll->unpaid_absences }}"
+					              		payslip_SLVL="{{ $payroll->charged_to_SIL }}"
+					              		payslip_late="{{ $payroll->no_hours_late }}"
+					              		payslip_undertime="{{ $payroll->no_hours_undertime }}"
+					              		payslip_regular_OT="{{ $payroll->regular_OT_hours }}"
+					              		payslip_regular_OT_amount="{{ $payroll->regular_OT_amount }}"
+					              		payslip_legal_OT="{{ $payroll->legal_holiday_OT_hours }}"
+					              		payslip_legal_OT_amount="{{ $payroll->legal_holiday_OT_amount }}"
+					              		payslip_restday_OT="{{ $payroll->restday_OT_hours }}"
+					              		payslip_restday_OT_amount="{{ $payroll->restday_OT_amount }}"
+					              		payslip_special_OT="{{ $payroll->special_holiday_OT_hours }}"
+					              		payslip_special_OT_amount="{{ $payroll->special_holiday_OT_amount }}"
+					              		payslip_night="{{ $payroll->no_hours_rendered }}"
+					              		payslip_night_amount="{{ $payroll->amount_night_diffential }}"
+					              		payslip_adjustment="{{ $payroll->adjustment_incentives }}"
+					              		payslip_tax="{{ $payroll->tax }}"
+					              		payslip_sss="{{ $payroll->SSS_payroll }}"
+					              		payslip_philhealth="{{ $payroll->PHIC_payroll }}"
+					              		payslip_pagibig="{{ $payroll->HDMF_payroll }}"
+					              		payslip_sss_loan="{{ $payroll->SSS_loan }}"
+					              		payslip_company_loan="{{ $payroll->company_loan }}"
+					              		payslip_pagibig_loan="{{ $payroll->HDMF_loan }}"
+					              		payslip_uniform="{{ $payroll->uniform }}"
+					              		payslip_gross="{{ $payroll->gross_pay }}"
+					              		payslip_net="{{ $payroll->net_pay }}"
 					              	><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payslip</button>
 					              </td>
 								</tr>
@@ -493,7 +487,7 @@
 	     	 							<h6>EMPLOYEE NAME:</h6>
 	     	 						</div>
 	     	 						<div class="col-md-8">
-	     	 							<h6 class="payslip_name" id="payslip_fname">James Russel</h6><h6 class="payslip_name" id="payslip_lname">&nbsp;Bonos</h6>
+	     	 							<h6 class="payslip_name" id="txt_payslip_fname"></h6>&nbsp;<h6 class="payslip_name" id="txt_payslip_lname"></h6>
 	     	 							<input type="hidden" name="txt_slip_fname">
 	     	 							<input type="hidden" name="txt_slip_lname">
 	     	 						</div>
@@ -503,7 +497,7 @@
 	     	 							<h6>DEPT./POSITION:</h6>
 	     	 						</div>
 	     	 						<div class="col-md-8">
-	     	 							<h6 id="payslip_dept">Web Designer</h6>
+	     	 							<h6 id="payslip_dept"></h6>
 	     	 							<input type="hidden" name="txt_payslip_dept">
 	     	 						</div>
 	     	 					</div>
@@ -534,7 +528,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_basic_pay">
+	     	 									<input type="text" name="txt_payslip_basic_pay" id="txt_payslip_basic_pay">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -542,7 +536,7 @@
 	     	 									<p>No. of Days</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_days">
+	     	 									<input type="text" name="txt_payslip_days" id="txt_payslip_days">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 									
@@ -557,10 +551,10 @@
 	     	 									<p style="font-weight: bold;">HOLIDAY:</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_holiday">
+	     	 									<input type="text" name="txt_payslip_holiday" id="txt_payslip_holiday">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_holiday_amount">
+	     	 									<input type="text" name="txt_payslip_holiday_amount" id="txt_payslip_holiday_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -575,7 +569,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_allowance">
+	     	 									<input type="text" name="txt_payslip_allowance" id="txt_payslip_allowance">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -587,7 +581,7 @@
 	     	 									<p style="font-weight: bold;">ABSENCES:</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_absent">
+	     	 									<input type="text" name="txt_payslip_absent" id="txt_payslip_absent">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 								</div>
@@ -597,7 +591,7 @@
 	     	 									<p>Unpaid absences</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_unpaid_absent">
+	     	 									<input type="text" name="txt_payslip_unpaid_absent" id="txt_payslip_unpaid_absent">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 								</div>
@@ -607,7 +601,7 @@
 	     	 									<p>Charge to SL/VL</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_SL_VL">
+	     	 									<input type="text" name="txt_payslip_SL_VL" id="txt_payslip_SL_VL">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 								</div>
@@ -621,10 +615,10 @@
 	     	 									<p style="font-weight: bold;">TARDINESS:</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_tardiness">
+	     	 									<input type="text" name="txt_payslip_tardiness" id="txt_payslip_tardiness">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_tardiness_total">
+	     	 									<input type="text" name="txt_payslip_tardiness_total" id="txt_payslip_tardiness_total">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -632,7 +626,7 @@
 	     	 									<p">Late</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_late">
+	     	 									<input type="text" name="txt_payslip_late" id="txt_payslip_late">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 									
@@ -643,7 +637,7 @@
 	     	 									<p>Undertime</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_undertime">
+	     	 									<input type="text" name="txt_payslip_undertime" id="txt_payslip_undertime">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 									
@@ -658,10 +652,10 @@
 	     	 									<p style="font-weight: bold;">OVERTIME:</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_overtime">
+	     	 									<input type="text" name="txt_payslip_overtime" id="txt_payslip_overtime">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_overtime_amount">
+	     	 									<input type="text" name="txt_payslip_overtime_amount" id="txt_payslip_overtime_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -669,10 +663,10 @@
 	     	 									<p">Regular</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_regular_OT">
+	     	 									<input type="text" name="txt_payslip_regular_OT" id="txt_payslip_regular_OT">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_regular_OT_amount">
+	     	 									<input type="text" name="txt_payslip_regular_OT_amount" id="txt_payslip_regular_OT_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -680,10 +674,10 @@
 	     	 									<p>Legal Holiday</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_legal_OT">
+	     	 									<input type="text" name="txt_payslip_legal_OT" id="txt_payslip_legal_OT">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_legal_OT_amount">
+	     	 									<input type="text" name="txt_payslip_legal_OT_amount" id="txt_payslip_legal_OT_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -691,10 +685,10 @@
 	     	 									<p>Sund/Rest Day</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_lrestday_OT">
+	     	 									<input type="text" name="txt_payslip_lrestday_OT" id="txt_payslip_lrestday_OT">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_lrestday_OT_amount">
+	     	 									<input type="text" name="txt_payslip_lrestday_OT_amount" id="txt_payslip_lrestday_OT_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -702,10 +696,10 @@
 	     	 									<p>Special Holiday</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_special_OT">
+	     	 									<input type="text" name="txt_payslip_special_OT" id="txt_payslip_special_OT">
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_special_OT_amount">
+	     	 									<input type="text" name="txt_payslip_special_OT_amount" id="txt_payslip_special_OT_amount">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -720,7 +714,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_night">
+	     	 									<input type="text" name="txt_payslip_night" id="txt_payslip_night">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -728,7 +722,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_amount">
+	     	 									<input type="text" name="txt_payslip_night_amount" id="txt_payslip_night_amount">
 	     	 								</div>
 	     	 								<div class="col-md-4">
 	     	 									
@@ -746,7 +740,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_adjustment">
+	     	 									<input type="text" name="txt_payslip_adjustment" id="txt_payslip_adjustment">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -765,7 +759,7 @@
 	     	 									<p style="font-weight: bold;">TAX</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_tax">
+	     	 									<input type="text" name="txt_payslip_tax" id="txt_payslip_tax">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -785,7 +779,7 @@
 	     	 									<p>SSS Premium</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_sss">
+	     	 									<input type="text" name="txt_payslip_sss" id="txt_payslip_sss">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -793,7 +787,7 @@
 	     	 									<p>PhilHealth</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_philhealth">
+	     	 									<input type="text" name="txt_payslip_philhealth" id="txt_payslip_philhealth">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -801,7 +795,7 @@
 	     	 									<p>Pag-Ibig Fund</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_pagibig">
+	     	 									<input type="text" name="txt_payslip_pagibig" id="txt_payslip_pagibig">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -821,7 +815,7 @@
 	     	 									<p>SSS Loan</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_sss_loan">
+	     	 									<input type="text" name="txt_payslip_sss_loan" id="txt_payslip_sss_loan">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -829,7 +823,7 @@
 	     	 									<p>Pag-Ibig Loan</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_pagibig_loan">
+	     	 									<input type="text" name="txt_payslip_pagibig_loan" id="txt_payslip_pagibig_loan">
 	     	 								</div>
 	     	 							</div>
 	     	 							<div class="row">
@@ -837,7 +831,7 @@
 	     	 									<p>Company Loan/Advances</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_company_loan">
+	     	 									<input type="text" name="txt_payslip_company_loan" id="txt_payslip_company_loan">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -849,7 +843,19 @@
 	     	 									<p style="font-weight: bold;">UNIFORM</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_uniform">
+	     	 									<input type="text" name="txt_payslip_uniform" id="txt_payslip_uniform">
+	     	 								</div>
+	     	 							</div>
+	     	 						</div>
+	     	 					</div>
+	     	 					<div class="row">
+	     	 						<div class="col-md-12">
+	     	 							<div class="row" style="background-color: #f4f4f4;">
+	     	 								<div class="col-md-8">
+	     	 									<p style="font-weight: bold;">TOTAL DEDUCTION</p>
+	     	 								</div>
+	     	 								<div class="col-md-4">
+	     	 									<input type="text" name="txt_payslip_total" id="txt_payslip_total">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -868,7 +874,7 @@
 	     	 									
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_gross">
+	     	 									<input type="text" name="txt_payslip_gross" id="txt_payslip_gross">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -882,7 +888,7 @@
 	     	 									<p style="font-weight: bold;">NET PAY</p>
 	     	 								</div>
 	     	 								<div class="col-md-4">
-	     	 									<input type="text" name="txt_payslip_net">
+	     	 									<input type="text" name="txt_payslip_net" id="txt_payslip_net">
 	     	 								</div>
 	     	 							</div>
 	     	 						</div>
@@ -900,6 +906,116 @@
 
 <script>
 		$(document).ready(function() {
+
+		$('.btn_payslip').on('click',  function(event){
+            var slip_fname = $(this).attr('payslip_fname');
+            var slip_lname = $(this).attr('payslip_lname');
+            var slip_dept = $(this).attr('payslip_dept');
+            var slip_basicpay = $(this).attr('payslip_basicpay');
+            var slip_nodays = $(this).attr('payslip_nodays');
+            var slip_holiday = $(this).attr('payslip_holiday');
+            var slip_holiday_amount = $(this).attr('payslip_holiday_amount');
+            var slip_allowance = $(this).attr('payslip_allowance');
+            var slip_absences = $(this).attr('payslip_absences');
+            var slip_unpaid = $(this).attr('payslip_unpaid');
+            var slip_slvl = $(this).attr('payslip_SLVL');
+            var slip_late = $(this).attr('payslip_late');
+            var slip_undertime = $(this).attr('payslip_undertime');
+            var slip_regularOT = $(this).attr('payslip_regular_OT');
+            var slip_regularOT_amount = $(this).attr('payslip_regular_OT_amount');
+            var slip_legalOT = $(this).attr('payslip_legal_OT');
+            var slip_legalOT_amount = $(this).attr('payslip_legal_OT_amount');
+            var slip_restdayOT = $(this).attr('payslip_restday_OT');
+            var slip_restdayOT_amount = $(this).attr('payslip_restday_OT_amount');
+            var slip_specialOT = $(this).attr('payslip_special_OT');
+            var slip_specialOT_amount = $(this).attr('payslip_special_OT_amount');
+            var slip_night = $(this).attr('payslip_night');
+            var slip_night_amount = $(this).attr('payslip_night_amount');
+            var slip_adjustment = $(this).attr('payslip_adjustment');
+            var slip_tax = $(this).attr('payslip_tax');
+            var slip_sss = $(this).attr('payslip_sss');
+            var slip_philhealth = $(this).attr('payslip_philhealth');
+            var slip_pagibig = $(this).attr('payslip_pagibig');
+            var slip_sss_loan = $(this).attr('payslip_sss_loan');
+            var slip_pagibig_loan = $(this).attr('payslip_pagibig_loan');
+            var slip_company_loan = $(this).attr('payslip_company_loan');
+            var slip_uniform = $(this).attr('payslip_uniform');
+            var slip_gross = $(this).attr('payslip_gross');
+            var slip_net = $(this).attr('payslip_net');
+
+            console.log(slip_specialOT_amount);
+
+            var slip_val1 = parseInt(slip_tax, 10); 
+           	var slip_val2 = parseInt(slip_sss, 10); 
+           	var slip_val3 = parseInt(slip_philhealth, 10); 
+           	var slip_val4 = parseInt(slip_pagibig, 10);
+           	var slip_val5 = parseInt(slip_sss_loan, 10); 
+           	var slip_val6 = parseInt(slip_pagibig_loan, 10); 
+           	var slip_val7 = parseInt(slip_company_loan, 10); 
+           	var slip_val8 = parseInt(slip_uniform, 10);
+
+           	var parsed_Total = slip_val1 + slip_val2 + slip_val3 + slip_val4 + slip_val5 + slip_val6 + slip_val7 + slip_val8;
+
+           	var tardiness_val1 = parseInt(slip_late, 10); 
+           	var tardiness_val2 = parseInt(slip_undertime, 10);
+
+           	var tardiness =  tardiness_val1 + tardiness_val2;
+
+           	var OT_val1 = parseInt(slip_regularOT, 10);
+           	var OT_val2 = parseInt(slip_legalOT, 10);
+           	var OT_val3 = parseInt(slip_restdayOT, 10);
+           	var OT_val4 = parseInt(slip_specialOT, 10);
+
+           	var OT = OT_val1 + OT_val2 + OT_val3 + OT_val4;
+
+           	var OT_amount_val1 = parseInt(slip_regularOT_amount, 10);
+           	var OT_amount_val2 = parseInt(slip_legalOT_amount, 10);
+           	var OT_amount_val3 = parseInt(slip_restdayOT_amount, 10);
+           	var OT_amount_val4 = parseInt(slip_specialOT_amount, 10);
+
+           	var OT_amount = OT_amount_val1 + OT_amount_val2 + OT_amount_val3 + OT_amount_val4;
+            
+            $('#txt_payslip_fname').html(slip_fname);
+            $('#txt_payslip_lname').html(slip_lname);
+            $('#txt_payslip_dept').html(slip_dept);
+            $('#txt_payslip_basic_pay').val(slip_basicpay);
+            $('#txt_payslip_days').val(slip_nodays);
+            $('#txt_payslip_holiday').val(slip_holiday);
+            $('#txt_payslip_holiday_amount').val(slip_holiday_amount);
+            $('#txt_payslip_allowance').val(slip_allowance);
+            $('#txt_payslip_absent').val(slip_absences);
+            $('#txt_payslip_SL_VL').val(slip_slvl);
+            $('#txt_payslip_late').val(slip_late);
+            $('#txt_payslip_undertime').val(slip_undertime);
+            $('#txt_payslip_regular_OT').val(slip_regularOT);
+            $('#txt_payslip_regular_OT_amount').val(slip_regularOT_amount);
+            $('#txt_payslip_legal_OT').val(slip_legalOT);
+            $('#txt_payslip_legal_OT_amount').val(slip_legalOT_amount);
+            $('#txt_payslip_lrestday_OT').val(slip_restdayOT);
+            $('#txt_payslip_lrestday_OT_amount').val(slip_restdayOT_amount);
+            $('#txt_payslip_special_OT').val(slip_specialOT);
+            $('#txt_payslip_special_OT_amount').val(slip_specialOT_amount);
+            $('#txt_payslip_night_amount').val(slip_night_amount);
+            $('#txt_payslip_adjustment').val(slip_adjustment);
+            $('#txt_payslip_tax').val(slip_tax);
+            $('#txt_payslip_sss').val(slip_sss);
+            $('#txt_payslip_philhealth').val(slip_philhealth);
+            $('#txt_payslip_pagibig').val(slip_pagibig);
+            $('#txt_payslip_sss_loan').val(slip_sss_loan);
+            $('#txt_payslip_pagibig_loan').val(slip_pagibig_loan);
+            $('#txt_payslip_company_loan').val(slip_company_loan);
+            $('#txt_payslip_gross').val(slip_gross);
+            $('#txt_payslip_net').val(slip_net);
+            $('#txt_payslip_unpaid_absent').val(slip_unpaid);
+            $('#txt_payslip_night').val(slip_night);
+            $('#txt_payslip_uniform').val(slip_uniform);
+            $('#txt_payslip_total').val(parsed_Total);
+            $('#txt_payslip_tardiness').val(tardiness);
+            $('#txt_payslip_overtime').val(OT);
+            $('#txt_payslip_overtime_amount').val(OT_amount);
+            
+         });
+
 /////////////////////PAYROLL////////////////////////////////
 
 
