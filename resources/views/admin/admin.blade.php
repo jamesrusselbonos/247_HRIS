@@ -1094,8 +1094,8 @@
             var id = $(this).attr('hol_id');
             var hol_name = $(this).attr('hol_name');
             var date = $(this).attr('hol_date');
-            var type = $(this).attr('hol_type');
-            console.log(hol_name);
+            var type = $(this).attr('hol_type_id');
+            console.log(type);
             $('#edit_holiday').val(hol_name);
             $('#edit_holiday_date').val(date);
             $('#edit_holiday_type').val(type);
@@ -1103,6 +1103,47 @@
             $('#hdn-name').val(hol_name);
             document.getElementById("edit_holiday_type").value = type;
         })
+
+        $('.btn_update_holiday').on('click', function(){
+            var token = $('#hdn-token').val();
+            var id = $('#hdn-id').val();
+            var name = $('#hdn-name').val();
+            var date = $('#edit_holiday_date').val();
+            var type = $('#edit_holiday_type').val();
+
+            $.post('/editHoliday',
+            {'id':id, 'name':name,'date':date, 'type':type, '_token':token}, 
+            function(data){
+
+            location.reload();
+
+             }); 
+        }) 
+
+        $('.edit-shift').on('click', function(){
+            var id = $(this).attr('shift_id');
+            var shift_name = $(this).attr('shift_name');
+            var shift_start = $(this).attr('shift_start');
+            var shift_end = $(this).attr('shift_end');
+            var shift_night_diff = $(this).attr('shift_night_diff');
+            var shift_break_start = $(this).attr('shift_start');
+            var shift__break_end = $(this).attr('shift_end');
+
+            $('#eshift_name').val(shift_name);
+            $('#eshift_start').val(shift_start);
+            $('#eshift_end').val(shift_end);
+            if(shift_night_diff == 1){
+                $( "#enight_diff" ).prop( "checked", true );
+                $( "#enight_diff" ).val(1);
+            }
+            else{
+                $( "#enight_diff" ).val(0);
+            }
+            
+            $('#elunch_rest_start').val(shift_break_start);
+             $('#elunch_rest_end').val(shift__break_end);
+             $('#hdn-shift-id').val(id);
+        });
         });
     </script>
     <script type="text/javascript">

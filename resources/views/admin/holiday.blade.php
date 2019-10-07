@@ -16,7 +16,7 @@
 				    	<div class="row">
 				    		<div class="col-lg-12">
 				    			<span>
-				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add A Holiday</button>
+				    				<button type="button" class="btn btn-success" data-toggle="modal" data-target=".add_holiday"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add A Holiday</button>
 				    			</span>
 				    		</div>
 				    		<!-- <div class="col-lg-4">
@@ -67,16 +67,16 @@
 					             <td>
 					             	<div class="btn_desktop">
 					             		<span style="float: right;">
-		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type="{{ $holi->holiday_type }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"
+		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type_id="{{ $holi->holiday_type_id }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"
 		     									
 		     									></i>&nbsp; Edit</button>
-		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
+		     								<a href="/holiday_delete/{{ $holi->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 		     							</span>
 					             	</div>
 					             	<div class="btn_mobile">
 					             		<span style="float: right;">
-		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type="{{ $holi->holiday_type }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-		     								<a href="/level_delete/"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+		     								<button type="button" class="btn btn-primary edit-holiday" data-toggle="modal" data-target="#edit_holiday" hol_id="{{ $holi->id }}" hol_name="{{ $holi->holiday_name }}" hol_date="{{ $holi->date }}" hol_type_id="{{ $holi->holiday_type_id }}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+		     								<a href="/holiday_delete/{{ $holi->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 		     							</span>
 					             	</div>
 					             </td>
@@ -147,7 +147,7 @@
 	    </div>
 	  </div>
 
-	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade bd-example-modal-lg add_holiday" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">

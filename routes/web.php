@@ -55,6 +55,8 @@ Route::post('/timeOut/{id}', 'TimesheetController@timeOut')->name('timeOut');
 Route::get('/admin', 'AdminController@index')->name('admin.admin');
 Route::get('/shift', 'AdminController@shift_index')->name('admin.shift.index');
 Route::post('/shift', 'AdminController@shift_create')->name('admin.shift.create');
+Route::get('/shift/{id}', 'AdminController@shift_delete')->name('admin.shift.delete');
+Route::post('/shift/update/{id}', 'AdminController@updateShift')->name('admin.shift.update');
 
 Route::get('/ajaxShowEmployee', 'AdminController@ajaxShowEmployee')->name('admin.ajaxShowEmployee');////Memo Show
 
@@ -120,6 +122,7 @@ Route::post('/overtime', 'AdminController@overtimeEdit')->name('admin.overtime.e
 Route::get('/holidays', 'AdminController@holidays_index')->name('holidays.index');
 Route::post('/holidays', 'AdminController@holidays_create')->name('holidays.create');
 Route::post('/editHoliday', 'AdminController@edit_holiday')->name('holidays.edit');
+Route::get('/holiday_delete/{id}', 'AdminController@delete_holiday')->name('holidays.delete');
 
 Route::get('/job_title', 'jobController@index' );
 Route::post('/job_title', 'jobController@create' )->name('admin.job_title');
