@@ -171,6 +171,14 @@
                 <ul class="nav navbar-nav">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
+                            <li class="nav-item dropdown" style="position: absolute; margin-left: -50px; margin-top: -3px;">
+                                <a href="#" class="notification-trigger">
+                                      <i style="font-size: 25px;" class="fa fa-bell-o" aria-hidden="true"></i>
+                                      @if(auth()->user()->unreadNotifications->count())
+                                      <span class="badge infinite animated heartBeat" id="bell_badge">{{auth()->user()->unreadNotifications->count()}}</span>
+                                      @endif
+                                </a>
+                            </li>
                             <li class="nav-item dropdown" style="padding-top: 8px; margin-right: 20px;">
                                 <a style="color: #000;" id="navbarDropdown2" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      <span><i style="font-size: 20px;" class="fa fa-cogs" aria-hidden="true"></i></span>
@@ -245,6 +253,37 @@
                     </div>
                 </ul>
             </nav>
+            <div class="panel animated bounceIn">
+                <div class="title">Notifications</div>
+                <ul class="notification-bar" id="not" data-simplebar>
+                    <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        
+                        <li class="unread" id="unread" test="teest">
+                            <a style="cursor: pointer;" id="" >
+                                <i class="ion-checkmark"></i>
+                                <div>
+                                    <h6 style="font-size: 13px;">Leave Request</h6>
+                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
+                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="cursor: pointer;" >
+                                <i class="ion-checkmark"></i>
+                                <div>
+                                    <h6 style="font-size: 13px;">Leave Request</h6>
+                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
+                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>    
+                                </div>
+                            </a>
+                        </li> 
+                    </ul>
+                    <div class="notif_footer">
+                        <a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+                    </div>
+                </div>
             @yield('content')
         </div>
     </div>
@@ -1065,6 +1104,40 @@
             document.getElementById("edit_holiday_type").value = type;
         })
         });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.notification-trigger').click(function() {
+                $('.panel').toggleClass('visible');
+            });
+
+            $('.unread a').click(function(){
+                var notif_id = $(this).attr('id');
+                var token = $(".hdn-token").val();
+                var count = $(".badge").text();
+                $(this).parent().removeClass('unread').addClass('read');
+
+                $.get('/markRead/',
+
+                 {'notif_id':notif_id, '_token':token}, 
+                 function(data){
+
+                    count--;
+                    if(count > 0){
+                        $(".badge").text(count);
+                        
+                    }
+
+                    else{
+                        $('#bell_badge').hide();
+                    
+                    }
+
+                
+
+                 });       
+            });
+        })
     </script>
 </body>
 
