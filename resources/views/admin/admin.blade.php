@@ -924,6 +924,82 @@
 
               });
 
+
+            $('.edit-sched').on('click',  function(event){
+
+                var token = $('#hdn-token').val();
+                var edit_schedid = $(this).attr('e_schedid'); 
+                var edit_shift_id = $(this).attr('e_sched_shift_name'); 
+                var edit_sched_empid = $(this).attr('e_sched_empid'); 
+             
+
+                data = { 
+                            _token: token,
+                            edit_schedid : edit_schedid,
+                            edit_shift_id : edit_shift_id,
+                            edit_sched_empid : edit_sched_empid
+                        };
+         
+
+                $.ajax({
+                        url: '/ajaxScheduleEdit' ,
+                        type: "POST",
+                        data: data,
+                        success: function( response ) {
+                            
+
+                            // $('#e_schedid').val(edit_schedid);
+                            $('#e_sched_lname').html(response.employee.lastname);
+                            $('#e_sched_fname').html(response.employee.firstname);
+                            $('#e_sched_mname').html(response.employee.middle_name);
+                            $('.shift_sel').val(response.shift.id);
+                            $('#e_txt_sstart').html(response.shift.shift_start);
+                            $('#e_txt_send').html(response.shift.shift_end);
+                         // var a =   document.getElementById('txt_sstart').innerHTML = response.shift.shift_start;
+                         //    document.getElementById('txt_send').innerHTML = response.shift.shift_end;
+
+                         //    console.log(a);
+                         //    // $('#e_sched_empid').html(edit_sched_empid);
+                            $('#e_sched_dayfrom').val(response.schedule.day_from);
+                            $('#e_sched_dayto').val(response.schedule.day_to);
+                            $('#e_sched_restday').val(response.schedule.restday);
+                            $('#e_sched_task').html(response.schedule.task);
+                            $('#e_sched_comment').html(response.schedule.comment);
+                            $('#e_sched_other').html(response.schedule.other);
+
+                            $('.btn_sched_update').attr('id', response.schedule.id);
+                            // $('#v_sched_duration').html(view_sched_duration);
+                        }
+                    });
+                
+
+              });
+
+            
+                $('.btn_sched_update').on('click', function(){
+
+                    var token = $('#hdn-token').val();
+                    var id = $(this).attr('id');
+                    var shift_id = $('#e_shift_sel').val();
+                    var sched_dayfrom = $('#e_sched_dayfrom').val(); 
+                    var sched_dayto = $('#e_sched_dayto').val(); 
+                    var sched_restday = $('#e_sched_restday').val(); 
+                    var sched_task = document.getElementById("e_sched_task").value;
+                    var sched_comment = document.getElementById("e_sched_comment").value; 
+                    var sched_other = document.getElementById("e_sched_other").value;
+
+                    $.post('/schedule/update/' + id,
+                    {'sched_dayfrom':sched_dayfrom, 'shift_id':shift_id, 'sched_dayto':sched_dayto,'sched_restday':sched_restday, 
+                    'sched_task':sched_task, 'sched_comment':sched_comment, 'sched_other':sched_other,  '_token':token}, 
+                    function(data){
+
+                    location.reload();
+
+                     }); 
+
+                });
+            
+
                $('.btn_view_leave').on('click',  function(event){
                 var view_leaveid = $(this).attr('v_leave_id'); 
                 var view_leave_lname = $(this).attr('v_leave_lname'); 
@@ -1095,7 +1171,6 @@
             var hol_name = $(this).attr('hol_name');
             var date = $(this).attr('hol_date');
             var type = $(this).attr('hol_type_id');
-            console.log(type);
             $('#edit_holiday').val(hol_name);
             $('#edit_holiday_date').val(date);
             $('#edit_holiday_type').val(type);
@@ -1105,14 +1180,16 @@
         })
 
         $('.btn_update_holiday').on('click', function(){
+
             var token = $('#hdn-token').val();
             var id = $('#hdn-id').val();
             var name = $('#hdn-name').val();
             var date = $('#edit_holiday_date').val();
             var type = $('#edit_holiday_type').val();
 
+
             $.post('/editHoliday',
-            {'id':id, 'name':name,'date':date, 'type':type, '_token':token}, 
+            {'id':id, 'name':name, 'date':date, 'type':type, '_token':token}, 
             function(data){
 
             location.reload();
@@ -1126,24 +1203,58 @@
             var shift_start = $(this).attr('shift_start');
             var shift_end = $(this).attr('shift_end');
             var shift_night_diff = $(this).attr('shift_night_diff');
-            var shift_break_start = $(this).attr('shift_start');
-            var shift__break_end = $(this).attr('shift_end');
+            var shift_break_start = $(this).attr('shift_break_start');
+            var shift__break_end = $(this).attr('shift_break_end');
 
             $('#eshift_name').val(shift_name);
             $('#eshift_start').val(shift_start);
             $('#eshift_end').val(shift_end);
             if(shift_night_diff == 1){
-                $( "#enight_diff" ).prop( "checked", true );
+                $( ".enight_diff" ).prop( "checked", true );
                 $( "#enight_diff" ).val(1);
             }
             else{
+                 $( ".enight_diff" ).prop( "checked", false );
                 $( "#enight_diff" ).val(0);
             }
             
             $('#elunch_rest_start').val(shift_break_start);
              $('#elunch_rest_end').val(shift__break_end);
              $('#hdn-shift-id').val(id);
+        });        
+
+        $('.btn_save_edit_shift').on('click', function(){
+
+            var token = $('#hdn-token').val();
+            var id = $('#hdn-shift-id').val();
+            var shift_name = $('#eshift_name').val();
+            var shift_start = $('#eshift_start').val();
+            var shift_end = $('#eshift_end').val();
+            var shift_night_diff = $('#enight_diff').val();
+            var shift_break_start = $('#elunch_rest_start').val();
+            var shift_break_end = $('#elunch_rest_end').val();
+
+            if($('.enight_diff').prop("checked") == true){
+                shift_night_diff = 1;
+            }
+            else if($('.enight_diff'). prop("checked") == false){
+                shift_night_diff = 0;
+            }
+
+
+            $.post('/shift/update/' + id,
+            {'id':id, 'shift_name':shift_name, 'shift_start':shift_start, 'shift_end':shift_end, 
+            'shift_night_diff':shift_night_diff, 'shift_break_start':shift_break_start, 'shift_break_end':shift_break_end, '_token':token}, 
+            function(data){
+
+            location.reload();
+
+             }); 
+
+           
         });
+
+
         });
     </script>
     <script type="text/javascript">

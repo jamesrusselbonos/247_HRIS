@@ -64,7 +64,7 @@
 					             		<span style="float: right;">
 		     								<button type="button" class="btn btn-primary edit-shift" data-toggle="modal" data-target=".edit_shift_modal"
 		     									shift_id = "{{ $shift->id }}" shift_name = "{{ $shift->name }}" shift_start = "{{ $shift->shift_start }}" shift_end = "{{ $shift->shift_end }}" 
-		     									shift_night_diff = "{{ $shift->night_diff }}" shift_break_start = "{{ $shift->break_start }}" shift__break_end = "{{ $shift->break_end }}">
+		     									shift_night_diff = "{{ $shift->night_diff }}" shift_break_start = "{{ $shift->break_start }}" shift_break_end = "{{ $shift->break_end }}">
 		     									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit</button>
 		     								<a href="/shift/{{ $shift->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete</button></a>
 		     							</span>
@@ -73,7 +73,7 @@
 					             		<span style="float: right;">
 		     								<button type="button" class="btn btn-primary edit-shift" data-toggle="modal" data-target=".edit_shift_modal" 
 		     								shift_id = "{{ $shift->id }}" shift_name = "{{ $shift->name }}" shift_start = "{{ $shift->shift_start }}" shift_end = "{{ $shift->shift_end }}" 
-		     									shift_night_diff = "{{ $shift->night_diff }}" shift_break_start = "{{ $shift->break_start }}" shift__break_end = "{{ $shift->break_end }}" >
+		     									shift_night_diff = "{{ $shift->night_diff }}" shift_break_start = "{{ $shift->break_start }}" shift_break_end = "{{ $shift->break_end }}" >
 		     									<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 		     								<a href="/shift/{{ $shift->id }}"><button type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 		     							</span>
@@ -102,7 +102,7 @@
 	          </button>
 	       </div>
 	       <div class="modal-body">
-	              <form method="" action="">
+	              <!-- <form method="" action=""> -->
 	              	{{ csrf_field() }}
 	              	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
 	              	<input id="hdn-shift-id" class="hdn-id" type="hidden" name="id" >
@@ -124,8 +124,8 @@
 	                	</div>	                	
 
 	                	<div class="form-group col-md-12">
-	                		<input type='hidden' value='0' name='night_diff'>
-	                	  <input type="checkbox" name="night_diff" id="enight_diff" value="1"> Night Differential<br>
+	                		<input type='hidden' value='0' id="enight_diff" name='night_diff'>
+	                	  <input type="checkbox" name="night_diff" class="enight_diff" id="enight_diff" value="1"> Night Differential<br>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
@@ -141,9 +141,9 @@
 	                </div>
 	                <div class="modal-footer">
 	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-		               <button type="submit" class="btn btn-success btn_save_edit_shift"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+		               <button type="text" class="btn btn-success btn_save_edit_shift"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 		            </div>
-	              </form>
+	              <!-- </form> -->
 	            </div>
 	          </div>
 	    </div>

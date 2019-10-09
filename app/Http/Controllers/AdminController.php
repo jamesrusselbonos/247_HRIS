@@ -429,6 +429,18 @@ class AdminController extends Controller
         return view('admin.schedule', compact('sched_employee', 'sched_list', 'shifts'));
     }
 
+    public function ajaxScheduleEdit(Request $request){
+
+        $shift = Shift::where('id', $request->edit_shift_id)->first();
+
+        $schedule = Schedule::where('id', $request->edit_schedid)->first();
+
+        $employee = Prototype_Employee::where('employee_id', $request->edit_sched_empid)->first();
+
+
+        return Response()->json(['shift' => $shift, 'schedule' => $schedule, 'employee' => $employee]);
+    }
+
     public function schedule_create(Request $request){
         // return $request;
         // dd($request->memoemp_search1);
@@ -532,6 +544,21 @@ class AdminController extends Controller
         return redirect()->route('schedule.index');
     }
 
+    public function schedule_update(Request $request, $id){
+
+        $schedule = Schedule::where('id', $id)->first();
+
+        $schedule->day_from = $request->sched_dayfrom;
+        $schedule->day_to = $request->sched_dayto;
+        $schedule->restday = $request->sched_restday;
+        $schedule->shift_id = $request->shift_id;
+        $schedule->task = $request->sched_task;
+        $schedule->comment = $request->sched_comment;
+        $schedule->other = $request->sched_other;
+
+        $schedule->save();
+    }
+
     public function leave_types(){
 
         $leave_index = DB::table('leave_types')->get();
@@ -552,14 +579,17 @@ class AdminController extends Controller
     }
 
     public function edit_holiday(Request $request){
-        
-        $holi = Holiday::find($request->id);
 
+        // dd($request);
+        
+        $holi = Holiday::where('id', $request->id)->first();
+        // return Response()->json(['holi'=>$holi]);
         $holi->holiday_name = $request->name;
         $holi->date = $request->date;
-        $holid->holiday_type_id = $request->type;
+        $holi->holiday_type_id = $request->type;
 
         $holi->save();
+
     }
 
     public function holidays_create(Request $request){
@@ -1239,7 +1269,18 @@ class AdminController extends Controller
 
     public function updateShift(Request $request, $id){
 
-        dd($request);
+        $shift = Shift::find($id);
+
+        $shift->name = $request->shift_name;    
+        $shift->night_diff = $request->shift_night_diff;    
+        $shift->shift_start = $request->shift_start;    
+        $shift->shift_end = $request->shift_end;    
+        $shift->break_start = $request->shift_break_start;    
+        $shift->break_end = $request->shift_break_end; 
+
+        $shift->save();
+
+        return redirect()->back();   
     }
 
 

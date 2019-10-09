@@ -97,6 +97,8 @@ Route::get('/employee', 'EmployeeController@index');
 Route::get('/schedule', 'AdminController@schedule_index')->name('schedule.index');
 Route::post('/schedule', 'AdminController@schedule_create')->name('admin.sched.create');
 Route::get('/schedule/{id}', 'AdminController@schedule_delete');
+Route::post('/ajaxScheduleEdit', 'AdminController@ajaxScheduleEdit');
+Route::post('/schedule/update/{id}', 'AdminController@schedule_update');
 
 Route::get('/attendance', 'AdminController@attendance_index')->name('attendance.index');
 Route::post('/attendance', 'AdminController@attendLoad')->name('attendance.load');

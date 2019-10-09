@@ -70,20 +70,22 @@
 										             		v_sched_other="{{ $sch_list->other }}"
 
 										             		><i class="fa fa-eye" aria-hidden="true"></i> View</button>
-							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit-sched" data-toggle="modal" data-target="#edit_sched_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"
-							 									
-							 									v_schedid="{{ $sch_list->id }}"
-							 									v_sched_empid="{{ $sch_list->employee_id }}"
-							 									v_sched_fname="{{ $sch_list->firstname }}"
-							 									v_sched_lname="{{ $sch_list->lastname }}"
-							 									v_sched_mname="{{ $sch_list->middle_name }}"
-							 									v_sched_dayfrom="{{ $sch_list->day_from }}"
-							 									v_sched_dayto="{{ $sch_list->day_to }}"
-							 									v_sched_restday="{{ $sch_list->restday }}"
-							 									v_sched_task="{{ $sch_list->task }}"
-							 									v_sched_comment="{{ $sch_list->comment }}"
-							 									v_sched_other="{{ $sch_list->other }}"
+							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit-sched" data-toggle="modal" data-target="#edit_sched_modal" 
 
+							 									e_schedid="{{ $sch_list->id }}"
+							 									e_sched_empid="{{ $sch_list->employee_id }}"
+							 									e_sched_fname="{{ $sch_list->firstname }}"
+							 									e_sched_lname="{{ $sch_list->lastname }}"
+							 									e_sched_mname="{{ $sch_list->middle_name }}"
+							 									e_sched_dayfrom="{{ $sch_list->day_from }}"
+							 									e_sched_dayto="{{ $sch_list->day_to }}"
+							 									e_sched_restday="{{ $sch_list->restday }}"
+							 									e_sched_task="{{ $sch_list->task }}"
+							 									e_sched_comment="{{ $sch_list->comment }}"
+							 									e_sched_other="{{ $sch_list->other }}"
+							 									e_sched_shift_name="{{ $sch_list->shift_id }}"
+
+							 									><i class="fa fa-pencil-square-o" aria-hidden="true"
 							 									></i> Edit</button>
 							 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button></a>
 							 							</span>
@@ -105,20 +107,22 @@
 										             		v_sched_other="{{ $sch_list->other }}"
 
 										             		><i class="fa fa-eye" aria-hidden="true"></i></button>
-							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit-sched1" data-toggle="modal" data-target="#edit_sched_modal"><i class="fa fa-pencil-square-o" aria-hidden="true"
-							 									v_schedid="{{ $sch_list->id }}"
-							 									v_sched_empid="{{ $sch_list->employee_id }}"
-							 									v_sched_fname="{{ $sch_list->firstname }}"
-							 									v_sched_lname="{{ $sch_list->lastname }}"
-							 									v_sched_mname="{{ $sch_list->middle_name }}"
-							 									v_sched_dayfrom="{{ $sch_list->day_from }}"
-							 									v_sched_dayto="{{ $sch_list->day_to }}"
-							 									v_sched_restday="{{ $sch_list->restday }}"
-							 									v_sched_task="{{ $sch_list->task }}"
-							 									v_sched_comment="{{ $sch_list->comment }}"
-							 									v_sched_other="{{ $sch_list->other }}"
+							 								<button id="{{ $sch_list->id }}" type="button" class="btn btn-primary edit-sched" data-toggle="modal" data-target="#edit_sched_modal"  
 
-							 									></i></button>
+							 									e_schedid="{{ $sch_list->id }}"
+							 									e_sched_empid="{{ $sch_list->employee_id }}"
+							 									e_sched_fname="{{ $sch_list->firstname }}"
+							 									e_sched_lname="{{ $sch_list->lastname }}"
+							 									e_sched_mname="{{ $sch_list->middle_name }}"
+							 									e_sched_dayfrom="{{ $sch_list->day_from }}"
+							 									e_sched_dayto="{{ $sch_list->day_to }}"
+							 									e_sched_restday="{{ $sch_list->restday }}"
+							 									e_sched_task="{{ $sch_list->task }}"
+							 									e_sched_comment="{{ $sch_list->comment }}"
+							 									e_sched_other="{{ $sch_list->other }}"
+							 									e_sched_shift_name="{{ $sch_list->shift_id }}"
+
+							 									><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 
 							 								<a href="/schedule/{{ $sch_list->id }}"><button id="" type="button" class="btn btn-danger btn_delete"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 							 							</span>
@@ -351,7 +355,7 @@
 	  	  <div class="modal-dialog modal-lg">
 	  	    <div class="modal-content">
 	  	      <div class="modal-header">
-	  	          <h5 class="modal-title" id="exampleModalLabel">Add A Schedule</h5>
+	  	          <h5 class="modal-title" id="exampleModalLabel">Edit A Schedule</h5>
 	  	          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	  	            <span aria-hidden="true">&times;</span>
 	  	          </button>
@@ -366,7 +370,7 @@
 	  	                	<div class="form-group col-lg-12 col-md-12 col-sm-12">
 	  	            <!--     	  	<label>Select an Employee</label> -->
 	          	         		<div class="row" style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;">
-	          	         			<h4 id="edit_lname"></h4>&nbsp;<h4 id="edit_fname"></h4>,&nbsp;<h4 id="edit_lname"></h4>
+	          	         			<h4 id="e_sched_lname"></h4><h4>,</h4>&nbsp;<h4 id="e_sched_fname"></h4>&nbsp;<h4 id="e_sched_mname"></h4>
 	          	         			
 	          	         		</div>
 	  	                	</div>
@@ -390,7 +394,7 @@
 	  	                	  	<div class="row">
 	  		                	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	  		                	  		<label>From</label>
-	  		                	   		<select name="edit_sched_day_from" id="edit_sched_day_from" class="form-control">
+	  		                	   		<select name="edit_sched_day_from" id="e_sched_dayfrom" class="form-control">
 	  		                	   			<option value="Sunday">Sunday</option>
 	  		                	   			<option value="Monday">Monday</option>
 	  		                	   			<option value="Tuesday">Tuesday</option>
@@ -402,7 +406,7 @@
 	  		                	  	</div>
 	  			                	<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	  		                	  		<label>To</label>
-	  		                	  		<select name="sched_day_to" id="sched_day_to" class="form-control">
+	  		                	  		<select name="e_sched_dayto" id="e_sched_dayto" class="form-control">
 	  		                	  			<option value="Sunday">Sunday</option>
 	  		                	   			<option value="Monday">Monday</option>
 	  		                	   			<option value="Tuesday">Tuesday</option>
@@ -420,7 +424,7 @@
 	  		                	<div class="row">
 	  	                	  		<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	  	                	  			<label>Shift</label>
-	  	                	  			<select class="shift_sel form-control" id="shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
+	  	                	  			<select class="shift_sel form-control" id="e_shift_sel" data-placeholder="Select Recipient"style="width: 100%;" name="shift_sel"  >
 	  	                	  				<option selected disabled>Select Shift</option>  
 	  	                	  				@foreach($shifts as $shift)
 	  	                	  					<option value="{{ $shift->id }}" s_data_tfrom="{{ $shift->shift_start }}" s_data_tto="{{ $shift->shift_end }}">{{ $shift->name }}</option>
@@ -429,7 +433,7 @@
 	  	                	  		</div>
 	  	                	  		<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	  		                	  		<label>Restday</label>
-	  		                	  		<select name="sched_rest_day" id="sched_rest_day" class="form-control">
+	  		                	  		<select name="e_sched_restday" id="e_sched_restday" class="form-control">
 	  		                	  			<option value="Sunday">Sunday</option>
 	  		                	   			<option value="Monday">Monday</option>
 	  		                	   			<option value="Tuesday">Tuesday</option>
@@ -445,10 +449,10 @@
 	                  	  	<div class="form-group col-lg-6 col-md-12 col-sm-12">
 	                  	  		<div class="row">
 	                  	  			<div class="col-md-6" style="margin-top: -28px;">
-	                  	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_sstart"></h6>
+	                  	  				<h6 class="">Start of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="e_txt_sstart"></h6>
 	                  	  			</div>
 	                  	  			<div class="col-md-6" style="margin-top: -28px;">
-	                  	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="txt_send"></h6>
+	                  	  				<h6 class="">End of shift&nbsp;</h6><h6 style="margin-top: -20px;" class="" id="e_txt_send"></h6>
 	                  	  			</div>
 	                  	  		</div>
 	                  	 	</div>
@@ -458,7 +462,7 @@
 	                  		  	<div class="row">
 	                  		  		<div class="col-md-12">
 	                  		  			<label>Task</label>
-	                  		   			<textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
+	                  		   			<textarea class="form-control" rows="5" id="e_sched_task" name="e_sched_task"></textarea>
 	                  		  		</div>
 	                  		  	</div>
 	                  		</div>
@@ -468,7 +472,7 @@
 	                  		  	<div class="row">
 	                  		  		<div class="col-md-12">
 	                  		  			<label>Comment</label>
-	                  		  			<textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
+	                  		  			<textarea class="form-control" rows="5" id="e_sched_comment" name="e_sched_comment"></textarea>
 	                  		  		</div>
 	                  		  	</div>
 	                  		</div>
@@ -479,7 +483,7 @@
 	                  		  	<div class="row">
 	                  		  		<div class="col-md-12">
 	              		  				<label>Other Task</label>
-	              		  			 	<textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
+	              		  			 	<textarea class="form-control" rows="5" id="e_sched_other" name="e_sched_other"></textarea>
 	                  		  		</div>
 	                  		  	</div>
 	                  		</div>
@@ -494,7 +498,7 @@
 	  	                </div>
 	  	                <div class="modal-footer" style="text-align: right;">
 	  	              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-	  	               		<button type="button" class="btn btn-success btn_add_sched btn_save"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+	  	               		<button type="button" class="btn btn-success btn_sched_update btn_save" id=""><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 	  	            	</div>
 	  	              </form>
 	  	            </div>
@@ -508,9 +512,9 @@
     $(document).ready(function() {
 
     	$('.edit-sched').on('click',  function(event){
-    		console.log(this);
+
     	    var edit_schedid = $(this).attr('v_schedid'); 
-    	    console.log(edit_schedid);
+    	  
     	    var edit_sched_empid = $(this).attr('v_sched_empid'); 
     	    var edit_sched_fname = $(this).attr('v_sched_fname'); 
     	    var edit_sched_lname = $(this).attr('v_sched_lname'); 
@@ -522,7 +526,7 @@
     	    var edit_sched_comment = $(this).attr('v_sched_comment'); 
     	    var edit_sched_other = $(this).attr('v_sched_other'); 
 
-    	    console.log(edit_sched_empid);
+    	
 
     	    $('#v_schedid').val(edit_schedid);
     	    $('#edit_lname').html(edit_sched_lname);
@@ -563,6 +567,15 @@
 			
 			$('#txt_sstart').html(data);
 			$('#txt_send').html(data2);
+		}); 
+
+		$('#e_shift_sel').on('change', function() {
+
+			var data = $('#e_shift_sel option:selected').attr('s_data_tfrom');
+			var data2 = $('#e_shift_sel option:selected').attr('s_data_tto');
+			
+			$('#e_txt_sstart').html(data);
+			$('#e_txt_send').html(data2);
 		});
     });
 </script>
