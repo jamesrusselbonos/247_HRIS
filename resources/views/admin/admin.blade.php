@@ -1041,6 +1041,8 @@
 
               });
 
+           
+
               $('#btn_send').on('click', function(event){
                 var mem_id = $('#smodal_memoid').val();
                 var from = $('#hdn-name').val();

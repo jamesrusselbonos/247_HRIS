@@ -79,6 +79,9 @@ Route::get('/dashboard', 'EmployeeController@index')->name('employee.dashboard')
 Route::get('/employee_memo', 'EmployeeController@employee_memo');
 
 Route::get('/employee_leave', 'EmployeeController@leave_index')->name('employee.employee_leave');
+Route::get('/employee_leave/edit/{id}', 'EmployeeController@ajaxEditLeave')->name('employee.employee_leave.edit');
+Route::post('/employee_leave/update/{id}', 'EmployeeController@leave_update')->name('employee.employee_leave.update');
+Route::get('/employee_leave/{id}', 'EmployeeController@ajaxViewLeave')->name('employee.employee_leave.view');
 
 Route::get('/leave', 'AdminController@leave_index')->name('admin.employee_leave');
 Route::post('/leave', 'AdminController@leave_edit')->name('admin.leave.edit');
