@@ -10,13 +10,13 @@
 		<div class="row">
 			<div class="col-xl-12">
 				<div class="manage_employee" data-simplebar>
-				<div class="container">
+				<div class="">
 					<div class="card">
 					    
 
-					    <div class="card-body" style="padding-left: 45px;">
+					    <div class="card-body">
 					   
-					        <table class="ui celled table" id="addDataTable">
+					        <table class="table table-bordered" id="addDataTable">
 					          <thead>
 					            <tr>
 					              <th scope="col" style="width: 200px;">Name</th>

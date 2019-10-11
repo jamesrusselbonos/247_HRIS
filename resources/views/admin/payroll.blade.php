@@ -23,8 +23,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="card-body" style="padding-left: 45px;">
-					<table id="payroll_table" class="ui celled table" style="width:100%;">	
+				<div class="card-body">
+					<table id="payroll_table" class="table table-bordered" style="width:100%;">	
 						<thead>
 							<tr>
 				              <th style="min-width: 250px;">Employees</th>
@@ -43,12 +43,12 @@
 				              <th style="min-width: 200px;">Amount</th>
 				              <th style="min-width: 200px;">Regular OT Hours</th>
 				              <th style="min-width: 200px;">Regular OT Amount</th>
-				              <th style="min-width: 200px;">Sunday/Rest Day OT Hours </th>
-				              <th style="min-width: 200px;">Sunday/Rest day OT amount</th>
+				              <th style="min-width: 250px;">Sunday/Rest Day OT Hours </th>
+				              <th style="min-width: 250px;">Sunday/Rest day OT amount</th>
 				              <th style="min-width: 200px;">Legal Holidays OT hours </th>
 				              <th style="min-width: 200px;">Legal Holiday OT amount</th>
-				              <th style="min-width: 200px;">Special Holidays OT hours</th>
-				              <th style="min-width: 200px;">Special Holiday OT amount</th>
+				              <th style="min-width: 250px;">Special Holidays OT hours</th>
+				              <th style="min-width: 250px;">Special Holiday OT amount</th>
 				              <th style="min-width: 200px;">No. Hours rendered</th>
 				              <th style="min-width: 200px;">Amount</th>
 				              <th style="min-width: 200px;">No. of hours undertime</th>
@@ -91,12 +91,12 @@
 					              <td style="min-width: 200px;">{{ $payroll->amount_holidays }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->regular_OT_hours }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->regular_OT_amount }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->restday_OT_hours }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->restday_OT_amount }}</td>
+					              <td style="min-width: 250px;">{{ $payroll->restday_OT_hours }}</td>
+					              <td style="min-width: 250px;">{{ $payroll->restday_OT_amount }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->legal_holiday_OT_hours }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->legal_holiday_OT_amount }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->special_holiday_OT_hours }}</td>
-					              <td style="min-width: 200px;">{{ $payroll->special_holiday_OT_amount }}</td>
+					              <td style="min-width: 250px;">{{ $payroll->special_holiday_OT_hours }}</td>
+					              <td style="min-width: 250px;">{{ $payroll->special_holiday_OT_amount }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_rendered }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->amount_night_diffential }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_undertime }}</td>

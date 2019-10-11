@@ -21,9 +21,9 @@
 				    		</div>
 						</div>
 					</div>
-					 <div class="card-body" style="padding-left: 45px;">
+					 <div class="card-body">
 					   
-				        <table class="ui celled table" id="addDataTable">
+				        <table class="table table-bordered" id="addDataTable">
 				          <thead>
 				            <tr>
 				              

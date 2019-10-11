@@ -910,3 +910,8 @@ div.dt-button-collection {
     max-height: 500px;
     overflow-y: scroll;
 }
+.btn-secondary{
+	background-color: transparent;
+	color: #000;
+	border: solid 1px #CED4DA;
+}
