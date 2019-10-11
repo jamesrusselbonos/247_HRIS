@@ -105,13 +105,45 @@ class EmployeeController extends Controller
         $leave = DB::table('leaves')
             ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
             ->join('users', 'users.employee_id', '=', 'leaves.emp_id')
-            ->select('leaves.*', 'leave_types.leave_type', 'users.*')
+            ->select('leaves.*', 'leave_types.leave_type', 'users.employee_id')
             ->where('leaves.emp_id', '=', $user)
             ->get();
+
 
          return view('employee.employee_leave', compact('leave_type', 'leave'));
 
         // return view ('employee.employee_leave');
+    }
+
+    public function ajaxEditLeave(Request $request, $id){
+
+        $leave = Leave::find($id);
+
+        return Response()->json(['leave' => $leave]);
+    }    
+
+
+    public function ajaxViewLeave(Request $request, $id){
+ 
+        $leave = Leave::find($id);
+        $leave_type = Leave_type::where('id', $request->type)->first();
+
+        return Response()->json(['leave' => $leave, 'leave_type' => $leave_type]);
+    }
+
+    public function leave_update(Request $request, $id){
+   
+        $leave = Leave::find($id);
+
+        $leave->date = $request->date;
+        $leave->leave_id = $request->leave_type;
+        $leave->date_from = $request->leave_from;
+        $leave->date_to = $request->leave_to;
+        $leave->reason   = $request->leave_reason;
+
+        $leave->save();
+
+        return redirect()->back();
     }
 
     public function request_leave_create(Request $request){
@@ -162,6 +194,37 @@ class EmployeeController extends Controller
 
     public function overtime(){
         $overtime = Overtime::all();
+
         return view('employee.employee_overtime', compact('overtime'));
+    }
+
+    public function ajaxOvertimeView(Request $request, $id){
+
+        $overtime = Overtime::where('otime_id', $id)->first();
+
+        return Response()->json(['overtime' => $overtime]);
+    }    
+
+    public function ajaxOvertimeEdit(Request $request, $id){
+
+        $overtime = Overtime::where('otime_id', $id)->first();
+
+        return Response()->json(['overtime' => $overtime]);
+    }
+
+    public function ajaxRequestOvertimeUpdate(Request $request, $id){
+
+
+        $overtime = Overtime::where('otime_id', $id)->first();
+
+        $overtime->date = $request->date;
+        $overtime->time_from = $request->time_from;
+        $overtime->time_to = $request->time_to;
+        $overtime->duration = $request->duration;
+        $overtime->reason = $request->ot_reason;
+
+        $overtime->save();
+
+        return redirect()->back();
     }
 }

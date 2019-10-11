@@ -69,17 +69,17 @@
 				             <td style="max-width: 200px;">
 				             	<div class="btn_desktop">
 				             		<span style="float: right;">
-					             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
+					             		<button id="{{$l->id}}" leave_type="{{$l->leave_id}}" type="button" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
 					             		@if($l->leave_status =="Pending")
-					             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
 		 								@endif
 		 							</span>
 				             	</div>
 				             	<div class="btn_mobile">
 				             		<span style="float: right;">
-					             		<button id="" type="button" class="btn btn-success" data-toggle="modal" data-target="#view_memo"><i class="fa fa-eye" aria-hidden="true"></i></button>
+					             		<button id="{{$l->id}}" type="button" leave_type="{{$l->leave_id}}" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i></button>
 					             		@if($l->leave_status =="Pending")
-					             		<button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_memo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 		 								@endif
 		 							</span>
 				             	</div>
@@ -159,9 +159,123 @@
 				  <div class="modal-footer">
 				<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 				 <button type="submit" class="btn btn-success btn_leave"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+
+				 </div>
  			</form>	
        </div>
     </div>
   </div>
 </div>
+
+
+<div class="modal fade edit_emp_leave" id="edit_emp_leave" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5>Leave Request Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body" style="padding-left: 30px; padding-right: 30px;">
+ 			
+ 				{{ csrf_field() }}
+	 			<div class="form-row">
+					<div class="form-group col-md-12">
+					  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
+					  <input type="hidden" name="eleave_lname" id="eleave_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
+					  <input type="hidden" name="eleave_fname" id="eleave_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
+					  <input type="hidden" name="eleave_mname" id="eleave_mname" value="{{ Auth::user()->employee()->first()->middle_name }}">
+					  <input type="hidden" name="eleave_empid" id="eleave_empid" value="{{ Auth::user()->employee()->first()->employee_id }}">
+					  <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
+					  <input id="hdn-id" class="hdn-id" type="hidden" name="id" value="">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+					  <label>Date</label>
+					  <input type="date" name="eleave_date" id="eleave_date" max="3000-12-31" 
+									          min="1000-01-01" class="form-control">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+					  <label>Leave Type</label>
+					  <select id="eleave_type" name="eleave_type">
+					  	@foreach($leave_type as $dlist)
+					  		<option value="{{$dlist->id}}">{{$dlist->leave_type}}</option>
+					  	@endforeach
+					  </select>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label>Date From</label>
+					  <input type="date" name="eleave_datefrom" id="eleave_datefrom" max="3000-12-31" 
+									          min="1000-01-01" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+					  <label>Date To</label>
+					 <input type="date" name="eleave_dateto" id="eleave_dateto" max="3000-12-31" 
+									          min="1000-01-01" class="form-control">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+	            	  <label>Reason</label>
+	            	  <textarea class="form-control" rows="5" id="eleave_reason" name="eleave_reason"></textarea>
+	            	</div>
+				</div>
+				  <div class="modal-footer">
+				<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+				 <button type="button" class="btn btn-success btn_update_leave"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+
+				 </div>
+
+       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade leave_view" id="leave_view" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5>Leave Request View</h5>
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      	  <span aria-hidden="true">&times;</span>
+      	</button>
+      </div>
+      <div class="modal-body" style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px;">
+
+      	<div class="form-row">
+			<div class="form-group col-md-12">
+			  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+			  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
+
+			</div>
+		</div>
+
+      	<div class="row">
+      		<strong><p id="v_leave_date"></p></strong>
+      	</div>
+      	<div class="row">
+      		<strong><p id="v_leave_type"></p></strong>
+      	</div> 
+      	<div class="row">
+      		<p id="v_leave_datefrom"><strong></strong></p> &nbsp;&nbsp; <p id="v_leave_dateto"><strong></strong></p>
+      	</div>     	
+      	<div class="row">
+      		<strong><p id="v_leave_reason"></p></strong>
+      	</div>
+
+      	
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @endsection

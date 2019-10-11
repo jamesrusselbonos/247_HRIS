@@ -367,6 +367,219 @@
 				})
 			});
 
+
+
+
+			$('.btn_view_leave').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $(this).attr('id');
+			   var type = $(this).attr('leave_type');
+			   
+
+			   data = { 
+			               _token: token,
+			               id : id,
+			               type : type
+			              
+			           };
+
+			   $.ajax({
+			           url: '/employee_leave/' + id,
+			           type: "GET",
+			           data: data,
+			           success: function( response ) {
+
+			               $('#v_leave_date').html('Date: ' + response.leave.date);
+			               $('#v_leave_type').html('Leave Type: ' + response.leave_type.leave_type);
+			               $('#v_leave_datefrom').html('From: ' + response.leave.date_from);
+			               $('#v_leave_dateto').html('To: ' + response.leave.date_to);
+			               $('#v_leave_reason').html('Reason: ' + response.leave.reason);
+			             
+			           }
+			       });
+			   
+
+			    });    	
+
+
+
+			$('.btn_edit_leave').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $(this).attr('id');
+
+			  
+
+			   data = { 
+			               _token: token,
+			               id : id,
+			               
+			           };
+
+			   $.ajax({
+			           url: '/employee_leave/edit/' + id,
+			           type: "GET",
+			           data: data,
+			           success: function( response ) {
+
+			               $('#eleave_date').val(response.leave.date);
+			               $('#eleave_type').val(response.leave.leave_id);
+			               $('#eleave_datefrom').val(response.leave.date_from);
+			               $('#eleave_dateto').val(response.leave.date_to);
+			               $('#eleave_reason').val(response.leave.reason);
+			               $('#hdn-id').val(response.leave.id);
+			             
+			           }
+			       });
+			   
+
+			    });   
+
+
+			$('.btn_update_leave').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $('#hdn-id').val();
+			   var date = $('#eleave_date').val();
+			   var leave_type = $('#eleave_type').val();
+			   var leave_from = $('#eleave_datefrom').val();
+			   var leave_to = $('#eleave_dateto').val();
+			   var leave_reason = $('#eleave_reason').val();
+
+			   
+
+			    data = { 
+			               _token: token,
+			               id : id,
+			               date : date,
+			               leave_type : leave_type,
+			               leave_from : leave_from,
+			               leave_to : leave_to,
+			               leave_reason : leave_reason,
+			           };
+
+
+			   $.ajax({
+			           url: '/employee_leave/update/' + id,
+			           type: "POST",
+			           data: data,
+			           success: function( response ) {
+			              
+                        location.reload();
+			              
+			             
+			           }
+			       });
+
+
+			});
+
+
+			$('.btn_view_request_ot').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $(this).attr('id');
+
+			  
+
+			   data = { 
+			               _token: token,
+			               id : id,
+			               
+			           };
+
+			   $.ajax({
+			           url: '/employee_overtime/' + id,
+			           type: "GET",
+			           data: data,
+			           success: function( response ) {
+			           	console.log(response);
+			               $('#v_overtime_date').html(response.overtime.date);
+			               $('#v_overtime_tfrom').html(response.overtime.time_from);
+			               $('#v_overtime_tto').html(response.overtime.time_to);
+			               $('#v_overtime_duration').html(response.overtime.duration);
+			               $('#v_overtime_reason').html(response.overtime.reason);
+			               $('#hdn-id').val(response.overtime.otime_id);
+			             
+			           }
+			       });
+			   
+
+			    });    	
+
+
+
+			$('.btn_edit_request_ot').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $(this).attr('id');
+
+			  
+
+			   data = { 
+			               _token: token,
+			               id : id,
+			               
+			           };
+
+			   $.ajax({
+			           url: '/employee_overtime/edit/' + id,
+			           type: "GET",
+			           data: data,
+			           success: function( response ) {
+			           	console.log(response);
+			               $('#eovertime_date').val(response.overtime.date);
+			               $('#etime_from').val(response.overtime.time_from);
+			               $('#etime_to').val(response.overtime.time_to);
+			               $('#eduration').val(response.overtime.duration);
+			               $('#eovertime_reason').val(response.overtime.reason);
+			               $('#hdn-id').val(response.overtime.otime_id);
+			             
+			           }
+			       });
+			   
+
+			    });   
+
+
+			$('.btn_update_request_ot').on('click', function(){
+
+			   var token = $('#hdn-token').val();
+			   var id = $('#hdn-id').val();
+			   var date = $('#eovertime_date').val();
+			   var time_from = $('#etime_from').val();
+			   var time_to = $('#etime_to').val();
+			   var duration = $('#eduration').val();
+			   var ot_reason = $('#eovertime_reason').val();
+			 
+			   
+
+			    data = { 
+			               _token: token,
+			               id : id,
+			               date : date,
+			               time_from : time_from,
+			               time_to : time_to,
+			               duration : duration,
+			               ot_reason : ot_reason,
+			           };
+
+			   $.ajax({
+			           url: '/employee_overtime/update/' + id,
+			           type: "POST",
+			           data: data,
+			           success: function( response ) {
+			              
+                        location.reload();
+			             
+			             
+			           }
+			       });
+
+
+			});
+
 		   $(".time").click(function(){
 
 		       var text = $('.time').text();

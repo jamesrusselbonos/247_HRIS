@@ -119,6 +119,10 @@ Route::post('/payroll', 'AdminController@generatePayroll')->name('payroll.genera
 
 Route::get('/employee_overtime', 'EmployeeController@overtime')->name('employee.overtime');
 Route::post('/employee_overtime', 'EmployeeController@requestOvertime')->name('employee.request_overtime');
+Route::get('/employee_overtime/{id}', 'EmployeeController@ajaxOvertimeView')->name('employee.request_overtime.view');
+Route::get('/employee_overtime/edit/{id}', 'EmployeeController@ajaxOvertimeEdit')->name('employee.request_overtime.edit');
+Route::post('/employee_overtime/update/{id}', 'EmployeeController@ajaxRequestOvertimeUpdate')->name('employee.request_overtime.update');
+
 
 Route::post('/ajaxShowOvertime', 'AdminController@ajaxShowOvertime')->name('admin.ajaxShowOvertime');
 Route::get('/overtime', 'AdminController@overtime')->name('admin.overtime');
