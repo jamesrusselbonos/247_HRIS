@@ -720,7 +720,7 @@ ul.notification-bar {
 .select2-container .select2-selection--single {
     height: 40px !important;
 }
-input[type=search]{
+/*input[type=search]{
 	border-radius: 30px;
 	background-color: #fff;
 	font-family: 'Roboto', sans-serif;
@@ -729,7 +729,7 @@ input[type=search]{
 }
 input[type=search]:focus{
 	outline: none;
-}
+}*/
 #editemp_img{
 	display: none;
 }
@@ -905,4 +905,8 @@ box-shadow: -2px 32px 41px -26px rgba(0,0,0,0.34);
 .payslip_modal input{
 	border: none;
 	background-color: transparent;
+}
+div.dt-button-collection {
+    max-height: 500px;
+    overflow-y: scroll;
 }

@@ -14,9 +14,9 @@
 		<div class="">
 			<div class="card">
 
-				 <div class="card-body">
+				 <div class="card-body" style="padding-left: 45px;">
 				   <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
-			        <table class="table display nowrap" id="addDataTable">
+			        <table class="ui celled table" id="addDataTable">
 			          <thead>
 			            <tr>
 			              

@@ -35,9 +35,9 @@
 
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" style="padding-left: 45px;">
                   
-                    <table class="table display nowrap" id="DataTable">
+                    <table class="ui celled table" id="addDataTable">
                       <thead>
                         <tr>
                           <th scope="col">Name</th>

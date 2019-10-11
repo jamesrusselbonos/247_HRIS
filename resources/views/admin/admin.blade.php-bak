@@ -20,28 +20,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
     <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.semanticui.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.semanticui.min.css">
-    
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.semanticui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.semanticui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
 
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style2.css">
@@ -536,53 +525,53 @@
                        ]
               });
 
-            $('#addDataTable').DataTable({
+         $('#addDataTable').DataTable({
                 "scrollX": true,
                 columnDefs: [
                            {
-                                targets: [ 0, 1, 2 ],
-                                className: 'mdl-data-table__cell--non-numeric'
+                               targets: [ 0, 1, 2 ],
+                               className: 'mdl-data-table__cell--non-numeric'
                            }
                        ],
 
               });
 
-              $('#payroll_table').DataTable({
-                dom:
-                  "<'ui grid'"+
-                     "<'row'"+
-                        "<'four wide column'l>"+
-                        "<'center aligned eight wide column'B>"+
-                        "<'right aligned four wide column'f>"+
-                     ">"+
-                     "<'row dt-table'"+
-                        "<'sixteen wide column'tr>"+
-                     ">"+
-                     "<'row'"+
-                        "<'seven wide column'i>"+
-                        "<'right aligned nine wide column'p>"+
-                     ">"+
-                  ">",
-                buttons: [
-                    {
-                        extend:    'copyHtml5',
-                        text:      '<i class="fa fa-files-o"></i> Copy',
-                        titleAttr: 'Copy'
-                    },
-                    {
-                        extend:    'excelHtml5',
-                        text:      '<i class="fa fa-file-excel-o"></i> Excel',
-                        titleAttr: 'Excel'
-                    },
-                    {
-                        extend:    'csvHtml5',
-                        text:      '<i class="fa fa-file-text-o"></i> CSV',
-                        titleAttr: 'CSV'
-                    },
-                    'colvis'   
-                ],
-                "scrollX": true,
-              });
+              $('#payroll_table').DataTable( {
+                     dom: 'Bfrtip',
+                     autoWidth: true,
+                  buttons: [
+                          {
+                              extend: "print",
+                              customize: function(win)
+                              {
+                                $(win.document.body).find( 'table' )
+                                                    .css( 'font-size', '10px' );
+                                  var last = null;
+                                  var current = null;
+                                  var bod = [];
+                   
+                                  var css = '@page { size: landscape; }',
+                                      head = win.document.head || win.document.getElementsByTagName('head')[0],
+                                      style = win.document.createElement('style');
+
+                   
+                                  style.type = 'text/css';
+                                  style.media = 'print';
+                   
+                                  if (style.styleSheet)
+                                  {
+                                    style.styleSheet.cssText = css;
+                                  }
+                                  else
+                                  {
+                                    style.appendChild(win.document.createTextNode(css));
+                                  }
+                   
+                                  head.appendChild(style);
+                           }
+                        },
+                  ]
+                 } );
 
 
                 $('input[name="edit_memo_file"]').change(function(e){
@@ -932,82 +921,6 @@
 
               });
 
-
-            $('.edit-sched').on('click',  function(event){
-
-                var token = $('#hdn-token').val();
-                var edit_schedid = $(this).attr('e_schedid'); 
-                var edit_shift_id = $(this).attr('e_sched_shift_name'); 
-                var edit_sched_empid = $(this).attr('e_sched_empid'); 
-             
-
-                data = { 
-                            _token: token,
-                            edit_schedid : edit_schedid,
-                            edit_shift_id : edit_shift_id,
-                            edit_sched_empid : edit_sched_empid
-                        };
-         
-
-                $.ajax({
-                        url: '/ajaxScheduleEdit' ,
-                        type: "POST",
-                        data: data,
-                        success: function( response ) {
-                            
-
-                            // $('#e_schedid').val(edit_schedid);
-                            $('#e_sched_lname').html(response.employee.lastname);
-                            $('#e_sched_fname').html(response.employee.firstname);
-                            $('#e_sched_mname').html(response.employee.middle_name);
-                            $('.shift_sel').val(response.shift.id);
-                            $('#e_txt_sstart').html(response.shift.shift_start);
-                            $('#e_txt_send').html(response.shift.shift_end);
-                         // var a =   document.getElementById('txt_sstart').innerHTML = response.shift.shift_start;
-                         //    document.getElementById('txt_send').innerHTML = response.shift.shift_end;
-
-                         //    console.log(a);
-                         //    // $('#e_sched_empid').html(edit_sched_empid);
-                            $('#e_sched_dayfrom').val(response.schedule.day_from);
-                            $('#e_sched_dayto').val(response.schedule.day_to);
-                            $('#e_sched_restday').val(response.schedule.restday);
-                            $('#e_sched_task').html(response.schedule.task);
-                            $('#e_sched_comment').html(response.schedule.comment);
-                            $('#e_sched_other').html(response.schedule.other);
-
-                            $('.btn_sched_update').attr('id', response.schedule.id);
-                            // $('#v_sched_duration').html(view_sched_duration);
-                        }
-                    });
-                
-
-              });
-
-            
-                $('.btn_sched_update').on('click', function(){
-
-                    var token = $('#hdn-token').val();
-                    var id = $(this).attr('id');
-                    var shift_id = $('#e_shift_sel').val();
-                    var sched_dayfrom = $('#e_sched_dayfrom').val(); 
-                    var sched_dayto = $('#e_sched_dayto').val(); 
-                    var sched_restday = $('#e_sched_restday').val(); 
-                    var sched_task = document.getElementById("e_sched_task").value;
-                    var sched_comment = document.getElementById("e_sched_comment").value; 
-                    var sched_other = document.getElementById("e_sched_other").value;
-
-                    $.post('/schedule/update/' + id,
-                    {'sched_dayfrom':sched_dayfrom, 'shift_id':shift_id, 'sched_dayto':sched_dayto,'sched_restday':sched_restday, 
-                    'sched_task':sched_task, 'sched_comment':sched_comment, 'sched_other':sched_other,  '_token':token}, 
-                    function(data){
-
-                    location.reload();
-
-                     }); 
-
-                });
-            
-
                $('.btn_view_leave').on('click',  function(event){
                 var view_leaveid = $(this).attr('v_leave_id'); 
                 var view_leave_lname = $(this).attr('v_leave_lname'); 
@@ -1048,8 +961,6 @@
                 
 
               });
-
-           
 
               $('#btn_send').on('click', function(event){
                 var mem_id = $('#smodal_memoid').val();
@@ -1180,7 +1091,8 @@
             var id = $(this).attr('hol_id');
             var hol_name = $(this).attr('hol_name');
             var date = $(this).attr('hol_date');
-            var type = $(this).attr('hol_type_id');
+            var type = $(this).attr('hol_type');
+            console.log(hol_name);
             $('#edit_holiday').val(hol_name);
             $('#edit_holiday_date').val(date);
             $('#edit_holiday_type').val(type);
@@ -1188,83 +1100,6 @@
             $('#hdn-name').val(hol_name);
             document.getElementById("edit_holiday_type").value = type;
         })
-
-        $('.btn_update_holiday').on('click', function(){
-
-            var token = $('#hdn-token').val();
-            var id = $('#hdn-id').val();
-            var name = $('#hdn-name').val();
-            var date = $('#edit_holiday_date').val();
-            var type = $('#edit_holiday_type').val();
-
-
-            $.post('/editHoliday',
-            {'id':id, 'name':name, 'date':date, 'type':type, '_token':token}, 
-            function(data){
-
-            location.reload();
-
-             }); 
-        }) 
-
-        $('.edit-shift').on('click', function(){
-            var id = $(this).attr('shift_id');
-            var shift_name = $(this).attr('shift_name');
-            var shift_start = $(this).attr('shift_start');
-            var shift_end = $(this).attr('shift_end');
-            var shift_night_diff = $(this).attr('shift_night_diff');
-            var shift_break_start = $(this).attr('shift_break_start');
-            var shift__break_end = $(this).attr('shift_break_end');
-
-            $('#eshift_name').val(shift_name);
-            $('#eshift_start').val(shift_start);
-            $('#eshift_end').val(shift_end);
-            if(shift_night_diff == 1){
-                $( ".enight_diff" ).prop( "checked", true );
-                $( "#enight_diff" ).val(1);
-            }
-            else{
-                 $( ".enight_diff" ).prop( "checked", false );
-                $( "#enight_diff" ).val(0);
-            }
-            
-            $('#elunch_rest_start').val(shift_break_start);
-             $('#elunch_rest_end').val(shift__break_end);
-             $('#hdn-shift-id').val(id);
-        });        
-
-        $('.btn_save_edit_shift').on('click', function(){
-
-            var token = $('#hdn-token').val();
-            var id = $('#hdn-shift-id').val();
-            var shift_name = $('#eshift_name').val();
-            var shift_start = $('#eshift_start').val();
-            var shift_end = $('#eshift_end').val();
-            var shift_night_diff = $('#enight_diff').val();
-            var shift_break_start = $('#elunch_rest_start').val();
-            var shift_break_end = $('#elunch_rest_end').val();
-
-            if($('.enight_diff').prop("checked") == true){
-                shift_night_diff = 1;
-            }
-            else if($('.enight_diff'). prop("checked") == false){
-                shift_night_diff = 0;
-            }
-
-
-            $.post('/shift/update/' + id,
-            {'id':id, 'shift_name':shift_name, 'shift_start':shift_start, 'shift_end':shift_end, 
-            'shift_night_diff':shift_night_diff, 'shift_break_start':shift_break_start, 'shift_break_end':shift_break_end, '_token':token}, 
-            function(data){
-
-            location.reload();
-
-             }); 
-
-           
-        });
-
-
         });
     </script>
     <script type="text/javascript">

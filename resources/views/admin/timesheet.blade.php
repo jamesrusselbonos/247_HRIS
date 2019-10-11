@@ -13,9 +13,9 @@
 			<div class="container">
 				<div class="card">
 				    
-				    <div class="card-body">
+				    <div class="card-body" style="padding-left: 45px;">
 				   
-				        <table class="table display nowrap" id="addDataTable">
+				        <table class="ui celled table" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Name</th>

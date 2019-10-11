@@ -18,13 +18,13 @@
 							<span>
 								<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Make Payroll</button>
 								
-								<button style="float: right;" type="button" class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i>&nbsp; Print</button>
+								<!-- <button style="float: right;" type="button" class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i>&nbsp; Print</button> -->
 							</span>
 						</div>
 					</div>
 				</div>
-				<div class="card-body">
-					<table class="table display nowrap" id="addDataTable">	
+				<div class="card-body" style="padding-left: 45px;">
+					<table id="payroll_table" class="ui celled table" style="width:100%;">	
 						<thead>
 							<tr>
 				              <th style="min-width: 250px;">Employees</th>
@@ -32,7 +32,7 @@
 				              <th style="min-width: 200px;">No. of Days Worked</th>
 				              <th style="min-width: 200px;">Daily Rate</th>
 				              <th style="min-width: 200px;">Rate/Hour</th>
-				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Basic Pay</th>
+				              <th style="min-width: 200px; background-color: #F3F3F3; color: #000;">Basic Pay</th>
 				              <th style="min-width: 200px;">Total Absences</th>
 				              <th style="min-width: 200px;">Unpaid Absences</th>
 				              <th style="min-width: 200px;">Charge to SIL</th>
@@ -54,18 +54,18 @@
 				              <th style="min-width: 200px;">No. of hours undertime</th>
 				              <th style="min-width: 200px;">No. of hours late</th>
 				              <th style="min-width: 200px;">Amount</th>
-				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Gross Pay</th>
+				              <th style="min-width: 200px; background-color: #F3F3F3; color: #000;">Gross Pay</th>
 				              <th style="min-width: 200px;">SSS</th>
 				              <th style="min-width: 200px;">PHIC</th>
 				              <th style="min-width: 200px;">HDMF</th>
-				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Total deduction</th>
+				              <th style="min-width: 200px; background-color: #FCF8E3; color: #000;">Total deduction</th>
 				              <th style="min-width: 200px;">SSS (Loan)</th>
 				              <th style="min-width: 200px;">Company loan/Advances</th>
 				              <th style="min-width: 200px;">HDMF (Loan)</th>
 				              <th style="min-width: 200px;">Uniform</th>
-				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Total deduction</th>
-				              <th style="min-width: 200px; background-color: #c95964; color: #fff;">Tax</th>
-				              <th style="min-width: 200px; background-color: #7dacb3; color: #fff;">Net Pay</th>
+				              <th style="min-width: 200px; background-color: #FCF8E3; color: #000;">Total deduction</th>
+				              <th style="min-width: 200px; background-color: #FCF8E3; color: #000;">Tax</th>
+				              <th style="min-width: 200px; background-color: #F3F3F3; color: #000;">Net Pay</th>
 				              <th style="min-width: 200px;">Manage</th>
 			            	</tr>
 						</thead>
@@ -80,7 +80,7 @@
 					              <td style="min-width: 200px;">{{ $payroll->no_days_worked }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->daily_rate }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->rate_per_hour }}</td>
-					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->basic_pay }}</td>
+					              <td style="min-width: 200px; background-color: #F3F3F3; color: #000;">{{ $payroll->basic_pay }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->total_absences }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->unpaid_absences }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->charged_to_SIL }}</td>
@@ -102,18 +102,18 @@
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_undertime }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->no_hours_late }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->tardiness_amount }}</td>
-					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->gross_pay }}</td>
+					              <td style="min-width: 200px; background-color: #F3F3F3; color: #000;">{{ $payroll->gross_pay }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->SSS_payroll }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->PHIC_payroll }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->HDMF_payroll }}</td>
-					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->total_deduction_benefits }}</td>
+					              <td style="min-width: 200px; background-color: #FCF8E3; color: #000;">{{ $payroll->total_deduction_benefits }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->SSS_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->company_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->HDMF_loan }}</td>
 					              <td style="min-width: 200px;">{{ $payroll->uniform }}</td>
-					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->total_deduction_loan }}</td>
-					              <td style="min-width: 200px; background-color: #c95964; color: #fff;">{{ $payroll->tax }}</td>
-					              <td style="min-width: 200px; background-color: #7dacb3; color: #fff;">{{ $payroll->net_pay }}</td>
+					              <td style="min-width: 200px; background-color: #FCF8E3; color: #000;">{{ $payroll->total_deduction_loan }}</td>
+					              <td style="min-width: 200px; background-color: #FCF8E3; color: #000;">{{ $payroll->tax }}</td>
+					              <td style="min-width: 200px; background-color: #F3F3F3; color: #000;">{{ $payroll->net_pay }}</td>
 					              <td style="min-width: 200px;">
 					              	<button id="{{ $payroll->id }}" type="button" class="btn btn-success btn_payslip" data-toggle="modal" data-target="#payslip_modal"
 					              		payslip_fname="{{ $payroll->firstname }}"

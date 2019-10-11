@@ -14,9 +14,9 @@
 				<div class="card">
 				    
 
-				    <div class="card-body">
+				    <div class="card-body" style="padding-left: 45px;">
 				   
-				        <table class="table table-bordered" id="DataTable">
+				        <table class="ui celled table" id="DataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Name</th>

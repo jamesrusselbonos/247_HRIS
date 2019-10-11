@@ -39,9 +39,9 @@
 				    	</div>
 				    </div>
 
-				    <div class="card-body">
+				    <div class="card-body" style="padding-left: 45px;">
 				    	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">				   
-				        <table class="table display nowrap" id="DataTable">
+				        <table class="ui celled table" id="DataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Holiday</th>
