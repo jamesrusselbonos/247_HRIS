@@ -4,11 +4,11 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="jumbotron">
-			  	<h1 style="margin-top: 130px;" class="display-4">Welcome! {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->lastname }}</h1>
+			  	<h1 style="margin-top: 95px;pa" class="display-5">Welcome!<br> {{ucwords( Auth::user()->employee()->first()->firstname )}} {{ucwords( Auth::user()->employee()->first()->lastname) }}</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 100px;">
+			<div class="admin_index" data-simplebar style="height: 100vh; padding-bottom: 1px;">
 				<div class="admin_cards">
 					<div class="row">
 				        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
