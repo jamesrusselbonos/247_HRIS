@@ -108,12 +108,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Department</label>
-	                	   <input type="text" name="mj_title" class="form-control mj_title" >
+	                	   <input type="text" name="mj_title" class="form-control mj_title"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control mj_desc" rows="5" id="mj_desc" name="mj_desc"></textarea>
+	                	   <textarea class="form-control mj_desc" rows="5" id="mj_desc" name="mj_desc"required></textarea>
 	                	</div>
 	                	<div class="form-group col-md-12">
 	                	 
@@ -153,12 +153,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Department</label>
-	                	   <input type="text" name="j_title" class="form-control" >
+	                	   <input type="text" name="j_title" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="j_desc" name="j_desc"required></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>

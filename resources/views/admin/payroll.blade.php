@@ -222,15 +222,16 @@
 														<select class="js-example-basic-single pay_search" id="search_emp" style="width: 100%;" name="search_emp">
 															<option selected disabled>Search Employee</option>
 															@foreach($employees as $emp)
-															  <option value="{{$emp->employee_id}}" p_salary="{{$emp->salary}}" p_allowances="{{$emp->allowance}}">{{$emp->lastname}}, {{$emp->firstname}} {{$emp->middle_name}}</option>
+															  <option value="{{$emp->employee_id}}" p_salary="{{$emp->salary}}" p_allowances="{{$emp->allowance}}">{{ucwords($emp->lastname)}}, {{ucwords($emp->firstname)}} {{ucwords($emp->middle_name)}}</option>
 														  	@endforeach
 														</select>
 													</form>
 									     		</div>
 											</div>
 											<div class="col-lg-6">
-												<h3 style="margin-top: 0px;" id="txt_p_name"></h3>
+												
 												<h6 style="margin-top: -20px;" id="txt_p_empid"></h6>
+												<h3 style="margin-top: 10px;font-size: 20px" id="txt_p_name"></h3>
 												<input type="hidden" id="p_empid" name="p_empid">
 												<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 											</div>
@@ -303,7 +304,7 @@
 									  		</div>
 									  		<div class="form-group col-md-6">
 									  			<label>Adjustment/Incentive</label>
-									    		<input type="text" name="p_adjustment_incentive" id="p_adjustment_incentive" class="form-control" >
+									    		<input type="text" name="p_adjustment_incentive" id="p_adjustment_incentive" class="form-control" required="">
 									  		</div>
 										</div>
 									</div>
@@ -424,24 +425,24 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>SSS </label>
-									   			<input type="text" name="p_sss_loan" id="p_sss_loan" class="form-control" value="">
+									   			<input type="text" name="p_sss_loan" id="p_sss_loan" class="form-control" value="" required="">
 									  		</div>
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>Company Loan / Advances</label>
-									    		<input type="text" name="p_company_loan" id="p_company_loan" class="form-control" value="">
+									    		<input type="text" name="p_company_loan" id="p_company_loan" class="form-control" value=""required="">
 									  		</div>
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>HDMF </label>
-									   			<input type="text" name="p_hdmf_loan" id="p_hdmf_loan" class="form-control" value="">
+									   			<input type="text" name="p_hdmf_loan" id="p_hdmf_loan" class="form-control" value=""required="">
 									  		</div>
 										</div>
 										<div class="form-row">
 
 									  		<div class="form-group col-md-6">
 									  			<label>Uniform </label>
-									   			<input type="text" name="p_uniform" id="p_uniform" class="form-control" value="">
+									   			<input type="text" name="p_uniform" id="p_uniform" class="form-control" value=""required="">
 									  		</div>
 									  		<div class="form-group col-md-6">
 									  			<label>Total Deduction</label>

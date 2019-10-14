@@ -152,12 +152,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Level</label>
-	                	   <input type="text" name="level_title" class="form-control" >
+	                	   <input type="text" name="level_title" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="level_desc" name="level_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="level_desc" name="level_desc"required></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>

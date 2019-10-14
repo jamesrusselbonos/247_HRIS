@@ -152,12 +152,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Leave Type</label>
-	                	   <input type="text" name="leave_type" class="form-control" >
+	                	   <input type="text" name="leave_type" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="leaveType_desc" name="leaveType_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="leaveType_desc" name="leaveType_desc"required></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>

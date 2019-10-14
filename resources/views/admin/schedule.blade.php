@@ -305,7 +305,7 @@
                 		  	<div class="row">
                 		  		<div class="col-md-12">
                 		  			<label>Task</label>
-                		   			<textarea class="form-control" rows="5" id="sched_task" name="sched_task"></textarea>
+                		   			<textarea class="form-control" rows="5" id="sched_task" name="sched_task"required></textarea >
                 		  		</div>
                 		  	</div>
                 		</div>
@@ -315,7 +315,7 @@
                 		  	<div class="row">
                 		  		<div class="col-md-12">
                 		  			<label>Comment</label>
-                		  			<textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"></textarea>
+                		  			<textarea class="form-control" rows="5" id="sched_comment" name="sched_comment"required></textarea>
                 		  		</div>
                 		  	</div>
                 		</div>
@@ -326,7 +326,7 @@
                 		  	<div class="row">
                 		  		<div class="col-md-12">
             		  				<label>Other Task</label>
-            		  			 	<textarea class="form-control" rows="5" id="sched_other" name="sched_other"></textarea>
+            		  			 	<textarea class="form-control" rows="5" id="sched_other" name="sched_other"required></textarea>
                 		  		</div>
                 		  	</div>
                 		</div>

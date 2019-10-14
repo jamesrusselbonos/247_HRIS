@@ -164,18 +164,18 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Shift Name</label>
-	                	   <input type="text" name="shift_name" class="form-control" >
+	                	   <input type="text" name="shift_name" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <div><h6>Shift</h6></div>
 	                	  <label>Start</label>
-	                	  <input type="time" name="shift_start" class="form-control">
+	                	  <input type="time" name="shift_start" class="form-control"required>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>End</label>
-	                	  <input type="time" name="shift_end" class="form-control">
+	                	  <input type="time" name="shift_end" class="form-control"required>
 	                	</div>	                	
 
 	                	<div class="form-group col-md-12">
@@ -186,11 +186,11 @@
 	                	<div class="form-group col-md-12">
 	                		<div><h6>Lunch/Rest Break</h6></div>
 	                		<label>Start</label>
-	                		<input type="time" name="lunch_rest_start" class="form-control">
+	                		<input type="time" name="lunch_rest_start" class="form-control"required>
 	                	</div>	                	  	
 	                	<div class="form-group col-md-12">
 	                		<label>End</label>
-	                		<input type="time" name="lunch_rest_end" class="form-control">
+	                		<input type="time" name="lunch_rest_end" class="form-control"required>
 	                	</div>
 
 	                </div>

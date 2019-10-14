@@ -162,13 +162,13 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Holiday</label>
-	                	   <input type="text" name="holiday" class="form-control" >
+	                	   <input type="text" name="holiday" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Date</label>
 	                	   <input type="date" name="holiday_date" max="3000-12-31" 
-										          min="1000-01-01" class="form-control">
+										          min="1000-01-01" class="form-control"required>
 	                	</div>
 
 	                	<div class="form-group col-md-12">

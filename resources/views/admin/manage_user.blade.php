@@ -31,7 +31,7 @@
 				                  <tr>
 				                 
 				              <th scope="row">
-				              	{{ $ms->firstname }} {{ $ms->lastname }}
+				              	{{ucwords( $ms->firstname) }} {{ucwords ($ms->lastname) }}
 				              </th>
 				              <td>
 				              	{{ $ms->email }}

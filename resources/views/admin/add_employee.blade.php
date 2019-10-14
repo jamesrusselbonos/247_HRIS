@@ -215,23 +215,23 @@
 											<div style="margin-top: 30px;" class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Name</label>
-												  <input type="text" name="e_name" class="form-control" >
+												  <input type="text" name="e_name" class="form-control" required>
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>Relationship</label>
-												  <input type="text" name="relationship" class="form-control" >
+												  <input type="text" name="relationship" class="form-control"required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Address</label>
-												  <input type="text" name="e_address" class="form-control" >
+												  <input type="text" name="e_address" class="form-control" required>
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>Phone Number</label>
-												  <input type="text" name="e_number" class="form-control" >
+												  <input type="text" name="e_number" class="form-control"required >
 												</div>
 											</div>
 										</div>
@@ -253,7 +253,7 @@
 											<div class="form-row">
 												<div class="form-group col-md-8">
 												  <label>Job Description</label>
-												  <textarea name="info_area" id="info_area" cols="60" rows="5"></textarea>
+												  <textarea name="info_area" id="info_area" cols="60" rows="5"required></textarea>
 												</div>
 											</div>
 											<div class="form-row">

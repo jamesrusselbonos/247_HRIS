@@ -106,12 +106,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Status</label>
-	                	   <input type="text" name="mstatus_title" id="mstatus_title" class="form-control" >
+	                	   <input type="text" name="mstatus_title" id="mstatus_title" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="mstatus_desc" name="mstatus_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="mstatus_desc" name="mstatus_desc"required></textarea>
 	                	</div>
 	                	<div class="form-group col-md-12">
 	                	 
@@ -152,12 +152,12 @@
 	                <div class="form-row">
 	                	<div class="form-group col-md-12">
 	                	  <label>Job Status</label>
-	                	   <input type="text" name="status_title" class="form-control" >
+	                	   <input type="text" name="status_title" class="form-control"required >
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Description</label>
-	                	   <textarea class="form-control" rows="5" id="status_desc" name="status_desc"></textarea>
+	                	   <textarea class="form-control" rows="5" id="status_desc" name="status_desc"required></textarea>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>
