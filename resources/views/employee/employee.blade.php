@@ -116,7 +116,7 @@
 			  	<ul class="nav navbar-nav">
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <li class="nav-item dropdown" style="position: absolute; margin-left: -15px; margin-top: -3px;">
+                            <li class="nav-item dropdown" style="position: absolute; margin-left: -15px; margin-top: -8px;">
                       			<a href="#" class="notification-trigger">
                     				  <i style="font-size: 25px;" class="fa fa-bell-o" aria-hidden="true"></i>
                     				  @if(auth()->user()->unreadNotifications->count())
@@ -128,7 +128,7 @@
                         <div class="col-md-10 col-sm-10">
                             <li class="nav-item dropdown">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <img style="height: 35px; width: 35px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}">&nbsp;&nbsp;{{ Auth::user()->employee()->first()->firstname }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i>
+                                     <img style="height: 35px; width: 35px; border-radius: 100%;" src="{{ Auth::user()->employee()->first()->employee_img }}">&nbsp;&nbsp;{{ucwords( Auth::user()->employee()->first()->firstname) }} <i style="font-size: 10px;" class="fa  fa-chevron-down" aria-hidden="true"></i>
                                 </a>
 
                                 <div style="position: absolute;" class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
@@ -195,7 +195,7 @@
 				              		<h6 style="font-size: 13px;"><strong>{{$notification->data['title']}}</strong></h6>
 				              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['from']}} {{$notification->data['date']}}</p>
 				              		
-				              		<p class="memo_subj" style="margin-top: -12px; font-size: 10px;">{{$notification->data['subject']}}</p>
+				              		<p class="memo_subj" style="margin-top: -8px; font-size: 10px;">{{$notification->data['subject']}}</p>
 				              	</div>
 				              </a>
 				          </li>
@@ -267,8 +267,8 @@
 					              <a style="cursor: pointer;" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6 style="font-size: 13px;">Schedule</h6>
-				              			<p style="margin-top: -18px; font-size: 10px;">Your Schedule</p>
+					              		<h6 style="font-size: 13px;margin-top: 10px">Schedule</h6>
+				              			<p style="margin-top: 12px; font-size: 10px;">Your Schedule</p>
 					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              	</div>
 					              </a>

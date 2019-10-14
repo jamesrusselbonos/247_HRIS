@@ -103,7 +103,7 @@
  				{{ csrf_field() }}
 	 			<div class="form-row">
 					<div class="form-group col-md-12">
-					  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+					  <h4>{{ucwords(Auth::user()->employee()->first()->lastname) }}, {{ucwords (Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 					  <input type="hidden" name="overtime_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
 					  <input type="hidden" name="overtime_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
@@ -115,29 +115,29 @@
 					<div class="form-group col-md-12">
 					  <label>Date</label>
 					  <input type="date" name="overtime_date" id="overtime_date" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
+									          min="1000-01-01" class="form-control"required>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 					  <label>Time From</label>
-					  <input type="time" name="time_from" class="form-control">
+					  <input type="time" name="time_from" class="form-control"required>
 					</div>
 					<div class="form-group col-md-6">
 					  <label>Time To</label>
-					 <input type="time" name="time_to" class="form-control">
+					 <input type="time" name="time_to" class="form-control"required>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
 					  <label>Duration</label>
-					  <input type="text" name="duration" id="duration" class="form-control">
+					  <input type="text" name="duration" id="duration" class="form-control"required>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
 	            	  <label>Reason</label>
-	            	  <textarea class="form-control" rows="5" id="overtime_reason" name="overtime_reason"></textarea>
+	            	  <textarea class="form-control" rows="5" id="overtime_reason" name="overtime_reason"required></textarea>
 	            	</div>
 				</div>
 				  <div class="modal-footer">
@@ -163,7 +163,8 @@
 
       	<div class="form-row">
 			<div class="form-group col-md-12">
-			  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+			  <h4>{{ ucwords(Auth::user()->employee()->first()->lastname) }}, {{ucwords
+( Auth::user()->employee()->first()->firstname) }} {{ ucwords(Auth::user()->employee()->first()->middle_name) }}</h4>
 			  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 
 			</div>
@@ -203,7 +204,7 @@
  				
 	 			<div class="form-row">
 					<div class="form-group col-md-12">
-					  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+					  <h4>{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ucwords (Auth::user()->employee()->first()->firstname) }} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 					  <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">
 					  <input id="hdn-id" class="hdn-id" type="hidden" name="id" value="">

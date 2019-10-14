@@ -72,7 +72,6 @@
 					             		<button id="{{$l->id}}" leave_type="{{$l->leave_id}}" type="button" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
 					             		@if($l->leave_status =="Pending")
 					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
-					             		<button id="{{$l->id}}" type="button" class="btn btn-danger btn_cancel_leave" ><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp;Cancel</button>
 		 								@endif
 		 							</span>
 				             	</div>
@@ -81,8 +80,7 @@
 					             		<button id="{{$l->id}}" type="button" leave_type="{{$l->leave_id}}" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i></button>
 					             		@if($l->leave_status =="Pending")
 					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-					             		<button id="{{$l->id}}" type="button" class="btn btn-danger btn_cancel_leave" ><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
-					             		@endif
+		 								@endif
 		 							</span>
 				             	</div>
 				             </td>
@@ -115,7 +113,7 @@
  				{{ csrf_field() }}
 	 			<div class="form-row">
 					<div class="form-group col-md-12">
-					  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+					  <h4>{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 					  <input type="hidden" name="leave_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
 					  <input type="hidden" name="leave_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
@@ -127,13 +125,13 @@
 					<div class="form-group col-md-12">
 					  <label>Date</label>
 					  <input type="date" name="leave_date" id="leave_date" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
+									          min="1000-01-01" class="form-control"required>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
 					  <label>Leave Type</label>
-					  <select id="leave_type" name="leave_type">
+					  <select id="leave_type" name="leave_type"required>
 					  	@foreach($leave_type as $dlist)
 					  		<option value="{{$dlist->id}}">{{$dlist->leave_type}}</option>
 					  	@endforeach
@@ -144,18 +142,18 @@
 					<div class="form-group col-md-6">
 					  <label>Date From</label>
 					  <input type="date" name="leave_datefrom" id="leave_datefrom" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
+									          min="1000-01-01" class="form-control"required>
 					</div>
 					<div class="form-group col-md-6">
 					  <label>Date To</label>
 					 <input type="date" name="leave_dateto" id="leave_dateto" max="3000-12-31" 
-									          min="1000-01-01" class="form-control">
+									          min="1000-01-01" class="form-control"required>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
 	            	  <label>Reason</label>
-	            	  <textarea class="form-control" rows="5" id="leave_reason" name="leave_reason"></textarea>
+	            	  <textarea class="form-control" rows="5" id="leave_reason" name="leave_reason"required></textarea>
 	            	</div>
 				</div>
 				  <div class="modal-footer">
@@ -184,7 +182,7 @@
  				{{ csrf_field() }}
 	 			<div class="form-row">
 					<div class="form-group col-md-12">
-					  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+					  <h4>{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ucwords( Auth::user()->employee()->first()->firstname) }} {{ ucwords(Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 					  <input type="hidden" name="eleave_lname" id="eleave_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
 					  <input type="hidden" name="eleave_fname" id="eleave_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
@@ -254,7 +252,7 @@
 
       	<div class="form-row">
 			<div class="form-group col-md-12">
-			  <h4>{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</h4>
+			  <h4>{{ucwords (Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 			  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
 
 			</div>
