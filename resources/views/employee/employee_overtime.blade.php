@@ -67,10 +67,12 @@
 					              </td>
 					              <td style="max-width: 200px;">
 					             	<span style="float: right;">
+
 					             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-success btn_view_request_ot" data-toggle="modal" data-target="#request_overtime_view"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
-					             		
-					             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-primary btn_edit_request_ot" data-toggle="modal" data-target="#request_overtime_edit"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Edit</button>
-		 								
+					             		@if($ot->status == "Pending")
+					             		<button id="{{ $ot->otime_id }}" type="button" class="btn btn-primary btn_edit_request_ot" data-toggle="modal" data-target="#request_overtime_edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+		 								<button id="{{ $ot->otime_id }}" type="button" class="btn btn-danger btn_cancel_request_ot" ><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp;Cancel</button>
+		 								@endif
 		 							</span>
 					             </td>
 					            </tr>

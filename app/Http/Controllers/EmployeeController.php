@@ -163,6 +163,15 @@ class EmployeeController extends Controller
         $leave_save->save();
 
         return redirect()->route('employee.employee_leave');
+    }
+
+    public function cancelLeave(Request $request, $id){
+
+        $leave = Leave::find($id);
+        $leave->leave_status = 'Cancelled';
+        $leave->save();
+
+        return redirect()->back();
     }    
 
     public function requestOvertime(Request $request){
@@ -227,4 +236,17 @@ class EmployeeController extends Controller
 
         return redirect()->back();
     }
+
+    public function requestOvertimeCancel(Request $request, $id){
+
+        $overtime = Overtime::where('otime_id', $id)->first();
+
+        $overtime->status = 'Cancelled';
+
+        $overtime->save();
+
+        return redirect()->back();
+    }
+
+
 }

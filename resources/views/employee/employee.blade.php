@@ -475,6 +475,20 @@
 
 			});
 
+            $('.btn_cancel_leave').on('click', function(){
+                var id = $(this).attr('id');
+                var token = $('#hdn-token').val();
+
+               $.post('/employee_leave/cancel/' + id,
+
+                {'id':id, '_token':token}, 
+                function(data){
+
+                location.reload();
+                  
+                });      
+            });
+
 
 			$('.btn_view_request_ot').on('click', function(){
 
@@ -579,6 +593,20 @@
 
 
 			});
+
+            $('.btn_cancel_request_ot').on('click', function(){
+                var id = $(this).attr('id');
+                var token = $('#hdn-token').val();
+
+                $.post('/employee_overtime/cancel/' + id,
+
+                 {'id':id, '_token':token}, 
+                 function(data){
+
+                 location.reload();
+                   
+                 });      
+            });
 
 		   $(".time").click(function(){
 

@@ -82,6 +82,7 @@ Route::get('/employee_leave', 'EmployeeController@leave_index')->name('employee.
 Route::get('/employee_leave/edit/{id}', 'EmployeeController@ajaxEditLeave')->name('employee.employee_leave.edit');
 Route::post('/employee_leave/update/{id}', 'EmployeeController@leave_update')->name('employee.employee_leave.update');
 Route::get('/employee_leave/{id}', 'EmployeeController@ajaxViewLeave')->name('employee.employee_leave.view');
+Route::post('/employee_leave/cancel/{id}', 'EmployeeController@cancelLeave')->name('employee.employee_leave.cancel');
 
 Route::get('/leave', 'AdminController@leave_index')->name('admin.employee_leave');
 Route::post('/leave', 'AdminController@leave_edit')->name('admin.leave.edit');
@@ -122,6 +123,7 @@ Route::post('/employee_overtime', 'EmployeeController@requestOvertime')->name('e
 Route::get('/employee_overtime/{id}', 'EmployeeController@ajaxOvertimeView')->name('employee.request_overtime.view');
 Route::get('/employee_overtime/edit/{id}', 'EmployeeController@ajaxOvertimeEdit')->name('employee.request_overtime.edit');
 Route::post('/employee_overtime/update/{id}', 'EmployeeController@ajaxRequestOvertimeUpdate')->name('employee.request_overtime.update');
+Route::post('/employee_overtime/cancel/{id}', 'EmployeeController@requestOvertimeCancel')->name('employee.request_overtime.cancel');
 
 
 Route::post('/ajaxShowOvertime', 'AdminController@ajaxShowOvertime')->name('admin.ajaxShowOvertime');
