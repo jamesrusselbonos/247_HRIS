@@ -28,7 +28,7 @@
 			          <thead>
 			            <tr>
 			              
-			              <th scope="col">Memo</th>
+			              <th scope="col" >Memo</th>
 			              <th scope="col">Subject</th>
 			              <th scope="col">Attachment</th>
 			              <th scope="col">Date</th>

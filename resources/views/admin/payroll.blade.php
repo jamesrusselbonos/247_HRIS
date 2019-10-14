@@ -177,7 +177,7 @@
 	      		</div>
 	      		<form method="POST" action="{{route('payroll.generatePayroll')}}" name="genarateForm" id="genarateForm">
 	      			{{ csrf_field() }}
-		      		<div class="modal-body" style="padding-left: 30px; padding-right: 30px;">
+		      		<div class="modal-body" style="padding-left: 20px; padding-right: 20px;width: 500px;">
 		      			<div class="row" style="padding-bottom: 10px;">
 		      				<div class="col-md-6">
 								<div class="row">
@@ -275,19 +275,19 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-3">
+									  		<div class="form-group col-md-6">
 									  			<label>Total Absences</label>
 									   			<input type="text" name="p_total_absences" id="p_total_absences" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-3">
+									  		<div class="form-group col-md-6">
 									  			<label>Unpaid Absences</label>
 									    		<input type="text" name="p_unpaid_absences" id="p_unpaid_absences" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-3">
+									  		<div class="form-group col-md-6">
 									  			<label>Charge to SIL</label>
 									   			<input type="text" name="p_charge_to_SIL" id="p_charge_to_SIL" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-3">
+									  		<div class="form-group col-md-6">
 									  			<label>Amount</label>
 									    		<input type="text" name="p_amount_absences" id="p_amount_absences" class="form-control" readonly>
 									  		</div>
@@ -382,15 +382,15 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>No. Of Hours Undertime </label>
 									   			<input type="text" name="p_no_undertime" id="p_no_undertime" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>No. Of Hours Late</label>
 									    		<input type="text" name="p_no_late" id="p_no_late" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-4">
+									  		<div class="form-group col-md-6">
 									  			<label>Amount </label>
 									   			<input type="text" name="p_amount_undertime_late" id="p_amount_undertime_late" class="form-control" readonly>
 									  		</div>

@@ -5,7 +5,7 @@
 <div class="col-lg-12">
 	<div class="row">
 			<div class="jumbotron2">
-		  		<h1 style="margin-top: 130px;" class="display-4">Memos</h1>
+		  		<h1 style="margin-top: 130px;" class="display-4">Memo</h1>
 			</div>
 		</div>
 	<div class="row">
@@ -254,23 +254,23 @@
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Memo</label>
-	                	   <input class="form-control" rows="5" id="memo" name="memo">
+	                	   <input class="form-control" rows="5" id="memo" name="memo"required>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Subject</label>
-	                	   <textarea class="form-control" rows="5" id="subject" name="subject"></textarea>
+	                	   <textarea class="form-control" rows="5" id="subject" name="subject"required></textarea>
 	                	</div>
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Attachment</label></br>
-	                	  <input type="file" name="file" id="file" />
+	                	  <input type="file" name="file" id="file"required />
 	                	</div>	
 
 	                	<div class="form-group col-md-12">
 	                	  <label>Date</label>
 	                	    <input type="date" name="memo_date" id="memo_date" max="3000-12-31" 
-								          min="1000-01-01" class="form-control">
+								          min="1000-01-01" class="form-control"required>
 	                	</div>
 	                	<!-- <div class="form-group col-md-4">
 	                	  <label>Role</label>

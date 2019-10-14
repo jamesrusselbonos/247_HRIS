@@ -44,7 +44,7 @@
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Employee ID</label>
-												  <input type="text" name="employee_id" class="form-control" >
+												  <input type="text" name="employee_id" class="form-control" required >
 												</div>
 
 												<div class="form-group col-md-4">
@@ -89,18 +89,18 @@
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>First Name</label>
-												  <input type="text" name="fname" class="form-control" >
+												  <input type="text" name="fname" class="form-control"required >
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>Middle Name</label>
-												  <input type="text" name="m_name" class="form-control" >
+												  <input type="text" name="m_name" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Last Name</label>
-												  <input type="text" name="lname" class="form-control" >
+												  <input type="text" name="lname" class="form-control" required >
 												</div>
 												<div class="form-group col-md-4">
 												  <label>Gender</label>
@@ -157,51 +157,51 @@
 											<div style="margin-top: 30px;" class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Address</label>
-												  <input type="text" name="address" class="form-control" >
+												  <input type="text" name="address" class="form-control"  required>
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>City</label>
-												  <input type="text" name="city" class="form-control" >
+												  <input type="text" name="city" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Province</label>
-												  <input type="text" name="province" class="form-control" >
+												  <input type="text" name="province" class="form-control" required >
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>Country</label>
-												  <input type="text" name="country" class="form-control" >
+												  <input type="text" name="country" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Postal / ZIP Code</label>
-												  <input type="text" name="zip_code" class="form-control" >
+												  <input type="text" name="zip_code" class="form-control" required>
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>Home Phone Number</label>
-												  <input type="text" name="h_number" class="form-control" >
+												  <input type="text" name="h_number" class="form-control" required>
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Mobile Phone Number</label>
-												  <input type="text" name="m_number" class="form-control" >
+												  <input type="text" name="m_number" class="form-control" required >
 												</div>
 												<div class="form-group col-md-4">
 												  <label>Personal Email Address</label>
-												  <input type="text" name="p_email" class="form-control" >
+												  <input type="text" name="p_email" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												
 												<div class="form-group col-md-4">
 												  <label>SIN / SSN</label>
-												  <input type="text" name="ssn_sin" class="form-control" >
+												  <input type="text" name="ssn_sin" class="form-control" required >
 												</div>
 												<div class="form-group col-md-4">
 												  <label>Birthday</label>
@@ -295,17 +295,17 @@
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Salary</label>
-												  <input type="text" name="salary" class="form-control" >
+												  <input type="text" name="salary" class="form-control" required >
 												</div>
 												<div class="form-group col-md-4">
 												  <label>Allowance</label>
-												  <input type="text" name="allowance" class="form-control" >
+												  <input type="text" name="allowance" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  	<label>Leave credits</label>
-												  	<input type="text" name="leave_credit" class="form-control" >
+												  	<input type="text" name="leave_credit" class="form-control" required >
 												</div>
 											</div>
 										</div>
@@ -347,29 +347,29 @@
 											<div style="margin-top: 30px;" class="form-row">
 												<div class="form-group col-md-4">
 												  <label>SSS</label>
-												  <input type="text" name="sss_n" class="form-control" >
+												  <input type="text" name="sss_n" class="form-control" required >
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>PhilHealth</label>
-												  <input type="text" name="philhealth_n" class="form-control" >
+												  <input type="text" name="philhealth_n" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>Pagibig</label>
-												  <input type="text" name="pagibig_n" class="form-control" >
+												  <input type="text" name="pagibig_n" class="form-control" required >
 												</div>
 
 												<div class="form-group col-md-4">
 												  <label>TIN</label>
-												  <input type="text" name="tin_n" class="form-control" >
+												  <input type="text" name="tin_n" class="form-control" required >
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group col-md-4">
 												  <label>NBI Number</label>
-												  <input type="text" name="nbi_n" class="form-control" >
+												  <input type="text" name="nbi_n" class="form-control" required >
 												</div>
 											</div>
 											<!-- <div class="form-row">
