@@ -1,5 +1,5 @@
 body, html{
-	overflow: hidden;
+	overflow: auto;
 }
 body, a, li, p, h1, h2, h3, h4, h5, h6, i, button, input,{
 	font-family: 'Roboto', sans-serif;
@@ -149,8 +149,8 @@ a, a:hover{
 	padding-left: 80px; 
     padding-right: 80px;
     width: 100%;
-
-    margin-top: -150px;
+	margin-top: -150px;
+	background-color: #fff;
 }
 
 .jumbotron{

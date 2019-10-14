@@ -180,12 +180,14 @@ a.article:hover {
     .fc-scroller {
        overflow-y: auto;
     }
-    .admin_cards{
+    /*.admin_cards{
        padding-left: 25px !important;
         padding-right: 25px !important;
         width: 100%;
-        margin-top: 50px;
-    }
+        margin-top: 10px;
+        background-color: #fff;
+
+    }*/
     .add_employee_tab{
         padding-left: 25px !important;
         padding-right: 25px !important;
