@@ -267,8 +267,8 @@
                                 <i class="ion-checkmark"></i>
                                 <div>
                                     <h6 style="font-size: 13px;">Leave Request</h6>
-                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
-                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>
+                                  <!--   <p style="margin-top: -18px; font-size: 10px;"> --><p >Employee request Leave Type</p>
+                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>From: date  To: date </p>
                                 </div>
                             </a>
                         </li>
@@ -278,8 +278,8 @@
                                 <i class="ion-checkmark"></i>
                                 <div>
                                     <h6 style="font-size: 13px;">Leave Request</h6>
-                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
-                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>    
+                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>Employee request Leave Type</p>
+                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>From: date  To: date </p>    
                                 </div>
                             </a>
                         </li> 
