@@ -68,8 +68,8 @@
         <!-- Sidebar  -->
         <nav id="sidebar2" data-simplebar>
             <div class="sidebar-header">
-                <img class="company_logo" src="/img/icon2.png">
-                <h5>24/7 Virtual Agent Philippines Inc.</h5>
+                <center><img class="company_logo" src="/img/icon2.png"></center>
+                <h6 style="text-align: center;">24/7 Virtual Agent Philippines Inc.</h6>
             </div>
 
             <ul class="list-unstyled components">
@@ -175,7 +175,7 @@
                 <ul class="nav navbar-nav">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <li class="nav-item dropdown" style="position: absolute; margin-left: -50px; margin-top: -3px;">
+                            <li class="nav-item dropdown" style="position: absolute; margin-left: -50px; margin-top: -10px;">
                                 <a href="#" class="notification-trigger">
                                       <i style="font-size: 25px;" class="fa fa-bell-o" aria-hidden="true"></i>
                                       @if(auth()->user()->unreadNotifications->count())
@@ -183,7 +183,7 @@
                                       @endif
                                 </a>
                             </li>
-                            <li class="nav-item dropdown" style="padding-top: 8px; margin-right: 20px;">
+                            <li class="nav-item dropdown" style="padding-top: 8px; margin-top:-5px">
                                 <a style="color: #000;" id="navbarDropdown2" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      <span><i style="font-size: 25px;" class="fa fa-cogs" aria-hidden="true"></i></span>
                                          Quick Access
@@ -236,12 +236,12 @@
                             </li>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <li class="nav-item dropdown"  style="padding-top: 8px;">
+                            <li class="nav-item dropdown"  style="padding-top: 7px;">
                                 <a style="color: #000;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <i style="font-size: 10px;" class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    {{ Auth::user()->name }} <i style="font-size: 15px;" class="fa fa-chevron-down" aria-hidden="true"></i>
                                 </a>
 
-                                <div style="position: absolute;" class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
+                                <div style="position:absolute;" class="dropdown-menu dropdown-menu-right animated bounceIn" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

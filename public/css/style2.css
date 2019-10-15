@@ -29,9 +29,11 @@
 }
 
 #sidebar2 .sidebar-header {
-    padding: 20px;
+    padding: 30px;
     background: #474747;
+
 }
+
 
 #sidebar2 ul.components {
     padding: 20px 0;
@@ -317,12 +319,8 @@ a.article:hover {
         display: none !important;
 
     }
-    #sidebar2{
-    
-    
-    
+    .btn_toggle{margin-top:-50px !important;}
 
-    }
     
 }
 
