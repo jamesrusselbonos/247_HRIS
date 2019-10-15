@@ -24,18 +24,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.bootstrap4.min.css">
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.bootstrap4.min.css">
+   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.bootstrap4.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
 
 
     <!-- Override CSS -->
@@ -109,7 +109,7 @@
         <div id="content">
 
         	<nav class="navbar navbar-expand-lg navbar-light">
-				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 40px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
+				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 30px; margin-right: 2px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
 
 			  	<a class="navbar-brand mr-auto" href="/employee" >Employee Dashboard</a>
 

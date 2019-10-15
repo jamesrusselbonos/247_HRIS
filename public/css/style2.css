@@ -188,6 +188,12 @@ a.article:hover {
         background-color: #fff;
 
     }*/
+    .card-body{
+        padding-top: 10px;
+    }
+    .card{
+        margin-top: 55px;
+    }
     .add_employee_tab{
         padding-left: 25px !important;
         padding-right: 25px !important;
@@ -303,4 +309,20 @@ a.article:hover {
     .profile_list{
         text-align: center !important;
     }
+
 }
+@media (max-width: 475px){
+
+    .navbar-brand{
+        display: none !important;
+
+    }
+    #sidebar2{
+    
+    
+    
+
+    }
+    
+}
+

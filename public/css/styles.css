@@ -149,9 +149,11 @@ a, a:hover{
 	padding-left: 80px; 
     padding-right: 80px;
     width: 100%;
-	margin-top: -150px;
+	margin-top: -110px;
+	padding-top: 1%;
 	background-color: #fff;
 }
+
 
 .jumbotron{
 	width: 100%;

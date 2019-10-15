@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="jumbotron">
-			  	<h1 style="margin-top: 95px;" class="display-5">Welcome!<br> {{ucwords( Auth::user()->employee()->first()->firstname )}} {{ucwords( Auth::user()->employee()->first()->lastname) }}</h1>
+			  	<h1 style="margin-top: 95px;" class="display-8">Welcome!<br> {{ucwords( Auth::user()->employee()->first()->firstname )}} {{ucwords( Auth::user()->employee()->first()->lastname) }}</h1>
 			</div>
 		</div>
 		<div class="row">

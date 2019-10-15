@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="jumbotron">
-			  	<h1 style="margin-top: 130px;" class="display-4">Welcome! {{ Auth::user()->name }}</h1>
+			  	<h1 style="margin-top: 130px;" class="display-6">Welcome! {{ Auth::user()->name }}</h1>
 			</div>
 		</div>
 		<div class="row">

@@ -185,7 +185,7 @@
                             </li>
                             <li class="nav-item dropdown" style="padding-top: 8px; margin-right: 20px;">
                                 <a style="color: #000;" id="navbarDropdown2" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <span><i style="font-size: 20px;" class="fa fa-cogs" aria-hidden="true"></i></span>
+                                     <span><i style="font-size: 25px;" class="fa fa-cogs" aria-hidden="true"></i></span>
                                          Quick Access
                                           <span class="badge" id="bell_badge"></span>
                                         
