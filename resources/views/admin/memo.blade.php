@@ -24,7 +24,7 @@
 				</div>
 				 <div class="card-body">
 				   
-			        <table class="table table-bordered" id="addDataTable">
+			        <table class="mdl-data-table" id="addDataTable">
 			          <thead>
 			            <tr>
 			              

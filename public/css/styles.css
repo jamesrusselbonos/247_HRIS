@@ -917,3 +917,20 @@ div.dt-button-collection {
 	color: #000;
 	border: solid 1px #CED4DA;
 }
+#addDataTable_paginate{
+	float: right;
+	margin-top: 10px;
+}
+#payroll_table_paginate{
+	float: right;
+	margin-top: 10px;
+}
+.dt-buttons{
+	margin-top: 20px;
+}
+th{
+	text-align: left !important;
+}
+td{
+	text-align: left !important;
+}

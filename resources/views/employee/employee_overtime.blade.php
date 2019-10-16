@@ -23,7 +23,7 @@
 					</div>
 					 <div class="card-body">
 					   
-				        <table class="table table-bordered" id="addDataTable">
+				        <table class="mdl-data-table" id="addDataTable">
 				          <thead>
 				            <tr>
 				              
@@ -43,19 +43,19 @@
 
 					            <tr>
 
-					              <th style="max-width: 200px;">
-					              	<p></p>
-					              	<p style="margin-top: -15px;">{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}</p>
-					              </th>
-					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              <td style="max-width: 200px;">
+					         
+					              	{{ Auth::user()->employee()->first()->lastname }}, {{ Auth::user()->employee()->first()->firstname }} {{ Auth::user()->employee()->first()->middle_name }}
+					              </td>
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 					              	{{ $ot->date }}
-					              </th>				              
-					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              </td>				              
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 					              	{{ $ot->time_from }}
-					              </th>				              
-					              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+					              </td>				              
+					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 					              	{{ $ot->time_to }}
-					              </th>
+					              </td>
 					              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 					              	{{ $ot->duration }}
 					              </td>

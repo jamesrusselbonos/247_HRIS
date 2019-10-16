@@ -23,8 +23,8 @@
 				    				</div>
 								</div>
 							</div>
-					 		<div class="card-body" style="padding-left: 45px;">
-								<table class="ui celled table" id="addDataTable">
+					 		<div class="card-body">
+								<table class="mdl-data-table" id="addDataTable">
 									<thead>
 										<tr>
 											<th>Employee</th>

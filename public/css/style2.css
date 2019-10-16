@@ -182,14 +182,14 @@ a.article:hover {
     .fc-scroller {
        overflow-y: auto;
     }
-    /*.admin_cards{
+    .admin_cards{
        padding-left: 25px !important;
         padding-right: 25px !important;
         width: 100%;
         margin-top: 10px;
         background-color: #fff;
 
-    }*/
+    }
     .card-body{
         padding-top: 10px;
     }
@@ -320,7 +320,5 @@ a.article:hover {
 
     }
     .btn_toggle{margin-top:-50px !important;}
-
-    
 }
 

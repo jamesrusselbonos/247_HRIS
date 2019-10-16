@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="jumbotron2">
-		  		<h1 style="margin-top: 155px;" class="display-6">Add an Employee</h1>
+		  		<h1 style="margin-top: 130px;" class="display-4">Add Employees</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -425,8 +425,12 @@
 											{{ csrf_field() }}
 										</div>
 									</div>
-									<button style="bottom: 50px; right: 50px; position:absolute;" type="submit" class="btn btn-success btn_create"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
 								</div>	
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<button style="float: right;" type="submit" class="btn btn-success btn_create"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; Save</button>
+								</div>
 							</div>
 						</form>
 					</div>

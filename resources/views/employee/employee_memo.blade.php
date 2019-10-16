@@ -24,7 +24,7 @@
 				</div> -->
 				 <div class="card-body">
 				   
-			        <table class="table table-bordered" id="addDataTable">
+			        <table class="mdl-data-table" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
@@ -42,12 +42,12 @@
 			      		@if($notification->type == "App\Notifications\SendMemo")
 				            <tr>
 
-				              <th style="min-width: 150px;">
+				              <td style="min-width: 150px;">
 				              	{{$notification->data['title']}}
-				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              </td>
+				              <td style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{$notification->data['subject']}}
-				              </th>
+				              </td>
 				              <td style="text-overflow: ellipsis; max-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{$notification->data['file']}}
 				              </td>

@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<table id="payroll_table" class="table table-bordered" style="width:100%;">	
+					<table id="payroll_table" class="mdl-data-table" style="width:100%;">	
 						<thead>
 							<tr>
 				              <th style="min-width: 250px;">Employees</th>

@@ -24,7 +24,7 @@
 				</div>
 				 <div class="card-body">
 				   
-			        <table class="table table-bordered" id="addDataTable">
+			        <table class="mdl-data-table" id="addDataTable">
 			          <thead>
 			            <tr>
 			              
@@ -44,13 +44,13 @@
 
 				            <tr>
 
-				              <th style="max-width: 200px;">
-				              	<p>{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</p>
-				              	<p style="margin-top: -15px;">{{ $l->emp_id }}</p>
-				              </th>
-				              <th style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+				              <td style="max-width: 200px;">
+				              	{{ $l->lastname }}, {{ $l->firstname }} {{ $l->middle_name }}</br>
+				              	{{ $l->emp_id }}
+				              </td>
+				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{ $l->date }}
-				              </th>
+				              </td>
 				              <td style="text-overflow: ellipsis; max-width: 100px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 				              	{{ $l->leave_type }}
 				              </td>

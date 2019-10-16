@@ -69,7 +69,7 @@
 				                <div class="card-block">
 				                    <h6 class="m-b-20"><strong>Timesheet Report</strong></h6>
 				                    	<div>
-				                    		<table  class="table display nowrap" id="DataTable">
+				                    		<table  class="mdl-data-table" id="addDataTable">
 				                    		 <thead>
 									            <tr>
 									              <th scope="col">Name</th>

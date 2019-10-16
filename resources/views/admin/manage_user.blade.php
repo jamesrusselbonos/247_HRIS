@@ -16,7 +16,7 @@
 
 				    <div class="card-body">
 				   
-				        <table class="table table-bordered" id="DataTable">
+				        <table class="mdl-data-table" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Name</th>

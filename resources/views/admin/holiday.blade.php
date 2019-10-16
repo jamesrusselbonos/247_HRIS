@@ -41,7 +41,7 @@
 
 				    <div class="card-body">
 				    	<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{csrf_token()}}">				   
-				        <table class="table table-bordered" id="addDataTable">
+				        <table class="mdl-data-table" id="addDataTable">
 				          <thead>
 				            <tr>
 				              <th scope="col">Holiday</th>

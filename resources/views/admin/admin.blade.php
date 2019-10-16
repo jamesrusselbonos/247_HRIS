@@ -26,18 +26,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.bootstrap4.min.css">
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.bootstrap4.min.css">
+   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.bootstrap4.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
 
     <!-- Override CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style2.css">
@@ -69,7 +69,7 @@
         <nav id="sidebar2" data-simplebar>
             <div class="sidebar-header">
                 <center><img class="company_logo" src="/img/icon2.png"></center>
-                <h6 style="text-align: center;">24/7 Virtual Agent Philippines Inc.</h6>
+                <h5 style="text-align: center;">24/7 Virtual Agent Philippines Inc.</h5>
             </div>
 
             <ul class="list-unstyled components">
@@ -175,7 +175,7 @@
                 <ul class="nav navbar-nav">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <li class="nav-item dropdown" style="position: absolute; margin-left: -50px; margin-top: -10px;">
+                            <li class="nav-item dropdown" style="position: absolute; margin-left: -50px; margin-top: -6px;">
                                 <a href="#" class="notification-trigger">
                                       <i style="font-size: 25px;" class="fa fa-bell-o" aria-hidden="true"></i>
                                       @if(auth()->user()->unreadNotifications->count())
@@ -267,8 +267,8 @@
                                 <i class="ion-checkmark"></i>
                                 <div>
                                     <h6 style="font-size: 13px;">Leave Request</h6>
-                                  <!--   <p style="margin-top: -18px; font-size: 10px;"> --><p >Employee request Leave Type</p>
-                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>From: date  To: date </p>
+                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
+                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>
                                 </div>
                             </a>
                         </li>
@@ -278,8 +278,8 @@
                                 <i class="ion-checkmark"></i>
                                 <div>
                                     <h6 style="font-size: 13px;">Leave Request</h6>
-                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>Employee request Leave Type</p>
-                                    <!-- <p style="margin-top: -18px; font-size: 10px;"> --><p>From: date  To: date </p>    
+                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
+                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>   
                                 </div>
                             </a>
                         </li> 
@@ -534,7 +534,10 @@
 
          $('#addDataTable').DataTable({
                 "scrollX": true,
-                
+                 dom:
+                      "<'row'<'col-sm-6 col-md-6'l><'col-sm-6 col-md-6'f>>" +
+                      "<'row'<'col-sm-12'tr>>" +
+                      "<'row'<'col-sm-12 col-md-6'i><'col-sm-12 col-md-6'p>>",
                 columnDefs: [
                            {
                                targets: [ 0, 1, 2 ],
