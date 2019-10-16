@@ -14,7 +14,7 @@
 						<div class="card-body">
 							<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
 								<div class="row">
-									<div class="col-lg-3 col-md-3 profile_field" style="margin-bottom: 50px;">
+									<div class="col-lg-3 col-md-12 profile_field" style="margin-bottom: 50px;">
 										<img class="profile_photo" src="/img/profile.png">
 										<div class="input_photo">
 											<h6>Upload a photo</h6>
@@ -29,7 +29,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-9 col-md-9">
+									<div class="col-lg-9 col-md-12">
 										<nav>
 											<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 												<a class="nav-item nav-link active" id="nav-employee-tab" data-toggle="tab" href="#nav-employee" role="tab" aria-controls="nav-employee" aria-selected="true">Employee Info</a>
@@ -84,29 +84,29 @@
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>First Name</label>
 													  	<input type="text" name="fname" class="form-control"required >
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Middle Name</label>
 													  	<input type="text" name="m_name" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Last Name</label>
 													  	<input type="text" name="lname" class="form-control" required >
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Gender</label>
 													  	<select name="gender">
 													    	<option value="Male">Male</option>
 													    	<option value="Female">Female</option>
 													  	</select>
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Department</label>
 													  	<select name="department">
 														  	@foreach($departments as $department)
@@ -114,7 +114,7 @@
 														  	 @endforeach
 													  	</select>
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  <label>Status</label>
 														<select name="status">
 															 @foreach($statuses as $status)
@@ -149,50 +149,50 @@
 											</div>
 											<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 												<div class="form-row">
-													<div class="form-group col-md-6">
+													<div class="form-group col-lg-6 col-md-6">
 													  	<label>Address</label>
 													  	<input type="text" name="address" class="form-control"  required>
 													</div>
 
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-3">
 													  	<label>City</label>
 													  	<input type="text" name="city" class="form-control" required >
 													</div>
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-3">
 													  	<label>Province</label>
 													  	<input type="text" name="province" class="form-control" required >
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-6">
 													  	<label>Country</label>
 													  	<input type="text" name="country" class="form-control" required >
 													</div>
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-6">
 													  	<label>Postal / ZIP Code</label>
 													  	<input type="text" name="zip_code" class="form-control" required>
 													</div>
 
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-6">
 													  	<label>Home Phone Number</label>
 													  	<input type="text" name="h_number" class="form-control" required>
 													</div>
 
-													<div class="form-group col-md-3">
+													<div class="form-group col-lg-3 col-md-6">
 													  	<label>Mobile Phone Number</label>
 													  	<input type="text" name="m_number" class="form-control" required >
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Personal Email Address</label>
 													  	<input type="text" name="p_email" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>SIN / SSN</label>
 													  	<input type="text" name="ssn_sin" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Birthday</label>
 													  	<input type="date" name="bday" max="3000-12-31" 
 													          min="1000-01-01" class="form-control">
@@ -202,23 +202,23 @@
 											</div>
 											<div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Name</label>
 													  	<input type="text" name="e_name" class="form-control" required>
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Relationship</label>
 													  	<input type="text" name="relationship" class="form-control"required >
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Phone Number</label>
 													  	<input type="text" name="e_number" class="form-control"required >
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-12">
+													<div class="form-group col-lg-12 col-md-12">
 													  <label>Address</label>
 													  <input type="text" name="e_address" class="form-control" required>
 													</div>
@@ -227,7 +227,7 @@
 											<div class="tab-pane fade" id="nav-job" role="tabpanel" aria-labelledby="nav-job-tab">
 												
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Job Title</label></br>
 													 
 													  	<select name="jjob_title" id="jjob_title" class="form-control dynamic" data-dependent="jjob_desc">
@@ -237,7 +237,7 @@
 													  	</select>
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Job Level</label>
 													 
 													 	<select name="job_level">
@@ -247,7 +247,7 @@
 													  	</select>
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Position</label>
 													  
 													  	<select name="job_position">
@@ -259,35 +259,35 @@
 
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-12">
+													<div class="form-group col-lg-12 col-md-12">
 													  <label>Job Description</label>
-													  <textarea name="info_area" id="info_area" cols="96" rows="5"required></textarea>
+													  <textarea style="width: 100%;" name="info_area" id="info_area" rows="5"required></textarea>
 													</div>
 												</div>
 												
 												<div class="form-row">
-													<div class="form-group col-md-6">
+													<div class="form-group col-lg-6 col-md-6">
 													  <label>Date Hired</label>
 													  <input type="date" name="d_hired" max="3000-12-31" 
 													          min="1000-01-01" class="form-control">
 													</div>
 
-													<div class="form-group col-md-6">
+													<div class="form-group col-lg-6 col-md-6">
 													  <label>Date Terminated</label>
 													  <input type="date" name="d_terminated" max="3000-12-31" 
 													          min="1000-01-01" class="form-control">
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Salary</label>
 													  	<input type="text" name="salary" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Allowance</label>
 													  	<input type="text" name="allowance" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Leave credits</label>
 													  	<input type="text" name="leave_credit" class="form-control" required >
 													</div>
@@ -297,30 +297,33 @@
 											<div class="tab-pane fade" id="nav-attachment" role="tabpanel" aria-labelledby="nav-attachment-tab">
 												
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-6 col-md-6">
 														<label>Diploma</label></br>
 		                	  							<input type="file" name="file_diploma" id="file_diploma" />
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-6 col-md-6">
 														<label>TOR</label></br>
 		                	  							<input type="file" name="file_tor" id="file_tor" />
 													</div>
-													<div class="form-group col-md-4">
+													
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-6 col-md-6">
 														<label>Brgy. Clearance</label></br>
 		                	  							<input type="file" name="file_bclearance" id="file_bclearance" />
 													</div>
-												</div>
-												
-												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-6 col-md-6">
 														<label>Medical Certificate</label></br>
 		                	  							<input type="file" name="file_mcert" id="file_mcert" />
 													</div>
-													<div class="form-group col-md-4">
+												</div>
+												<div class="form-row">
+													
+													<div class="form-group col-lg-6 col-md-6">
 														<label>Birth Certificate</label></br>
 		                	  							<input type="file" name="file_bcert" id="file_bcert" />
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-6 col-md-6">
 														<label>Cedula</label></br>
 		                	  							<input type="file" name="file_cedula" id="file_cedula" />
 													</div>
@@ -329,27 +332,27 @@
 											<div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab">
 
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>SSS</label>
 													  	<input type="text" name="sss_n" class="form-control" required >
 													</div>
 
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>PhilHealth</label>
 													  	<input type="text" name="philhealth_n" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>Pagibig</label>
 													  	<input type="text" name="pagibig_n" class="form-control" required >
 													</div>
 												</div>
 												
 												<div class="form-row">
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>TIN</label>
 													  	<input type="text" name="tin_n" class="form-control" required >
 													</div>
-													<div class="form-group col-md-4">
+													<div class="form-group col-lg-4 col-md-4">
 													  	<label>NBI Number</label>
 													  	<input type="text" name="nbi_n" class="form-control" required >
 													</div>
