@@ -177,7 +177,7 @@
 	      		</div>
 	      		<form method="POST" action="{{route('payroll.generatePayroll')}}" name="genarateForm" id="genarateForm">
 	      			{{ csrf_field() }}
-		      		<div class="modal-body" style="padding-left: 20px; padding-right: 20px;width: 500px;">
+		      		<div class="modal-body" style="padding-left: 20px; padding-right: 20px;">
 		      			<div class="row" style="padding-bottom: 10px;">
 		      				<div class="col-md-6">
 								<div class="row">
@@ -229,9 +229,8 @@
 									     		</div>
 											</div>
 											<div class="col-lg-6">
-												
+												<h3 style="margin-top: 10px;" id="txt_p_name"></h3>
 												<h6 style="margin-top: -20px;" id="txt_p_empid"></h6>
-												<h3 style="margin-top: 10px;font-size: 20px" id="txt_p_name"></h3>
 												<input type="hidden" id="p_empid" name="p_empid">
 												<input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 											</div>
@@ -276,19 +275,19 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-3">
 									  			<label>Total Absences</label>
 									   			<input type="text" name="p_total_absences" id="p_total_absences" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-3">
 									  			<label>Unpaid Absences</label>
 									    		<input type="text" name="p_unpaid_absences" id="p_unpaid_absences" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-3">
 									  			<label>Charge to SIL</label>
 									   			<input type="text" name="p_charge_to_SIL" id="p_charge_to_SIL" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-3">
 									  			<label>Amount</label>
 									    		<input type="text" name="p_amount_absences" id="p_amount_absences" class="form-control" readonly>
 									  		</div>
@@ -383,15 +382,15 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>No. Of Hours Undertime </label>
 									   			<input type="text" name="p_no_undertime" id="p_no_undertime" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>No. Of Hours Late</label>
 									    		<input type="text" name="p_no_late" id="p_no_late" class="form-control" >
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>Amount </label>
 									   			<input type="text" name="p_amount_undertime_late" id="p_amount_undertime_late" class="form-control" readonly>
 									  		</div>
@@ -425,15 +424,15 @@
 										</div>
 										<div class="form-row">
 
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>SSS </label>
 									   			<input type="text" name="p_sss_loan" id="p_sss_loan" class="form-control" value="" required="">
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>Company Loan / Advances</label>
 									    		<input type="text" name="p_company_loan" id="p_company_loan" class="form-control" value=""required="">
 									  		</div>
-									  		<div class="form-group col-md-6">
+									  		<div class="form-group col-md-4">
 									  			<label>HDMF </label>
 									   			<input type="text" name="p_hdmf_loan" id="p_hdmf_loan" class="form-control" value=""required="">
 									  		</div>
