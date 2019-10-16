@@ -54,9 +54,9 @@
 				      		@foreach($position as $post)
 				      			<tr>
 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{$post->job_position}}
-				              </th>
+				              </td>
 				              
 				              <td style="max-width: 400px;">
 				              	{{$post->description}}

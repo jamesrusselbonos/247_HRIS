@@ -66,7 +66,7 @@
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar2" data-simplebar>
+        <nav id="sidebar2">
             <div class="sidebar-header">
                 <center><img class="company_logo" src="/img/icon2.png"></center>
                 <h5 style="text-align: center;">24/7 Virtual Agent Philippines Inc.</h5>

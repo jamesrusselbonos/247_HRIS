@@ -55,9 +55,9 @@
 				            @foreach ($status as $st)
 				                  <tr>
 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{$st->job_status}}
-				              </th>
+				              </td>
 				              
 				              <td style="max-width: 400px;">
 				              	{{$st->description }}

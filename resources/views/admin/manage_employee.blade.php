@@ -29,9 +29,9 @@
 					      
 					           @foreach($list as $lt)
 					               <tr>
-					              <th scope="row" style="width: 200px;">
+					              <td scope="row" style="width: 200px;">
 					              	{{$lt->lastname}}, {{$lt->firstname}} {{$lt->middle_name}}
-					              </th>
+					              </td>
 					              <td  style="width: 150px;">
 					              	{{$lt->job_title}}
 					              </td >

@@ -56,9 +56,9 @@
 
 				            <tr>
 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{$jb->job_title}}
-				              </th>
+				              </td>
 				              
 				              <td style="max-width: 400px;">
 				              	{{$jb->description}}

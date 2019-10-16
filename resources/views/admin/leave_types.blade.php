@@ -55,9 +55,9 @@
 				      		@foreach($leave_index as $leave_type)
 					            <tr>
 
-					              <th scope="row">
+					              <td scope="row">
 					              	{{$leave_type->leave_type}}
-					              </th>
+					              </td>
 					              
 					              <td style="max-width: 400px;">
 					              	{{$leave_type->description}}

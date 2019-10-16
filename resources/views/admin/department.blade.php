@@ -55,9 +55,9 @@
 
 				            <tr>
 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{$depart->department_name}}
-				              </th>
+				              </td>
 				              
 				              <td style="max-width: 400px;">
 				              	{{$depart->description}} 

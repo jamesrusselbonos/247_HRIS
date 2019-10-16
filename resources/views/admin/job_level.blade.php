@@ -55,9 +55,9 @@
 
 				            <tr>
 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{$lv->job_level}}
-				              </th>
+				              </td>
 				              
 				              <td style="max-width: 400px;">
 				              	{{$lv->description}}
