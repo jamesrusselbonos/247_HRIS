@@ -724,6 +724,11 @@
 			  	
 		    });
 
+             $('#leave_type').change(function(){
+                var text = $("#leave_type option:selected").text();                // console.log(text);
+                $('#hdn_ltype').val(text);
+             });
+
 		});
 	</script>
 	<script type="text/javascript">

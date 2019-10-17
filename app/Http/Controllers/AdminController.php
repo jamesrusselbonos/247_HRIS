@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Notifications\SendMemo;
 use App\Notifications\RequestLeave;
 use App\Notifications\AssignSchedule;
+use App\Notifications\RequestOvertime;
 
 use Carbon\Carbon;
 
