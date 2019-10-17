@@ -963,3 +963,28 @@ td{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
+@media screen {
+  	#printSection {
+      	display: none;
+  	}
+}
+
+@media print {
+  	body * {
+    	visibility:hidden;
+  	}
+  	#printSection, #printSection * {
+    	visibility:visible;
+  	}
+  	#printSection {
+    	position:absolute;
+    	left:0;
+    	top:0;
+    	bottom: 0;
+    	right: 0;
+  	}
+  	#printSection input{
+		border: none;
+		background-color: transparent;
+	}
+}

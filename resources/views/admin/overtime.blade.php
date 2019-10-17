@@ -37,12 +37,12 @@
 
 			            <tr>
 
-			              <th style="min-width: 200px;">
+			              <td style="min-width: 200px;">
 			              	{{ $ot->lastname }}, {{ $ot->firstname }} {{ $ot->middle_name }}
-			              </th>
-			              <th style="text-overflow: ellipsis; min-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
+			              </td>
+			              <td style="text-overflow: ellipsis; min-width: 150px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->date }}
-			              </th>
+			              </td>
 			              <td style="text-overflow: ellipsis; min-width: 200px; min-height: 100px; white-space: nowrap; overflow: hidden;">
 			              	{{ $ot->time_from }}
 			              </td>			              

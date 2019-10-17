@@ -637,6 +637,7 @@ class AdminController extends Controller
             ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'payrolls.employee_id')
             ->join('departments', 'departments.id', '=', 'prototype__employees.department_id')
             ->select('prototype__employees.*', 'departments.*', 'payrolls.*')
+            ->orderBy('prototype__employees.created_at', 'desc')
             ->get();
 
         return view ('admin.payroll', compact('employees','payrolls'));

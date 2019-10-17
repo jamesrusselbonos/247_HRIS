@@ -114,7 +114,7 @@
         <div id="content">
 
         	<nav class="navbar navbar-expand-lg navbar-light">
-				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 30px; margin-right: 2px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
+				<button class="btn_toggle" id="sidebarCollapse" style="border: none; background-color: transparent; height: 40px; width: 30px; margin-right: 30px;"><i style="font-size: 20px;" class="fa fa-bars" aria-hidden="true"></i></button>
 
 			  	<a class="navbar-brand mr-auto" href="/employee" >Employee Dashboard</a>
 
