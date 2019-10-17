@@ -56,11 +56,11 @@ class RequestLeaveAdmin extends Notification
     public function toArray($notifiable)
     {
         return [
-            'date_to' => $this->details->leave_dateto,
-            'date_from' => $this->details->leave_datefrom,
-            'from' => $this->details->hdn_from,
-            'status' => $this->details->hdn_status,
-            'leave_type' => $this->details->hdn_ltype,
+            'date_to' => $this->details->date_to,
+            'date_from' => $this->details->date_from,
+            'from' => $this->details->lastname.','." ".$this->details->firstname." ".$this->details->middle_name,
+            'status' => $this->details->leave_status,
+            'leave_type' => $this->details->leave_type,
         ];
     }
 }

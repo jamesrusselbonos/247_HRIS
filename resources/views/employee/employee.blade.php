@@ -749,8 +749,8 @@
 			  	
 		    });
 
-             $('#leave_type').change(function(){
-                var text = $("#leave_type option:selected").text();                // console.log(text);
+             $('#leave_type1').change(function(){
+                var text = $("#leave_type1 option:selected").text();                // console.log(text);
                 $('#hdn_ltype').val(text);
              });
 

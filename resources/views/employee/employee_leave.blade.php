@@ -117,13 +117,13 @@
 					<div class="form-group col-md-12">
 					  <h4>{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
-					  <input type="hidden" name="leave_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
-					  <input type="hidden" name="leave_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
-					  <input type="hidden" name="leave_mname" value="{{ Auth::user()->employee()->first()->middle_name }}">
+					  <input type="hidden" name="lastname" value="{{ Auth::user()->employee()->first()->lastname }}">
+					  <input type="hidden" name="firstname" value="{{ Auth::user()->employee()->first()->firstname }}">
+					  <input type="hidden" name="middle_name" value="{{ Auth::user()->employee()->first()->middle_name }}">
 					  <input type="hidden" name="leave_empid" value="{{ Auth::user()->employee()->first()->employee_id }}">
 					  <input type="hidden" name="hdn_from" value="{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}">
-					  <input type="hidden" name="hdn_status" value="Pending">
-					  <input type="hidden" name="hdn_ltype" id="hdn_ltype">
+					  <input type="hidden" name="leave_status" value="Pending">
+					  <input type="hidden" name="leave_type" id="hdn_ltype" >
 					</div>
 				</div>
 				<div class="form-row">
@@ -136,7 +136,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-12">
 					  <label>Leave Type</label>
-					  <select id="leave_type" name="leave_type"required>
+					  <select id="leave_type1" name="leave_type1"required>
 					  	@foreach($leave_type as $dlist)
 					  		<option value="{{$dlist->id}}">{{$dlist->leave_type}}</option>
 					  	@endforeach
@@ -146,12 +146,12 @@
 				<div class="form-row">
 					<div class="form-group col-md-6">
 					  <label>Date From</label>
-					  <input type="date" name="leave_datefrom" id="leave_datefrom" max="3000-12-31" 
+					  <input type="date" name="date_from" id="leave_datefrom" max="3000-12-31" 
 									          min="1000-01-01" class="form-control"required>
 					</div>
 					<div class="form-group col-md-6">
 					  <label>Date To</label>
-					 <input type="date" name="leave_dateto" id="leave_dateto" max="3000-12-31" 
+					 <input type="date" name="date_to" id="leave_dateto" max="3000-12-31" 
 									          min="1000-01-01" class="form-control"required>
 					</div>
 				</div>

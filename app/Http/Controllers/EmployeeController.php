@@ -152,14 +152,14 @@ class EmployeeController extends Controller
     public function request_leave_create(Request $request){
 
         $leave_save = new Leave([
-            'firstname' => $request->get('leave_fname'),
-            'middle_name' => $request->get('leave_mname'),
-            'lastname' => $request->get('leave_lname'),
+            'firstname' => $request->get('firstname'),
+            'middle_name' => $request->get('middle_name'),
+            'lastname' => $request->get('lastname'),
             'emp_id' => $request->get('leave_empid'),
             'date' => $request->get('leave_date'),
-            'leave_id' => $request->get('leave_type'),
-            'date_from' => $request->get('leave_datefrom'),
-            'date_to' => $request->get('leave_dateto'),
+            'leave_id' => $request->get('leave_type1'),
+            'date_from' => $request->get('date_from'),
+            'date_to' => $request->get('date_to'),
             'reason' => $request->get('leave_reason')
         ]);
 
@@ -179,7 +179,21 @@ class EmployeeController extends Controller
 
         $leave = Leave::find($id);
         $leave->leave_status = 'Cancelled';
+
         $leave->save();
+
+        $leave_index = DB::table('leaves')
+            ->join('leave_types', 'leave_types.id', '=', 'leaves.leave_id')
+            ->select('leaves.*', 'leave_types.leave_type')
+            ->where('leaves.id', '=', $id)
+            ->first();
+
+        $users = User::with('roles')->where('role', '1')->get();
+            foreach ($users as $user) {
+                $details = $leave_index;
+
+                $user->notify(new RequestLeaveAdmin($details));
+            }
 
         return redirect()->back();
     }    
