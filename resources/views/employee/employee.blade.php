@@ -222,13 +222,26 @@
 				          </li>
 
 				          @elseif($notification->type == "App\Notifications\AssignSchedule")
+                              <li class="unread" id="unread" test="teest">
+                                 <a style="cursor: pointer;" id="{{ $notification->id }}" >
+                                    <i class="ion-checkmark"></i>
+                                    <div>
+                                        <h6 style="font-size: 13px;">Schedule</h6>
+                                        <p style="margin-top: 15px; font-size: 10px;">Your Schedule</p>
+                                        <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+                                        
+                                    </div>
+                                  </a>
+                              </li>
+
+                          @elseif($notification->type == "App\Notifications\RequestOvertime")
 					          <li class="unread" id="unread" test="teest">
 					             <a style="cursor: pointer;" id="{{ $notification->id }}" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6 style="font-size: 13px;">Schedule</h6>
-				              			<p style="margin-top: 15px; font-size: 10px;">Your Schedule</p>
-					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		<h6 style="font-size: 13px;">Overtime Request</h6>
+				              			<p style="margin-top: 15px; font-size: 10px;">Your Overtime Request on {{ $notification->data['date'] }} has been {{ $notification->data['status'] }} by {{ $notification->data['from'] }}</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['time_from']}} To: {{$notification->data['time_to']}}</p>
 					              		
 					              	</div>
 					              </a>
@@ -257,7 +270,7 @@
 					              	<i class="ion-checkmark"></i>
 					              	<div>
 					              		<h6 style="font-size: 13px;">Leave Request</h6>
-				              			<p style="margin-top: 15px; font-size: 10px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}}</p>
+				              			<p style="margin-top: 15px; font-size: 10px;">Your leave request {{$notification->data['leave_type']}} has been {{$notification->data['status']}} by {{ $notification->data['from'] }}</p>
 					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
 					              		<!-- <h6><strong>{{$notification->data['date_from']}}</strong></h6>
 					              		<p style="margin-top: -18px; font-size: 13px;">{{$notification->data['date_to']}}</p>
@@ -268,13 +281,25 @@
 					          </li>
 
 					      @elseif($notification->type == "App\Notifications\AssignSchedule")
+                              <li>
+                                  <a style="cursor: pointer;" >
+                                    <i class="ion-checkmark"></i>
+                                    <div>
+                                        <h6 style="font-size: 13px; margin-top:10px">Schedule</h6>
+                                        <p style="margin-top: 15px; font-size: 10px;">Your Schedule</p>
+                                        <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+                                    </div>
+                                  </a>
+                              </li> 
+
+                          @elseif($notification->type == "App\Notifications\RequestOvertime")
 					          <li>
 					              <a style="cursor: pointer;" >
 					              	<i class="ion-checkmark"></i>
 					              	<div>
-					              		<h6 style="font-size: 13px; margin-top:10px">Schedule</h6>
-				              			<p style="margin-top: 15px; font-size: 10px;">Your Schedule</p>
-					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+					              		<h6 style="font-size: 13px; margin-top:10px">Overtime Request</h6>
+				              			<p style="margin-top: 15px; font-size: 10px;">Your Overtime Request on {{ $notification->data['date'] }} has been {{ $notification->data['status'] }} by {{ $notification->data['from'] }}</p>
+					              		<p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['time_from']}} To: {{$notification->data['time_to']}}</p>
 					              	</div>
 					              </a>
 					          </li>

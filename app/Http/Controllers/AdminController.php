@@ -1234,6 +1234,13 @@ class AdminController extends Controller
         
         $overtime->status = $request->eo_status;
 
+         $user = User::with('roles')->where('employee_id', $request->hdn_empid)->first();
+        // foreach ($users as $user) {
+            $details = $request;
+
+            $user->notify(new RequestOvertime($details));
+        // }
+
         $overtime->save();
 
         return redirect()->back();

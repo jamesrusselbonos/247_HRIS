@@ -113,6 +113,10 @@
 		      			<input type="hidden" name="txt_eo_empid" id="txt_eo_empid">
 		      			<input type="hidden" name="hdn_from" id="hdn_from" value="{{Auth::user()->name}}">
 		      			<input type="hidden" name="hdn_id" id="hdn_id">
+		      			<input type="hidden" name="hdn_tfrom" id="hdn_tfrom">
+		      			<input type="hidden" name="hdn_tto" id="hdn_tto">
+		      			<input type="hidden" name="hdn_date" id="hdn_date">
+		      			<input type="hidden" name="hdn_empid" id="hdn_empid">
 		      		</div>
 		      		<div class="row">
 		      			<h6>Date: &nbsp;</h6><h6 id="eo_date"></h6>

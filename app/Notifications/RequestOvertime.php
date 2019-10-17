@@ -11,14 +11,15 @@ class RequestOvertime extends Notification
 {
     use Queueable;
 
+    public $details;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -29,7 +30,7 @@ class RequestOvertime extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -54,8 +55,13 @@ class RequestOvertime extends Notification
      */
     public function toArray($notifiable)
     {
-        return [
-            //
+         return [
+            'date' => $this->details->hdn_date,
+            'time_from' => $this->details->hdn_tfrom,
+            'time_to' => $this->details->hdn_tto,
+            'from' => $this->details->hdn_from,
+            'status' => $this->details->eo_status,
+            
         ];
     }
 }
