@@ -34,8 +34,8 @@
 			              <th scope="col" style="min-width: 200px;">Date From</th>
 			              <th scope="col" style="min-width: 200px;">Date To</th>
 			              <th scope="col" style="min-width: 200px;">Reason</th>
-			              <th scope="col">Status</th>
-			              <th scope="col" style="min-width: 200px;">Manage</th>
+			              <th scope="col" style="min-width: 100px;">Status</th>
+			              <th scope="col" style="min-width: 250px;">Manage</th>
 			            </tr>
 			          </thead>
 			          <tbody>
@@ -72,6 +72,7 @@
 					             		<button id="{{$l->id}}" leave_type="{{$l->leave_id}}" type="button" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;View</button>
 					             		@if($l->leave_status =="Pending")
 					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
+					             		<button id="{{$l->id}}" type="button" class="btn btn-danger btn_cancel_leave"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp;Cancel</button>
 		 								@endif
 		 							</span>
 				             	</div>
@@ -80,6 +81,7 @@
 					             		<button id="{{$l->id}}" type="button" leave_type="{{$l->leave_id}}" class="btn btn-success btn_view_leave" data-toggle="modal" data-target="#leave_view"><i class="fa fa-eye" aria-hidden="true"></i></button>
 					             		@if($l->leave_status =="Pending")
 					             		<button id="{{$l->id}}" type="button" class="btn btn-primary btn_edit_leave" data-toggle="modal" data-target="#edit_emp_leave"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+					             		<button id="{{$l->id}}" type="button" class="btn btn-danger btn_cancel_leave"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
 		 								@endif
 		 							</span>
 				             	</div>
