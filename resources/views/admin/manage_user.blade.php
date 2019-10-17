@@ -30,9 +30,9 @@
 				            @foreach( $m_user as $ms)
 				                  <tr>
 				                 
-				              <th scope="row">
+				              <td scope="row">
 				              	{{ucwords( $ms->firstname) }} {{ucwords ($ms->lastname) }}
-				              </th>
+				              </td>
 				              <td>
 				              	{{ $ms->email }}
 				              </td>

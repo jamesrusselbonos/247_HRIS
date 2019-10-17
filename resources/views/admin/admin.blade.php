@@ -421,6 +421,10 @@
                 theme: "minimal"
             });
 
+            $("#notification-bar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar2, #content').toggleClass('active');
                 $('.collapse.in').toggleClass('in');
