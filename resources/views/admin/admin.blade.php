@@ -259,7 +259,7 @@
             </nav>
             <div class="panel animated bounceIn">
                 <div class="title">Notifications</div>
-                <ul class="notification-bar" id="not" data-simplebar>
+                <ul class="notification-bar" id="not">
                     <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
                         
                     @foreach(auth()->user()->unreadNotifications as $notification)
