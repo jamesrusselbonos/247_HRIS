@@ -262,27 +262,83 @@
                 <ul class="notification-bar" id="not" data-simplebar>
                     <input id="hdn-token" class="hdn-token" type="hidden" name="_token" value="{{ csrf_token() }}">
                         
-                        <li class="unread" id="unread" test="teest">
-                            <a style="cursor: pointer;" id="" >
-                                <i class="ion-checkmark"></i>
-                                <div>
-                                    <h6 style="font-size: 13px;">Leave Request</h6>
-                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
-                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>
-                                </div>
-                            </a>
-                        </li>
+                    @foreach(auth()->user()->unreadNotifications as $notification)
 
-                        <li>
-                            <a style="cursor: pointer;" >
+                          @if($notification->type == "App\Notifications\RequestLeaveAdmin")
+                          <li class="unread" id="unread" test="teest">
+                              <a style="cursor: pointer;" id="{{ $notification->id }}" >
                                 <i class="ion-checkmark"></i>
                                 <div>
                                     <h6 style="font-size: 13px;">Leave Request</h6>
-                                    <p style="margin-top: -18px; font-size: 10px;">Employee request Leave Type</p>
-                                    <p style="margin-top: -18px; font-size: 10px;">From: date  To: date </p>   
+                                    @if($notification->data['status'] != 'Cancelled')
+                                        <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} is requesting a {{$notification->data['leave_type']}}</p>
+                                    @else
+                                        <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled {{$notification->data['leave_type']}} Request</p>
+                                    @endif
+                                    <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+                                   
                                 </div>
-                            </a>
-                        </li> 
+                              </a>
+                          </li>
+
+
+                          @elseif($notification->type == "App\Notifications\RequestOvertimeAdmin")
+                              <li class="unread" id="unread" test="teest">
+                                 <a style="cursor: pointer;" id="{{ $notification->id }}" >
+                                    <i class="ion-checkmark"></i>
+                                    <div>
+                                        <h6 style="font-size: 13px;">Overtime Request</h6>
+                                        @if($notification->data['status'] != 'Cancelled')
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} is requesting an Overtime on {{ $notification->data['date'] }}</p>
+                                        @else
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled an Overtime Request on {{$notification->data['date']}}</p>
+                                        @endif
+                                        <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['time_from']}} To: {{$notification->data['time_to']}}</p>
+                                        
+                                    </div>
+                                  </a>
+                              </li>
+                          @endif
+                      @endforeach
+
+                      @foreach(auth()->user()->readNotifications as $notification)
+
+
+                          @if($notification->type == "App\Notifications\RequestLeaveAdmin")
+                              <li>
+                                  <a style="cursor: pointer;" >
+                                    <i class="ion-checkmark"></i>
+                                    <div>
+                                        <h6 style="font-size: 13px;">Leave Request</h6>
+                                        @if($notification->data['status'] != 'Cancelled')
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} is requesting a {{$notification->data['leave_type']}}</p>
+                                        @else
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled {{$notification->data['leave_type']}} Request</p>
+                                        @endif
+                                        <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
+                                   
+                                    </div>
+                                  </a>
+                              </li>
+
+                          @elseif($notification->type == "App\Notifications\RequestOvertimeAdmin")
+                              <li>
+                                  <a style="cursor: pointer;" >
+                                    <i class="ion-checkmark"></i>
+                                    <div>
+                                        <h6 style="font-size: 13px; margin-top:10px">Overtime Request</h6>
+                                        @if($notification->data['status'] != 'Cancelled')
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} is requesting an Overtime on {{ $notification->data['date'] }}</p>
+                                        @else
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled an Overtime Request on {{$notification->data['date']}}</p>
+                                        @endif
+                                        <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['time_from']}} To: {{$notification->data['time_to']}}</p>
+                                    </div>
+                                  </a>
+                              </li>
+
+                          @endif
+                      @endforeach
                     </ul>
                     <div class="notif_footer">
                         <a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
@@ -1141,7 +1197,7 @@
                         type: "POST",
                         data: data,
                         success: function( response ) {
-                            console.log(response.overtimes.lastname);
+                            console.log(response.overtimes);
                             $('#hdn_id').val(response.overtimes.otime_id);
                             $('#txt_vo_empid').val(response.overtimes.employee_id);
                             $('#vo_lname').html(response.overtimes.lastname);
@@ -1162,6 +1218,10 @@
                             $('#eo_duration').html(response.overtimes.duration);
                             $('#eo_reason').html(response.overtimes.reason);
                             $('#eo_status').val(response.overtimes.status);
+                            $('#hdn_tfrom').val(response.overtimes.time_from);
+                            $('#hdn_tto').val(response.overtimes.time_to);
+                            $('#hdn_date').val(response.overtimes.date);
+                            $('#hdn_empid').val(response.overtimes.employee_id);
                         }
                     });
             });

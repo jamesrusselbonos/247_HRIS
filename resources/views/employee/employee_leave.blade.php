@@ -120,7 +120,10 @@
 					  <input type="hidden" name="leave_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
 					  <input type="hidden" name="leave_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
 					  <input type="hidden" name="leave_mname" value="{{ Auth::user()->employee()->first()->middle_name }}">
-					  <input type="hidden" name="leave_empid" value="{{ Auth::user()->employee()->first()->employee_id }}	">
+					  <input type="hidden" name="leave_empid" value="{{ Auth::user()->employee()->first()->employee_id }}">
+					  <input type="hidden" name="hdn_from" value="{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}">
+					  <input type="hidden" name="hdn_status" value="Pending">
+					  <input type="hidden" name="hdn_ltype" id="hdn_ltype">
 					</div>
 				</div>
 				<div class="form-row">

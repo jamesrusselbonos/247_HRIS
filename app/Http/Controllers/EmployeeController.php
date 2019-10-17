@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Leave_type;
+use App\Notifications\RequestLeaveAdmin;
+use App\Notifications\RequestOvertimeAdmin;
 
 use App\Leave;
 
@@ -14,6 +16,7 @@ use App\Overtime;
 use Auth;
 use DB;
 use Carbon\Carbon;
+use App\User;
 
 class EmployeeController extends Controller
 {
@@ -160,6 +163,13 @@ class EmployeeController extends Controller
             'reason' => $request->get('leave_reason')
         ]);
 
+         $users = User::with('roles')->where('role', '1')->get();
+        foreach ($users as $user) {
+            $details = $request;
+
+            $user->notify(new RequestLeaveAdmin($details));
+        }
+
         $leave_save->save();
 
         return redirect()->route('employee.employee_leave');
@@ -194,6 +204,14 @@ class EmployeeController extends Controller
         //     'reason' => $request->get('overtime_reason')
         //     // 'status' => $request->get('leave_date')
         // ]);
+
+         $users = User::with('roles')->where('role', '1')->get();
+        foreach ($users as $user) {
+            $details = $request;
+
+            $user->notify(new RequestOvertimeAdmin($details));
+        }
+        
 
         $overtime->save();
 

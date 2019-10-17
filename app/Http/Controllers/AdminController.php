@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Notifications\SendMemo;
 use App\Notifications\RequestLeave;
 use App\Notifications\AssignSchedule;
+use App\Notifications\RequestOvertime;
 
 use Carbon\Carbon;
 
@@ -1233,6 +1234,13 @@ class AdminController extends Controller
         $overtime = Overtime::where('otime_id', $request->hdn_id)->first();
         
         $overtime->status = $request->eo_status;
+
+         $user = User::with('roles')->where('employee_id', $request->hdn_empid)->first();
+        // foreach ($users as $user) {
+            $details = $request;
+
+            $user->notify(new RequestOvertime($details));
+        // }
 
         $overtime->save();
 
