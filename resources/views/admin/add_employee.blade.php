@@ -14,7 +14,7 @@
 						<div class="card-body">
 							<form method="POST" action="{{route('admin.add_employee.create')}}" enctype="multipart/form-data">
 								<div class="row">
-									<div class="col-lg-3 col-md-12 profile_field" style="margin-bottom: 50px;">
+									<div class="col-lg-3 col-md-3" style="margin-bottom: 50px;">
 										<img class="profile_photo" src="/img/profile.png">
 										<div class="input_photo">
 											<h6>Upload a photo</h6>
@@ -29,7 +29,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-9 col-md-12">
+									<div class="col-lg-9 col-md-9">
 										<nav>
 											<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 												<a class="nav-item nav-link active" id="nav-employee-tab" data-toggle="tab" href="#nav-employee" role="tab" aria-controls="nav-employee" aria-selected="true">Employee Info</a>

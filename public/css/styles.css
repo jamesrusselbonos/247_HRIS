@@ -694,7 +694,7 @@ ul.notification-bar {
 	padding-bottom: 50px;
 	/*padding-right: 35px !important;*/
 
-	/*overflow-y: auto*/;
+	/*overflow-y: auto;*/
 	overflow-x: hidden;
 }
 .attach a, .attach a:hover {
