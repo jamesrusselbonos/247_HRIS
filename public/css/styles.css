@@ -795,13 +795,13 @@ input[type=search]:focus{
  	font-size: 25px;
  	margin-top: -5px;
  }
- #generate_payroll .nav-item{
+ /*#generate_payroll .nav-item{
  	background-color: #f4f4f4;
  	color: #000;
  }
  #generate_payroll .nav-item:hover{
  	color: #000;
- }
+ }*/
  #generate_payroll .active{
  	background-color: #fff;
  }
@@ -813,8 +813,16 @@ input[type=search]:focus{
 	-moz-border-radius-topleft: 20px !important;
 	border-top-left-radius: 20px !important;
 
-	background-color: #f9f9f9;
+	background-color: #fff;
  }
+
+ /*#generate_payroll #nav-tab .active{
+ 	-webkit-border-top-left-radius: 20px !important;
+	-moz-border-radius-topleft: 20px !important;
+	border-top-left-radius: 20px !important;
+
+	background-color: #fff;
+ }*/
  .color_desc p{
  	display: inline-block;
  	margin-left: 5px; 
@@ -950,5 +958,5 @@ td{
 	padding-right: 30px; 
 	padding-bottom: 30px; 
 	padding-top: 30px; 
-	background-color: #f9f9f9;
+	background-color: #fff;
 }
