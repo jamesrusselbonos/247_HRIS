@@ -105,19 +105,19 @@
 					<div class="form-group col-md-12">
 					  <h4>{{ucwords(Auth::user()->employee()->first()->lastname) }}, {{ucwords (Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}</h4>
 					  <h6 style="margin-top: -10px;">{{ Auth::user()->employee()->first()->employee_id }}</h6>
-					  <input type="hidden" name="overtime_lname" value="{{ Auth::user()->employee()->first()->lastname }}">
-					  <input type="hidden" name="overtime_fname" value="{{ Auth::user()->employee()->first()->firstname }}">
-					  <input type="hidden" name="overtime_mname" value="{{ Auth::user()->employee()->first()->middle_name }}">
+					  <input type="hidden" name="lastname" value="{{ Auth::user()->employee()->first()->lastname }}">
+					  <input type="hidden" name="firstname" value="{{ Auth::user()->employee()->first()->firstname }}">
+					  <input type="hidden" name="middle_name" value="{{ Auth::user()->employee()->first()->middle_name }}">
 					  <input type="hidden" name="overtime_empid" value="{{ Auth::user()->employee()->first()->employee_id }}">
 					  <input type="hidden" name="hdn_from" value="{{ucwords( Auth::user()->employee()->first()->lastname) }}, {{ ucwords(Auth::user()->employee()->first()->firstname )}} {{ucwords (Auth::user()->employee()->first()->middle_name) }}">
-					  <input type="hidden" name="hdn_status" value="Pending">
+					  <input type="hidden" name="status" value="Pending">
 
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
 					  <label>Date</label>
-					  <input type="date" name="overtime_date" id="overtime_date" max="3000-12-31" 
+					  <input type="date" name="date" id="overtime_date" max="3000-12-31" 
 									          min="1000-01-01" class="form-control"required>
 					</div>
 				</div>

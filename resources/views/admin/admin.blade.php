@@ -313,7 +313,7 @@
                                         @if($notification->data['status'] != 'Cancelled')
                                             <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} is requesting a {{$notification->data['leave_type']}}</p>
                                         @else
-                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled {{$notification->data['leave_type']}} Request</p>
+                                            <p style="margin-top: 15px; font-size: 10px;">{{$notification->data['from']}} cancelled a {{$notification->data['leave_type']}} Request</p>
                                         @endif
                                         <p style="margin-top: -18px; font-size: 10px;">From: {{$notification->data['date_from']}} To: {{$notification->data['date_to']}}</p>
                                    

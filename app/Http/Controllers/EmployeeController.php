@@ -203,7 +203,7 @@ class EmployeeController extends Controller
         $overtime = new Overtime;
 
         $overtime->employee_id = $request->overtime_empid;
-        $overtime->date = $request->overtime_date;
+        $overtime->date = $request->date;
         $overtime->time_from = $request->time_from;
         $overtime->time_to = $request->time_to;
         $overtime->duration = $request->duration;
@@ -276,6 +276,21 @@ class EmployeeController extends Controller
         $overtime->status = 'Cancelled';
 
         $overtime->save();
+
+      $ot_cancel = Overtime::where('otime_id', $id)->first();
+
+      $ot_cancel = DB::table('overtimes')
+          ->join('prototype__employees', 'prototype__employees.employee_id', '=', 'overtimes.employee_id')
+          ->select('overtimes.*', 'prototype__employees.*')
+          ->where('overtimes.otime_id', '=', $id)
+          ->first();
+
+        $users = User::with('roles')->where('role', '1')->get();
+            foreach ($users as $user) {
+                $details = $ot_cancel;
+
+                $user->notify(new RequestOvertimeAdmin($details));
+            }
 
         return redirect()->back();
     }

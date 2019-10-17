@@ -56,11 +56,11 @@ class RequestOvertimeAdmin extends Notification
     public function toArray($notifiable)
     {
         return [
-            'date' => $this->details->overtime_date,
+            'date' => $this->details->date,
             'time_from' => $this->details->time_from,
             'time_to' => $this->details->time_to,
-            'from' => $this->details->hdn_from,
-            'status' => $this->details->hdn_status,
+            'from' => $this->details->lastname.','." ".$this->details->firstname." ".$this->details->middle_name,
+            'status' => $this->details->status,
             
         ];
     }
