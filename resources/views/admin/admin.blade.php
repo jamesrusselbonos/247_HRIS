@@ -341,7 +341,7 @@
                       @endforeach
                     </ul>
                     <div class="notif_footer">
-                        <a href="{{ route('employee.memo.markAll') }}">Mark All as Read</a>
+                        <a href="{{ route('admin.notif.markAll') }}">Mark All as Read</a>
                     </div>
                 </div>
             @yield('content')
@@ -1318,11 +1318,6 @@
            
         });
 
-
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
             $('.notification-trigger').click(function() {
                 $('.panel').toggleClass('visible');
             });
@@ -1333,7 +1328,7 @@
                 var count = $(".badge").text();
                 $(this).parent().removeClass('unread').addClass('read');
 
-                $.get('/markRead/',
+                $.get('/markread/',
 
                  {'notif_id':notif_id, '_token':token}, 
                  function(data){
@@ -1353,7 +1348,14 @@
 
                  });       
             });
-        })
+
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        });
     </script>
 </body>
 

@@ -34,6 +34,7 @@ use App\Leave_type;
 use App\Leave;
 use App\User;
 use DB;
+use Auth;
 use App\Role;
 
 class AdminController extends Controller
@@ -1290,6 +1291,22 @@ class AdminController extends Controller
         $shift->save();
 
         return redirect()->back();   
+    }
+
+    public function markAllRead(){
+
+        Auth::user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    }    
+
+    public function markRead(Request $request){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id', $request->notif_id)->first();
+        if($notification){
+            $notification->markAsRead();
+        }
+
     }
 
 

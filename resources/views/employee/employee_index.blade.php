@@ -162,7 +162,7 @@
 	                    @if ($leaves->date_to)
 	                            end: '{{ $leaves->date_to }}T24:00:00',
 	                    @endif
-	                }
+	                },
 	                @endforeach
 		        ],
 	        });
